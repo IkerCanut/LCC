@@ -1,0 +1,100 @@
+\documentclass[10pt]{article}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ total={160mm,237mm},
+ left=30mm,
+ top=30mm,
+}
+
+\usepackage{multirow}
+
+\author{Iker M. Canut}
+\begin{document}
+\title{Introducción a la Matemática}
+\maketitle
+\date
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Conjuntos}
+\subsection{Definiciones Básicas}
+Un Conjunto es una colección de objetos. Los conjuntos se denominan con letras mayúsculas. Y los elementos que lo forman con letras minúsculas. El conjunto vacio se denomina $\emptyset$.
+\subsection{Representación de conjuntos}
+\begin{itemize}
+\item \textbf{Por Extensión}: Se lista todo entre llaves. $\{a,b,c,d,...\}$
+\item \textbf{Por Comprension}: Se dicen las propiedades. $\{x/x...\}$
+\end{itemize}
+\subsection{Subconjuntos}
+El conjunto B es subconjunto de A si y sólo si todo elemento de B, es también de A.
+\begin{center}
+\framebox[6cm][c]{$B \subset A \iff (x \in B \Rightarrow x \in A) $}
+\end{center}
+Dos conjuntos serán iguales cuando posean los mismos elementos.
+\begin{center}
+\framebox[6cm][c]{$B = A \iff (A \subset B \land B \subset A) $}
+\end{center}
+Al conjunto que contiene a todos los datos en un contexto específico lo denominaremos \textbf{Conjunto\\ Universal} y se denota con la letra \textbf{U}.
+\subsection{Operaciones}
+\begin{itemize}
+\item \textbf{Intersección de Conjuntos}: $A \cap B = \{x/x \in A \land x \in B\}$
+\item \textbf{Unión de Conjuntos}: $A \cup B = \{x/x \in A \lor x \in B\}$
+\end{itemize}
+Si dos conjuntos no tienen elementos en comun, entonces son \textbf{disjuntos}. A y B disjuntos $\iff A \cap B = \emptyset$
+\vspace{-.2cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Propiedades&UNIÓN&INTERSECCIÓN\\
+\hline
+\textit{Conmutativa}&$A \cup B = B \cup A$&$A \cap B = B \cap A$\\
+\hline
+\textit{Asociativa}&$(A \cup B) \cup C = A \cup (B \cup C)$&$(A \cap B) \cap C = A \cap (B \cap C)$\\
+\hline
+\textit{Distributiva}&$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$&$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$\\
+\hline
+\textit{Idempotencia}&$A \cup A = A$&$A \cap A = A$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\vspace{-.2cm}
+\begin{itemize}
+\item \textbf{Diferencia}: $A - B = \{x/x \in A \land x \not \in B\}$
+\item \textbf{Complemento}: $C_A = \overline{A} = U - A$. Se cumple que $A - B = A \cap \overline{B}$
+\end{itemize}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{Propiedades}\\
+\hline
+&\\
+\multirow{4}{*}{\textit{Complemento}}&$\overline{\overline{A}} = A$\\&$A \cup \overline{A} = U$\\&$A \cap \overline{A} = \emptyset$\\&$\overline{\emptyset} = U \land \overline{U} = \emptyset$\\
+&\\
+\hline
+&\\
+\multirow{2}{*}{\textit{Leyes de Morgan}}&$\overline{A \cap B} = \overline{A} \cup \overline{B}$\\&$\overline{A \cup B} = \overline{A} \cap \overline{B}$\\
+&\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\begin{itemize}
+\item \textbf{Cardinal de un conjunto}: Es el número de elementos. $|A| = card(A)$
+\end{itemize}
+\newpage
+
+
+\end{document}
