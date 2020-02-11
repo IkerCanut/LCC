@@ -6,7 +6,8 @@
     filecolor=magenta,      
     urlcolor=cyan,
 }
-
+\usepackage{amsmath}
+\usepackage{multicol}
 \usepackage{geometry}
 \geometry{
  a4paper,
@@ -38,11 +39,11 @@ Un Conjunto es una colección de objetos. Los conjuntos se denominan con letras 
 \subsection{Subconjuntos}
 El conjunto B es subconjunto de A si y sólo si todo elemento de B, es también de A.
 \begin{center}
-\framebox[6cm][c]{$B \subset A \iff (x \in B \Rightarrow x \in A) $}
+\framebox[8cm][c]{$B \subset A \iff (x \in B \Rightarrow x \in A) $}
 \end{center}
 Dos conjuntos serán iguales cuando posean los mismos elementos.
 \begin{center}
-\framebox[6cm][c]{$B = A \iff (A \subset B \land B \subset A) $}
+\framebox[8cm][c]{$B = A \iff (A \subset B \land B \subset A) $}
 \end{center}
 Al conjunto que contiene a todos los datos en un contexto específico lo denominaremos \textbf{Conjunto\\ Universal} y se denota con la letra \textbf{U}.
 \subsection{Operaciones}
@@ -94,7 +95,175 @@ Propiedades&UNIÓN&INTERSECCIÓN\\
 \begin{itemize}
 \item \textbf{Cardinal de un conjunto}: Es el número de elementos. $|A| = card(A)$
 \end{itemize}
+
 \newpage
+\section{Números Reales}
+\begin{multicols}{2}
+\begin{itemize}
+\item \textbf{Naturales $N$}: $\{1,2,3,...\}$
+\item \textbf{Naturales con cero $N_0$}: $\{0,1,2,3,...\}$
+\item \textbf{Enteros $Z$}: $\{...,-3,-2,-1,0,1,2,3,...\}$
+\item \textbf{Racionales $Q$}=$\left\{x/x=\frac{p}{q},p \in Z, q \in Z, q \not = 0\right\}$
+\item \textbf{Irracionales $I$}=$Q \cap I = \emptyset \land Q \cup I = R$
+\end{itemize}
+\end{multicols}
+\begin{quote}
+\begin{center}
+$N \subset N_0 \subset Z \subset Q \subset R \land I \subset R$
+\end{center}
+\end{quote}
+\subsection{Suma y Producto}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+&Suma&Producto\\
+\hline
+\textit{Conmutativa}&$a+b=b+a$&$a.b=b.a$\\
+\hline
+\textit{Asociativa}&$(a+b)+c = a+(b+c)$&$(a.b).c=a.(b.c)$\\
+\hline
+\textit{$\exists$ Elemento Neutro}&$a+0=a$&$a.1=a$\\
+\hline
+\textit{$\exists$ Elemento Inverso}&$a+(-a)=0$&$a.\frac{1}{a}=1$\\
+\hline
+\textit{Cancelativa}&$a+b=a+c \Rightarrow b=c$&$a.b=a.c \Rightarrow b=c, a \not = 0$\\
+\hline
+\textit{Uniforme}&$a=b \Rightarrow a+c=b+c$&$a=b \Rightarrow a.c=b.c$\\
+\hline
+\textit{Distributiva}&\multicolumn{2}{|c|}{$a.(b+c) = a.b+a.c$}\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\subsection{Resta y División}
+\begin{multicols}{2}
+\begin{itemize}
+\item $a-b = a+(-b)$
+\item $a:b = \dfrac{a}{b} = a.\dfrac{1}{b}$
+\item $\dfrac{p}{q}+\dfrac{r}{s}=\dfrac{ps+rq}{qs}, q \not = 0 \land s \not = 0$
+\item $\dfrac{p}{q}.\dfrac{r}{s}=\dfrac{pr}{qs}, q \not = 0 \land s \not = 0$
+\item $\dfrac{p}{q} \div \dfrac{r}{s}=\dfrac{ps}{qr}, q \not = 0 \land s \not = 0 \land r \not = 0$
+\end{itemize}
+\end{multicols}
+\subsection{Potenciación}
+\begin{multicols}{2}
+\begin{itemize}
+\item Si $a \not = 0, a^0 = 1$
+\item $a^1 = a$
+\item Si $n \in N, n>1, a^n = \underbrace{a.a. ... . a}_\text{n factores "a"}$
+\item Si $a \in R \land a \not = 0 \land n \in N, a^{-n} = \dfrac{1}{a^n}=\dfrac{1}{\underbrace{a.a. ... . a}_\text{n veces}}$
+\end{itemize}
+\end{multicols}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textit{Distributiva respecto a la multiplicación}&$(a.b)^n=a^n.b^n$\\
+\hline
+\textit{Distributiva respecto al cociente}&$\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}, b \not = 0$\\
+\hline
+\textit{Producto de potencias de igual base}&$a^n.a^m = a^{n+m}$\\
+\hline
+\textit{Cociente de potencias de igual base}&$a^n \div a^m = a^{n-m}$\\
+\hline
+\textit{Potencia de potencia}&$\left(a^n\right)^m = a^{n.m}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\newpage
+\subsection{Radicación}
+$\sqrt[n]{a} = b \iff b^n=a$ \hfill y se nombra $\sqrt[indice]{radicando} =$ raiz enesima\\ \\
+No existe en los reales la raiz cuadrada (y de ningún índice par) de números negativos. Es decir:
+\begin{itemize}
+\item Si \textbf{n} es un numero natural \textbf{impar}, entonces es valida para todo número real \textbf{a}.
+\item Si \textbf{n} es un numero natural \textbf{par}, entonces es valida para todo número real \textbf{a no negativo}.
+\end{itemize}
+\begin{center}
+\framebox[8cm][c]{$a^{\dfrac{m}{n}} = \sqrt[\scriptstyle{n}]{a^m} \land a^{-\dfrac{m}{n}} = \dfrac{1}{\sqrt[n]{a^m}}, a \not = 0$}
+\end{center}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textit{Distributiva respecto al producto} & $\sqrt[n]{a.b} = \sqrt[n]{a}.\sqrt[n]{b}$\\
+\hline
+\textit{Distributiva respecto al cociente} & $\sqrt[n]{\dfrac{a}{b}} = \dfrac{\sqrt[n]{a}}{\sqrt[n]{b}}$\\
+\hline
+\textit{Raiz de raiz} & $\sqrt[m]{\sqrt[n]{a}} = \sqrt[m.n]{a}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\subsection{Logaritmo}
+\textbf{El logaritmo en base a de x es y} y lo notamos $\log_a(x)=y$, como el numero al cual tengo que elevar a \textbf{a} para obtener \textbf{x}.
+\begin{center}
+$log_a(x)=y \iff a^y=x$, se necesita que $a>0 \land x>0 \land a \not = 1$
+\end{center}
+\begin{multicols}{2}
+\begin{itemize}
+\item $log_a(1)=0$
+\item $log_a(a)=1$
+\item $log_a(x.y)=log_a(x)+log_a(y)$
+\item $log_a{\left(\dfrac{x}{y}\right)}=log_a(x)-log_a(y)$
+\item $log_a(x^c) = c.log_a(x)$
+\item $a^{log_a(x)}=x$
+\end{itemize}
+\end{multicols}
+\begin{center}
+\framebox[8cm][c]{$log_b(x) = \dfrac{log_a(x)}{log_a(b)}$}
+\end{center}
+\subsection{Formas Especiales}
+\textbf{Binomio al Cuadrado $\leftrightarrow$ Trinomio Cuadrado Perfecto}
+\begin{center}
+\framebox[8cm][c]{$(x+y)^2 = x^2+2xy+y^2$}
+\end{center}
+\textbf{Binomio al Cubo $\leftrightarrow$ Cuatrinomio Cubo Perfecto}
+\begin{center}
+\framebox[8cm][c]{$(x+y)^3 = x^3+3x^2y+3xy^2+y^3$}
+\end{center}
+\textbf{Diferencia de Cuadrados}
+\begin{center}
+\framebox[8cm][c]{$(a-b).(a+b)=a^2-b^2$}
+\end{center}
+\subsection{Relacion de Orden del Conjunto de los Numeros Reales}
+\begin{multicols}{3}
+\begin{itemize}
+\item $a<b$ si $0<b-a$
+\item $a>b$ si $b<a$
+\item $a<b \land b<c \Rightarrow a<c$
+\item $a<b \Rightarrow a+c<b+c$
+\item $a<b \land c>0 \Rightarrow a.c<b.c$
+\item $a<b \land c<0 \Rightarrow a.c>b.c$
+\end{itemize}
+\end{multicols}
+\subsection{Valor Absoluto}
+Es la distancia que hay, en la recta numérica, desde su punto representativo al origen de coordenadas. El valor absoluto es será siempre un número positivo (o cero).
+\[|x| = \left\{ \begin{array}{ll}
+x  &$ si $x \geq 0\\
+-x &$ si $x < 0\\
+\end{array}\right.\]
+\begin{multicols}{2}
+\begin{itemize}
+\item $|a| \geq 0$
+\item $|a|.|b| = |a|.|b|$
+\item $|a|=0 \iff a=0$
+\item $\left|\dfrac{a}{b}\right| = \dfrac{|a|}{|b|}, b \not = 0$
+\item $|-a| = |a|$
+\item $\sqrt{a^2} = |a|$
+\end{itemize}
+\end{multicols}
+$\forall a, b \in R \land k>0$
+\begin{multicols}{2}
+\begin{itemize}
+\item $|a+b| \leq |a| + |b|$
+\item $|a-b| \geq ||a|-|b||$
+\item $|a|<k \iff -k < a < k$
+\item $|a|>k \iff (a>k \lor a<(-k))$
+\end{itemize}
+\end{multicols}
 
-
+\newpage
+\section{Números Complejos}
 \end{document}
