@@ -6,6 +6,8 @@
     filecolor=magenta,      
     urlcolor=cyan,
 }
+
+\usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{multicol}
 \usepackage{geometry}
@@ -326,4 +328,38 @@ Definimos el reciproco de $z \not = 0, z \in C$, como aquel complejo $w$ / $z \t
 \end{itemize}
 \end{multicols}
 
+\newpage
+\section{Ecuaciones e Inecuaciones}
+Una \textbf{ecuación} es una igualdad entre dos expresiones algebraicas: $P(x)=Q(x)$. Resolverla consta de encontrar el o los valores numéricos de la incógnita que verifican la ecuación.
+\subsection{Ecuaciones Lineales}
+Una ecuación es \textbf{lineal} cuando se puede escribir de la forma: \hfill \framebox[5cm][c]{$a.x+b=0$, con $a \not = 0$}
+\subsection{Ecuaciones Cuadráticas}
+Una ecuación es \textbf{cuadratica} cuando se puede escribir de la forma: \hfill \framebox[5cm][c]{$a.x^2+b.x+c=0$, con $a \not = 0$}\\
+\begin{center}
+\framebox[8cm][c]{$x_{1,2} = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$}
+\end{center}
+El numero $\vartriangle = b^2-4ac$ se llama \textbf{\textit{discriminante}} y decide la naturaleza de las soluciones.
+\begin{itemize}
+\item Si $\vartriangle > 0$ entonces las dos soluciones son reales y distintas.\\
+\item Si $\vartriangle = 0$ entonces tiene una solución doble.\\
+\item Si $\vartriangle < 0$ entonces las dos soluciones son numeros complejos conjugados.
+\end{itemize}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+\\
+$x_1+x_2 = -\dfrac{b}{a}$\\
+\\
+$x_1.x_2 = \dfrac{c}{a}$\\
+\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\subsection{Ecuaciones Bicuadrática}
+Una ecuación es \textbf{bicuadratica} cuando se puede escribir de la forma: \hfill \framebox[5cm][c]{$a.x^4+b.x^2+c=0$, con $a \not = 0$}\\
+Para resolverlas, primero se sustituye $y=x^2$ y despues se sigue normal.
+\subsection{Inecuaciones}
+Una \textbf{inecuación} es una desigualdad entre dos expresiones algebraicas: $P(x) \leq Q(x)$. Resolverla consta de encontrar el o los valores numéricos de la incógnita que verifican la ecuación.
 \end{document}
