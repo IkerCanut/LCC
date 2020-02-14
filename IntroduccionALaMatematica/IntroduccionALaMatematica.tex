@@ -7,6 +7,7 @@
     urlcolor=cyan,
 }
 
+\usepackage{fourier}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{multicol}
@@ -18,6 +19,8 @@
  top=30mm,
 }
 
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, calc, through, angles, quotes}
 \usepackage{multirow}
 
 \author{Iker M. Canut}
@@ -245,7 +248,7 @@ Es la distancia que hay, en la recta numérica, desde su punto representativo al
 \[|x| = \left\{ \begin{array}{ll}
 x  &$ si $x \geq 0\\
 -x &$ si $x < 0\\
-\end{array}\right.\]
+\end{array}\right.\]\
 \begin{multicols}{2}
 \begin{itemize}
 \item $|a| \geq 0$
@@ -362,4 +365,184 @@ Una ecuación es \textbf{bicuadratica} cuando se puede escribir de la forma: \hf
 Para resolverlas, primero se sustituye $y=x^2$ y despues se sigue normal.
 \subsection{Inecuaciones}
 Una \textbf{inecuación} es una desigualdad entre dos expresiones algebraicas: $P(x) \leq Q(x)$. Resolverla consta de encontrar el o los valores numéricos de la incógnita que verifican la ecuación.
+
+\newpage
+\section{Geometría}
+\subsection{Ángulos}
+Se pueden clasificar como:
+\begin{multicols}{3}
+\begin{itemize}
+\item Llano
+\item Recto
+\item Agudo
+\item Obtuso
+\item Nulo
+\item De una vuelta
+\end{itemize}
+\end{multicols}
+Y los pares de ángulos se pueden clasificar como:
+\begin{multicols}{2}
+\begin{itemize}
+\item Complementarios (90º)
+\item Suplementarios (180º)
+\item Consecutivos
+\item Adyacentes
+\end{itemize}
+\end{multicols}
+\subsection{Ángulos Determinados por Dos Rectas y Una Transversal}
+\begin{multicols}{2}
+\begin{tikzpicture}
+\draw (0,5) -- (5,7);
+\draw (0,2) -- (5,3);
+\draw (2,1) -- (4,7);
+\node at (3,7){$\widearc{1}$};
+\node at (3,5.5){$\widearc{2}$};
+\node at (4.5,6){$\widearc{3}$};
+\node at (4.5,7.5){$\widearc{4}$};
+\node at (2,3){$\widearc{5}$};
+\node at (1.5,1.5){$\widearc{6}$};
+\node at (3,2){$\widearc{7}$};
+\node at (3.5,3.5){$\widearc{8}$};
+\node at (0,2.3){\textbf{a}};
+\node at (0,5.5){\textbf{b}};
+\node at (2.5,1){\textbf{c}};
+\end{tikzpicture}
+\begin{itemize}
+\item $\widearc{2}$ y $\widearc{8}$ son alternos internos
+\item $\widearc{4}$ y $\widearc{6}$ son alternos externos
+\item $\widearc{4}$ y $\widearc{8}$ son correspondientes
+\item $\widearc{3}$ y $\widearc{8}$ son conjugados internos
+\item $\widearc{4}$ y $\widearc{7}$ son conjugados externos
+\item $\widearc{1}$ y $\widearc{3}$ son opuestos por el vértice
+\end{itemize}
+\end{multicols}
+\begin{itemize}
+\item Los ángulos correspondientes son congruentes $\iff$ las rectas a y b son paralelas.
+\item Los ángulos opuestos por el vértice son congruentes.
+\item Los ángulos alternos internos (externos) son congruentes $\iff$ las rectas a y b son paralelas.
+\item Los ángulos conjugados internos (externos) son suplementarios $\iff$ las rectas a y b son paralelas.
+\end{itemize}
+\subsection{Polígonos}
+\begin{center}
+\begin{tikzpicture} [scale=0.6]
+\draw (0,1) -- (3,0) -- (3,5) -- (1,4) -- (0,1);
+\draw (5,0) -- (10,0) -- (9,5) -- (8,2) -- (5,3) -- (5,0);
+\draw (14,0) -- (18,0) -- (20,3.464) -- (18,6.928) -- (14,6.928) -- (12,3.464) -- (14,0);
+\node at (1.5,-1){Polígono convexo};
+\node at (7.5,-1){Polígono concavo};
+\node at (16,-1){Polígono convexo regular};
+\end{tikzpicture}
+\end{center}
+\subsection{Triángulos}
+- Los triángulos se pueden clasificar...
+\begin{multicols}{2}
+\begin{itemize}
+\item \textbf{según sus lados:}
+\begin{itemize}
+\item Equilátero
+\item Isósceles
+\item Escaleno
+\end{itemize}
+\item \textbf{según sus ángulos:}
+\begin{itemize}
+\item Acutángulo
+\item Rectángulo
+\item Obtusángulo
+\end{itemize}
+\end{itemize}
+\end{multicols}
+\vspace{.5cm}
+- Los elementos de un triángulo son:
+\begin{itemize}
+\item \textbf{Mediana}: es el segmento que une el punto medio de un lado con el vértice opuesto al mismo.
+\item \textbf{Mediatriz}: es una recta perpendicular a un lado que pasa por su punto medio.
+\item \textbf{Altura}: es el segmento perpendicular a un lado que pasa por su vértice opuesto.
+\item \textbf{Bisectriz}: es la bisectriz de un ángulo.
+\end{itemize}
+\vspace{1cm}
+- Y algunos puntos notables de un triángulo son:
+\begin{itemize}
+\item \textbf{Baricentro}: Las medianas se intersecan en un punto llamado baricentro, tal que su distancia a cada vértice es el doble a la distancia al punto medio del lado opuesto.
+\item \textbf{Circuncentro}: Las mediatrices se intersecan en un punto llamado circuncentro, que es el centro de la circunferencia circunscripta al triángulo.
+\item \textbf{Ortocentro}: Las rectas que contienen a las alturas se intersecan en un punto denominado ortocentro.
+\item \textbf{Incentro}: Las bisectrices se intersecan en un punto denominado incentro, que es el centro de una circunferencia inscripta en el triángulo.
+\end{itemize}
+\subsection{Algunas Propiedades Importantes}
+\begin{itemize}
+\item En un $\triangle$ cada lado es menor que la suma de los otros dos, y mayor que su diferencia.
+\item La suma de los ángulos interiores de un $\triangle$ es igual a un llano (180º).
+\item El ángulo exterior a un $\triangle$ es igual a la suma de los dos interiores no adyacentes a él.
+\item En un $\triangle$, a lados congruentes se oponen ángulos congruentes y viceversa.
+\item En un $\triangle$, a mayor lado se opone mayor ángulo y viceversa.
+\end{itemize}
+\subsection{Congruencia de Triángulos}
+Dos triángulos son \textbf{\textit{congruentes}} si tienen su lados y su ángulos respectivamente congruentes.\\ Dos triángulos son congruentes $\iff$
+\begin{itemize}
+\item Sus \textbf{tres lados} son respectivamente congruentes.
+\item \textbf{Dos de sus lados y el ángulo comprendido} entre ellos son respectivamente congruentes. 
+\item \textbf{Un lado y los ángulos con vértice en los extremos de dicho lado} son respectivamente congruentes.
+\item \textbf{Dos de sus lados y el ángulo opuesto al mayor de los lados} son respectivamente congruentes.
+\end{itemize}
+\newpage
+\subsection{Semejanza de Triángulos}
+Dos $\triangle$ son \textbf{\textit{semejantes}} si tienen sus ángulos congruentes y sus lados homólogos proporcionales.\\
+Dos triángulos son semejantes $\iff$
+\begin{itemize}
+\item Sus \textbf{tres lados} son proporcionales.
+\item \textbf{Dos de sus lados} son proporcionales \textbf{y los ángulos comprendidos} entre ellos son congruentes.
+\item \textbf{Tiene un par de ángulos} respectivamente congruentes.
+\end{itemize}
+\subsection{Polígonos (de más de tres lados)}
+\textbf{Propiedades de polígonos convexos}:\\
+La suma de los ángulos interiores de un polígono de $n$ lados se representa como:
+\begin{center}
+\framebox[8cm][c]{$S_n = (n-2) . 180$º}
+\end{center}
+Esto es porque la suma de los ángulos exteriores de un polígono de n lados es igual a 360º.
+\subsection{Circunferencias}
+Se define a una circunferencia como el lugar geométrico de los puntos del plano que equidistan de uno fijo, llamado centro. Las posiciones relativas de una recta y una circunferencia, y entre dos circunferencias, son:
+\begin{itemize}
+\item Una recta es \textbf{exterior} a una circunferencia si no tienen puntos en común.
+\item Una recta es \textbf{tangente} a una circunferencia si tienen \textbf{solo} un punto en común.
+\item Una recta es \textbf{secante} a una circunferencia si se intersecan en dos puntos.
+\item Dos circunferencias son \textbf{secantes} si tienen dos puntos en común.
+\item Dos circunferencias son \textbf{tangentes} si tienen solo un punto en común.
+\item Dos circunferencias son \textbf{conceéntricas} si tienen el mismo centro.
+\end{itemize}
+\subsection{Elementos de una Circunferencia}
+\begin{multicols}{2}
+\begin{tikzpicture}[scale=2]
+\coordinate [label=below right: $A$] (A) at (0,0);
+\node[draw] (ci) at (A) [circle through=(right:1)] {};
+\coordinate [label=above left:$C$] (C) at (ci.120);
+\draw [very thick] (C) -- (A);
+\coordinate [label=above right:$B$] (B) at (ci.60);
+\draw [very thick] (B) -- (A);
+\coordinate [label=below right:$ D$] (D) at (ci.310);
+\draw [dashed] (B) -- (D);
+\draw [black, very thick, domain=120:60] plot ({cos(\x)}, {sin(\x)});
+
+\coordinate [label=below right:$E$] (E) at (ci.270);
+\draw [ultra thin] (B)--(E);
+\draw [ultra thin] (C)--(E);
+\pic ["$\theta$", draw=black, thick, -, angle eccentricity=1.5, angle radius=1cm] {angle = B--A--C};
+\end{tikzpicture}
+\begin{itemize}
+\item \textbf{BD Cuerda}, segmento cuyos extremos están en la circunferencia.
+\item \textbf{CD Diámetro}, mayor de las cuerdas y contiene al centro de la circunferencia.
+\item \textbf{AC Radio}, segmento cuyos extremos son el centro de la circunferencia y un punto de la misma.
+\item \textbf{$\widearc{CB}$ arco}, subconjunto de la circunferencia.
+\end{itemize}
+\end{multicols}
+\begin{itemize}
+\item \textbf{$C\hat{A}B$ ángulo central} que se relaciona con el arco $\widearc{CB}$ es un ángulo cuyo vértice es el centro de la circunferencia y sus lados pasan por los extremos del arco al cual se lo relaciona.
+\item \textbf{$C\hat{E}B$ ángulo inscripto} en la circunferencia que abarca el arco $\widearc{CB}$, es un ángulo cuyo vértice está en la circunferencia y sus lados pasan por los extremos del arco al cual se lo relaciona.
+\end{itemize}
+Propiedades:
+\begin{itemize}
+\item \framebox[2.5cm][c]{$C\hat{E}B = \dfrac{1}{2}C\hat{A}B$} Un ángulo inscripto es congruente con la mitad del central que abarca el mismo arco.
+\item \framebox[2.5cm][c]{$C\hat{E}B = C\hat{D}B$} Los ángulos inscriptos en un mismo arco son congruentes.\\
+\end{itemize}
+\newpage
+\subsection{Perímetros}
 \end{document}
