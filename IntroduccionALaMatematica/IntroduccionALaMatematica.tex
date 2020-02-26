@@ -7,6 +7,8 @@
     urlcolor=cyan,
 }
 
+\usepackage{siunitx}
+\usepackage{esvect}
 \usepackage{fourier}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -591,7 +593,7 @@ Son cuerpos redondos la esfera, el cilindro (oblicuo, recto) y el cono (oblicuo,
 \item Piramides y conos: $\dfrac{area\ de\ la\ base \times altura}{3}$
 \item Esfera: $\dfrac{4}{3} \times \pi \times r^{3}$
 \end{itemize}
-\subsection{Areas de Cuerpos}
+\subsection{Áreas de Cuerpos}
 Si los cuerpos son poliedros, hallar el area de los mismos es sumar las areas de cada una de sus caras. En el caso de prismas y piramides el area total se divide en area lateral y area de las bases.\\ \\
 El area de una esfera de radio R se obtiene mediante: $4 \times \pi \times R^2$.\\ \\
 El area de un cilindro recto de base de radio R y altura h con sus dos bases se obtiene mediante:
@@ -600,5 +602,134 @@ $2\ area_{base} + area_{lateral} = 2\ \times \pi \times R^2 + 2 \times \pi \time
 \end{center}
 
 \newpage
-\section{Trigonometria}
+\section{Trigonometría}
+\subsection{Triangulos rectángulos: Razones Trigonométricas de ángulos agudos}
+\begin{multicols}{3}
+$sen(\hat{A}) = \dfrac{cateto\ opuesto\ a \ \hat{A}}{hipotenusa}$\\
+$cos(\hat{A}) = \dfrac{cateto\ adyacente\ a \ \hat{A}}{hipotenusa}$\\
+$tg(\hat{A}) = \dfrac{cateto\ opuesto\ a \ \hat{A}}{cateto\ adyacente\ a \ \hat{A}}$
+\end{multicols}
+\subsection{Resolución de triángulos cualesquiera}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{cc}
+Teorema del seno:& $\dfrac{a}{sen(\hat{A})} = \dfrac{b}{sen(\hat{B})} = \dfrac{c}{sen(\hat{C})}$\\ \\
+Teorema del coseno & $a^2 = b^2 + c^2 - 2bc.cos(\hat{A})$
+\end{tabular}
+\end{center}
+\end{table}
+\subsection{Funciones Trigonométricas}
+\begin{multicols}{2}
+\begin{tikzpicture}[scale=.6]
+\coordinate [label=below right: $O$] (O) at (0,0);
+\coordinate [label=above left: $B$] (B) at (2,2);
+\coordinate [label=below right: $A$] (A) at (2.828,0);
+\coordinate (C) at (4,4);
+\coordinate (D) at (5.656,0);
+
+\draw (C)--(O)--(D);
+
+\pic ["$\theta$", draw=black, thick, ->, angle eccentricity=1.5, angle radius=1.8cm] {angle = A--O--B};
+\end{tikzpicture}\\
+Consideremos la semirrecta $\vv{OA}$ girando alrededor de O hasta llegar a la posicion $\vv{OB}$. Decimos que esta rotacion ha generado el angulo $A\hat{O}B$, de vertice O y lado inicial $\vv{OA}$ y lado final$\vv{OB}$.\\ \\ El ángulo es positivo si ha sido generado en sentido contrario a las agujas del reloj.
+\end{multicols}
+Si el arco $\widearc{AB}$ generado por la rotacion del punto A es una circunferencia, diremos que el angulo generado es de una vuelta.\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|}
+\hline \\
+Dos angulos $\alpha$ y $\beta$ son \textbf{congruentes} y se simboliza $\alpha \equiv \beta$ si tienen el mismo lado inicial y final\\ \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Observaciones:
+\begin{itemize}
+\item El ángulo nulo y pleno son congruentes.
+\item Para que ocurra la coincidencia de lados iniciales y finales, los ángulos congruentes deben diferir en una cantidad entera de vueltas. (Entera, no natural, porque puede ser negativa).
+\end{itemize}
+
+\subsection{Sistemas de Medición de Ángulos}
+\subsubsection{Sistema Sexagesimal}
+La unidad es el grado. Un ángulo de un grado equivale a $\frac{1}{360}$ del angulo de una vuelta.
+\subsubsection{Sistema Radial}
+La unidad es el radian y se define como la medida de un angulo central de una circunferencia.
+\subsubsection{Relaciones}
+Si llamamos x a la medida en radianes de un angulo que subtiende un arco $\widearc{AB}$ y llamamos $L$ a la longitud del mismo, tenemos que: $L = x.R$, es decir, $x=\dfrac{L}{R}$. Consecuentemente, si llamamos $\alpha$ a un angulo de una vuelta, la longitud del arco que subtiende coincide con la longitud de la circunferencia de radio R, por lo que: $\alpha = \dfrac{2 \pi R}{R} = 2 \pi$. De modo que \framebox[3cm][c]{$2 \pi rad \leftrightarrow \ang{360}$}
+\newpage
+\subsection{Funciones trigonométricas}
+Las deficiones de las razones trigonometricas las podemos hacer extensivas a angulos no agudos y orientados por medio de la llamada "Circunferencia Trigonometrica" (Radio 1 y centro en el origen de coordenadas).
+\begin{multicols}{2}
+\begin{tikzpicture}[scale=1, one end extended/.style={shorten >=-1#1}, one end extended/.default=9]
+\coordinate [label=above left: $y$] (Y) at (0,2);
+\coordinate (YY) at (0,-1.5);
+\draw [->] (YY) -- (Y);
+\coordinate [label=above right: $x$] (X) at (2,0);
+\coordinate (XX) at (-1.5,0);
+\draw [->] (XX) -- (X);
+
+\coordinate [label=above left: $O$] (O) at (0,0);
+\node [draw] (ci) at (O) [circle through=(right:1)] {};
+\coordinate [label=above right:$A$] (A) at (ci.60);
+
+\coordinate [label=below right:$B$] (B) at (A|-O);
+
+\draw (A) -- (B);
+\draw [one end extended] (O) -- (A);
+\pic ["$\alpha$", draw=black, thick, ->, angle eccentricity=1.9, angle radius=.4cm] {angle = B--O--A};
+\end{tikzpicture}
+
+Si tomamos un angulo $\alpha$, cuyo lado final interseca a la circunferencia trigonometrica en un punto A con coordenadas positivas (a,b), el punto B de coordenadas (a;0), tendremos el triangulo \(\overset{\triangle}{AOB}\) que es rectánguo en B. Por lo que tendremos que se cumplen las siguientes razones trigonométricas:
+\end{multicols}
+\begin{multicols}{3}
+$sen(\alpha) = \dfrac{AB}{OA} = \dfrac{b}{1} = b$\\
+$cos(\alpha) = \dfrac{OB}{OA} = \dfrac{a}{1} = a$\\
+$tg(\alpha) = \dfrac{AB}{OB} = \dfrac{b}{a}$
+\end{multicols}
+Generalizando a cualquier angulo $\alpha$, diremos que $a=cos(\alpha)\ y\ b=sen(\alpha)$
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$\alpha$&$I_c$&$II_c$&$III_c$&$IV_c$\\
+\hline
+Coordenadas&$x>0 \land y>0$&$x<0 \land y>0$&$x<0 \land <0$&$x>0 \land y<0$\\
+\hline
+$sen\ \alpha$&+&+&-&-\\
+\hline
+$cos\ \alpha$&+&-&-&+\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+El valor del seno y el coseno es independiente de la circunferencia que se tome.
+\subsubsection{Propiedades del seno y el coseno}
+\begin{itemize}
+\item \textbf{Acotación del seno y el coseno}: $-1 \leq sen(\alpha) \leq 1 \land -1 \leq cos(\alpha) \leq 1$
+\item \textbf{Periodicidad del seno y el coseno}: $sen(\alpha + 2\pi) = sen(\alpha) \land cos(\alpha + 2\pi) = cos(\alpha)$
+\item \textbf{Paridad del coseno e imparidad del seno}: $cos(-\alpha) = cos(\alpha) \land sen(-\alpha) = -sen(\alpha)$
+\item \textbf{Relacion Pitagorica}: $sen^2(\alpha)+cos^2(\alpha) = 1$
+\item \textbf{Relacion entre el seno y coseno de complementarios}: $sen \left(\dfrac{\pi}{2} - \alpha \right) = cos(\alpha) \land cos\left(\dfrac{\pi}{2}-\alpha \right) = sen(\alpha)$
+\end{itemize}
+\subsection{Funciones Reciprocas}
+\begin{itemize}
+\item $cotangente\ de\ x = ctg\ x = \dfrac{cos\ x}{sen\ x}$
+\item $secante\ de\ x = sec\ x = \dfrac{1}{cos\ x}$
+\item $cosecante\ de\ x = cos\ x = \dfrac{1}{sen\ x}$
+\end{itemize}
+
+\subsection{Razones Trigonométricas de suma o diferencia de ángulos}
+\begin{itemize}
+\item $cos\left(\alpha + \beta \right) = cos(\alpha).cos(\beta)-sen(\alpha).sen(\beta)$
+\item $cos\left(\alpha - \beta \right) = cos(\alpha).cos(\beta)+sen(\alpha).sen(\beta)$
+\item $sen\left(\alpha + \beta \right) = sen(\alpha).cos(\beta)+cos(\alpha).sen(\beta)$
+\item $sen\left(\alpha - \beta \right) = sen(\alpha).cos(\beta)-cos(\alpha).sen(\beta)$
+\item $cos(2\alpha) = cos^2(\alpha)-sen^2(\alpha)$
+\item $sen(2\alpha) = 2sen(\alpha).cos(\alpha)$
+\end{itemize}
+
+\section{Sistemas de Ecuaciones}
+
 \end{document}
