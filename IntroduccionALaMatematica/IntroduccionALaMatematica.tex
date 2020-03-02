@@ -22,7 +22,7 @@
 }
 
 \usepackage{tikz}
-\usetikzlibrary{automata, positioning, calc, through, angles, quotes}
+\usetikzlibrary{automata, positioning, calc, through, angles, quotes, intersections}
 \usepackage{multirow}
 
 \author{Iker M. Canut}
@@ -731,5 +731,154 @@ El valor del seno y el coseno es independiente de la circunferencia que se tome.
 \end{itemize}
 
 \section{Sistemas de Ecuaciones}
+\subsection{Sistemas de Ecuaciones Lineales}
+\framebox[15cm][c]{Un sistema de ecuaciones es lineal cuando las ecuaciones que lo conforman son lineales}
+\[(S) = \left\{ \begin{array}{ll}
+a_{11} x_1 + a_{12} x_2 + a_{13} x_3 + ... + a_{1n} x_n = b1\\
+a_{21} x_1 + a_{22} x_2 + a_{23} x_3 + ... + a_{2n} x_n = b2\\
+...\\
+a_{m1} x_1 + a_{m2} x_2 + a_{m3} x_3 + ... + a_{mn} x_n = bm\\
+\end{array}\right.\]\
+(S) es un sistema de $m$ ecuaciones lineales, con $n$ incognitas $x1;x2;x3;...;xn$, donde los coeficientes\\ $a_{i,j} \in R \forall i=1;2;...;m$ y $j=1;2;...;n$. Se dice que (S) es un sitema $m \times n$
+\subsubsection{Posiciones Relativas entre dos rectas en el plano}
+\begin{center}
+\begin{tikzpicture} [scale=0.6, every node/.style={black, below right}]
+\draw [name path= line 1](0,1) -- (4,4);
+\draw [name path= line 2](1,0) -- (3,5);
+\fill[black, name intersections={of=line 1 and line 2, total=\t}]
+	%\foreach \s in {1,...,\t}{(intersection-\s) circle (2pt) node {\s}};
+	\foreach \s in {1,...,\t}{(intersection-\s) circle (2pt) node {F}};
+\node at (0.3,1.3){r};
+\node at (1.1,0.2){s};
+\node at (0,-1){$r$ y $s$ son secantes};
+\node at (1,-1.7){$r \cap s = {F}$};
 
+\draw (8,1) -- (14,4);
+\node at (10,4){r = s};
+\node at (7,-1){$r$ y $s$ son paralelas coincidentes};
+\node at (9,-1.7){$r \cap s = r = s$};
+
+\draw (19, 1) -- (25, 2);
+\draw (19, 3) -- (25, 4);
+\node at (20,1){s};
+\node at (20,3){r};
+\node at (17,-1){$r$ y $s$ son paralelas no coincidentes};
+\node at (19,-1.7){$r \cap s = r = \emptyset$};
+\end{tikzpicture}
+\end{center}
+\vspace{.5cm}
+A partir de esto podemos clasificar cada uno de los sistemas según la cantidad de soluciones:
+\begin{itemize}
+\item Cuando un sistema tiene solución diremos que es \textbf{COMPATIBLE}.
+\begin{itemize}
+\item Cuando la solución es unica, será \textbf{DETERMINADO}.
+\item Cuando las soluciones son infinitas, será \textbf{INDETERMINADO}.
+\end{itemize}
+\item Cuando el sistema no tenga solución diremos que es \textbf{INCOMPATIBLE}.
+\end{itemize}
+\subsection{Para demostrar analiticamente las soluciones}
+\subsubsection{Método por Sustitución}
+Consiste en despejar una de las incognitas en función de la otra en una ecuacion y usar esa igualdad en la otra ecuación, sustituyendo la incógnita.
+\subsubsection{Método por Igualación}
+Consiste en despejar la misma incógnita en funcion de la otra en ambas ecuaciones, y finalmente, por propiedad transitiva, igualar.
+\subsection{Definiciones}
+\begin{itemize}
+\item Cuando los términos independientes son todos nulos, decimos que el sistema es \textbf{homogéneo}. Es siempre compatible por tener al menos como solución la trivial (0;0;...;0).
+\item Dos sistemas son \textbf{equivalentes} cuando tienen el mismo conjunto solución.
+\item Un sistema es \textbf{escalonado} si cada eqn empieza con al menos un coeficiente nulo mas que la anterior.
+\end{itemize}
+\subsection{¿Cómo sabemos que sustituimos un sistema por otro equivalente?}
+\begin{itemize}
+\item Intercambiar ecuaciones
+\item Multiplicar las ecuaciones del sistema por un número real no nulo
+\item Sumar ecuaciones
+\end{itemize}
+\subsubsection{Método de Eliminación Gaussiana}
+Se escalona y se resuelve el sistema usando operaciones elementales:
+\begin{enumerate}
+\item $(E_1) \times m - (E_2) \mapsto (E_2)$
+\item $(E_1) \times n - (E_3) \mapsto (E_3)$
+\item $(E_2) \times o - (E_3) \times p \mapsto (E_3)$
+\end{enumerate}
+\subsubsection{Algoritmo de Gauss}
+\begin{table}[h]
+\begin{multicols}{2}
+\begin{tabular}{ccc|cc}
+x&y&z& t.i.&\\
+\hline
+$\textbf{1}$&$\textbf{2}$&$-1$&$-5$&$E_1$\\
+$\textbf{2}$&$\textbf{-1}$&$2$&$8$&$E_2$\\
+$3$&$3$&$4$&$5$&$E_3$\\
+\hline
+&$\textbf{-5}$&$4$&$18$&$E_2'$\\
+&$-3$&$7$&$20$&$E_3'$\\
+\hline
+&&$-23$&$-46$&$E_3''$\\
+\end{tabular}
+
+Para calcular los números se resuelven los determinantes 2x2 y se anota el resultado debajo, cancelando un término y escalonando el sistema:\\
+$\begin{vmatrix}
+1&2\\
+2&-1
+\end{vmatrix} = 1 \times (-1) - 2 \times 2 = \textbf{-5}$
+\end{multicols}
+\end{table}
+\begin{itemize}
+\item Si al final queda $0\ |\ 0$, implica que es \textbf{compatible determinado}.
+\item Si al final queda $0\ |\ X\ \forall X \not = 0$, implica que es \textbf{incompatible}.
+\end{itemize}
+\subsection{Sistemas de Ecuaciones Mixtos}
+Son sistemas no lineales. No hay clasificacion de sistemas mixtos.
+
+\newpage
+\section{Polinomios}
+Monomios: e.g. $x^2y^3,\ (2+1)xy,...$ Lo principal es que entre los elementos solo hay multiplicaciones.\\
+\textbf{La suma de varios monomios sera un polinomio}. Un polinomio en una variable es una expresion de la forma:\
+\begin{center}
+\framebox[15cm][c]{$p(x)=a_nx^n+a_{n-1}x^{n-1}+...+a_2x^2+a_1x+a_0$}
+\end{center}
+Donde $n$ es un número entero no negativo, x es la variable y los $n+1$ números $a$ son los coeficientes.\\ \\ Cuando los coeficientes del polinomio sean numeros \textbf{complejos}, diremos que es "a coeficientes complejos" y simbolizaremos $\textbf{C}[x]$ al conjunto de los polinomios con coeficientes complejos. Si son todos numeros \textbf{reales}, diremos que es "a coeficientes reales" y se simboliza $\textbf{R}[x]$. Al numero $a_n$ se lo llama coeficiente principal y al termino $a_0$ término independiente.
+\subsubsection{Simbolo Sumatoria}
+Siempre ponemos el valor inicial debajo, y el final arriba: $1+2+3+...+50 = \sum\limits_{i=1}^{50}i$\\
+Reescribiendo, el polinomio de una sola variable es: $p(x)=\sum\limits_{k=0}^na_k.x^k$\\ \\
+El \textbf{grado} de un polinomio es el mayor exponente de los términos de coeficientes no nulos. Si el polinomio se reduce a un número decimos que es un \textbf{polinomio constante}, si dicho numero NO es cero, decimos que el grado es cero. El polinomio constante igual a cero se llama \textbf{polinomio nulo} y carece de grado. Un polinomio de grado uno se llama lineal, de grado dos se llama cuadratico.
+\subsection{Igualdad de Polinomios}
+Dos polinomios a coeficientes complejos son iguales si tienen igual grado y los coeficientes de los términos homólogos son iguales:
+\begin{center}
+$p(x) = \sum\limits_{k=0}^na_kx^k; q(x) = \sum\limits_{k=0}^mb_kx^k;$\\
+$p(x) = q(x) \iff n=m \land a_k = b_k; k = 0,1,...,n$
+\end{center}
+\subsection{Operaciones con Polinomios}
+\subsubsection{Suma y Multiplicacion}
+Dados dos polinomios $p(x)=a_nx^n+a_{n-1}x^{n-1}+...+a_0$ y $q(x)=b_mx^m+b_{m-1}x^{m-1}+...+b_0$:
+\begin{itemize}
+\item \framebox[15cm][c]{$p(x)+q(x) = (a_n+b_n)x^n + (a_{n-1}+b{n-1})x^{n-1} + ... + (a_0+b_0)$}
+\item El polinomio que se indica $p(x).q(x)$ es el polinomio producto cuyos terminos son de la forma $a_ib_jx^{i+j}$ donde $i\leftarrow[0..n]$ y $j\leftarrow[0..m]$:\\
+\framebox[15cm][c]{$p(x).q(x) = a_nb_mx^{n+m} + ... + (a_1b_0 + a_0b_1)x + a_0b_0$}
+\end{itemize}
+\subsubsection{Division de Polinomios}
+Hay dos posibilidades:
+\begin{itemize}
+\item Division Clasica: $p(x)=c(x).q(x)+r(x)$, donde $gr[r(x)] < gr[q(x)]\ o\ r(x) \equiv 0$.
+\item Ruffini: Cuando el divisor tenga la forma $x-\alpha$, donde $\alpha \in C$
+\end{itemize}
+\framebox[15cm][c]{El resto de la division de un polinomio $p(x)$ por otro de la forma $x-\alpha$; con $\alpha \in C$ es igual a $p(\alpha)$}\\ \\
+\textbf{Dem)} Al dividir $p$ por otro de la forma $x-\alpha$, se obtiene un cociente $c(x)$ y un resto $r$:\\
+$p(x) = c(x).(x-\alpha)+r$ y reescribiendo, $p(\alpha) = c(\alpha) . (\alpha - \alpha) + r = r$.
+\subsubsection{Raices de un Polinomio}
+Un numero complejo $\alpha$ es raiz de un polinomio $p(x) \iff p(\alpha)=0$\\
+\framebox[15cm][c]{Un numero complejo $\alpha$ es raiz de un polinomio $p(x) \iff p(x)$ es divisible por $x-\alpha$}
+\subsubsection{Teorema Fundamental del Algebra}
+\framebox[15cm][c]{$\alpha$ es \textbf{raiz de multiplicidad k} de $p(x)$, si el mismo es divisible por $(x-\alpha)^k$ y no por $(x-\alpha)^{k+1}$}\\ \\
+Esto permite probar que todo polinomio de grado $n>0$, tiene exactamente n raices (no necesariamente distintas) y ademas se puede descomponer en producto de n factores.
+\subsubsection{Orden de multiplicidad de una raiz}
+\framebox[15cm][c]{Un polinomio p(x) / $gr[p(x)]>0$, admite al menos una raiz en C}
+\subsubsection{Teorema de la descomposicion factorial}
+Todo $p(x) \in C[x]$ de grado positivo admite una unica descomposicion en factores de la forma:\\
+\framebox[15cm][c]{$p(x)=a_n.(x-\alpha_1)^{k_1}.(x-\alpha_2)^{k_2}.\ ...\ . (x-\alpha_j)^{k_j}$}\\ \\
+Donde $\alpha_1; \alpha_2; ...; \alpha_j$ son j raices distintas del polinomio y $k_1; ...; k_j$ sus multiplicidades, por lo que $k_1+...+k_j = n$.
+\subsection{Polinomios a Coeficientes Reales}
+Cuando un $p(x) \in R[x]$ admite una raiz compleja, entonces tambien admite como raiz a su conjugada.\\
+\framebox[15cm][c]{$p(x)=a_nx^n+a{n-1}x^{n-1}+...+a_0 \in R[x] \land \alpha \in C\ es\ raiz\ de\ p,\ entonces\ p(\overline{\alpha})=0$}\\
+$p(\alpha) = \sum\limits_{k=0}^n\alpha_k \alpha^k=0 \Rightarrow p(\overline{\alpha}) = \sum\limits_{k=0}^n\alpha_k \alpha^{-k}= \overline{\sum\limits_{k=0}^n\alpha_k \alpha^{k}} = \overline{p(\alpha)} = \overline{0} = 0$
 \end{document}
