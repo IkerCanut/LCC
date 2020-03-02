@@ -14,6 +14,7 @@
 \usepackage{amsmath}
 \usepackage{multicol}
 \usepackage{geometry}
+\usepackage[framemethod=TikZ]{mdframed}
 \geometry{
  a4paper,
  total={160mm,237mm},
@@ -880,5 +881,40 @@ Donde $\alpha_1; \alpha_2; ...; \alpha_j$ son j raices distintas del polinomio y
 \subsection{Polinomios a Coeficientes Reales}
 Cuando un $p(x) \in R[x]$ admite una raiz compleja, entonces tambien admite como raiz a su conjugada.\\
 \framebox[15cm][c]{$p(x)=a_nx^n+a{n-1}x^{n-1}+...+a_0 \in R[x] \land \alpha \in C\ es\ raiz\ de\ p,\ entonces\ p(\overline{\alpha})=0$}\\
-$p(\alpha) = \sum\limits_{k=0}^n\alpha_k \alpha^k=0 \Rightarrow p(\overline{\alpha}) = \sum\limits_{k=0}^n\alpha_k \alpha^{-k}= \overline{\sum\limits_{k=0}^n\alpha_k \alpha^{k}} = \overline{p(\alpha)} = \overline{0} = 0$
+\textbf{Dem) }$p(\alpha) = \sum\limits_{k=0}^n\alpha_k \alpha^k=0 \Rightarrow p(\overline{\alpha}) = \sum\limits_{k=0}^n\alpha_k \alpha^{-k}= \overline{\sum\limits_{k=0}^n\alpha_k \alpha^{k}} = \overline{p(\alpha)} = \overline{0} = 0$
+\subsection{Polinomios a Coeficientes Enteros}
+\subsubsection{Teorema de Gauss}
+\begin{mdframed}[roundcorner=10pt]
+$Si P(x)=a_nx^n+a_{n-1}x^{n-1}+...+a_0 \in Z[x]\ admite\ la\ raiz\ \dfrac{p}{q}\ con\ p\ y\ q\ enteros\ coprimos\ y\ q \not = 0\ entonces:$
+\begin{itemize}
+\item $a_0\ es\ multiplo\ de\ p$
+\item $a_n\ es\ multiplo\ de\ q$
+\item Si el coeficiente principal es 1 y $P$ tiene raices racionales, estas seran enteras.
+\item Si $p$ es un divisor del t.i. y $q$ lo es del coeficiente principal $\dfrac{p}{q}$ no necesariamente sera raiz de P.
+\item Si el termino independiente es 0, entonces una raiz del polinomio es 0.
+\end{itemize}
+\end{mdframed}
+\subsection{Funciones Racionales}
+Llamaremos \textbf{Funcion Racional} a aquella cuya formula es el cociente entre dos polinomios:\\
+\begin{center}
+$R(x)=\dfrac{p(x)}{q(x)},\ donde\ p(x)\ y\ q(x)\ son\ polinomios.$
+\end{center}
+El dominio de una funcion racional es de todos los valores reales tales que $q(x) \not = 0$
+Y \textbf{Polinomio Minimo comun de multiplo de varios polinomios} sera aquel polinomio de menor grado posible que es simultaneamente divisible por cada uno de ellos.
+\newpage
+\subsection{Operaciones con funciones racionales}
+\subsubsection{Multiplicación y División}
+\begin{mdframed}[roundcorner=10pt]
+\begin{center}
+$\dfrac{a}{b} \times \dfrac{c}{d} = \dfrac{a.c}{b.d}$ \hspace{1cm} $\dfrac{a}{b} \div \dfrac{c}{d} = \dfrac{a.d}{b.c}$\\ \
+\end{center}
+Usamos la regla para multiplicar, factorizamos numerador y denominador, y simplificamos.
+\end{mdframed}
+\subsubsection{Suma y Resta}
+\begin{mdframed}[roundcorner=10pt]
+\begin{center}
+$\dfrac{a}{c}+\dfrac{b}{c}=\dfrac{a+b}{c}$\hspace{1cm}$\dfrac{a}{c}-\dfrac{b}{c}=\dfrac{a-b}{c}$\\ \
+\end{center}
+Cuando el denominador no sea comun, se debe obtener. El mas sencillo de obtener es el polinomio minimo multiplo de los polinomios denominadores de cada uno de los terminos.
+\end{mdframed}
 \end{document}
