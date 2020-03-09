@@ -121,4 +121,63 @@ Llamamos \textit{diferencia} entre dos numeros reales $a$ y $b$, y lo denotamos 
 $$a-b = a+ (-b)$$
 \end{data}
 
+\begin{theo}[]{}
+\begin{multicols}{2}
+$$-(-a)=a$$
+$$-0 = 0$$
+$$0.a = 0$$
+$$a(-b) = -(ab) = (-a)b$$
+$$(-a)(-b)=ab$$
+$$a(b-c)=ab-ac$$
+\end{multicols}
+\end{theo}
+
+\begin{prf}[Demostracion de que el opuesto al opuesto de $a$ es $a$]{}
+Sea $b$ el opuesto de $a$, se puede concluir que $a+b=0 \land b=(-a) \land a=(-b)$\hfill$(1)\land(2)\land(3)$
+$$-(-a)\equals{(2)}-b\equals{(3)}a$$
+\end{prf}
+
+\begin{prf}[Demostracion de que el opuesto de 0 es 0]{}
+Por el axioma 5, todo numero real tiene su opuesto. Llamemos 0' al opuesto de 0, siendo $0+0'=0$ y\\
+Del axioma 3 se concluye que $0+0=0$
+$$si\ 0+0'=0 \land 0+0=0 \Rightarrow 0'=0$$
+\end{prf}
+
+\begin{prf}[Demostracion de que el producto de 0 con cualquier otro numero es 0]{}
+$$a.0 \equals{A4} a.0+0 \equals{A5} a.0+(a+(-a)) \equals{A2} (a.0+a)+(-a) \equals{A4} (a.0+a.1)+(-a) \equals{A3}$$
+$$a(0+1)+(-a) \equals{A4} a.1+(-a) \equals{A4} a+(-a) \equals{A5} 0$$
+\end{prf}
+
+\begin{prf}[$a(-b)=-(ab)=(-a)b$]{}
+$$
+a(-b) \equals{A4}
+a(-b)+0 \equals{A5}
+a(-b)+(ab+-(ab)) \equals{A2}
+(a(-b)+ab)+-(ab) \equals{A3}$$$$
+(a((-b)+b)+-(ab)) \equals{A5}
+a.0+-(ab) \equals{T2.3}
+0+-(ab) \equals{A4}
+-(ab)
+$$
+\end{prf}
+
+\begin{prf}[$(-a)(-b)=ab$]{}
+$$
+(-a)(-b) \equals{T2.4}
+-((-a)(-(-b))) \equals{T2.1}
+-((-a)b) \equals{T2.4}
+-(-(ab)) \equals{T2.1}
+ab
+$$
+\end{prf}
+
+\begin{prf}[$a(b-c)=ab-ac$]{}
+Por la definicion de diferencia, se puede reescribir como:
+$$
+a(b+(-c)) \equals{A3}
+ab+a(-c) \equals{T2.4}
+ab+-(ac)
+$$
+Que por la definicion de diferencia, se puede reescribir como: $ab-ac$
+\end{prf}
 \end{document}

@@ -11,7 +11,7 @@
 		frametitle={
 			\tikz[baseline=(current bounding box.east),outer sep=0pt]
 			\node[anchor=east,rectangle,fill=blue!20]
-			{\strut };}}
+			{\strut Teorema \thetheo};}}
 	}
 	{\mdfsetup{
 		frametitle={
@@ -136,3 +136,6 @@
 	\begin{mdframed}[]\relax
 		\label{#2}}{\end{mdframed}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\equals}[1] {
+	\ensuremath{\overset{#1}{=}}
+}
