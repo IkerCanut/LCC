@@ -1,0 +1,194 @@
+\documentclass[10pt]{article}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\usepackage{import}
+\usepackage{siunitx}
+\usepackage{esvect}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage[framemethod=TikZ]{mdframed}
+\geometry{
+ a4paper,
+ total={160mm,237mm},
+ left=30mm,
+ top=30mm,
+}
+
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, calc, through, angles, quotes, intersections}
+\usepackage{multirow}
+
+\subimport{.}{environment}
+
+\author{Iker M. Canut}
+\begin{document}
+\title{Introducción a la Matemática}
+\maketitle
+\date
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Unidad 1: Numeros Reales}
+
+\begin{prf}[Demostracion de la Propiedad Cancelativa de la Suma]{}
+Sea $d=a+b$, y por ende, $d=b+c$, por el Axioma 5, existe $y$ que es opuesto  a $a$, entonces:
+$$y+d=y+(a+b) \overset{A2}{=} (y+a)+b = 0 + b \overset{A4}{=}b$$
+$$y+d=y+(a+c) \overset{A2}{=} (y+a)+c = 0 + c \overset{A4}{=}c$$
+$$b=c$$
+\end{prf}
+
+\begin{prf}[Demostracion de la Unicidad del Elemento Neutro de la suma]{}
+Supongamos que 0' es un numero que tambien funciona como neutro de la suma, entonces
+$$a+0=a \land a+0'=a$$
+$$a+0=a+0'$$
+Y por propiedad cancelativa de la suma
+$$0=0'$$
+\end{prf}
+
+\begin{prf}[Demostracion de la Unicidad del Elemento Opuesto]{}
+La existencia de un numero b esta dada por el axioma 5, hay que demostrar que es unico. Suponiendo que existe $b'$ / $a+b'=b'+a=0$, tenemos que
+$$a+b=0 \land a+b'=0$$
+$$a+b = a+b'$$
+Y por propiedad cancelativa de la suma
+$$b=b'$$
+\end{prf}
+
+\begin{prf}[Demostracion de que el opuesto al opuesto de $a$ es $a$]{}
+Sea $b$ el opuesto de $a$, se puede concluir que $a+b=0 \land b=(-a) \land a=(-b)$\hfill$(1)\land(2)\land(3)$
+$$-(-a)\equals{(2)}-b\equals{(3)}a$$
+\end{prf}
+
+\begin{prf}[Demostracion de que el opuesto de 0 es 0]{}
+Por el axioma 5, todo numero real tiene su opuesto. Llamemos 0' al opuesto de 0, siendo $0+0'=0$ y\\
+Del axioma 3 se concluye que $0+0=0$
+$$si\ 0+0'=0 \land 0+0=0 \Rightarrow 0'=0$$
+\end{prf}
+
+\begin{prf}[Demostracion de que el producto de 0 con cualquier otro numero es 0]{}
+$$a.0 \equals{A4} a.0+0 \equals{A5} a.0+(a+(-a)) \equals{A2} (a.0+a)+(-a) \equals{A4} (a.0+a.1)+(-a) \equals{A3}$$
+$$a(0+1)+(-a) \equals{A4} a.1+(-a) \equals{A4} a+(-a) \equals{A5} 0$$
+\end{prf}
+
+\begin{prf}[$a(-b)=-(ab)=(-a)b$]{}
+$$
+a(-b) \equals{A4}
+a(-b)+0 \equals{A5}
+a(-b)+(ab+-(ab)) \equals{A2}
+(a(-b)+ab)+-(ab) \equals{A3}$$$$
+(a((-b)+b)+-(ab)) \equals{A5}
+a.0+-(ab) \equals{T2.3}
+0+-(ab) \equals{A4}
+-(ab)
+$$
+\end{prf}
+
+\begin{prf}[$(-a)(-b)=ab$]{}
+$$
+(-a)(-b) \equals{T2.4}
+-((-a)(-(-b))) \equals{T2.1}
+-((-a)b) \equals{T2.4}
+-(-(ab)) \equals{T2.1}
+ab
+$$
+\end{prf}
+
+\begin{prf}[$a(b-c)=ab-ac$]{}
+Por la definicion de diferencia, se puede reescribir como:
+$$
+a(b+(-c)) \equals{A3}
+ab+a(-c) \equals{T2.4}
+ab+-(ac)
+$$
+Que por la definicion de diferencia, se puede reescribir como: $ab-ac$
+\end{prf}
+
+
+\begin{prf}[$a<b \implies a+c<b+c$]{}
+$$
+a < b \impliesbecause{Def <}
+b - a \in \mathbb{R}^{+} \impliesbecause{A4}
+(b - a) + 0 \in \mathbb{R}^{+} \impliesbecause{A5}
+(b - a) + (c + -c) \in \mathbb{R}^{+} \impliesbecause{Def -}
+(b + -a) + (c + -c) \in \mathbb{R}^{+}
+$$
+
+Reescribiendo usando $A1$ y $A2$:
+
+$$
+(b + c) + (-a + -c) \in \mathbb{R}^{+} \impliesbecause{T?}
+(b + c) + -(a + c) \in \mathbb{R}^{+} \impliesbecause{Def -}
+(b + c) - (a + c) \in \mathbb{R}^{+} \impliesbecause{Def <}
+a + c < b + c
+$$
+\end{prf}
+
+\begin{prf}[$a<b \land c>0 \implies ac<bc$]{}
+Tenemos que:
+$c > 0 \implies c \in \mathbb{R}^{+}$
+
+Analizamos $a < b$:
+$$
+a < b \impliesbecause{Def <}
+b - a \in \mathbb{R}^{+} \impliesbecause{A7 y c > 0}
+(b - a)c \in \mathbb{R}^{+} \impliesbecause{A?}
+bc - ac \in \mathbb{R}^{+} \impliesbecause{Def <}
+ac < bc
+$$
+\end{prf}
+
+\begin{prf}[$a \neq 0 => a^{2} > 0$]{}
+
+Por la propiedad tricotómica, $a \neq 0 => a > 0 xor a < 0$. Analicemos los dos casos.
+
+Analizemos a > 0:
+$$
+a > 0 \impliesbecause{Def >}
+a - 0 \in \mathbb{R}^{+} \impliesbecause{Def -}
+a + -0 \in \mathbb{R}^{+} \impliesbecause{T?}
+a \in \mathbb{R}^{+} \impliesbecause{A?}
+a * a \in \mathbb{R}^{+} \impliesbecause{Def > y Def x^{2}}
+a^{2} > 0
+$$
+Analizamos a < 0:
+$$
+a < 0 \impliesbecause{Def <}
+0 - a \in \mathbb{R}^{+} \impliesbecause{Def -}
+0 + -a \in \mathbb{R}^{+} \impliesbecause{A?}
+-a \in \mathbb{R}^{+} \impliesbecause{A?}
+-a * -a \in \mathbb{R}^{+} \impliesbecause{T?}
+$$
+
+$$
+(-1 * a) * (-1 * a) \in \mathbb{R}^{+} \impliesbecause{A?}
+(-1 * -1) * (a * a) \in \mathbb{R}^{+} \impliesbecause{A?}
+1 * (a * a) \in \mathbb{R}^{+} \impliesbecause{A?}
+a * a \in \mathbb{R}^{+} \impliesbecause{Def > y Def x^{2}}
+a^{2} > 0 
+$$
+\end{prf}
+
+\begin{prf}[$1 \in \mathbb{R^{+}}$]{}
+
+Existen neutros, 0 y 1, $0 \neq 1$
+
+Ax 8, $1 \in \mathbb{R^{+}} xor -1 \in \mathbb{R^{+}}$
+
+Supongo $-1 \in \mathbb{R^{+}}$, entonces $1 \notin \mathbb{R^{+}}$
+
+Por Ax 7 $-1 * -1 \in \mathbb{R^{+}}$
+
+$-1 * -1 = 1 \in \mathbb{R^{+}}$, pero esto es una contradicción con lo supuesto
+\end{prf}
+
+\end{document}
