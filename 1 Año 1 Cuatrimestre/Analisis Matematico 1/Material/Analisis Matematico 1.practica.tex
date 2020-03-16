@@ -86,21 +86,47 @@ a(-b) \equals{A4}
 a(-b)+0 \equals{A5}
 a(-b)+(ab+-(ab)) \equals{A2}
 (a(-b)+ab)+-(ab) \equals{A3}$$$$
-(a((-b)+b)+-(ab)) \equals{A5}
+a((-b)+b)+-(ab) \equals{A5}
 a.0+-(ab) \equals{T2.3}
 0+-(ab) \equals{A4}
 -(ab)
 $$
+
+Y análogamente
+
+$$
+(-a)b \equals{A4}
+(-a)b+0 \equals{A5}
+(-a)b+(ab+-(ab)) \equals{A2}
+((-a)b+ab)+-(ab) \equals{A3}$$$$
+b((-a)+a)+-(ab) \equals{A5}
+b.0+-(ab) \equals{T2.3}
+0+-(ab) \equals{A4}
+-(ab)
+$$
+
+Reescribiendo
+
+$$a(-b)=-(ab)=(-a)b$$
 \end{prf}
 
 \begin{prf}[$(-a)(-b)=ab$]{}
-$$
-(-a)(-b) \equals{T2.4}
--((-a)(-(-b))) \equals{T2.1}
--((-a)b) \equals{T2.4}
--(-(ab)) \equals{T2.1}
-ab
-$$
+Analizamos la expresión $(-a)(-b)$, llamemos $c = -b$.
+Por el teorema anterior obtenemos:
+$$(-a)c = -(ac)$$
+
+Pero reemplzando por nuestra definición de $c = -b$, queda:
+$$-(ac) = -(a(-b))$$
+
+Que por la aplicación del mismo teorema nos da:
+$$-(a(-b)) = -(-(ab))$$
+
+Y finalmente por el teorema $-(-a) = a$:
+$$-(-(ab)) = ab$$
+
+Reescribiendo:
+$$(-a)(-b) = ab$$
+
 \end{prf}
 
 \begin{prf}[$a(b-c)=ab-ac$]{}
@@ -113,8 +139,168 @@ $$
 Que por la definicion de diferencia, se puede reescribir como: $ab-ac$
 \end{prf}
 
+\begin{prf}[Propiedad cancelativa del producto]{}
+Analicemos $ab = ac$, llamemos $d = ab = ba$ y además $d = ac = ca$:
+$$
+da^{-1} \equals{Def}
+(ba)a^{-1} \equals{Asoc}
+b(aa^{-1}) \equals{Asoc}
+b.1 \equals{Neutro}
+b
+$$
 
-\begin{prf}[$a<b \implies a+c<b+c$]{}
+Y análogamente:
+$$
+da^{-1} \equals{Def}
+(ca)a^{-1} \equals{Asoc}
+c(aa^{-1}) \equals{Recip}
+c.1 \equals{Neutro}
+c
+$$
+
+Reescribiendo:
+$$b = c$$
+\end{prf}
+
+\begin{prf}[Unidad del elemento neutro del producto]{}
+Sabemos que existe $1$, tal que $\forall a, a.1 = a$, supongamos que existe $1'$ que cumple lo mismo, entonces:
+$$a.1 = a \land a.1' = a$$
+Entonces:
+$$a.1 = a.1'$$
+Y por el teorema anterior:
+$$1 = 1'$$
+\end{prf}
+
+\begin{prf}[Unidad del elemento recíproco]{}
+Sabemos que $\forall a \exists b \in \mathbb{R} / ab = 1$, supongamos que existe $b'$ que cumple lo mismo, entonces:
+$$a.b = 1 \land a.b' = 1$$
+Entonces:
+$$a.b = a.b'$$
+Y por el teorema anterior:
+$$b = b'$$
+\end{prf}
+
+\begin{prf}[$\nexists 0^{-1}$]{}
+Asumimos $\exists 0^{-1} \in \mathbb{R}$ tal que
+$$0.0^{-1} = 1$$
+
+Pero por $a.0 = 0.a = 0, \forall a \in \mathbb{R}$
+$$0.0^{-1} = 0$$
+
+Esto es una contradicción a lo supuesto.
+$$\therefore \nexists 0^{-1}$$
+\end{prf}
+
+\begin{prf}[$1^{-1} = 1$]{}
+
+\lreqn{1^{-1} =}{<Existencia del elemento neutro del producto>}
+\lreqn{1.1^{-1} =}{<Existencia del elemento recíproco>}
+\lreqn{1}{}
+
+\end{prf}
+
+\begin{prf}[$\frac{a}{1} = a; a \neq 0, \frac{1}{a} = a^{-1}$]{}
+
+Analizamos $\frac{a}{1}$
+
+\lreqn{\frac{a}{1} =}{<Definición de cociente>}
+\lreqn{a.1^{-1} =}{<$1^{-1} = 1$>}
+\lreqn{a.1 =}{<Elemento neutro del producto>}
+\lreqn{a}
+
+Analizando $\frac{1}{a}$ cuando $a \neq 0$
+
+\lreqn{\frac{1}{a} =}{<Definición de cociente>}
+\lreqn{1.a^{-1} =}{<Elemento neutro del producto>}
+\lreqn{a^{-1}}
+
+\end{prf}
+
+\begin{prf}[$ab = 0 \Rightarrow a = 0 \lor b = 0$]{}
+
+Hay dos casos posibles para la expresión $ab = 0$:
+\vspace{5mm}\\
+\lreqn{ab = 0 \Rightarrow}{<$a = b \Rightarrow ac = bc$>}
+\lreqn{ab.b^{-1} = 0b^{-1} \Rightarrow}{<$a.0 = 0$>}
+\lreqn{ab.b^{-1} = 0 \Rightarrow}{<Propiedad asociativa>}
+\lreqn{a.(bb^{-1}) = 0 \Rightarrow}{<Existencia del elemento recíproco>}
+\lreqn{a.1 = 0 \Rightarrow}{<Existencia del elemento neutro del producto>}
+\lreqn{a = 0}{}
+
+\lreqn{ab = 0 \Rightarrow}{<$a = b \Rightarrow ca = cb$>}
+\lreqn{a^{-1}.ab = b^{-1}0 \Rightarrow}{<$0.a = 0$>}
+\lreqn{a^{-1}.ab = 0 \Rightarrow}{<Propiedad asociativa>}
+\lreqn{(a^{-1}a).b = 0 \Rightarrow}{<Existencia del elemento recíproco>}
+\lreqn{1.b = 0 \Rightarrow}{<Existencia del elemento neutro del producto>}
+\lreqn{b = 0}{}
+
+Como las dos afirmaciones son válidas:
+$$ab = 0 \Rightarrow a = 0 \lor b = 0$$
+
+\end{prf}
+
+\begin{prf}[$b \neq 0 \land d \neq 0 \Rightarrow (bd)^{-1} = b^{-1}.d^{-1}$]{}
+
+Analizamos la expresión $1 = 1$ que, por existencia del elemento neutro del producto, resulta ser equivalente a:
+$$1 = 1.1$$
+Observamos 3 cosas, por existencia y unicidad del elemento recíproco:
+$$bc.(bc)^{-1} = 1$$
+$$b.b^{-1} = 1$$
+$$c.c^{-1} = 1$$
+Y reemplazando en la expresión $1 = 1.1$:
+$$bc.(bc)^{-1} = (b.b^{-1}).(c.c^{-1})$$
+Que por propiedad asociativa y conmutativa del producto, reescribimos como:
+$$bc.(bc)^{-1} = bc.(b^{-1}.c^{-1})$$
+Y finalmente, por cancelativa del producto, obtenemos:
+$$(bc)^{-1} = b^{-1}.c^{-1}$$
+\end{prf}
+
+\begin{prf}[$b \neq 0 \land d \neq 0 \Rightarrow \frac{a}{b}+\frac{c}{d} = \frac{ad+cb}{bd}$]{}
+\vspace{5mm}
+\lreqn{\frac{a}{b}+\frac{c}{d} =}{<Definición de cociente>}
+\lreqn{ab^{-1}+cd^{-1} =}{<Existencia del elemento neutro del producto>}
+\lreqn{1.ab^{-1}+1.cd^{-1} =}{<Existencia del elemento recíproco>}
+\lreqn{(dd^{-1}).(ab^{-1})+(bb^{-1}).(cd^{-1}) =}{<Reescribiendo con propiedad conmutativa y asociativa>}
+\lreqn{(ad).(b^{-1}d^{-1})+(cb).(b^{-1}d^{-1}) =}{<$(ab)^{-1} = a^{-1}b^{-1}$>}
+\lreqn{(ad).(bd)^{-1}+(cb).(bd)^{-1} =}{<Propiedad distributiva>}
+\lreqn{(ad+cb).(bd)^{-1} =}{<Definición de cociente>}
+\lreqn{\frac{ad+cb}{bd}}{}
+$$\therefore \frac{a}{b}+\frac{c}{d} = \frac{ad+cb}{bd}$$
+\end{prf}
+
+\begin{prf}[$b \neq 0 \land d \neq 0 \Rightarrow \frac{a}{b}.\frac{c}{d} = \frac{ac}{bd}$]{}
+\vspace{5mm}
+\lreqn{\frac{a}{b}.\frac{c}{d} =}{<Definición de cociente>}
+\lreqn{(ab^{-1}).(cd^{-1}) =}{<Reescribniendo con propiedad conmutativa y asociativa>}
+\lreqn{(ac).(b^{-1}d^{-1}) =}{<$(ab)^{-1} = a^{-1}b^{-1}$>}
+\lreqn{(ac).(bd)^{-1} =}{<Definición de cociente>}
+\lreqn{\frac{ac}{bd}}{}
+$$\therefore \frac{a}{b}.\frac{c}{d} = \frac{ac}{bd}$$
+\end{prf}
+
+\begin{prf}[$a \neq 0 \land b \neq 0 \Rightarrow (\frac{a}{b})^{-1} = \frac{a^{-1}}{b^{-1}}$]{}
+
+\lreqn{\left(\frac{a}{b}\right)^{-1}}{<Definición de cociente>}
+\lreqn{\left(ab^{-1}\right)^{-1}}{<$(ab)^{-1} = a^{-1}.b^{-1}$>}
+\lreqn{a^{-1}\left(b^{-1}\right)^{-1}}{<Definición de cociente>}
+\lreqn{\frac{a^{-1}}{b^{-1}}}{}
+\end{prf}
+
+
+\begin{prf}[$\left(-1\right).a = -a$]{}
+
+\lreqn{-1.a =}{<Existencia del elemento neutro de la suma>}
+\lreqn{-1.a + 0 =}{<Existencia del elemento opuesto>}
+\lreqn{-1.a + (a + -a) =}{<Propiedad asociativa de la suma>}
+\lreqn{(-1.a + a) + -a =}{<Existencia del elemento neutro de la multiplicacion>}
+\lreqn{(-1.a + 1.a) + -a =}{<Propiedad distrubutiva>}
+\lreqn{a.(-1 + 1) + -a =}{<Existencia del elemento opuesto>}
+\lreqn{a.0 + -a =}{<$a.0 = 0$>}
+\lreqn{0 + -a =}{<Existencia del elemento neutro de la suma>}
+\lreqn{-a}{}
+\end{prf}
+
+\begin{prf}[$a<b \Rightarrow a+c<b+c$]{}
 $$
 a < b \impliesbecause{Def <}
 b - a \in \mathbb{R}^{+} \impliesbecause{A4}
@@ -133,9 +319,9 @@ a + c < b + c
 $$
 \end{prf}
 
-\begin{prf}[$a<b \land c>0 \implies ac<bc$]{}
+\begin{prf}[$a<b \land c>0 \Rightarrow ac<bc$]{}
 Tenemos que:
-$c > 0 \implies c \in \mathbb{R}^{+}$
+$c > 0 \Rightarrow c \in \mathbb{R}^{+}$
 
 Analizamos $a < b$:
 $$
@@ -147,9 +333,9 @@ ac < bc
 $$
 \end{prf}
 
-\begin{prf}[$a \neq 0 => a^{2} > 0$]{}
+\begin{prf}[$a \neq 0 \Rightarrow a^{2} > 0$]{}
 
-Por la propiedad tricotómica, $a \neq 0 => a > 0 xor a < 0$. Analicemos los dos casos.
+Por la propiedad tricotómica, $a \neq 0 \Rightarrow a > 0 xor a < 0$. Analicemos los dos casos.
 
 Analizemos a > 0:
 $$
@@ -157,7 +343,7 @@ a > 0 \impliesbecause{Def >}
 a - 0 \in \mathbb{R}^{+} \impliesbecause{Def -}
 a + -0 \in \mathbb{R}^{+} \impliesbecause{T?}
 a \in \mathbb{R}^{+} \impliesbecause{A?}
-a * a \in \mathbb{R}^{+} \impliesbecause{Def > y Def x^{2}}
+a.a \in \mathbb{R}^{+} \impliesbecause{Def > y Def x^{2}}
 a^{2} > 0
 $$
 Analizamos a < 0:
@@ -166,19 +352,19 @@ a < 0 \impliesbecause{Def <}
 0 - a \in \mathbb{R}^{+} \impliesbecause{Def -}
 0 + -a \in \mathbb{R}^{+} \impliesbecause{A?}
 -a \in \mathbb{R}^{+} \impliesbecause{A?}
--a * -a \in \mathbb{R}^{+} \impliesbecause{T?}
+(-a).(-a) \in \mathbb{R}^{+} \impliesbecause{T?}
 $$
 
 $$
-(-1 * a) * (-1 * a) \in \mathbb{R}^{+} \impliesbecause{A?}
-(-1 * -1) * (a * a) \in \mathbb{R}^{+} \impliesbecause{A?}
-1 * (a * a) \in \mathbb{R}^{+} \impliesbecause{A?}
-a * a \in \mathbb{R}^{+} \impliesbecause{Def > y Def x^{2}}
+(-1.a) * (-1.a) \in \mathbb{R}^{+} \impliesbecause{A?}
+(-1.-1).(aa) \in \mathbb{R}^{+} \impliesbecause{A?}
+1.(aa) \in \mathbb{R}^{+} \impliesbecause{A?}
+aa \in \mathbb{R}^{+} \impliesbecause{Def > y Def x^{2}}
 a^{2} > 0 
 $$
 \end{prf}
 
-\begin{prf}[$1 \in \mathbb{R^{+}}$]{}
+\begin{prf}[$1 \in \mathbb{R}^{+}$]{}
 
 Existen neutros, 0 y 1, $0 \neq 1$
 
