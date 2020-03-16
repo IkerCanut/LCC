@@ -174,9 +174,13 @@
 }
 
 \newcommand{\iffbecause}[1] {
-	\ensuremath{\overset{#1}{\iff}}
+	\ensuremath{\overset{#1}{\Leftrightarrow}}
 }
 
 \newcommand{\impliesbecause}[1] {
-	\ensuremath{\overset{#1}{\implies}}
+	\ensuremath{\overset{#1}{\Rightarrow}}
+}
+
+\newcommand{\lreqn}[2] {
+	\noindent\makebox[\linewidth]{$\displaystyle#1$\hfill#2}\vspace{2ex}
 }
