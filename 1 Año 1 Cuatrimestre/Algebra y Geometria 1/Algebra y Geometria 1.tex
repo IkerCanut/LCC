@@ -46,7 +46,7 @@
 Definimos el conjunto de los números complejos de la siguiente manera:
 $$\C = \{(a,b) \mid a,b \in \R \}$$
 O sea que $\C = \R \times \R$.\\
-Dado un $z = (a,b) \in \C$, llamamos parte real de $z$ al número real $a$ y la notamos $\textrm{Re}(z) = a$. Análogamente llamamos parte imaginaria a $b$ y la notamos $\textrm{Im}(z) = b$.\\
+Dado un $z = (a,b) \in \C$, llamamos parte real de $z$ al número real $a$ y la notamos $\text{Re}(z) = a$. Análogamente llamamos parte imaginaria a $b$ y la notamos $\text{Im}(z) = b$.\\
 Definimos para todo $z=(a,b) \in \C$ y $w=(c,d) \in \C$:
 $$z=w \Leftrightarrow a=c \land b=d$$
 $$z+w = (a+c,b+d)$$
@@ -59,24 +59,156 @@ Observamos:
 $$(a,b) = (a,0)+(0,b) = (a,0)+(b,0)(0,1)$$
 Ahora definimos:
 $$i = (0,1)$$
-Y usaremos esta notación para referirnos a este tipo de números complejos, $\forall a,b \in \R$:
+Y usaremos esta notación (binómica) para referirnos a este tipo de números complejos, $\forall a,b \in \R$:
 $$
 (a,b) = a+bi\\
 (a,0) = a\\
 (0,b) = bi\\
 $$
 \begin{prf}[$i^2 = -1$]{}
-\lreqn{i^2 =}{<Definición de cuadrado>}
-\lreqn{i.i =}{<Definición de $i$>}
-\lreqn{(0,1)(0,1) =}{<Definición de producto de complejos>}
-\lreqn{(0.0 - 1.1,1.0 + 0.1)}{}
-De esto resulta el número complejo (-1,0), que representa al número real -1.
+	\lreqn{i^2 =}{<Definición de cuadrado>}
+	\lreqn{i.i =}{<Definición de $i$>}
+	\lreqn{(0,1)(0,1) =}{<Definición de producto de complejos>}
+	\lreqn{(0.0 - 1.1,1.0 + 0.1)}{}
+	De esto resulta el número complejo (-1,0), que representa al número real -1.
 \end{prf}
 
 \subsection{Demostraciones}
 
 \begin{prf}[Conmutatividad de la suma]{}
-\lreqn{z+w}{<Definición de suma de complejos>}
+	Sean $z = (a,b), w = (c,d) \in \C$\\
+
+	\lreqn{z + w =}{<Definicion de suma de complejos>}
+	\lreqn{(a + c, b + d) =}{<Propiedad conmutativa de la suma de reales>}
+	\lreqn{(c + a, d + b) =}{<Definicion de suma de complejos>}
+	\lreqn{w + z}{}
+\end{prf}
+
+\begin{prf}[Conmutatividad del producto]{}
+	Sean $z = (a,b), w = (c,d) \in \C$:\\
+
+	\lreqn{zw =}{<Definicion de producto de complejos>}
+	\lreqn{(ac - bd, ad + cb) =}{<Propiedad conmutativa de suma y producto de reales>}
+	\lreqn{(ac - db, cb + da) =}{<Definicion de producto de complejos>}
+	\lreqn{wz}{}
+\end{prf}
+
+\begin{prf}[Asociatividad de la suma]{}
+	Sean $z = (a,b), u = (c,d), w = (e,f) \in \C$:\\
+
+	\lreqn{z + (u + w) =}{<Definicion de suma de complejos>}
+	\lreqn{z + (c + e, d + f) =}{<Definicion de suma de complejos>}
+	\lreqn{(a + (c + e), b + (d + f)) =}{<Propiedad asociativa de la suma de reales>}
+	\lreqn{((a + c) + e, (b + d) + f) =}{<Definicion de suma de complejos>}
+	\lreqn{(a + c, b + d) + w =}{<Definicion de suma de complejos>}
+	\lreqn{(z + u) + w}{}
+\end{prf}
+
+\begin{prf}[Propiedad distributiva de la multiplicación respecto de la suma]{}
+	Por definción de igualdad de complejos, dados $z, w \in \C$
+	$$z = w \Leftrightarrow \text{Re}(z) = \text{Re}(w) \land \text{Im}(z) = \text{Im}(w)$$
+	llamemos $z = (a,b), u = (c,d), w = (e,f)$\\
+	Demostramos $\text{Re}(z(uw)) = \text{Re}((zu)w)$\\
+	\lreqn{\text{Re}(z(uw)) =}{<Def mult complejos>}
+	\lreqn{(a\text{Re}(uw)) - (b\text{Im}(uw)) =}{<Def mult complejos>}
+	\lreqn{(a(ce - df)) - (b(cf + de)) =}{<Distributiva>}
+	\lreqn{(ace - adf) - (bcf + bde) =}{<Propiedad -(a+b) = -a - b>}
+	\lreqn{ace - adf - bcf - bde =}{<Conmutativa>}
+	\lreqn{ace - bde - adf - bcf =}{<Distributiva>}
+	\lreqn{(ac - bd)e - (ad + bc)f =}{<Def mult complejos>}
+	\lreqn{\text{Re}(zu)e - \text{Im}(zu)f =}{<Def mult complejos>}
+	\lreqn{\text{Re}((zu)w)}{}
+	Demostramos $\text{Im}(z(uw)) = \text{Im}((zu)w)$\\
+
+	\lreqn{\text{Im}(z(uw)) =}{<Def mult complejos>}
+	\lreqn{(b\text{Re}(uw)) + (a\text{Im}(uw)) =}{<Def mult comlpejos>}
+	\lreqn{(b(ce - df)) + (a(cf + de)) =}{<Distributiva>}
+	\lreqn{bce - bdf + acf + ade =}{<Conmutativa>}
+	\lreqn{bce + ade + acf - bdf =}{<Distributiva>}
+	\lreqn{(bc + ad)e + (ac - bd)f =}{<Def mult complejos>}
+	\lreqn{\text{Im}(zu)e + \text{Re}(zu)f =}{<Def mult complejos>}
+	\lreqn{\text{Im}((zu)w)}{}
+	\text{Re}escribiendo:
+	$$\text{Re}(z(uw)) = \text{Re}((zu)w) \land \text{Im}(z(uw)) = \text{Im}((zu)w)$$
+	que por definición de igualdad de complejos implica
+	$$z(uw) = (zu)w$$
+
+\end{prf}
+
+\begin{prf}[$\exists (0,0) \in \C / (0,0) + z = z$]{}
+	Sea $z = (a,b) \in \C$:\\
+
+	\lreqn{(0,0) + z =}{<Definicion de la suma de complejos>}
+	\lreqn{(0 + a, 0 + b) =}{<Existencia del elemento neutro de suma de reales>}
+	\lreqn{(a, b) =}{<Definicion de numero complejo>}
+	\lreqn{z}{}
+\end{prf}
+
+\begin{prf}[$\exists (1,0) \in \C / (1,0)z = z$]{}
+	Sea $z = (a,b) \in \C$:\\
+
+	\lreqn{(1,0)z =}{<Definicion del producto de complejos>}
+	\lreqn{(1a - 0b, 0a + 1b) =}{<Existencia del elemento neutro del producto de reales>}
+	\lreqn{(a - 0b, 0a + b) =}{<a0 = 0>}
+	\lreqn{(a - 0, 0 + b) =}{<Existencia del elemento neutro de la suma de reales>}
+	\lreqn{(a, b) =}{<Definicion de numero complejo>}
+	\lreqn{z}{}
+\end{prf}
+
+\begin{prf}[$\forall z = (a,b) \exists w = (-a,-b) / z + w = (0,0)$]{}
+	Sea $z = (a,b), w = (-a,-b) \in \C$\\
+
+	\lreqn{(0,0) =}{<Existencia del opuesto de la suma de reales>}
+	\lreqn{(a + -a, b + -b) =}{<Definición de suma de complejos>}
+	\lreqn{(a,b) + (-a,-b) =}{<sustituimos z = (a,b), w = (-a,-b)>}
+	\lreqn{z + w}{}
+	Por lo tanto:\\
+	$$\forall z = (a,b) \in \Z \exists w = (-a,-b) / z + w = (0,0)$$
+\end{prf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fucking asqueroso por dios no sé cómo se arregla esto %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prf}[$\forall z \neq (0,0) \exists w / zw = (1,0)$]{}
+	Llamemos z = (a,b) y llamemos w = (c,d).\\
+	Para que zw = (1,0), por definición de igualdad de complejos, tiene que ocurrir: 
+	\begin{equation}
+		\text{Re}(zw) = 1 \land \text{Im}(zw) = 0
+	\end{equation}
+	Que exista algún $w$ para todo $z$ implica entonces que podamos escribir $(c,d)$ en términos de $(a,b)$, basándonos en el siguiente sistema de ecuaciones:
+	\begin{align}
+		ac - bd &= 1\\
+		bc + ad &= 0\\
+		ac - bd &= 1\\
+		bc &= -ad\\
+		ac - bd &= 1\\
+		c &= -\frac{ad}{b}
+	\end{align}
+	Continuamos con la ecuación de arriba
+	\begin{align}
+		a\left(\frac{-ad}{b}\right) - bd =& 1\\
+		\left(\frac{-a^2}{b}\right)d - bd =& 1\\
+		\left(\frac{-a^2}{b} - b\right)d =& 1\\
+		\left(\frac{-a^2}{b} - \frac{b^2}{b}\right)d =& 1\\
+		\frac{-a^2 - b^2}{b}d =& 1\\
+		-\frac{a^2 + b^2}{b}d =& 1\\
+		d = -\frac{b}{a^2 + b^2}&
+	\end{align}
+	Reemplazando en la de abajo
+	\begin{align}
+		c &= \left(-\frac{a}{b}\right)\left(-\frac{b}{a^2 + b^2}\right)\\
+		c &= \frac{a}{b}\frac{b}{a^2 + b^2}\\
+		c &= \frac{a}{a^2 + b^2}
+	\end{align}
+	La demostración queda entonces:
+	$\forall z = (a,b) \neq (0,0)$, supongo un $w = \left(\frac{a}{a^2 + b^2}, -\frac{b}{a^2 + b^2}\right)$ y muestro que $zw = (1,0)$
+	\begin{align}
+		zw = \left(a\frac{a}{a^2 + b^2} - b\frac{-b}{a^2 + b^2}, b\frac{a}{a^2 + b^2} + a\frac{-b}{a^2 + b^2}\right)\\
+		\left(\frac{a^2}{a^2 + b^2} + \frac{b^2}{a^2 + b^2}, \frac{ba}{a^2 + b^2} - \frac{ab}{a^2 + b^2}\right)\\
+		\left(\frac{a^2 + b^2}{a^2 + b^2}, \frac{ba - ab}{a^2 + b^2}\right) = (1,0)
+	\end{align}
+	$$\therefore \forall z = (a,b) \neq (0,0), \exists w = (\frac{a}{a^2 + b^2}, -\frac{b}{a^2 + b^2}) / zw = (1,0)$$
 \end{prf}
 
 \end{document}
