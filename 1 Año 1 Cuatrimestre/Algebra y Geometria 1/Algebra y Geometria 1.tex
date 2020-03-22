@@ -283,5 +283,71 @@ Fun Fact
 	$$z = \pm \sqrt{|a|}i$$
 
 \end{prf}
-Dado $z = a + bi$, llamamos conjugado de $z$ al número complejo $a-bi$ y lo notamos $\overline{z}$.
+Dado $z = a+bi$, llamamos conjugado de $z$ al número complejo $a-bi$ y lo notamos $\overline{z}$.
+
+\begin{prf}[Distributiva del conjugado respecto de la suma]{}
+	Sean $z = a+bi$, $w = c+di \in \C$\\
+
+	\lreqn{\overline{z+w}}{}
+	\lreqn{\overline{(a+bi)+(c+di)}}{}
+	\lreqn{\overline{(a+c)+(b+d)i}}{<Definición de conjugado>}
+	\lreqn{(a+c)-(b+d)i}{<Distribuyendo $-i$>}
+	\lreqn{a+c-bi-di}{<Reescribiendo>}
+	\lreqn{(a-bi)+(c-di)}{<Definición de conjugado>}
+	\lreqn{\overline{z}+\overline{w}}{}
+\end{prf}
+
+\begin{prf}[Distributiva del conjugado respecto del producto]{}
+	Sean $z = a+bi$, $w = c+di \in \C$\\
+
+	\lreqn{\overline{zw}}{<Hipótesis>}
+	\lreqn{\overline{(a+bi)(c+di)}}{<Distribuyendo>}
+	\lreqn{\overline{(ac-bd)+(bc+ad)i}}{<Definición de conjugado>}
+	\lreqn{(ac-bd)-(bc+ad)i}{<Distribuyendo $-1$>}
+	\lreqn{(ac-bd)+((-b)c+a(-d))i}{<$bd = (-d)(-b)$>}
+	\lreqn{(ac-(-b)(-d))+((-b)c+a(-d))i}{<Distribuyendo $i$ y reescribiendo>}
+	\lreqn{ac+(-b)c.i+a(-d).i-(-b)(-d)}{$-1 = i^2$}
+	\lreqn{ac+(-b)c.i+a(-d).i-(-b)d.i^2}{<Factor común $c$ y $-di$>}
+	\lreqn{(a-bi)c-(a-bi)di}{<Factor común $a-bi$>}
+	\lreqn{(a-bi)(c-di)}{<Definición de conjugado>}
+	\lreqn{\overline{z}\overline{w}}{}
+\end{prf}
+
+\begin{prf}[$z = \overline{z} \Leftrightarrow z \in \R$]{}
+	Sea $z = a+bi = \overline{z} = a-bi, z \in \C$\\
+
+	\lreqn{z = \overline{z}}{<Hipótesis>}
+	\lreqn{a+bi = a-bi}{<Propiedad cancelativa de la suma>}
+	\lreqn{bi = -bi}{<Sumando $bi$ en ambos lados>}
+	\lreqn{2bi = 0}{<Multiplicando $(2i)^{-1}$ en ambos lados>}
+	\lreqn{b = 0}{}
+	$$z = a+0i = a \in R$$
+	Sea $a \in \R$\\
+
+	\lreqn{a = a}{<Elemento neutro de la suma>}
+	\lreqn{a+0 = a+0}{$0x = 0$}
+	\lreqn{a+0i = a+0(-i)}{<Definición de conjugado>}
+	\lreqn{a+0i = \overline{a+0i}}{<Llamemos $z = a+0i$}
+	\lreqn{z = \overline{z}}{}
+	$$z = a \in \R \Rightarrow z = \overline{z}$$
+
+	$$\therefore z = \overline{z} \Leftrightarrow z \in \R$$
+\end{prf}
+
+\begin{prf}[$z\overline{z} = \text{Re}(z)^2+\text{Im}(z)^2$]{}
+	Sea $z = a+bi, z \in \C$\\
+
+	\lreqn{z\overline{z}}{<Hipótesis y definición de conjugado>}
+	\lreqn{(a+bi)(a-bi)}{<Distribuyendo>}
+	\lreqn{a^2+ab.i-ab.i-(bi)^2}{<Resolviendo>}
+	\lreqn{a^2-(bi)^2}{<Distribuyendo>}
+	\lreqn{a^2-b^2i^2}{<$i^2 = -1$>}
+	\lreqn{a^2-b^2.(-1)}{}
+	\lreqn{a^2+b^2}{<$a = \text{Re}(z), b = \text{Im}(z)$>}
+	\lreqn{\text{Re}(z)^2+\text{Im}(z)^2}{}
+\end{prf}
+Fun Fact 2. $z = a+bi \in \C z \neq 0$
+$$\frac{1}{z} = \frac{1}{z}\frac{\overline{z}}{\overline{z}} = \frac{\overline{z}}{z\overline{z}} = \frac{a-bi}{a^2+b^2} = \frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}i$$
+Fun Fact 2.5. $w = a+bi \in \C w \neq 0$
+$$\frac{z}{w} = \frac{z}{w}\frac{\overline{w}}{\overline{w}} = \frac{z\overline{w}}{w\overline{w}} = \frac{z\overline{w}}{a^2+b^2}$$
 \end{document}
