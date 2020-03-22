@@ -51,28 +51,6 @@ Definimos para todo $z=(a,b) \in \C$ y $w=(c,d) \in \C$:
 $$z=w \Leftrightarrow a=c \land b=d$$
 $$z+w = (a+c,b+d)$$
 $$zw = (ac-bd,bc+ad)$$
-Identificamos al conjunto:
-$$\C_0 = \{ z \mid z = (a,0) \in \C, \forall a \in \R \}$$
-que tiene una correspondencia
-$$x \in \R \leftrightarrow (x,0) \in \C_0$$
-Observamos:
-$$(a,b) = (a,0)+(0,b) = (a,0)+(b,0)(0,1)$$
-Ahora definimos:
-$$i = (0,1)$$
-Y usaremos esta notación (binómica) para referirnos a este tipo de números complejos, $\forall a,b \in \R$:
-$$
-(a,b) = a+bi\\
-(a,0) = a\\
-(0,b) = bi\\
-$$
-\begin{prf}[$i^2 = -1$]{}
-	\lreqn{i^2 =}{<Definición de cuadrado>}
-	\lreqn{i.i =}{<Definición de $i$>}
-	\lreqn{(0,1)(0,1) =}{<Definición de producto de complejos>}
-	\lreqn{(0.0 - 1.1,1.0 + 0.1)}{}
-	De esto resulta el número complejo (-1,0), que representa al número real -1.
-\end{prf}
-
 \subsection{Demostraciones}
 
 \begin{prf}[Conmutatividad de la suma]{}
@@ -202,7 +180,7 @@ $$
 		c &= \frac{a}{a^2 + b^2}
 	\end{align}
 	La demostración queda entonces:
-	$\forall z = (a,b) \neq (0,0)$, supongo un $w = \left(\frac{a}{a^2 + b^2}, -\frac{b}{a^2 + b^2}\right)$ y muestro que $zw = (1,0)$
+	$\forall z = (a,b) \neq (0,0)$, supongo un $w = \left(\dfrac{a}{a^2 + b^2}, -\dfrac{b}{a^2 + b^2}\right)$ y muestro que $zw = (1,0)$
 	\begin{align}
 		zw = \left(a\frac{a}{a^2 + b^2} - b\frac{-b}{a^2 + b^2}, b\frac{a}{a^2 + b^2} + a\frac{-b}{a^2 + b^2}\right)\\
 		\left(\frac{a^2}{a^2 + b^2} + \frac{b^2}{a^2 + b^2}, \frac{ba}{a^2 + b^2} - \frac{ab}{a^2 + b^2}\right)\\
@@ -211,4 +189,99 @@ $$
 	$$\therefore \forall z = (a,b) \neq (0,0), \exists w = (\frac{a}{a^2 + b^2}, -\frac{b}{a^2 + b^2}) / zw = (1,0)$$
 \end{prf}
 
+% la unicidad queda para el lector %
+
+Llamamos $\C_0$ al conjunto $\left\{ z \mid z = (a,0) \in \C, \forall a \in \R \right\}$.\\
+Definimos $z - w = z + (-w)$.\\
+Definimos $\dfrac{z}{w} con w \neq (0,0), zw^{-1}$
+
+\begin{prf}[Suma cerrada en $\C_0$]{}
+	Sean $z = (a,0), w = (b,0) \in \C_0$\\
+
+	\lreqn{z+w=}{<Definición de suma de complejos>}
+	\lreqn{(a+b,0+0)=}{}
+	\lreqn{(a+b,0)=}{}
+
+	si llamamos $a+b=c$, entonces $(c,0) \in \C_0$ por definición
+\end{prf}
+
+\begin{prf}[Producto cerrado en $\C_0$]{}
+	Sean $z = (a,0), w = (b,0) \in \C_0$\\
+
+	\lreqn{zw=}{<Definición de producto de complejos>}
+	\lreqn{(ab - 0.0, 0b + 0a)=}{}
+	\lreqn{(ab,0+0)=}{}
+	\lreqn{(ab,0)=}{}
+
+	si llamamos $ab=c$, entonces $(c,0) \in \C_0$ por definición
+\end{prf}
+
+\begin{prf}[Producto cerrado en $\C_0$]{}
+	Sean $z = (a,0), w = (b,0) \in \C_0$\\
+
+	\lreqn{zw=}{<Definición de producto de complejos>}
+	\lreqn{(ab - 0.0, 0b + 0a)=}{}
+	\lreqn{(ab,0+0)=}{}
+	\lreqn{(ab,0)=}{}
+
+	si llamamos $ab=c$, entonces $(c,0) \in \C_0$ por definición
+\end{prf}
+
+\begin{prf}[Opuesto y recíproco cerrado en $\C_0$]{}
+	Sea $z = (a,0), \in \C_0$
+	$$-z = (-a,0) \in \C_0$$
+	Sea $z = (a,0) \neq (0,0), \in \C_0$
+	$$z^{-1} = (a^{-1},0) \in \C_0$$
+\end{prf}
+
+\begin{prf}[Cociente cerrado en $\C_0$]{}
+	Sean $z = (a,0), w = (b,0) \neq (0,0) \in \C_0$\\
+
+	\lreqn{\frac{z}{w}=}{<Definición de cociente de complejos>}
+	\lreqn{zw^{-1}}{}
+
+	Como el producto es cerrado en $\C_0$, $\dfrac{z}{w} \in \C_0$
+\end{prf}
+Notamos la correspondecia:
+$$x \in \R \leftrightarrow (x,0) \in \C_0$$
+Ahora definimos:
+$$i = (0,1)$$
+\begin{prf}[$\forall (a,b) \in \C$, $(a,b)$ puede escribirse $a + bi$]{}
+	\lreqn{(a,b)}{<Definición de suma de complejos>}
+	\lreqn{(a,0) + (0,b)}{}
+	\lreqn{(a,0) + (0 - 0, 1b + 0)}{}
+	\lreqn{(a,0) + (0.b - 1.0, 1b + 0.0)}{<Definición de producto de complejos>}
+	\lreqn{(a,0) + (b,0)(0,1)}{<Definición de $i$>}
+	\lreqn{(a,0) + (b,0)i}{<Notación de elementos de $\C_0$>}
+	\lreqn{a + bi}{}
+\end{prf}
+Entonces usaremos esta notación para referirnos a este tipo de números complejos, $\forall a,b \in \R$:
+\begin{align}
+	(a,0) &= a\\
+	(0,b) &= bi
+	(a,b) &= a+bi\\
+\end{align}
+La última se llama notación binómica de los números complejos.
+\begin{prf}[$i^2 = -1$]{}
+	\lreqn{i^2 =}{<Definición de cuadrado>}
+	\lreqn{i.i =}{<Definición de $i$>}
+	\lreqn{(0,1)(0,1) =}{<Definición de producto de complejos>}
+	\lreqn{(0.0 - 1.1,1.0 + 0.1)}{}
+	De esto resulta el número complejo $(-1,0)$, que representa al número real $-1$.
+	Notamos que hacer raíz cuadrada de ambos lados nos deja $\pm i = \sqrt{-1}$.
+\end{prf}
+
+Fun Fact
+\begin{prf}[$a \in \R, a < 0, z^2 = a \Leftrightarrow z = \pm\sqrt{|a|}i$]{}
+	Sabemos que $z^2 = a$, pero por definición de valor absoluto
+	$$z^2 = -|a|, z^2 = -1|a|$$
+	Al hacer raíz cuadrada de ambos lados
+	$$\pm z = \sqrt{-1|a|}$$
+	Que reescribiendo sería
+	$$z = \mp \sqrt{|a|}\sqrt{-1}$$
+	Finalmente por definición de $i$
+	$$z = \pm \sqrt{|a|}i$$
+
+\end{prf}
+Dado $z = a + bi$, llamamos conjugado de $z$ al número complejo $a-bi$ y lo notamos $\overline{z}$.
 \end{document}
