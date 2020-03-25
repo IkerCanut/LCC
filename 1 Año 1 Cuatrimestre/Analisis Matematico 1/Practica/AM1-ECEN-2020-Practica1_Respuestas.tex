@@ -493,9 +493,112 @@ Como llamamos a los números en $\R^+$ positivos, a sus opuestos los llamaremos 
 	\lreqn{-b < -a}{}
 \end{prf}
 
-\begin{prf}[$ab > 0 \Leftrightarrow a,b \in \R^+ \lor (-a),(-b) \in \R^+)$]{}
+\begin{prf}[$ab > 0 \Leftrightarrow a,b \in \R^+ \lor -a,-b \in \R^+$]{}
+	Sean $a,b \in \R, ab > 0$:\\
+	Asumo $a \in \R^+, -b \in \R^+$. Por axioma
+	$$ a(-b) \in \R^+$$
+	$$ -ab \in \R^+$$
+	Pero como $ab \in \R^+$ entonces no puede ser $-ab \in \R^+$.
+	Esto es una contradicción con la suposición de que $a \in \R^+, -b \in \R^+$.\\
+	Analogamente se puede demostrar para el caso $b \in \R^+, -a \in \R^+$. Por lo tanto
+
+	$$ab > 0 \Rightarrow a,b \in \R^+ \lor -a,-b \in \R^+$$
+	Sean $a,b \in \R^+$
+
+	\lreqn{a,b \in \R^+}{<Producto cerrado en $\R^+$>}
+	\lreqn{ab \in \R^+}{<$a > 0 \Leftrightarrow a \in \R^+$>}
+	\lreqn{ab > 0}{}
+	Sean $-a,-b \in \R^+$
+
+	\lreqn{-a,-b \in \R^+}{<Producto cerrado en $\R^+$>}
+	\lreqn{(-a)(-b) \in \R^+}{<$a > 0 \Leftrightarrow a \in \R^+$>}
+	\lreqn{(-a)(-b) > 0}{<$ab = (-a)(-b)$}
+	\lreqn{ab > 0}{}
+	Por lo tanto
+	$$a,b \in \R^+ \lor -a,-b \in \R^+ \Rightarrow ab > 0$$
+	Finalmente
+	$$\therefore ab > 0 \Leftrightarrow a,b \in \R^+ \lor -a,-b \in \R^+$$
 \end{prf}
 
+\begin{prf}[$ab < 0 \Leftrightarrow a,-b \in \R^+ \lor -a,b \in \R^+$]{}
+	Sean $a,b \in \R, ab < 0$:\\
+	$ab < 0$ implica que $-ab \in \R^+$\\
+	Asumo $a \in \R^+, b \in \R^+$. Por axioma
+	$$ab \in \R^+$$
+	Pero como $-ab \in \R^+$ entonces no puede ser $ab \in \R^+$.
+	Esto es una contradicción con la suposición de que $a \in \R^+, b \in \R^+$.\\
+	Asumo $-a \in \R^+, -b \in \R^+$. Por axioma
+	$$(-a)(-b) \in \R^+$$
+	Por $ab = (-a)(-b)$
+	$$ab \in \R^+$$
+	Pero como $-ab \in \R^+$ entonces no puede ser $ab \in \R^+$.
+	Esto es una contradicción con la suposición de que $-a \in \R^+, -b \in \R^+$.\\
 
+	$$ab < 0 \Rightarrow a,-b \in \R^+ \lor -a,b \in \R^+$$
+	Sean $a,-b \in \R^+$
 
+	\lreqn{a,-b \in \R^+}{<Producto cerrado en $\R^+$>}
+	\lreqn{a(-b) \in \R^+}{<$-ab = a(-b)$>}
+	\lreqn{-ab \in \R^+}{<Elemento neutro de la suma>}
+	\lreqn{0 + -ab \in \R^+}{<Definición de resta>}
+	\lreqn{0 - ab \in \R^+}{<Definición de $<$>}
+	\lreqn{ab < 0}{}
+	Análogamente se demuestra para el caso $-a,b$, pues $(-a)b = a(-b)$.
+	Por lo tanto
+	$$a,-b \in \R^+ \lor a,-b \in \R^+ \Rightarrow ab < 0$$
+	Finalmente
+	$$\therefore ab < 0 \Leftrightarrow a,-b \in \R^+ \lor a,-b \in \R^+$$
+\end{prf}
+
+\begin{prf}[$a > 0 \Leftrightarrow \dfrac{1}{a} > 0$]{}
+	Sea $a \in \R, a > 0$:\\
+	Suponemos $\dfrac{1}{a} < 0$\\
+
+	\lreqn{\dfrac{1}{a} < 0}{<Definición de $<$ y de cociente>}
+	\lreqn{0 - a^{-1} \in \R^+}{<Definición de resta>}
+	\lreqn{0 + -a^{-1} \in \R^+}{<Elemento neutro de la suma>}
+	\lreqn{-a^{-1} \in \R^+}{<Producto cerrado en $\R^+$>}
+	\lreqn{-a^{-1}a \in \R^+}{<$-a = (-1).a$>}
+	\lreqn{(-1).a^{-1}a \in \R^+}{<Existencia del recíproco>}
+	\lreqn{(-1).1 \in \R^+}{<Elemento neutro del producto>}
+	\lreqn{-1 \in \R^+}{}
+	Pero $1 \in \R^+$, entonces por axioma, no puede ser $-1 \in \R^+$.
+	Esto es una contradicción.
+
+	$$\therefore a > 0 \Rightarrow \dfrac{1}{a} > 0$$
+	Sea $a \in \R, a \neq 0, \dfrac{1}{a} > 0$:\\
+	Suponemos $a < 0$\\
+
+	\lreqn{a < 0}{<$a < 0 \Rightarrow -a > 0$>}
+	\lreqn{-a > 0}{<$a < b \land c > 0 \Rightarrow ac < bc$>}
+	\lreqn{-a.\dfrac{1}{a} > 0.\dfrac{1}{a}}{<$a.0 = 0$ y Definición de cociente>}
+	\lreqn{-aa^{-1} > 0}{<$-a = (-1).a$>}
+	\lreqn{(-1).aa^{-1} > 0}{<Existencia del recíproco>}
+	\lreqn{(-1).1 > 0}{<Elemento neutro del producto>}
+	\lreqn{(-1) > 0}{<$a < 0 \Rightarrow -a > 0$>}
+	\lreqn{1 < 0}{<Definición de $<$>}
+	Pero $1 > 0$. Esto es una contradicción. Y por propiedad tricotómica y $a \neq 0$
+
+	$$\therefore \dfrac{1}{a} > 0 \Rightarrow a > 0$$
+
+	$$\therefore a > 0 \Leftrightarrow \dfrac{1}{a} > 0$$
+\end{prf}
+
+\begin{prf}[$0 < a < b \Rightarrow 0 < \dfrac{1}{b} < \dfrac{1}{a}$]{}
+	Sean $a,b \in \R, 0 < a < b$:\\
+	Por la demostración anterior
+	$$a > 0 \Leftrightarrow \dfrac{1}{a} > 0$$
+	Por propiedad transitiva de la relación de menor, $0 < b$, entonces
+	$$b > 0 \Leftrightarrow \dfrac{1}{b} > 0$$
+	Analicemos $a < b$\\
+	\lreqn{a < b}{<Definición de $<$>}
+	\lreqn{b - a \in \R^+}{<Producto cerrado en $\R^+$>}
+	\lreqn{(b - a)b^{-1}a^{-1} \in \R^+}{<Distributiva>}
+	\lreqn{bb^{-1}a^{-1} - ab^{-1}a^{-1} \in \R^+}{<Existencia del elemento recíproco>}
+	\lreqn{1.a^{-1} - 1.b^{-1} \in \R^+}{<Elemento neutro del producto>}
+	\lreqn{a^{-1} - b^{-1} \in \R^+}{<Definición de $<$>}
+	\lreqn{b^{-1} < a^{-1}}{<Definición de cociente>}
+	\lreqn{\dfrac{1}{b} < \dfrac{1}{a}}{}
+	$$0 < a < b \Rightarrow 0 < \dfrac{1}{b} < \dfrac{1}{a}$$
+\end{prf}
 \end{document}
