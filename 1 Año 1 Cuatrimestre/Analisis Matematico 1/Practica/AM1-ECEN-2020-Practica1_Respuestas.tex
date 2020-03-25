@@ -391,81 +391,111 @@ Como llamamos a los números en $\R^+$ positivos, a sus opuestos los llamaremos 
 	$$\therefore a < b\hspace{2mm}\veebar\hspace{2mm} a = b \hspace{2mm}\veebar\hspace{2mm} a > b$$
 \end{prf}
 
+\begin{prf}[Propiedad Transitiva del Menor]{}
+	Sean $a,b,c \in \R$, tal que $a < b$ y $b < c$:\\
+	Observamos que $b - a, c - b \in \R^+$\\
+
+	\lreqn{b - a \in \R^+}{<Axioma $a, b \in \R^+ \Rightarrow a+b \in \R^+$}
+	\lreqn{(b - a) + (c - b) \in \R^+}{<Reescribiendo>}
+	\lreqn{(c - a) + (b - b) \in \R^+}{<Existencia del opuesto>}
+	\lreqn{(c - a) + 0 \in \R^+}{<Elemento neutro de la suma>}
+	\lreqn{c - a \in \R^+}{<Definición de $<$>}
+	\lreqn{a < c}{<Definición de $<$>}
+\end{prf}
+
 \begin{prf}[$a<b \Rightarrow a+c<b+c$]{}
-$$
-a < b \impliesbecause{Def <}
-b - a \in \R^{+} \impliesbecause{A4}
-(b - a) + 0 \in \R^{+} \impliesbecause{A5}
-(b - a) + (c + -c) \in \R^{+} \impliesbecause{Def -}
-(b + -a) + (c + -c) \in \R^{+}
-$$
+	Sean $a,b,c \in \R$:\\
 
-Reescribiendo usando $A1$ y $A2$:
+	\lreqn{a < b}{Def <}
+	\lreqn{b - a \in \R^+}{<Elemento neutro de la suma>}
+	\lreqn{(b - a) + 0 \in \R^+}{<Existencia del opuesto>}
+	\lreqn{(b - a) + (c + -c) \in \R^+}{<Definición de $<$>}
+	\lreqn{(b + -a) + (c + -c) \in \R^+}{<Reescribiendo>}
+	\lreqn{(b + c) + (-a + -c) \in \R^+}{<$-(a+b)=(-a)+(-b)$}
+	\lreqn{(b + c) + -(a + c) \in \R^+}{<Definición de resta>}
+	\lreqn{(b + c) - (a + c) \in \R^+}{Definición de $<$>}
+	\lreqn{a + c < b + c}{}
+\end{prf}
 
-$$
-(b + c) + (-a + -c) \in \R^{+} \impliesbecause{T?}
-(b + c) + -(a + c) \in \R^{+} \impliesbecause{Def -}
-(b + c) - (a + c) \in \R^{+} \impliesbecause{Def <}
-a + c < b + c
-$$
+\begin{prf}[$a<b \land c<d \Rightarrow a+c<b+d$]{}
+	Sean $a,b,c,d \in \R$\\
+	$a<b$ o sea $b-a \in \R^+$, $c<d$ o sea $d-c \in \R^+$:\\
+
+	\lreqn{a < b}{<Definición de $<$>}
+	\lreqn{b - a \in \R^+}{<Axioma $a,b \in \R^+ \Rightarrow a+b \in \R^+$}
+	\lreqn{(b - a) + (d - c) \in \R^+}{<Reescribiendo>}
+	\lreqn{(b+d) - a - c \in \R^+}{<$-a-b = -(a+b)$>}
+	\lreqn{(b+d) - (a+c) \in \R^+}{<Definición de $<$>}
+	\lreqn{a+c < b+d}{}
 \end{prf}
 
 \begin{prf}[$a<b \land c>0 \Rightarrow ac<bc$]{}
-Tenemos que:
-$c > 0 \Rightarrow c \in \R^{+}$
+	Sean $a,b,c \in \R, c>0$:\\
+	Observamos $c>0 \Rightarrow c \in \R^+$\\
 
-Analizamos $a < b$:
-$$
-a < b \impliesbecause{Def <}
-b - a \in \R^{+} \impliesbecause{A7 y c > 0}
-(b - a)c \in \R^{+} \impliesbecause{A?}
-bc - ac \in \R^{+} \impliesbecause{Def <}
-ac < bc
-$$
+	\lreqn{a < b}{<Definición de $<$>}
+	\lreqn{b - a \in \R^+}{<Axioma $a,b \in \R^+ \Rightarrow ab \in \R^+$}
+	\lreqn{(b - a)c \in \R^+}{<Propiedad distributiva>}
+	\lreqn{bc - ac \in \R^+}{<Definición de $<$>}
+	\lreqn{ac < bc}{}
 \end{prf}
 
-\begin{prf}[$a \neq 0 \Rightarrow a^{2} > 0$]{}
+\begin{prf}[$a<b \land c<0 \Rightarrow ac>bc$]{}
+	Sean $a,b,c \in \R, c<0$:\\
+	Observamos $c<0 \Rightarrow -c \in \R^+$\\
 
-Por la propiedad tricotómica, $a \neq 0 \Rightarrow a > 0 xor a < 0$. Analicemos los dos casos.
-
-Analizemos a > 0:
-$$
-a > 0 \impliesbecause{Def >}
-a - 0 \in \R^{+} \impliesbecause{Def -}
-a + -0 \in \R^{+} \impliesbecause{T?}
-a \in \R^{+} \impliesbecause{A?}
-a.a \in \R^{+} \impliesbecause{Def > y Def x^{2}}
-a^{2} > 0
-$$
-Analizamos a < 0:
-$$
-a < 0 \impliesbecause{Def <}
-0 - a \in \R^{+} \impliesbecause{Def -}
-0 + -a \in \R^{+} \impliesbecause{A?}
--a \in \R^{+} \impliesbecause{A?}
-(-a).(-a) \in \R^{+} \impliesbecause{T?}
-$$
-
-$$
-(-1.a) * (-1.a) \in \R^{+} \impliesbecause{A?}
-(-1.-1).(aa) \in \R^{+} \impliesbecause{A?}
-1.(aa) \in \R^{+} \impliesbecause{A?}
-aa \in \R^{+} \impliesbecause{Def > y Def x^{2}}
-a^{2} > 0 
-$$
+	\lreqn{a < b}{<Definición de $<$>}
+	\lreqn{b - a \in \R^+}{<Axioma $a,b \in \R^+ \Rightarrow ab \in \R^+$}
+	\lreqn{(b - a)(-c) \in \R^+}{<$a = (-1).a$>}
+	\lreqn{(b - a)c.(-1) \in \R^+}{<Propiedad distributiva>}
+	\lreqn{(bc - ac).-1 \in \R^+}{<$a = (-1).a$>}
+	\lreqn{-(bc - ac) \in \R^+}{<$-(a-b) = b-a$>}
+	\lreqn{ac - bc \in \R^+}{<Definición de $>$>}
+	\lreqn{ac > bc}{}
 \end{prf}
 
-\begin{prf}[$1 \in \R^{+}$]{}
+\begin{prf}[$a \neq 0 \Rightarrow a^2 > 0$]{}
+	Sea $a \in \R, a \neq 0$
+	Por la propiedad tricotómica, $a \neq 0\ \veebar\ a > 0\ \veebar\ a < 0$.
+	Pero $a \neq 0$, entonces $a > 0\ \veebar\ a < 0$.\\
 
-Existen neutros, 0 y 1, $0 \neq 1$
-
-Ax 8, $1 \in \R^+ xor -1 \in \R^+$
-
-Supongo $-1 \in \R^+$, entonces $1 \notin \R^+$
-
-Por Ax 7 $-1 * -1 \in \R^+$
-
-$-1 * -1 = 1 \in \R^+$, pero esto es una contradicción con lo supuesto
+	\begin{itemize}
+		\item Caso 1, $a > 0$ o sea $a \in \R^+$:\\
+		Por axioma $a,b \in \R^+ \Rightarrow ab \in \R^+$
+		$$aa \in \R^+ \Leftrightarrow a^2 \in \R^+$$
+		\item Caso 2, $a < 0$ o sea $-a \in \R^+$:\\
+		Por axioma $a,b \in \R^+ \Rightarrow ab \in \R^+$
+		$$(-a)(-a) \in \R^+$$
+		Que por $(-a)(-a) = aa$
+		$$aa \in \R^+ \Leftrightarrow a^2 \in \R^+$$
+	\end{itemize}
 \end{prf}
+
+\begin{prf}[$1 \in \R^+$]{}
+	Existen neutros, 0 y 1, $0 \neq 1$\\
+	Por axioma $1 \in \R^+\ \veebar\ -1 \in \R^+$.
+	Supongo $-1 \in \R^+$, entonces $1 \notin \R^+$\\
+	\lreqn{-1 \in \R^+}{<Axioma $a,b \in \R^+ \Leftarrow ab \in \R^+$}
+	\lreqn{(-1).(-1) \in \R^+}{<$aa = (-a)(-a)$>}
+	\lreqn{1 \in \R^+}{}
+	Pero esto es una contradicción con lo supuesto.
+\end{prf}
+
+\begin{prf}[$a < b \Leftarrow -b < -a$]{}
+	Sean $a,b \in \R, a < b$:\\
+
+	\lreqn{a < b}{<Definición de $<$}
+	\lreqn{b - a \in \R^+}{<Definición de resta>}
+	\lreqn{b + (-a) \in \R^+}{<$a = -(-a)$>}
+	\lreqn{-(-b) + (-a) \in \R^+}{<Conmutativa>}
+	\lreqn{(-a) + -(-b) \in \R^+}{<Definición de resta>}
+	\lreqn{(-a) - (-b) \in \R^+}{<Definición de $<$>}
+	\lreqn{-b < -a}{}
+\end{prf}
+
+\begin{prf}[$ab > 0 \Leftrightarrow a,b \in \R^+ \lor (-a),(-b) \in \R^+)$]{}
+\end{prf}
+
+
 
 \end{document}
