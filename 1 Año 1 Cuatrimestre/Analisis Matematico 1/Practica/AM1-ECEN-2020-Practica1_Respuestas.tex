@@ -601,4 +601,85 @@ Como llamamos a los números en $\R^+$ positivos, a sus opuestos los llamaremos 
 	\lreqn{\dfrac{1}{b} < \dfrac{1}{a}}{}
 	$$0 < a < b \Rightarrow 0 < \dfrac{1}{b} < \dfrac{1}{a}$$
 \end{prf}
+
+\begin{prf}[$|x| \geq 0, |x| = 0 \Leftrightarrow x = 0$]{}
+	Por triconomía pruebo los 3 casos y me dan.
+
+	La ida por contradicción, la vuelta directa.
+\end{prf}
+
+\begin{prf}[$|x| = |-x|$]{}
+	Demostración directa
+\end{prf}
+
+\begin{prf}[$-|x| \leq x \leq |x|$]{}
+	Sea $x \geq 0$:\\
+	\lreqn{-x \leq x \leq x}{<Definición de $|x|$>}
+	\lreqn{-|x| \leq x \leq |x|}{}
+	Sea $x < 0$:\\
+	\lreqn{x \leq x \leq -x}{<$a = -(-a)$>}
+	\lreqn{-(-x) \leq x \leq -x}{<Definición de $|x|$>}
+	\lreqn{-|x| \leq x \leq |x|}{}
+\end{prf}
+
+\begin{prf}[$|x| < a \Leftrightarrow -a < x < a$]{}
+	Sea $|x| < a$:\\
+	Caso $x \geq 0$:\\
+	\lreqn{|x| < a}{}
+	\lreqn{x < a}{}
+	\lreqn{0 \leq x < a}{}
+	\lreqn{-a < 0 \leq x < a}{}
+	\lreqn{-a < x < a}{}
+	Caso $x < 0$:\\
+	\lreqn{|x| < a}{}
+	\lreqn{-x < a}{}
+	\lreqn{x > -a}{}
+	\lreqn{-a < x}{}
+	\lreqn{-a < x < 0}{}
+	\lreqn{-a < x < 0 \leq a}{}
+	\lreqn{-a < x < a}{}
+
+	Sea $-a < x < a$:\\
+	Caso $x \geq 0$:\\
+	\lreqn{x < a}{}
+	\lreqn{|x| < a}{}
+	Caso $x < 0$:\\
+	\lreqn{-a < x}{}
+	\lreqn{-x < a}{}
+	\lreqn{|x| < a}{}
+\end{prf}
+
+\begin{prf}[$|x| > a \Leftrightarrow x < -a \lor x > a$]{}
+	Analogamente
+\end{prf}
+
+\begin{prf}[Desigualdad triangular]{}
+	Se demuestra por casos
+\end{prf}
+
+\begin{prf}[producto y cociente]{}
+	Se demuestra por casos? O contradiccion?
+\end{prf}
+
+\begin{prf}[$\forall y \in \R, \exists n \in \N : y < n$]{}
+	
+\end{prf}
+
+\begin{prf}[$x > 0 \Rightarrow \exists n \in \N : \dfrac{1}{n} < x$]{}
+	Por la propiedad arquimedeana, $\forall y \in \R, \exists x > 0$, tal que:
+	$$y < nx$$
+	Pero $1 \in \R$
+	$$1 < nx$$
+	$$\dfrac{1}{n} < x$$
+\end{prf}
+
+\begin{prf}[ndea]{}
+	Supongo $x \neq y$:\\
+	\lreqn{x < y < x + z/n}{<Sumo $-x$ y llamo $y - x = y'$>}
+	\lreqn{0 < y' < z/n}{<Multiplico por $n$>}
+	\lreqn{0 < ny' < z}{}
+	\lreqn{ny' < z}{}
+	Esto es una contradicción a la propiedad arquimedeana.
+	$$\therefore x = y$$
+\end{prf}
 \end{document}
