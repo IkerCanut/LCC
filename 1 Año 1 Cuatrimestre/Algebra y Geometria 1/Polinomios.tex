@@ -1,0 +1,242 @@
+\documentclass[10pt]{article}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\usepackage{import}
+\usepackage{siunitx}
+\usepackage{esvect}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage[framemethod=TikZ]{mdframed}
+\geometry{
+ a4paper,
+ total={160mm,237mm},
+ left=30mm,
+ top=30mm,
+}
+
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, calc, through, angles, quotes, intersections}
+\usepackage{multirow}
+
+\subimport{.}{environment}
+
+\author{Luciano N. Barletta \& Iker M. Canut}
+\begin{document}
+\title{Práctica de Álgebra y Geometría 1}
+\maketitle
+\date
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Ejercicio 2}
+
+\subsection{Inciso c}
+Sean $P(x) = 3x^4 - x^2 + ix - 2$ y $Q(x) = 5x - 4 = 5(x-\dfrac{4}{5})$.\\
+Por algoritmo de la división, existen únicos $C, R \in \C[x]$ tal que:
+$$P = C.Q + R$$
+$$P = C.5(x-\dfrac{4}{5}) + \dfrac{5R}{5}$$
+$$\dfrac{P}{5} = C.(x-\dfrac{4}{5}) + \dfrac{R}{5}$$
+Llamemos $P' = \dfrac{P}{5}$, $Q' = x-\dfrac{4}{5}$, $R' = \dfrac{R}{5}$. Por regla de Ruffini podemos encontrar $C$ y $R$ con la definición del teorema porque $Q'$ es de la forma $x-\alpha$. $C$ se define recursivamente:
+\begin{align}
+	C(x) =& \dfrac{3}{5}x^3 + \\
+	& (\dfrac{0}{5} + \dfrac{4}{5}.\dfrac{3}{5})x^2 = \dfrac{12}{5^2}x^2 + \\
+	& (-\dfrac{1}{5} + \dfrac{4}{5}.\dfrac{12}{5^2})x = \dfrac{23}{5^3}x + \\
+	& \dfrac{i}{5} + \dfrac{4}{5}.\dfrac{23}{5^3} = \dfrac{4.23}{5^4} + \dfrac{1}{5}i
+\end{align}
+Y $R'$ siempre queda definido como $a_0 + \alpha.b_0$.
+\begin{align}
+	R' &= -\dfrac{2}{5} + \dfrac{4}{5}.(\dfrac{4.23}{5^4} + \dfrac{1}{5}i)\\
+	&= \dfrac{4.4.23}{5^5} + \dfrac{4}{5^2}i - \dfrac{2}{5}\\
+	&= -\dfrac{4.4.23 - 2.5^4}{5^5} + \dfrac{4}{5^2}i
+\end{align}
+Pero $R' = \dfrac{R}{5}$
+$$R = -\dfrac{4.4.23-2.5^4}{5^4} + \dfrac{4}{5}i$$
+
+\subsection{Inciso d}
+Sean $P(x) = 3x^6 - x^4 + ix^3 - 2x^2$ y $Q(x) = 5x^3 - 4x^2 = 5x^2(x-\dfrac{4}{5})$.\\
+Por algoritmo de la división, existen únicos $C, R \in \C[x]$ tal que:
+$$P = C.Q + R$$
+$$P = C.5x^2(x-\dfrac{4}{5}) + \dfrac{5x^2.R}{5x^2}$$
+$$\dfrac{P}{5x^2} = C.(x-\dfrac{4}{5}) + \dfrac{R}{5x^2}$$
+Llamemos $P' = \dfrac{P}{5x^2}$, $Q' = x-\dfrac{4}{5}$, $R' = \dfrac{R}{5x^2}$. Notamos que $P'$ y $Q'$ son iguales al inciso anterior, entonces $C$ y $R$ también son iguales.
+
+\section{Ejercicio 3}
+En los incisos $2c$ y $2d$ el resultado es el mismo, pues la división entre $P$ y $Q$ en ambos ejercicios es equivalente. En otras palabras, los polinomios están multiplicados por la misma expresión.
+
+\section{Ejercicio 4}
+\subsection{Inciso e}
+Sea $P(x) = x^4 - ix^3 - ix + 1+i$.
+Calcular $P(i+1)$ es lo mismo que averiguar el resto de dividir por $Q(x) = (x - i+1)$, por teorema del resto.
+
+Aplicando el teorema de la regla de ruffini, podemos definir $C$ recursivamente:
+\begin{align}
+	C(x) =& x^3 +
+	& (-i + (1+i).1)x^2 = x^2 +
+	& (0 + (1+i).1)x = (1+i)x +
+	& -i + (1+i).(1+i) = i
+\end{align}
+
+Entonces el resto se calcula de la siguiente manera
+$$r = 1+i + (1+i).i$$
+$$r = (1+i)(1+i)$$
+$$r = 2i$$
+
+Por lo tanto $P(i+1) = 2i$.
+
+\subsection{Inciso h}
+Calcular $P(2-i)$ es lo mismo que averiguar el resto de dividir por $Q(x) = (x - 2-i)$, por teorema del resto.
+
+Aplicando el teorema de la regla de ruffini, podemos definir $C$ recursivamente:
+\begin{align}
+	C(x) =& x^3 +
+	& (-i + (2-i).1)x^2 = (2-2i)x^2 +
+	& (0 + (2-i).(2-2i))x = (2-6i)x +
+	& -i + (2-i).(2-6i) = -2-15i
+\end{align}
+
+Entonces el resto se calcula de la siguiente manera
+\begin{align}
+	r &= 1+i + (2-i)(-2-15i)
+	r &= 1+i + -19-28i
+	r &= -18-27i
+\end{align}
+
+Por lo tanto $P(2-i) = -18-27i$
+
+\subsection{Ejercicio 5}
+Sea $P(x) = kx^4 + kx^3 - 33x^2 + 17x - 10$, calcular $P(4)$ sabiendo que $P(5) = 0$.\\
+Que $P(5) = 0$ significa que
+\begin{align}
+	k.5^4 + k.5^3 - 33.5^2 + 17.5 - 10 &= 0
+	k.5^4 + k.5^3 &= 10 - 17.5 + 33.5^2
+	k.(5^4 + 5^3) &= 10 - 17.5 + 33.5^2
+	k &= \dfrac{10 - 17.5 + 33.5^2}{5^4 + 5^3} 
+	k &= \dfrac{(2 - 17 + 33.5)5}{(5^3 + 5^2).5} 
+	k &= \dfrac{-15 + 33.5}{5^3 + 5^2} 
+	k &= \dfrac{(-3 + 33).5}{(5+1).5^2} 
+	k &= \dfrac{30}{6.5} 
+	k &= \dfrac{30}{30} 
+	k &= 1 
+\end{align}
+
+Entonces, por teorema del resto, $P(4)$ se obitene de calcular el resto de dividir $P$ por $Q(x) = x - 4$. Aplicamos Ruffini.
+\begin{align}
+	C =& 1.x^3 +\\
+	& (1 + 4.1)x^2 = 5x^2 +\\
+	& (-33 + 4.5)x = -12x +\\
+	& (17 + 4.(-12)) = -31
+\end{align}
+Bajo este contexto
+$$r = P(4) = -31 + 4.(-10) = -71$$
+
+\section{Ejercicio 7}
+\subsection{Inciso c}
+
+Para que un polinomio $P$ tenga
+\begin{itemize}
+	\item $2$, raíz simple
+	\item $i$, raíz triple
+	\item $gr(P) = 4$
+	\item $P(1) = 3i$
+\end{itemize}
+
+Por teorema de descomposición factorial, puedo llamar $Q(x) = (x-2)^1.(x-i)^3$ y este debe dividir a $P$ con resto 0. Observamos que $gr(Q) = 4$. Por lo tanto $Q$ y $P$ difieren por el producto de una constante $k \in \C$.
+$$P(x) = k(x-2)(x-i)^3$$
+Si además sabemos $P(1) = 3i$, deducimos $k$.
+$$P(1) = k(1-2)(1-i)^3$$
+$$3i = k.(-1).(-2-2i)$$
+$$k = -3i.(-2-2i)^{-1}$$
+$$k = -3i.(-2-2i)^{-1}$$
+$$k = \dfrac{3}{4} + \dfrac{3}{4}i$$
+Se puede demostrar que este polinomio es único.
+
+\section{Ejercicio 8}
+\subsection{Inciso h}
+Sea $P(x) = (x^7 + x^4 - 9x^3 - 9)(x^3 + 1)$, factorizarlo.\\
+Primero tratamos de reescribir el polinomio como producto de polinomios más fáciles de tratar.
+$$(x^7 + x^4 - 9x^3 - 9)(x^3 + 1)$$
+$$(x^4(x^3 + 1) - 9(x^3 + 1))(x^3 + 1)$$
+$$(x^3 + 1)(x^4 - 9)(x^3 + 1)$$
+$$(x^4 - 9)(x^3 + 1)^2$$
+Luego simplemennte encontramos las raíces de $A(x) = x^4 - 9$ y $B = (x^3 + 1)$\\
+Comenzando con $A(x) = 0$:
+$$x^4 - 9 = 0$$
+$$x^4 = 9$$
+$$x = \sqrt[\leftroot{-2}\uproot{2}4]{9}$$
+Luego $x$ puede adquirir 4 valores, por teorema de De Moivre. $\pm\sqrt{3}, \pm\sqrt{3}i$\\
+Siguiendo con $B(x) = 0$:
+$$x^3 + 1 = 0$$
+$$x^3 = -1$$
+$$x = \sqrt[\leftroot{-2}\uproot{2}3]{-1}$$
+Luego $x$ puede adquirir 3 valores, por teorema de De Moivre. $-1, \left(\frac{1}{2}\pm\frac{\sqrt{3}}{2}i\right)$\\
+Finalmente expresamos el resultado final. Donde si $P(\alpha) = 0$, entonces $P$ = $C.(x - \alpha)$
+$$P(x) = \left(x+\sqrt{3}\right)\left(x-\sqrt{3}\right)\left(x+\sqrt{3}i\right)\left(x-\sqrt{3}i\right)\left(x+1\right)^2\left(x-\left(\frac{1}{2}+\frac{\sqrt{3}}{2}i\right)\right)^2\left(x-\left(\frac{1}{2}-\frac{\sqrt{3}}{2}i\right)\right)^2$$
+
+\section{Ejercicio 9}
+\subsection{Inciso a}
+\begin{prf}[$P(\alpha) = 0 \Leftrightarrow Q(x) = P(-x), Q(-\alpha) = 0$]{}
+	Sea $P(\alpha) = 0$.\\
+	Llamemos $Q(x) = P(-x)$
+	$$Q(-\alpha) = P(-(-\alpha)) = P(\alpha) = 0$$
+	Sea $Q(x) = P(-x), Q(-\alpha) = 0$
+	$$P(\alpha)$$
+	Llamemos $-\alpha' = \alpha$
+	$$P(-\alpha') = Q(\alpha')$$
+	Pero $\alpha' = -\alpha$
+	$$Q(\alpha') = Q(-\alpha) = 0$$
+\end{prf}
+
+\subsection{Inciso b}
+\begin{prf}[$P(\alpha) = 0 \Rightarrow (P.Q)(\alpha) = 0$]{}
+	Sea $P(\alpha) = 0, Q \in \C[x]$.\\
+	$$(P.Q)(\alpha)$$
+	Pero por teorema del algoritmo de la división. $(P.Q)(x)$ puede ser escrito como $P(x).Q(x)$
+	$$P(\alpha).Q(\alpha) = 0.Q(\alpha) = 0$$
+\end{prf}
+
+\subsection{Inciso c}
+\begin{prf}[Todo polinomio de grado impar admite al menos una raíz real]{}
+	Sea $P \in \C[x], gr(P) = 2k+1, k \in \N$.\\
+	Construyo $P(x) = x - i$. $gr(P) = 2.0+1 = 1$\\
+	Por teorema fundamental del álgebra, $P$ tiene al menos una raíz compleja, y por corolario tiene exactamente una. La raíz es $i \notin \R$. Contradicción.
+\end{prf}
+
+\subsection{Inciso d}
+\begin{prf}[Todo polinomio a coeficientes reales de grado impar admite al menos una raíz real]{}
+	Sea $P \in \R[x], gr(P) = 2k+1, k \in \N$.\\
+	Supongamos que todas las raíces son no reales. O sea, todas son de la forma $a + bi$ con $b \neq 0$. Pero por teorema
+	$$P \in \R[x], P(\alpha) = 0 \Rightarrow P(\overline{\alpha}) = 0, \alpha \in \C$$
+	Si $P(a+bi) = 0 \Rightarrow P(a-bi) = 0$.\\
+	Por teorema fundamental del álgebra y su corolario, $P$ tiene $2k+1$ raíces. Pero por cada raíz $a+bi$, también es raíz $a-bi$, y vale $a+bi \neq a-bi$. Entonces la cantidad de raíces es dos veces la cantidad de raíces de la forma $a+bi$, digamos que la cantidad de raíces $a+bi$ es igual a $k' \in \N$. Por lo tanto
+	$$2k+1 = 2k'$$
+	Pero esto no tiene sentido en los naturales. Esto es una contradicción a la suposición de que no existe raíz de la forma $a+bi$ con $b \neq 0$. Por lo tanto existe al menos una.
+\end{prf}
+
+\subsection{Inciso e}
+\begin{prf}[$P = Q \Leftrightarrow \forall \alpha P(\alpha) = 0 \Rightarrow Q(\alpha) = 0$]{}
+	Sean $P,Q \in \C[x], P = Q$.\\
+	Como son iguales, todo valor $P(\alpha) = Q(\alpha)$, eso incluye cuando $P(\alpha) = 0$. Por lo tanto tienen las mismas raíces.
+
+	Sean $P,Q \in \C[x], \forall \alpha P(\alpha) = 0 \Rightarrow Q(\alpha) = 0$.\\
+	Si construyo $P = x$ y $Q = x^2$. Son polinomios distintos pero aún así cumplen la condición, pues $0$ es raíz de $P$ y de $Q$. Esto es una contradicción con la hipótesis. Por lo tanto es falsa.
+\end{prf}
+
+\subsection{Inciso f}
+\begin{prf}[Sean P y Q de grado n, son iguales si coinciden en n evaluaciones distintas]{}
+	Sean $P, Q$ de grado $n = 1$. $P(x) = a_1(x - k), Q(x) = b_1.(x - k)$.\\
+	Coinciden en $n = 1$ evaluaciones, pues $P(k) = Q(k)$. Pero $P \neq Q$, pues sus coeficientes son distintos.\\
+	Esto es una contradicción con la hipótesis.
+\end{prf}
+
+\end{document}
