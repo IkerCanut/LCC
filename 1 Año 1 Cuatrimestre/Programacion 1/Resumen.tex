@@ -1,6 +1,7 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -17,6 +18,44 @@
 
 \section{Expresiones}
 Los lenguajes de programación tienen un vocabulario y una gramática que determinan la \textbf{sintaxis} del mismo, y cierto significado que establece su \textbf{semántica}.
+\begin{multicols}{3}
+\begin{itemize}
+\item Notación prefija: $(+\ 2\ 3)$
+\item Notación infija:  $(2 + 3)$ 
+\item Notación posfija: $(2\ 3\ +)$ 
+\end{itemize}
+\end{multicols}
+La sintaxis de racket establece que una operación tiene notación prefija y debe ser encerrada entre paréntesis para ser una expresión válida: \textit{( <operador> <operando 1> ... <operando n> )}
 
+\subsection{Expresiones aritméticas}
+Claramente se pueden usar operadores como \textbf{+}, \textbf{-}, \textbf{/} y \textbf{*}. Luego, otros más interesantes son: \textbf{modulo}, \textbf{sqrt}, \textbf{sin}, \textbf{cos}, \textbf{tan}, \textbf{log}, \textbf{expt}, \textbf{random} ,\textbf{max}, \textbf{min}, \textbf{floor}, \textbf{ceiling}, \textbf{abs}.
 
+\subsection{Strings}
+Un string es una secuencia de caracteres encerrada entre comillas. Algunas operaciones utiles de strings son: \textbf{string-append}, \textbf{string-length}, \textbf{number->string}, \textbf{string-ith} (que dados un string y un n\'umero n, nos devuelve el caracter que ocupa la n-ésima posición, o \textbf{substring}, que dado un string y dos numeros nos devuelve el intervalo cerrado abierto (consejo, restar mayor y menor, te da cuantos caracteres).
+
+\subsection{Valores Booleanos}
+En Racket se escriben como \textbf{\#t} (o \#true) y \textbf{\#f} (o \#false). Se pueden usar los operadores \textbf{and}, \textbf{or} y \textbf{not}. Tambien se pueden usar el \textbf{<}, \textbf{>}, \textbf{<=} y \textbf{>=}.
+
+\section{Imagenes}
+Se pueden copiar y pegar imágenes a DrRacket, o crear las propias. Para obtener sus dimensiones se pueden usar \textbf{image-width}, \textbf{image-height}. Para crear imagenes, se pueden usar:
+\begin{itemize}
+\item \textbf{(circle radius mode color)}
+\item \textbf{(ellipse width height mode color)}
+\item \textbf{(add-line image x1 y1 x2 y2 color)}
+\item \textbf{(text string font-size color)}
+\item \textbf{(triangle side-length mode color)},\\ \textbf{(right-triangle side-length1 side-length2 mode color)},\\ \textbf{(isosceles-triangle side-length angle mode color)},\\ \textbf{(triangle/sss side-length-a side-length-b side-length-c mode color)},\\ \textbf{(triangle/sas side-length-a angle-b side-length-c mode color)}
+\item \textbf{(square side-len mode color)}
+\item \textbf{(rectangle width height mode color)}
+\item \textbf{(rhombus side-length angle mode color)}
+\item \textbf{(star side-length mode color)}\\ \textbf{(star-polygon side-length side-count step-count mode color)}
+\end{itemize}
+
+Donde \textit{mode} puede ser "outline" o "solid", y \textit{color} un string con un color en ingles.\\
+
+Para dibujar una imagen encima de la otra, se usa la funci\'on \textbf{(overlay i1 i2 is ...)}, o sino\\ \textbf{(underlay i1 i2 is ...)}, que funciona igual pero con los parametros invertidos.\\
+
+Adem\'as, es muy util crear una escena para sacarle provecho a las funciones de 2htdp/universe. Para crear una escena se puede usar \textbf{(empty-scene width height [color])}. Luego, se pueden insertar imagenes con \textbf{(place-image image x y scene)}.
+
+\section{Funciones y Constantes}
+Para crear una constante se usa \textbf{(define <identificador> <expresión>)}. Para crear una funci\'on se usa \textbf{(define (<identificador> <argumento 1> ... <argumento n>) <expresión>)}.
 \end{document}
