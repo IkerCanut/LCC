@@ -1,0 +1,148 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\title{Unidad 4: Relaciones}
+\begin{document}
+\maketitle
+\newpage
+
+\section{Definiciones}
+Dados dos conjuntos $A$ y $B$, un \textbf{par ordenado} es un objeto de la forma $(a,b)$ donde $a \in A$ y $b \in B$. Si $(a,b)$ y $(c,d)$ son dos pares ordenados, $(a,b) = (c,d) \iff a=c \land b=d$.\\
+
+Dados dos conjuntos $A$ y $B$, llamaremos \textbf{producto cartesiano}, $A\times B$, al conjunto formado por los pares ordenados $(a,b)$ tales que $a\in A \land b\in B$. Es decir: $A\times B = \{(a,b):a\in A, b\in B\}$.\\
+
+Sean $A,B, C$ conjuntos, entonces:
+\begin{itemize}
+\begin{multicols}{2}
+\item $A \times (B \cap C) = (A \times B) \cap (A \times C)$
+\item $A \times (B \cup C) = (A \times B) \cup (A \times C)$
+\item $(A \cap B) \times C = (A \times C) \cap (B \times C)$
+\item $(A \cup B) \times C = (A \times C) \cup (B \times C)$
+\end{multicols}
+\end{itemize}
+
+\noindent \dotfill
+
+Una \textbf{relaci\'on} de un conjunto A en un conjunto B es un subconjunto $R$ de $A \times B$. Si $(a,b) \in R$, se dice que $a$ est\'a relacionado con $b$ por $R$, y se nota $aRb$.\\
+
+Sea $R \subseteq A \times B$, el \textbf{dominio} de $R$ es:
+$$Dom(R) = \{ a \in A:(a,b) \in R, \text{ para algun } b\in B \}$$
+\indent y la \textbf{imagen} de $R$ es:
+$$Im(R) = \{ b\in B : (a,b)\in R, \text{ para algun } a \in A \}$$
+\noindent \dotfill
+
+Sea $R \subseteq A \times B$, y $X \subseteq A$, el \textbf{conjunto imagen} de $X$ por $R$ es:
+$$R(X) = \{ b\in B : (a,b) \in R, \text{ para algun } a \in X \}$$
+\indent y si $Y \subseteq B$, el \textbf{conjunto preimagen} de $Y$ por $R$ es:
+$$R^{-1}(Y) = \{ a\in A : (a,b) \in R, \text{ para algun } b \in Y \}$$
+
+\noindent \dotfill
+
+Sea $R \subseteq A \times B$, la \textbf{inversa} de $R$, denotada como $R^{-1}$ es una relaci\'on de $B$ en $A$ definida por:
+$$R^{-1} = \{ (x,y):(y,x) \in R \}$$
+
+\noindent \dotfill
+
+Sea $R \subseteq A \times B, x\in A, X\subseteq A$, notar que:
+\begin{itemize}
+\item $R^{-1}(x)$ es la preimagen del elemento $x$ por $R$.
+\item $R^{-1}(X)$ es la preimagen del subconjunto $X$ por $R$.
+\item $R^{-1}$ es la relaci\'on inversa de R.
+\end{itemize}
+\noindent \dotfill
+
+Sea $R \subseteq A \times B$ y $S \subseteq B \times C$, la relaci\'on \textbf{composici\'on} de $R$ en $S$, notada como $S \circ R$, es una relaci\'on de $A$ en $C$ definida por $x(S \circ R)y \iff \exists u \in B : xRu \land uSy$
+$$ S \circ R = \{ (x,y) \in A\times C : (x,u) \in R \land (u,y) \in S, \text{ para algun } u \in B \} $$
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $T \circ (S \circ R) = (T \circ S) \circ R$
+\item $(T \circ S)^{-1} = S^{-1} \circ T^{-1}$
+\end{itemize}
+\end{multicols}
+
+\noindent \dotfill
+
+\newpage
+\section{Relaciones en un conjunto}
+Sea $R \subseteq A \times A$, y $a,b,c \in A$, se dice que $R$ es:
+\begin{itemize}
+\item \textbf{Reflexiva}: si $(a,a) \in R \forall a \in A$
+\item \textbf{Sim\'etrica}: si $(a,b) \in R \Rightarrow (b,a \in A)$
+\item \textbf{Antisim\'etrica}: $(a,b) \in R \land a \not = b \Rightarrow (b,a) \not \in R$, equivalentemente, $(a,b) \in R \land (b,a) \in R \Rightarrow a = b$
+\item \textbf{Transitiva}: si $(a,b) \in R \land (b,c) \in R \Rightarrow (a,c) \in R$
+\end{itemize}
+
+\section{Relaciones de Orden}
+Una relaci\'on $R$ en $A$ es una relaci\'on de orden si es \textbf{reflexiva}, \textbf{antisim\'etrica} y \textbf{transitiva} (R.A.T.)\\
+
+Si $(a,b) \in R$, se dice que $a$ es anterior a $b$ y se nota $a \prec b$.\\
+
+Al par $(A,R)$ o $(A, \prec)$ se lo llama \textbf{conjunto ordenado}.\\
+
+Sea $(A, \prec)$, dos elementos distintos $x, y \in A$ son \textbf{comparables} si $x \prec y$ o si $y \prec x$.\\
+
+Un conjunto ordenado es \textbf{totalmente ordenado} si todo par de elementos es comparable, y se dice que es un \textbf{orden total}.\\
+
+Sea $(A, \prec)$, y $B \subseteq A$, el \textbf{orden inducido} por $R$ en $B$ es $R_B = R \cap (B\times B)$, es decir, sea $x,y \in B$, $xR_By \iff xRy$. $(B,S)$ es un \textbf{subconjunto ordenado} de $(A,R)$ si $B \subseteq A$ y $S = R_B$. \\
+
+Ademas, si $R_B$ es un orden total en $B$, $(B, R_B)$ se llama subconjunto ordenado de $(A, R)$ o \textbf{cadena}.\\
+
+\noindent \dotfill
+
+\textbf{Diagrama de Hasse}: se dibuja como un grafo, y convenimos que no se dibujan las flechas correspondientes a $(a,a)$, ni la flecha $(a,c)$ cuando $a \prec b$ y $b \prec c$
+
+\noindent \dotfill
+
+Sea $(A, \prec)$ y $B \subseteq A$:
+\begin{itemize}
+\item $a \in A$ es \textbf{minimal} si $\forall x \in A : x\prec a$, se tiene que $x = a$.
+\item $a \in A$ es \textbf{maximal} si $\forall x \in A : a\prec x$, se tiene que $x = a$.\\
+
+\item $a \in A$ es \textbf{m\'inimo} si $a \prec x \forall x \in A$
+\item $a \in A$ es \textbf{m\'aximo} si $x \prec a \forall x \in A$\\
+
+\item $a \in A$ es \textbf{cota inferior} para $B$ si $a \prec x$ $\forall x \in B$. Una cota inferior $'a$ es el \textbf{\'infimo} de $B$ si $a \prec a'$ para toda cota inferior de $B$.
+\item $a \in A$ es \textbf{cota superior} para $B$ si $x \prec a$ $\forall x \in B$. Una cota superior $'a$ es el \textbf{supremo} de $B$ si $a' \prec a$ para toda cota inferior de $B$.\\
+\end{itemize}
+Un conjunto puede tener m\'as de un minimal o maximal, pero si tiene m\'aximo, m\'inimo, supremo o \'infimo, estos es \'unico. Adem\'as, si tiene alguna cota se dice que est\'a acotado.
+
+\noindent \dotfill
+
+\newpage
+\section{Relaciones de Equivalencia}
+Una relaci\'on $R$ en $A$ es de equivalencia si es \textbf{reflexiva}, \textbf{sim\'etrica} y \textbf{transitiva} (R.S.T.)\\
+
+Si $(a,b) \in R$, se dice que $a$ es equivalente a $b$ y se nota $a \sim b$.\\
+
+Dada una relaci\'on de equivalencia $R$ en un conjunto $A$ y $a \in A$, el conjunto $R(a)$ se llama \textbf{clase de equivalencia} de $a$ y se nota $[a]$.
+
+$$[a] = \{ x \in A : (a,x) \in \mathbb{R} \}$$
+
+Observemos que como es sim\'etrica, $[a] = \{ x \in A : (x,a) \in \mathbb{R} \}$ tambien vale. Todo elemento $x \in [a]$ se dice que es un \textbf{representante} de esa clase de equivalencia.
+
+\begin{itemize}
+\item $[a] \not = \emptyset$
+\item $(a,b) \in R \iff [a]=[b]$
+\item $(a,b) \not \in R \iff [a]\cap[b] = \emptyset$
+\end{itemize}
+
+Es decir, todo elemento de $A$ pertenece a alguna clase y dos clases de equivalencia, o bien son iguales o son conjuntos disjuntos.\\
+
+Una \textbf{partici\'on} $P$ de un conjunto $A$ es una colecci\'on de conjuntos no vacios $\{ X_1, X_2, ...\}$ tales que:
+\begin{itemize}
+\item $i \not = j \Rightarrow X_i \cap X_j = \emptyset$,
+\item $\forall a \in A, \exists X_i \in P : a \in X_i$
+\end{itemize}
+
+Sea $P$ una partici\'on de $A$, existe una \'unica relaci\'on de equivalencia en $A$ cuyas clases de equivalencia son los elementos de $P$.\\
+
+Sea $R$ una relaci\'on de equivalencia en $A$, llamamos \textbf{conjunto cociente} de $A$ por $R$, y lo notamos $A|_R$ al conjunto cuyos elementos son las clases de equivalencia de $A$ definidadas por $R$: $$A|_R = \{ [a] : a \in A \}$$
+\end{document}
