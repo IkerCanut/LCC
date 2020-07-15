@@ -1,0 +1,84 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\title{Unidad 6: Inducci\'on}
+\begin{document}
+\maketitle
+\newpage
+
+\textbf{Objetivo general}: Demostrar enunciados del estilo: $\forall n, P(n)$, donde $P(n)$ es una proposici\'on que depende del numero natural $n$.\\
+
+\textbf{Axiomas}: $\forall a,b,c \in \mathbb{R}$:
+\begin{enumerate}
+\begin{multicols}{2}
+\item[$S_1)$] $(a+b)+c = a+(b+c)$
+\item[$S_2)$] $(a+b) = (b+a)$
+\item[$S_3)$] $\exists 0 \in \mathbb{R} : a+0 = a$
+\item[$S_4)$] $\exists -a \in \mathbb{R} : a + (-a) = 0$
+\item[$P_1)$] $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
+\item[$P_2)$] $(a \cdot b) = (b \cdot a)$
+\item[$P_3)$] $\exists 1 \in \mathbb{R} : 1 \not = 0 \land a \cdot 1 = a$
+\item[$P_4)$] $(a \not = 0) \Rightarrow \exists a^{-1} \in \mathbb{R} : a \cdot a^{-1} = 1$
+\end{multicols}
+\item [$D)$] $a \cdot (b + c) = a \cdot b + a \cdot c$
+\begin{multicols}{2}
+\item [$O_1)$] $(a = b)\ \underline{\lor} (a < b)\ \underline{\lor} (a > b)$
+\item [$O_2)$] $[(a < b) \land (b < c)] \Rightarrow (a < c)$
+\end{multicols}
+\item [$CS$] $(a < b) \Rightarrow (a+c < b+c)$
+\item [$CP$] $[(a < b) \land (0 < c)] \Rightarrow (a \cdot c) < (b \cdot c)$
+\item [$AS$] $Axioma\ del\ Supremo$
+\end{enumerate}
+
+\noindent \dotfill
+
+Un subconjunto $H \subset \mathbb{R}$ se llama \textbf{inductivo} si:
+\begin{itemize}
+\item $1 \in H$
+\item $x \in H \Rightarrow x+1 \in H$
+\end{itemize}
+
+\noindent \dotfill
+
+\textbf{Lema 1}: \textit{La intersecci\'on de una familia arbitraria de subconjuntos inductivos de $\mathbb{R}$ es un subconjunto inductivo.} Se demuestra considerando una familia $\{ X_i : i \in I \}$ en donde $X_i \subset \mathbb{R}$ es inductivo $\forall i \in I$. Entonces tenemos que:
+
+\begin{itemize}
+\item $1 \in X_i\ \forall i \in I$, luego $1 \in \displaystyle{\bigcap_{i \in I}} X_i$
+\item Si $x \in X_i \Rightarrow x+1 \in X_i\ \forall i \in I$, luego $x \in \displaystyle{\bigcap_{i \in I} Xi} \Rightarrow x + 1 \in \displaystyle{\bigcap_{i \in I}} X_i$
+\end{itemize}
+Entonces tenemos que $\displaystyle{\bigcap_{i \in I} X_i}$ es un subconjunto inductivo.
+
+\noindent \dotfill
+
+Se define a $\mathbb{N}$ como la intersecci\'on de todos los subconjuntos inductivos de $\mathbb{R}$. Como el \'unico valor que \textbf{debe} estar por definici\'on es el $1$ (y sus sucesores), entonces $\mathbb{N} = \{ 1,2,3,4,5... \}$
+
+\noindent \dotfill
+
+\textbf{Teorema}: Principio de Inducci\'on: Sea $P(n)$ una proposici\'on que depende de $n \in \mathbb{N}$. Si:
+\begin{enumerate}
+\item $P(1)$ es verdadera
+\item $P(k) \Rightarrow P(k+1)\ \forall k \in \mathbb{N}$ 
+\end{enumerate}
+Entonces $P(n)$ es verdadera $\forall n \in \mathbb{N}$.\\
+
+Se demuestra considerando $H = \{ k \in \mathbb{N} : P(k) \text{ es verdadera} \}$. Sabemos que $1 \in H$ y que si $k \in H \Rightarrow k+1 \in H$. Luego, $H$ es un subconjunto inductivo de $\mathbb{R}$, contenido en $\mathbb{N}$. Y como $\mathbb{N}$ es el menor de subconjunto inductivo de $\mathbb{R}$, resulta $H = \mathbb{N}$ y $\therefore P(n)$ es verdadera $\forall n \in \mathbb{N}$.
+
+\noindent \dotfill
+\newpage
+
+\textbf{Teorema}: Sea $P(n)$ una proposici\'on que depende de $n \in \mathbb{N}$. Si:
+\begin{enumerate}
+\item $P(n_0)$ es verdadera
+\item $P(k) \Rightarrow P(k+1)\ \forall k \geq n_0$
+\end{enumerate}
+Entonces $P(n)$ es verdadera $\forall k \geq n_0$\\
+
+Se demuestra considerando $Q(n) = P(n_0 + n - 1)$. Luego sabemos que $Q(1) = P(n_0)$ es verdadera. Y sea $k \geq 1$, vemos que si $Q(k) = P(n_0 + k - 1)$ es verdadera, entonces $Q(k+1) = P(n_0 + k)$ tambi\'en lo es. Y por el principio de inducci\'on, $Q(n)$ es verdadera $\forall n \in \mathbb{N}$. I.e $P(n)$ es verdadera $\forall n \geq n_0$.
+\end{document}
