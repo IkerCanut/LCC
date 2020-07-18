@@ -7,13 +7,19 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm]{geometry}
+\usepackage{mdframed}
+\newmdenv[
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{siderules}
+
 \begin{document}
 \title{Resumen de Programación 1}
 \author{Iker M. Canut}
 \maketitle
-\newpage
-
-\tableofcontents
 \newpage
 
 \section{Expresiones}
@@ -58,4 +64,195 @@ Adem\'as, es muy util crear una escena para sacarle provecho a las funciones de 
 
 \section{Funciones y Constantes}
 Para crear una constante se usa \textbf{(define <identificador> <expresión>)}. Para crear una funci\'on se usa \textbf{(define (<identificador> <argumento 1> ... <argumento n>) <expresión>)}.
+
+\section{Leyes de Reducci\'on}
+Una definici\'on \textbf{(define (f x) e)} agrega la siguiente ley de reducci\'on:
+\begin{siderules}
+$(f\ a)$\\
+== definición de f (ley 1)\\
+$e[a/x]$
+\end{siderules}
+Donde e[a/x] significa "\textit{reemplazar en e todas las ocurrencias de x por la expresión a}".
+
+\section{Condicionales Simples: if}
+Una proposición es una expresión que puede evaluar a verdadero o a falso. En DrRacket, para tomar decisiones usamos los ifs: \textbf{(if p a b)}. Donde \textbf{p} es un predicado, una proposición. Si \textbf{p} es verdadero se evalua \textbf{a}, en caso contrario, es decir, si \textbf{p} es falso se evaulua \textbf{b}.
+
+\section{Condicionales Multiples}
+\begin{siderules}
+\noindent (cond  \ [ Condición-1 Resultado-1 ]\\
+\indent \indent [ Condición-2 Resultado-2 ]\\
+\indent \indent ...\\
+\indent \indent [ Condición-n Resultado-n ])
+\end{siderules}
+
+Primero se evalúa la primer condición. Si esta reduce a \#true, entonces el resultado de toda la expresión es el que se obtiene de evaluar Resultado-1. Caso contrario, DrRacket descarta la primer pareja de la expresión condicional, y procede con la segunda pareja del mismo modo que con la primera. Si todas las condiciones evalúan a \#false, entonces se produce un error. De esta manera, creamos \textbf{n} leyes de reducci\'on.
+
+\section{Predicados}
+Son funciones que devuelven un valor de verdad. DrRacket provee funciones para establecer si un valor pertenece a una
+determinada clase, como \textbf{string?}, \textbf{number?}, \textbf{boolean}...
+
+\newpage
+\section{Dise\~nando Programas}
+\begin{enumerate}
+\item \textbf{Diseño de datos}: Definimos la forma de representar la información como datos.
+\item \textbf{Signatura}: Indica qué datos consume, y qué datos produce.
+\item \textbf{Declaración de propósito}: Consiste en una breve descripción del comportamiento de la función. Entender qué calcula la función sin necesidad de inspeccionar el código.
+\item \textbf{Definición de la función}: Escribimos el código.
+\item \textbf{Evaluar el código en los ejemplos}: Verificamos que el programa funciona para algunos ejemplos.
+\end{enumerate}
+\subsection{Ejemplo}
+\begin{siderules}
+; Representamos temperaturas mediante números\\
+; far->cel : Number -> Number\\
+; Recibe una temperatura en Fahrenheit, devuelve su equivalente en Celsius\\
+(check-expect (far->cel 32) 0)\\
+(check-expect (far->cel 212) 100)\\
+(check-expect (far->cel 122) 50)\\
+(define\\
+\indent \indent (far->cel t)\\
+\indent \indent (* 5/9 (- t 32)))
+\end{siderules}
+
+\section{Programas Interactivos}
+\textbf{Programas por lotes}: una vez lanzado el proceso no necesitan ningún tipo de interacción.\\
+\textbf{Programas interactivos}: esperan la intervención del usuario (o de eventos producidos por las computadoras) para llevar a cabo sus funciones. Los programas reciben información de su entorno a través de \textbf{eventos}. Los eventos describen la ocurrencia de alguna situación contemplada en la programación que requiere información para tomar una determinada acción. E.g, presionar una tecla, mover el mouse, otro programa env\'ia un mensaje, el reloj de la computadora marca el paso del tiempo (ticks)... La acción que se lleva a cabo queda establecida a partir de la definición de una función llamada \textbf{manejador de eventos}. Los manejadores de eventos cambian determinadas propiedades o valores dentro del programa, es decir, cambian el \textbf{estado} del mismo.
+
+\subsection{big-bang}
+\begin{siderules}
+(big-bang < estado inicial >\\
+\indent \indent [to-draw < controlador de pantalla >]\\
+\indent \indent [on-key < manejador de teclado >]\\
+\indent \indent [on-mouse < manejador de mouse >]\\
+\indent \indent [on-tick < manejador de reloj >]\\
+\indent \indent [stop-when < predicado de fin de ejecución >]\\
+\indent \indent etc...\\
+\indent \indent )
+\end{siderules}
+
+\newpage
+Cuando se evalúa, el comportamiento de esta expresión es como sigue:
+\begin{enumerate}
+\item La función asociada a \textbf{to-draw} es invocada con el \textbf{estado inicial} como argumento, y su resultado se muestra por pantalla.
+\item El programa queda a la espera de un evento (\textbf{on-key}, \textbf{on-mouse}, \textbf{on-tick}...)
+\item Cuando un evento ocurre, el manejador asociado a dicho evento (si existe) es invocado, y devuelve el nuevo estado.
+\item En caso de estar presente, se aplica el predicado (la condición) asociado a la clásula \textbf{stop-when} al nuevo estado. Si devuelve \#true , el programa termina, si no,
+\item la función asociada a \textbf{to-draw} es nuevamente invocada con el nuevo estado, devolviendo la nueva imagen o escena.
+\item El programa queda a la espera de un nuevo evento (volvemos al paso 2).
+\end{enumerate}
+
+\subsubsection{Ejemplo}
+\begin{siderules}
+(define (interpretar s) (place-image (circle 10 "solid" s) 100 100 (empty-scene 200 200)))\\
+
+\noindent (big-bang "blue"\\
+\indent \indent \indent [to-draw interpretar]\\
+\indent \indent \indent [on-key manejarTeclado])\\
+
+\noindent (define (manejarTeclado s k) (cond [(key=? k "a") "blue"]\\
+\indent \indent \indent \indent \indent \indent \indent \indent \indent \indent [(key=? k "r") "red"]\\
+\indent \indent \indent \indent \indent \indent \indent \indent \indent \indent [(key=? k "v") "green"]\\
+\indent \indent \indent \indent \indent \indent \indent \indent \indent \indent [else s]))
+\end{siderules}
+
+Siempre que asociemos una función al evento on-key, esta tendrá \textbf{dos argumentos}: el estado actual y un string que representa la tecla que generó el evento. Y siempre devolverá un nuevo estado. \\
+\indent Generalizando, todos los manejadores de eventos son funciones que toman como argumento el estado actual del sistema y una descripción del evento ocurrido, y devuelven siempre el nuevo estado.
+
+\section{Estructuras}
+\begin{siderules}
+(define-struct posn [x y]); Crea las siguientes funciones:\\
+; make-posn : Number Number -> posn ; CONSTRUCTOR\\
+; posn-x : posn -> Number ; SELECTOR (ley 1)\\
+; posn-y : posn -> Number ; SELECTOR (ley 2)\\
+; posn? : X -> Boolean ; PREDICADO
+\end{siderules}
+
+\section{Listas}
+La lista vacia est\'a dada por la expresi\'on \textbf{'()}. Para agregar un elemento a una lista, se usa la funci\'on \textbf{cons < elemento > < lista >}. Como \textit{cons} devuelve una lista, se puede pasar a otro \textit{cons}. Esto es una definici\'on autorreferenciada, porque se puede definir como una lista vacia o bien una expresi\'on del mismo tipo (es decir, cons x l).
+\newpage
+\subsection{Operaciones sobre listas}
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\textbf{Operador} & \textbf{Tipo de Operador} & \textbf{Funci\'on}\\
+\textbf{'()} & Constructor & Representa la lista vacía. \\
+\textbf{cons} & Constructor & Agrega un elemento a una lista. \\
+\textbf{first} & Selector & Devuelve el primer elemento de la lista. \\
+\textbf{rest} & Selector & Devuelve la lista sin su primer elemento. \\
+\textbf{empty?} & Predicado & Reconoce únicamente la lista vacía. \\
+\textbf{cons?} & Predicado & Reconoce listas no vacías.
+\end{tabular}
+\end{table}
+Tambi\'en estan los selectores \textbf{second}, \textbf{third}, \textbf{fourth}, \textbf{fifth}, \textbf{sixth}, \textbf{seventh}, \textbf{eighth}.
+\subsection{Simplificaciones}
+DrRacket nos permite simplificar listas de la siguiente manera:
+\begin{itemize}
+\item En lugar de escribir \textbf{'()} podemos usar la palabra \textbf{empty}.
+
+\item Para definir \textbf{(cons a0 (cons a1 (.... (cons an empty))))}, escribimos \textbf{(list a0 a1 ... an)}.
+\end{itemize}
+Es importante notar que \textbf{list} no es un constructor, sino un \textit{operador} que nos provee el lenguaje para simplificar la escritura de las listas en nuestros programas.
+
+\subsection{Operaciones Definidas}
+\begin{itemize}
+\item \textbf{(member? x l)} dado un valor x y una lista l, chequea si el valor x está en la lista l.
+\item \textbf{(length l)} dada una lista l, devuelve la cantidad de elementos que hay en l.
+\item \textbf{(list-ref l pos)} dada una lista l y un n\'umero entero no negativo, devuelve el elemento en la posici\'on pos de la lista l.
+\item \textbf{(list-tail l pos)} dada una lista l y un n\'umero entero no negativo, devuelve la lista l despues de la posici\'on pos. (Pensa como se saltea pos elementos).
+\item \textbf{(append l1 l2 .. ln)} dadas n listas, las concatena en orden.
+\item \textbf{(reverse l)} dada una lista l, la devuelve con el orden invertido.
+\end{itemize}
+
+\subsection{Operaciones de Alto Orden}
+\textbf{filter}: Nos quedamos con los elementos de una lista que cumplen determinada condici\'on.
+\begin{siderules}
+(define (filter p l)\\
+\indent \indent \indent (cond [(empty? l) empty]\\
+\indent \indent \indent \indent \indent [else (if (p (first l))\\
+\indent \indent \indent \indent \indent \indent \indent (cons (first l) (filter p (rest l)))\\
+\indent \indent \indent \indent \indent \indent \indent (filter p (rest l)))]))
+\end{siderules}
+
+\noindent \textbf{map}: aplicamos una transformaci\'on a cada elemento de una lista. $[a0, a1, ..., an] \rightarrow [f(a0), f(a1), ..., f(an)]$.
+\begin{siderules}
+(define (map f l)\\
+\indent \indent \indent (cond \ [(empty? l) empty]\\
+\indent \indent \indent \indent \indent [else (cons (f (first l)) (map f (rest l)))]))
+\end{siderules}
+
+\noindent \textbf{foldr}: realizar una operaci\'on que involucra a todos los elementos de la lista. $[a0, a1, ..., an] \rightarrow (f a0 (f a1 (... (f an-1 an))))$
+\begin{siderules}
+(define (fold f c l)\\
+\indent \indent \indent (cond \ [(empty? l) c]\\
+\indent \indent \indent \indent \indent [else (f (first l) (fold f c (rest l)))]))
+\end{siderules}
+
+\noindent \dotfill\\
+
+\noindent \textbf{andmap}: mapea un predicado a una lista, y se fija que todos los valores sean \#true.\\ 
+
+\noindent \textbf{ormap}: mapea un predicado a una lista, y se fija que al menos un valor sea \#true.\\
+
+\noindent \textbf{remove}: dado un elemento y una lista, devuelve la lista omitiendo la primer aparaci\'on del elemento.\\
+
+\noindent \textbf{remove*}: como \textit{remove}, pero remueve todas las apariciones.\\
+
+\noindent \textbf{(sort l proc)}: dado una lista y un procedimiento que toma 2 elementos (e.g <, >), ordena la lista l.\\
+
+\textit{(require racket/list)}\\
+
+\noindent \textbf{(take l pos)}: devuelve una lista cuyos elementos son los primeros pos elementos de l.\\
+
+\noindent \textbf{(drop l pos)}: devuelve una lista cuyos elementos son los elementos de l sin los primeros pos.\\
+
+\noindent \textbf{check-duplicates}: dada una lista devuelve el primer duplicado que tiene. \#f si no encontr\'o ninguno.\\
+
+\noindent \textbf{remove-duplicates}: dada una lista devuelve la misma sin elementos duplicados.\\
+
+\noindent \textbf{count}: dado un predicado y una lista, cuenta los que devuelven \#true.\\
+
+\noindent \textbf{partition}: dado un predicado y una lista, devuelve dos listas, primero con los elementos que evaluan el predicado como \#true, y la segunda lista que son los que evaluan a \#false.\\
+
+\noindent \textbf{combinations}: dada una lista y opcionalmente el tama\~no de los sets a formar, devuelve todos las posibles combinaciones de elementos (powerset).\\
+
+\noindent \textbf{permutations}: dada una lista, devuelve todas las posibles permutaciones de sus elementos.
 \end{document}
