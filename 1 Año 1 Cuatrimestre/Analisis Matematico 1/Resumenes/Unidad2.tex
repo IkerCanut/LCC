@@ -1,0 +1,218 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\usepackage{float}
+\restylefloat{table}
+\author{Iker M. Canut}
+\title{Unidad 2: Funciones Reales\\ Analisis Matem\'atico I}
+\begin{document}
+\maketitle
+\newpage
+
+\section{Generalidades}
+\begin{itemize}
+\item Dados dos conjuntos $X$ e $Y$, una \textbf{funci\'on} $f$ es una ley que asocia a cada elemento $x \in X$, un \'unico elemento $y \in Y$. Se nota $f : X \rightarrow Y, x \rightarrow y$
+\item Al conjunto X se lo llama \textbf{dominio} de la funci\'on $f$.
+\item Al conjunto Y se lo llama \textbf{codominio} de la funci\'on $f$.
+\item Al elemento $y$, \textbf{imagen} de $x$ por la funci\'on $f$ y lo notamos $y = f(x)$, se lee "$y$ es igual a $f$ de $x$". \'Esta es la variable dependiente.
+\item Al elemento $x$, \textbf{preimagen} de $y$ por $f$. Es la variable independiente.
+\item Al conjunto de todas las im\'agenes es el \textbf{recorrido} de $f$. $Rec(f) = \{ y \in Y : y = f(x) \land x \in X \}$
+\end{itemize}
+
+\section{Gr\'afica de una funci\'on}
+Es el conjunto de pares ordenados $(x,y)$, donde $x \in Dom(f)$ e $y = f(x)$, notando al mismo $G_f$:
+$$G_f = \{ (x,y) : x \in Dom(f), y = f(x) \} = \{ (x, f(x)) : x \in Dom(f) \}$$
+Para representar los pares ordenados, se usa un \textbf{sistema de coordenadas cartesianas}: Dos rectas perpendiculares, cada una con su escala. Eje x y eje y forman el \textbf{plano x y}, se intersecan en el \textbf{origen de coordenadas}. Hay una \textbf{relaci\'on biunivoca} entre los puntos del plano y los pares ordenados de n\'umeros reales. Un punto P se escribe como $P(x,y)$, x \textbf{abscisa}, y \textbf{ordenada}, donde $x \in Dom(f) \land y = f(x)$. Adem\'as, cualquier recta vertical corta a la gr\'afica de una funci\'on a lo sumo en un punto.
+
+\section{Propiedades de las funciones}
+\begin{itemize}
+\item Es \textbf{suryectiva} cuando su recorrido coincide con su codominio, es decir, $Rec(f) = Codom(f)$.
+\item Es \textbf{inyectiva} cuando a todo par de elementos distintos del dominio le corresponden distintas im\'agenes: dados $x_1,x_2 \in Dom(f), x_1 \not = x_2 \Rightarrow f(x_1) \not = f(x_2)$, o bien, $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$. Si existe una recta horizontal que corta a la gr\'afica en m\'as de un punto, entonces no es inyectiva.
+\item Es \textbf{biyectiva} cuando es suryectiva e inyectiva. Luego, hay una relaci\'on biunivoca entre el dominio y el codominio. Cada elemento del codominio recibe una \'unica flecha.\\
+
+\item Un conjunto no vacio $A$ de n\'umeros reales es \textbf{sim\'etrico} cuando $x \in A \Rightarrow -x \in A$.
+\item Una funci\'on $f$ es \textbf{par} si su dominio es un conjunto sim\'etrico y $f(x) = f(-x)\ \forall x \in Dom(f)$. La gr\'afica es sim\'etrica respecto al eje y, $(x, y) \in G_f \iff (-x, y) \in G_f$.
+\item Una funci\'on $f$ es \textbf{impar} si su dominio es un conjunto sim\'etrico y $f(-x) = -f(x)\ \forall x \in Dom(f)$. La gr\'afica es sim\'etrica respecto al origen de coordenadas, $(x,y) \in G_f \iff (-x,-y) \in G_f$.\\
+
+\item Sea $A$ un subconjunto del dominio de $f$, si para todo par de puntos $x_1, x_2 \in A$ se tiene que:
+\begin{itemize}
+\item $x_1 < x_2 \Rightarrow f(x_1) < f(x_2)$, entonces $f$ es una funci\'on \textbf{creciente} en $A$.
+\item $x_1 < x_2 \Rightarrow f(x_1) \leq f(x_2)$, entonces $f$ es una funci\'on \textbf{no decreciente} en $A$.
+\item $x_1 < x_2 \Rightarrow f(x_1) > f(x_2)$, entonces $f$ es una funci\'on \textbf{decreciente} en $A$.
+\item $x_1 < x_2 \Rightarrow f(x_1) \geq f(x_2)$, entonces $f$ es una funci\'on \textbf{no creciente} en $A$.
+\end{itemize}
+\item Una funci\'on es \textbf{mon\'otona} en un conjunto si es creciente o decreciente en dicho conjunto.
+\end{itemize}
+
+\section{Funciones elementales}
+\vspace{.25cm}
+\begin{table}[h!]
+\centering
+\hspace*{-1,5cm}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Funci\'on & Definici\'on & Sury & Iny & Paridad & Crecimiento\\
+\hline
+Constante & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow c$ & $\times$ & $\times$ & Par & No creciente y No decreciente\\
+Identidad & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow x$ & $\checkmark$ & $\checkmark$ & Impar & Creciente \\
+Lineal & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow m\cdot x+h$ & $\checkmark$ & $\checkmark$ & $h=0 \Rightarrow$ Impar & $m>0 \Rightarrow$ crec, $m < 0 \Rightarrow$ decr.\\
+Valor Absoluto & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow |x|$ & $\times$ & $\times$ & Par & $(-\infty, 0] \rightarrow$ decr, $[0, +\infty) \rightarrow$ crec.\\
+Potencia & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow x^a$ (a impar) & $\checkmark$ & $\checkmark$ & Impar & Creciente \\
+Potencia & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow x^a$ (a par) & $\times$ & $\times$ & Par & $(-\infty, 0] \rightarrow$ decr, $[0, +\infty) \rightarrow$ crec.\\
+Reciproca &  $\mathbb{R} - \{0\} \rightarrow \mathbb{R}, x \rightarrow x^a$ & $\times$ & $\checkmark$ & Impar & $(-\infty, 0] \rightarrow$ decr, $[0, +\infty) \rightarrow$ decr.\\
+Parte Entera & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow [x]$ & $\times$ & $\times$ & $\times$ & No decreciente \\
+Mantisa & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow x - [x]$ & $\times$ & $\times$ & $\times$ & $\times$\\
+Cuadr\'atica & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow a\cdot x ^ 2 + b \cdot x + c$ & $\times$ & $\times$ & Par & $(-\infty, 0] \rightarrow$ decr, $[0, +\infty) \rightarrow$ crec.\\
+Homogr\'afica & $\mathbb{R} - \{-\dfrac{d}{c}\} \rightarrow \mathbb{R}, x \rightarrow \dfrac{a\cdot x+b}{c\cdot x+d}$ & $\times$ & $\checkmark$ & $\times$ & Analizar \\
+Signo & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow \left\{\dfrac{|x|}{x}, x \not = 0; 0, x=0\right.$ & $\times$ & $\times$ & Impar & No decreciente \\
+\hline
+\end{tabular}
+\hspace*{-1cm}
+\end{table}
+
+\section{Funci\'on Cuadr\'atica Caso General}
+\begin{itemize}
+\item Para graficarlo, se completa el cuadrado: $... + \dfrac{b}{2a} - \dfrac{b}{2a}...$
+\item Para calcular las raices: $x_1, x_2 = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+\item El vertice tiene coordenadas $\left(\dfrac{-b}{2a}, f(\dfrac{-b}{2a})\right)$, recordamos que $\dfrac{x_1 + x_2}{2} = \dfrac{-b}{2a}$.
+\item Si $a > 0$ entonces tiene m\'inimo y las ramas van hacia arriba.
+\item Si $a < 0$ entonces tiene m\'aximo y las ramas van hacia abajo.
+\end{itemize}
+
+\section{Funci\'on Homogr\'afica}
+$\dfrac{ax+b}{cx+d}$ se busca llegar a $A + \dfrac{C}{x+B}$. Se saca $\dfrac{a}{c}$. Luego $...+\dfrac{d}{c}-\dfrac{d}{c}...$ para cancelar el parte del numerador usando el denominador como referencia. Se distribuye, se cancela, y llegamos a:
+$$\dfrac{a}{c} + \dfrac{bc-ad}{c^2} \cdot \dfrac{1}{x + \frac{d}{c}}$$
+La asintota horizontal es $y = A = \dfrac{a}{c}$ y la asintota vertical es $x = -B = -\dfrac{d}{c}$\\
+
+La intersecci\'on con los ejes es en los puntos $(0, \dfrac{b}{d})$ y $(-\dfrac{b}{a}, 0)$
+
+
+\section{Funci\'on Racional}
+Sea $f(x) = \dfrac{p(x)}{q(x)}$, siendo $p$ y $q$ dos polinomios, $Dom(f) = \mathbb{R} \cap \{x:q(x)\not = 0\}$.
+
+\newpage
+
+\section{Funci\'on Peri\'odica}
+Si $f(x) = f(x + p)\ \forall x \in Dom(f)$ y $p$ es el mismo n\'umero positivo que verifica esta relaci\'on.
+
+\section{Funciones Trigonom\'etricas}
+\subsection{Funci\'on Seno}
+$f(x) = sin(x)\ \forall x \in \mathbb{R}.\ \ Rec(f) = [-1,1]$, peri\'odica de periodo $2\pi$, funci\'on impar.
+\begin{align*}
+sin\ x = 0 &\iff x = \pi \cdot k, k \in Z\\
+sin\ x = 1 &\iff x = \dfrac{\pi}{2} + 2 \cdot \pi k, k \in Z
+\end{align*}
+\subsection{Funci\'on Coseno}
+$f(x) = cos(x)\ \forall x \in \mathbb{R}.\ \ Rec(f) = [-1,1]$, peri\'odica de periodo $2\pi$, funci\'on par.
+\begin{align*}
+cos\ x = 0 &\iff x = \dfrac{\pi}{2} + \pi k, k \in Z\\
+cos\ x = 1 &\iff x = 2\pi \cdot k, k \in Z
+\end{align*}
+
+$$cos(x) = sin\left(x+\dfrac{\pi}{2}\right),\ \forall x \in \mathbb{R}$$
+\subsection{Funci\'on Tangente}
+$f(x) = tan(x) = \dfrac{sin(x)}{cos(x)}\ \forall x \in \mathbb{R}-\{\dfrac{\pi}{2}+k\cdot \pi, k \in Z\}.\ \ Rec(f) = \mathbb{R}$, peri\'odica de periodo $\pi$, impar.
+
+\section{Funciones Rec\'iprocas Trigonom\'etricas}
+\subsection{Funci\'on Cosecante}
+$csc(x) = \dfrac{1}{sin\ x}$. $Dom(cosec) = \mathbb{R} - \pi \cdot k, k \in \mathbb{Z}$. $Rec(cosec) = \mathbb{R} - (-1,1)$. \\ 
+
+Impar, Peri\'odica de periodo $2\pi$.
+
+\subsection{Funci\'on Secante}
+$csc(x) = \dfrac{1}{cos\ x}$. Peri\'odica de periodo $2\pi$. $Dom(sec) = \mathbb{R} - \{ \pi \cdot k + \dfrac{\pi}{2}, k \in \mathbb{Z}\}$. $Rec(sec) = \mathbb{R} - (-1,1)$\\
+
+Par, Peri\'odica de periodo $2\pi$.
+
+\subsection{Funci\'on Cotangente}
+$csc(x) = \dfrac{1}{tan\ x} = \dfrac{cos\ x}{sin\ x}$. $Dom(cot) = \mathbb{R} - \{\pi \cdot k, k\in \mathbb{Z}\}$. $Rec(cot) = \mathbb{R}$\\
+
+Impar, Peri\'odica de periodo $\pi$.
+
+\newpage
+
+\section{Identidades Trigonom\'etricas}
+\begin{enumerate}
+\item $cos^2x + sin^2x = 1$
+\item $1 + tan^2x = \dfrac{1}{cos^2x} = sec^2x$
+\item $1+cot^2x = \dfrac{1}{sin^2x} = csc^2x$
+\item $cos(x \pm y) = cos\ x \cdot cos\ y \mp sin\ x \cdot sin\ y$ $\land$ $sin(x \pm y) = sin\ x \cdot cos\ y \pm cos\ x \cdot sin\ y$
+\item $cos\ x + cos\ y = 2\cdot cos\dfrac{x+y}{2} \cdot cos\dfrac{x-y}{2}$ $\land$ $cos\ x - cos\ y = -2 \cdot sin\dfrac{x+y}{2} \cdot sin \dfrac{x-y}{2}$
+\item $sin\ x + sin\ y = 2\cdot sin \dfrac{x+y}{2} \cdot cos\dfrac{x-y}{2}$ $\land$ $sin\ x - sin\ y = 2 \cdot cos \dfrac{x+y}{2} \cdot sin \dfrac{x-y}{2}$
+\item $cos(2x) = cos^2x-sin^2x$ $\land$ $sin(2x)=2\cdot sin\ x \cdot cos\ x$
+\item $cos^2x = \dfrac{1+cos\ 2x}{2}$ $\land$ $sin^2x=\dfrac{1-cos\ 2x}{2}$
+\end{enumerate}
+$$x = \dfrac{x+y}{2} + \dfrac{x-y}{2}\ \ \land \ \ y = \dfrac{x+y}{2}-\dfrac{x-y}{2}$$
+\begin{enumerate}
+\item[9.] $c^2 = a^2 + b^2 - 2ab\cdot cos\ C$
+\item[10.] $\dfrac{sin\ A}{a} = \dfrac{sin\ B}{b} = \dfrac{sin\ C}{c}$
+\end{enumerate}
+
+\section{Traslaciones o reflexiones respecto de una recta}
+\begin{itemize}
+\item $g(x) = -f(x)$, entonces $x \in Dom(g) \iff x \in Dom(f)$, $(x,y) \in G_f \iff (x,-y) \in G_g]$ y tienen los mismos ceros. $Rec(f)=[c,d] \Rightarrow Rec(g)=[-d,-c]$. Reflexi\'on respecto del eje $x$.
+\item $t(x)=|f(x)|$, entonces $x \in Dom(t) \iff x \in Dom(f)$. Si $f(x) \geq 0$, entonces $t(x)=f(x)$. Si $f(x) < 0$, entonces $t(x) = -f(x)$.
+\item $h(x) = f(x) + \alpha$, entonces $x \in Dom(h) \iff x \in Dom(f)$, $(x,y) \in G_f \iff (x,y+\alpha )\in G_h$. Si $\alpha > 0$, se traslada la gr\'afica de $f$ hacia arriba $\alpha$ unidades. Si $\alpha < 0$, hacia abajo.\\ $Rec(f)=[c,d] \Rightarrow Rec(h) = [c+\alpha, d+\alpha]$
+\item $p(x) = f(x + \beta)$, entonces $x \in Dom(f) \iff (x-\beta )\in Dom(p)$, $(x,y) \in G_f \iff (x-\beta, y) \in G_p$. Si $\beta > 0$, se traslada la gr\'afica de $f$ a la izquierda. Si $\beta < 0$, hacia la derecha. $Rec(p) = Rec(f)$.
+\end{itemize}
+
+\section{Cambio de Tama\~no y Reflexi\'on}
+\begin{multicols}{2}
+\begin{itemize}
+\item $y = c \cdot f(x)$ dilata verticalmente $G_f$.
+\item $y = \dfrac{1}{c} \cdot f(x)$ comprime verticalmente $G_f$.
+\item $y = f(c \cdot x)$ comprime horizontalmente $G_f$.
+\item $y = f\left(\dfrac{1}{c} \cdot x\right)$ dilata horizontalmente $G_f$.
+\item $y = - f(x)$ refleja $G_f$ respecto del eje $x$.
+\item $y = f(-x)$ refleja $G_f$ respecto del eje $y$.\\ \\ \\ \\
+\end{itemize}
+\end{multicols}
+
+\section{Composici\'on de Funciones}
+Dadas dos funciones $f:Dom(f)\rightarrow\mathbb{R},g:Dom(g)\rightarrow\mathbb{R}$, se define la funci\'on compuesta, notado como $(f \circ g)(x) = f(g(x))$. Luego, $Dom(f\circ g)(x) = \{ x \in Dom(g) \land g(x) \in Dom(f) \} $
+
+\section{Funci\'on Inversa}
+Sea $f$ una funci\'on inyectiva con dominio $A$ y recorrido $B$, entonces su funci\'on inversa $f^{-1} : B \rightarrow A$ se define para cada $y \in B: f^{-1} = x \iff f(x) = y$. Luego, $(x,y) \in G_f \iff (y,x) \in G_{f^{-1}}$. Es decir, las gr\'aficas de $f$ y $f^{-1}$ son sim\'etricas respecto a la gr\'afica de la funci\'on identidad. Adem\'as, como $f^{-1}(f(x)) = x \iff f(f^{-1}(x)) = y$, tenemos que $f(f^{-1}(x))$, y $f^{-1}(f(x))$, es la funci\'on identidad. \\
+
+Por \'ultimo, cuando $f$ no es inyectiva, podemos restringir el dominio a un subconjunto, donde si lo sea, y definir su inversa.
+
+\section{Funci\'on Exponencial}
+$f(x) = a^x$, $a>0 \land a \not = 1$. $Dom(f) = \mathbb{R}, Rec(f) = \mathbb{R}^+$. Si $a>1$, creciente. Si $0<a<1$, decreciente. $y=0$ es una asintota horizontal.
+\begin{itemize}
+\item $a^x \not = 0,\ \forall x$
+\item $a^0 = 1,\ \forall a$
+\item $0 < a < b \land x > 0 \Rightarrow a^x < b^x$
+\item $0 < a < b \land x < 0 \Rightarrow a^x > b^x$
+\end{itemize}
+\subsection{Funci\'on Logaritmica (inversa de la exponencial)}
+$f(x) = log_ax$, $a>0 \land a \not = 1$. $Dom(f) = \mathbb{R}^+, Rec(f) = \mathbb{R}$. Definici\'on: $log_ax = y \iff a^y = x$
+\begin{align*}
+log_a(x\cdot y) = log_a(x) + log_a(y)\ &\land\ a^x \cdot a^y = a^{x+y}\\
+log_a\left(\dfrac{x}{y}\right) = log_a(x) - log_a(y)\ &\land\ \dfrac{a^x}{a^y} = a^{x-y}\\
+log_a(x^y) = y \cdot log_a(x)\ &\land\ (a^x)^y = a^{x\cdot y}\\
+\end{align*}
+
+\section{Funciones Trigonometricas Inversas}
+\subsection{Arco Seno}
+$arcsin\ x = sin^{-1}(x) = y \iff sin\ y = x, -\dfrac{\pi}{2} \leq x \leq \dfrac{\pi}{2}$. Es el n\'umero entre $-\dfrac{\pi}{2}$ y $\dfrac{\pi}{2}$ cuyo seno es x.\\
+
+$Dom(sin\ x) = Rec(arcsin\ x) = [-\dfrac{\pi}{2}, \dfrac{\pi}{2}]$, $Rec(sin\ x) = Dom(arcsin\ x) = [-1,1]$
+
+\subsection{Arco Coseno}
+$arccos\ x = cos^{-1}(x) = y \iff cos\ y = x, 0 \leq x \leq \pi$. El n\'umero entre $0$ y $\pi$ cuyo coseno es x.\\
+
+$Dom(cos\ x) = Rec(arccos\ x) = [0,\pi]$, $Rec(cos\ x) = Dom(arccos\ x) = [-1,1]$
+
+\subsection{Arco Tangente}
+$arctan\ x = tan^{-1}(x) = y \iff tan\ y = x, 0 < x < \dfrac{\pi}{2}$. El n\'umero entre $-\dfrac{\pi}{2}$ y $\dfrac{\pi}{2}$ cuya tangente es x.\\
+
+$Dom(tan\ x) = Rec(arctan\ x) = (-\dfrac{\pi}{2}, \dfrac{\pi}{2})$, $Rec(tan\ x) = Dom(arctan\ x) = \mathbb{R}$
+
+
+\end{document}
