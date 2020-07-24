@@ -304,5 +304,215 @@ Y como sabemos que $\displaystyle{\lim_{x \to 0} \cos x = 1} \not = 0 \Rightarro
 Utilizando el Teorema del Sandwich, se concluye que $\displaystyle{\lim_{x \to 0} \dfrac{x}{\sin x} = 1 \not = 0}$ y luego $\displaystyle{\lim_{x \to 0} \dfrac{\sin x}{x} = 1}$
 \QEDA\\
 
+\section{Generalizaci\'on del Concepto de L\'imite}
+\begin{itemize}
+\item Una funci\'on tiene limite $+\infty$ en el punto $a$ si para cualquier $M>0$ existe un $\delta>0$ tal que: $0<|x-a|<\delta \Rightarrow f(x)>M$. Luego, notamos $\displaystyle{\lim_{x \to a} f(x) = +\infty}$
+\item Una funci\'on tiene limite $-\infty$ en el punto $a$ si para cualquier $M>0$ existe un $\delta>0$ tal que: $0<|x-a|<\delta \Rightarrow f(x)>-M$ Luego, notamos $\displaystyle{\lim_{x \to a} f(x) = -\infty}$
+\end{itemize}
 
+\noindent \textbf{Teorema 10}: \textbf{\'Algebra de L\'imites Infinitos}: Sean $a$ un real, y $f$ y $g$ dos funciones tales que:
+\begin{itemize}
+\item $\displaystyle{\lim_{x \to a} f(x) = +\infty}$ y $\displaystyle{\lim_{x \to a} g(x) = +\infty}$, entonces $\displaystyle{\lim_{x \to a} (f+g)(x) = +\infty}$
+\item $\displaystyle{\lim_{x \to a} f(x) = -\infty}$ y $\displaystyle{\lim_{x \to a} g(x) = -\infty}$, entonces $\displaystyle{\lim_{x \to a} (f+g)(x) = -\infty}$
+\item Si $c>0$, $\displaystyle{\lim_{x \to a} f(x) = +\infty}$ y $\displaystyle{\lim_{x \to a} g(x) = -\infty}$, entonces $\displaystyle{\lim_{x \to a} (cf)(x) = +\infty}$ y $\displaystyle{\lim_{x \to a} (cg)(x) = -\infty}$
+\item Si $c<0$, $\displaystyle{\lim_{x \to a} f(x) = +\infty}$ y $\displaystyle{\lim_{x \to a} g(x) = -\infty}$, entonces $\displaystyle{\lim_{x \to a} (cf)(x) = -\infty}$ y $\displaystyle{\lim_{x \to a} (cg)(x) = +\infty}$
+\item Si $\displaystyle{\lim_{x \to a} f(x) = \pm \infty}$ y $\displaystyle{\lim_{x \to a} g(x) = \pm \infty}$, entonces $\displaystyle{\lim_{x \to a} (f\cdot g)(x) = + \infty}$
+\item Si $\displaystyle{\lim_{x \to a} f(x) = \pm \infty}$ y $\displaystyle{\lim_{x \to a} g(x) = \mp \infty}$, entonces $\displaystyle{\lim_{x \to a} (f\cdot g)(x) = - \infty}$
+\end{itemize}
+\textbf{Demostraciones}
+\begin{itemize}
+\item $ \left.
+\begin{array}{l}
+0<|x-a|<\delta' \Rightarrow f(x)>M'\\
+0<|x-a|<\delta'' \Rightarrow f(x)>M''
+\end{array} \right\} \Rightarrow \delta \leq \min\{\delta', \delta''\}, 0<|x-a|<\delta,
+$\\
+$(f+g)(x) = f(x)+g(x) < M' + M'' = M \therefore M' = \dfrac{M}{2} \land M'' = \dfrac{M}{2}$ \QEDA
+
+\item $ \left.
+\begin{array}{l}
+0<|x-a|<\delta' \Rightarrow f(x)>-M'\\
+0<|x-a|<\delta'' \Rightarrow f(x)>-M''
+\end{array} \right\} \Rightarrow \delta \leq \min\{\delta', \delta''\}, 0<|x-a|<\delta,
+$\\
+$(f-g)(x) = f(x)-g(x) < -M' + -M'' = M \therefore M' = -\dfrac{M}{2} \land M'' = -\dfrac{M}{2}$ \QEDA
+
+\item $0<|x-a|<\delta_1 \Rightarrow f(x) > M',\ (c\cdot f)(x)=c\cdot f(x) < c\cdot M' = M \therefore M'=\dfrac{M}{c}$\\
+\indent $0<|x-a|<\delta_2 \Rightarrow g(x) > -M'',\ (c\cdot g)(x)=c\cdot g(x) < c\cdot -M'' = M \therefore M''= - \dfrac{M}{c}$ \QEDA
+
+\item $0<|x-a|<\delta_1 \Rightarrow f(x) > M',\ (c\cdot f)(x)=c\cdot f(x) < c\cdot M' = -M \therefore M'=-\dfrac{M}{c}$\\
+\indent $0<|x-a|<\delta_2 \Rightarrow g(x) > M'',\ (c\cdot g)(x)=c\cdot g(x) < c\cdot M'' = M \therefore M''=\dfrac{M}{c}$
+
+\item $ \left.
+\begin{array}{l}
+0<|x-a|<\delta' \Rightarrow f(x)>M'\\
+0<|x-a|<\delta'' \Rightarrow f(x)>M''
+\end{array} \right\} \Rightarrow \delta \leq \min\{\delta', \delta''\}, 0<|x-a|<\delta,
+$\\
+$(f\cdot g)(x) = f(x)\cdot g(x) < M' \cdot M'' = M \therefore M' = \sqrt{M} \land M'' = \sqrt{M}$ (an\'alogamente el resto)\QEDA
+\end{itemize}
+\subsection{L\'imites laterales infinitos}
+\begin{itemize}
+\item Una funci\'on tiene limite $+\infty$ (resp. $-\infty$) por izquierda en el punto $a$, si para $M>0$, $\exists \delta>0$: $$a-\delta<x<a \Rightarrow f(x) > M\ (\text{resp. } f(x)<-M)$$
+\item Una funci\'on tiene limite $+\infty$ (resp. $-\infty$) por derecha en el punto $a$, si para $M>0$, $\exists \delta>0$: $$a<x<a+\delta \Rightarrow f(x) > M\ (\text{resp. } f(x)<-M)$$
+\end{itemize}
+
+\noindent \textbf{Proposici\'on 7}: \textbf{\'Algebra de L\'imites Laterales Infinitos}: Los resultados del \textit{Teorema 10} son v\'alidos si se reemplazan los s\'imbolos $x\rightarrow a$ por $x\rightarrow a^+$ o $x\rightarrow a^-$.
+
+\section{L\'imites en el Infinito}
+\begin{itemize}
+\item Una funci\'on $f$ tiene l\'imite $l$ cuando $x \to +\infty$, si $\forall \epsilon > 0$, $\exists H > 0$ :\\ $x > H \Rightarrow |f(x)-l| < \epsilon$ y notamos $\displaystyle{\lim_{x \to +\infty} f(x) = l}$
+\item Una funci\'on $f$ tiene l\'imite $l$ cuando $x \to -\infty$, si $\forall \epsilon > 0$, $\exists H > 0$ :\\ $x < -H \Rightarrow |f(x)-l| < \epsilon$ y notamos $\displaystyle{\lim_{x \to -\infty} f(x) = l}$
+\end{itemize}
+Notamos que si una propiedad se verifica $\forall x > H_1$, y otra propiedad se verifica $\forall x > H_2$, ambas se verifican para $H\geq\max\{H_1,H_2\}$.\\
+
+\noindent \textbf{Proposici\'on 8}: \textbf{\'Algebra de L\'imites en el Infinito}: Los resultados de la secci\'on de \textit{\'Algebra de L\'imites} son v\'alidos si se reemplazan los s\'imbolos $x\to a$ por $x\to +\infty$ o $x\to -\infty$.
+
+\section{L\'imites Infinitos en el Infinito}
+\begin{itemize}
+\item Una funci\'on $f$ tiene l\'imite $+\infty$ cuando $x\to +\infty$, si $\forall M>0,\ \exists H>0$: ($x>H \Rightarrow f(x)>M$)
+\item Una funci\'on $f$ tiene l\'imite $+\infty$ cuando $x\to -\infty$, si $\forall M>0,\ \exists H>0$: ($x<-H \Rightarrow f(x)>M$)
+\item Una funci\'on $f$ tiene l\'imite $-\infty$ cuando $x\to +\infty$, si $\forall M>0,\ \exists H>0$: ($x>H \Rightarrow f(x)<-M$)
+\item Una funci\'on $f$ tiene l\'imite $-\infty$ cuando $x\to -\infty$, si $\forall M>0,\ \exists H>0$: ($x<-H \Rightarrow f(x)<-M$)
+\end{itemize}
+
+\noindent \textbf{Proposici\'on 9}: \textbf{\'Algebra de L\'imites Infinitos en el Infinito}: Los resultados de la secci\'on de \textit{\'Algebra de L\'imites Infinitos} son v\'alidos si se reemplazan los s\'imbolos $x\to a$ por $x\to +\infty$ o $x\to -\infty$.\\
+
+
+\noindent \textbf{Proposici\'on 10}:
+\begin{itemize}
+\item $\displaystyle{\lim_{x \to a} f(x) \Rightarrow \pm\infty} \Rightarrow \displaystyle{\lim_{x \to a} \left(\dfrac{1}{f}\right)(x) = 0}$ \\ (Lo mismo ocurre si se reemplaza $x\to a$ por $x\to a^+$, $x\to a^-$, $x\to +\infty$ o $x\to -\infty$).\\
+\textbf{Demostraci\'on}: Queremos demostrar que\\ $\left[0<|x-a|<\delta \Rightarrow f(x) > M \right] \Rightarrow \left[0<|x-a|<\delta \Rightarrow \left|\dfrac{1}{f(x)}-0\right|<\epsilon\right]$. \\
+Y como $f(x)>M>0 \Rightarrow 0 <\dfrac{1}{f(x)}<\dfrac{1}{M} \Rightarrow \left|\dfrac{1}{f(x)}-0\right| < \dfrac{1}{M}$, consideramos $\dfrac{1}{M} = \epsilon > 0$ \QEDA\\
+
+\item $\displaystyle{\lim_{x \to \pm\infty} f(x) = l} \iff \displaystyle{\lim_{x \to 0^\pm} f\left(\dfrac{1}{x}\right) = l}$ \\ (Lo mismo ocurre si se reemplaza $l$ por $+\infty$ o $-\infty$).\\
+\textbf{Demostraci\'on}: Queremos demostrar que\\ $\left[ 0<H<x \Rightarrow |f(x)-l| < \epsilon \right] \iff \left[ 0 < x < 0 + \delta  \Rightarrow \left|f\left(\dfrac{1}{x}\right)-l\right| < \epsilon \right]$\\
+Y como $0<H<x \Rightarrow 0<\dfrac{1}{x} < \dfrac{1}{H} \Rightarrow |f(x)-l|<\epsilon$, tomando $\delta = \dfrac{1}{H}$ y haciendo un cambio de variable $x'=x$, tenemos que $0< x' < \delta \Rightarrow \left|f\left(\dfrac{1}{x'}\right)-l\right|<\epsilon$ \QEDA
+
+\end{itemize}
+
+\section{L\'imites Indeterminados}
+\begin{itemize}
+\item Cociente de dos funciones con l\'imite cero: $\dfrac{0}{0}$
+\item Cociente de dos funciones con l\'imite infinito: $\dfrac{\infty}{\infty}$
+\item Producto de un l\'imite cero por uno infinito: $0\cdot \infty$
+\item Suma de dos infinitos de distinto signo: $\pm \infty + \mp \infty$
+\end{itemize}
+Cuando se tiene una indeterminaci\'on del l\'imite, el l\'imite puede ser un n\'umero real o incluso $\pm \infty$, y hay que realizar simplificaciones o reemplazos para poder calcularlo.\\
+\textbf{Nota}: Si tenemos $g(x)$ definida en un entorno reducido del punto $a$, donde no se anula y que tiende a $0$ en dicho punto, entonces $\dfrac{0}{g(x)} = 0$, y por Caracter Local del Limite, $\displaystyle{\lim_{x \to a} \dfrac{0}{g(x)} = 0}$\\
+\textbf{Nota}: Las consideraciones hechas para el c\'alculo de l\'imites puntuales valen para los l\'imites en el infinito y para el c\'alculo de l\'imites laterales, con los mismos casos de indeterminaci\'on.
+
+\section{Definici\'on de Continuidad}
+Sean $f$ una funci\'on y $a$ un n\'umero real, entonces se dice que: $f$ es continua en $a$ $\iff$
+\begin{enumerate}
+\item Existe el valor $f(a)$,
+\item Existe el valor $\displaystyle{\lim_{x \to a} f(x)}$ y es finito,
+\item $\displaystyle{\lim_{x \to a} f(x) = f(a)}$.
+\end{enumerate}
+Definiendo usando entornos de $a$ y $f(a)$, $$\text{$f$ es continua en $a$ } \iff \forall\ \epsilon > 0,\ \exists \delta > 0 :\ |x-a|<\delta \Rightarrow |f(x)-f(a)| < \epsilon$$
+Difiriendo de la definici\'on de l\'imite al reemplazar $l$ por $f(a)$ y la condici\'on se debe verificar en el entorno completo, ya que $f$ debe estar definida en $a$ (en dicho punto vale $\forall\ \epsilon>0$, ya que $|f(a)-f(a)| = 0 < \epsilon$).
+
+\subsection{Continuidad Lateral}
+Una funci\'on $f$ se dice continua por izquierda (resp. derecha) en el punto $a$, si existe el valor de $f(a)$, el valor del l\'mite lateral por izquierda (resp. derecha) y ambos coinciden.
+\subsection{Funciones Continuas}
+Una funci\'on se dice que es continua si es continua en todos los puntos de su dominio. Entre ellas:
+\begin{itemize}
+\item La funci\'on lineal $f(x)=m\cdot x + h$.
+\item Los polinomios y las funciones racionales.
+\item Las funciones seno y coseno, y las dem\'as funciones trigonom\'etricas.
+\item La funcion valor absoluto $f(x)=|x|$.
+\end{itemize}
+
+\section{Discontinuidades}
+\subsection{Discontinuidad Evitable}
+Sucede cuando existe el l\'imite finito de la funci\'on en un punto, pero no coincide con el valor de la funci\'on en dicho punto (pudiendo incluso no estar definido).
+\subsection{Discontinuidad Inevitable de Salto Finito}
+Sucede cuando una funci\'on posee ambos l\'imites laterales finitos, pero no coinciden. La distancia entre ambos l\'imites se la denomina discontinuidad del salto.
+\subsection{Discontinuidad Inevitable de Salto Infinito}
+Sucede si al menos uno de los dos l\'imites laterales en un punto es infinito y el otro existe, siendo el segundo finito o infinito.
+\subsection{Discontinuidades Esenciales}
+Sucede si alli la discontinuidad no es evitable, ni de salto finito o infinito. En el punto no existe uno de los l\'imites laterales, finito o infinito.\\
+Ejemplos: 
+\begin{itemize}
+\item $f(x)=\left\{\begin{array}{ll} 1 & \text{ si } x \in \mathbb{Q} \\ 0 & \text{ si } x \in \mathbb{R - Q}\end{array}\right.$ \\ Es discontinua en todo n\'umero real. Dado $\epsilon = \frac{1}{2}$, y $a$ racional, en cualquier entorno $E(a,\delta)$ existen irracionales para los cuales $|f(x)-f(a) = |0-1| = 1 > \frac{1}{2} = \epsilon$. An\'alogamente para los $b$ irracionales, en $E(b,\delta)$ existen racionales en los que $|f(x)-f(a)| = |1-0| = 1 > \frac{1}{2} = \epsilon$. Como en ning\'un punto la funci\'on es continua, tiene discontinuidades esenciales en todos los puntos.
+\item $f(x)=\sin\left(\dfrac{1}{x}\right)$. Tiene una discontinuidad esencial en $0$, ya que a medida que se acerca a $0$, los valores fluctuan entre -1 y 1, sin tender a ning\'un valor. Es continua en todo punto distinto de 0.
+\item $f(x)=x\cdot\sin\left(\dfrac{1}{x}\right)$. Es continua en todo $\mathbb{R}$. Es continua en 0 por el T6\footnote{$\displaystyle{\lim_{x\to a}f(x) = 0}$ y $g$ est\'a acotada en un entorno reducido $E'(a,\rho)$, entonces $\displaystyle{\lim_{x\to a}(fg)(x) = 0}$}, en el resto por composici\'on de funciones continuas.
+\end{itemize}
+
+\newpage
+
+\section{Teoremas de Funciones Continuas}
+\textbf{Proposici\'on 11}: Sea $f$ una funci\'on continua en $a$, entonces existe un entorno de $a$ en el cual $f$ est\'a acotada. Es decir, existen $\delta > 0$, $M > 0$ : $x \in E(a, \delta) \Rightarrow |f(x)| \leq M$\\
+\noindent \textbf{Proposici\'on 12}: Sea $f$ una funci\'on continua en $a$ y $k$ un n\'umero real tal que $f(a) > k$ (resp. $f(a) < k$), entonces existe un entorno de $a$ en el cual $f$ asume valores todos mayores (resp. menores) a $k$, es decir, existe $\delta > 0$ : $x \in E(a,\delta) \Rightarrow f(x) > k$ (resp. $f(x) < k$).\\
+\noindent \textbf{Corolario 3}: \textbf{Principio de Conservaci\'on del Signo}: Sea $f$ continua en $a$, tal que $f(a)>0$ (resp. $f(a)<0$), entonces existe un entorno de $a$ en el cual la funci\'on se mantiene positiva (resp. negativa).\\
+\noindent \textbf{Corolario 4}: Sea $f$ una funci\'on continua en $a$ tal que, en cualquier entorno de $a$ la funci\'on asume tanto valores positivos como negativos, entonces $f(a)=0$. Se demuestra por el absurdo, ya que si suponemos $f(a)>0$ entonces tenemos un entorno de $a$ donde $f$ es siempre positiva, contradiciendo la hipotesis, luego $f(a)\leq 0$. Analogamente suponemos $f(a)<0$, y llegamos a que $f(a)\geq 0$ $\Rightarrow f(a)=0$.\\
+
+\noindent \textbf{Teorema 11}: \textbf{\'Algebra de Funciones Continuas}: Sean $f$ y $g$ funciones continuas en $a$, entonces son continuas en $a$ las funciones $f \pm g$, $c \cdot f (c \in \mathbb{R})$, $f \cdot g$ y $\frac{f}{g}\ (g(a) \not = 0)$.\\
+\noindent \textbf{Demostraci\'on}: Sabemos que existen $f(a)$ y $g(a)$, luego existe $(f+g)(a) = f(a) + g(a)$. Ademas existen los l\'imites de $f$ y $g$ en $a$, y vale $\displaystyle{\lim_{x \to a} (f+g)(x) = \lim_{x \to a} f(x) + \lim_{x \to a} g(x) = f(a) + g(a) = (f+g)(a)}$. \QEDA\\
+\noindent \textbf{Teorema 12}: \textbf{L\'imite de la Funci\'on Compuesta}: Sean $f$ y $g$ dos funciones tales que $Rec(g) \subset Dom(f)$. Si existe el l\'imite $\displaystyle{\lim_{x \to a} g(x) = l}$ y que $f$ es continua en $l$, entonces existe $\displaystyle{\lim_{x \to a} (f\circ g)(x) = f(l)}$.\\
+\textbf{Demostraci\'on}: Queremos llegar a que $0<|x-a|<\delta \Rightarrow |(f \circ g)(x) - f(l)| < \epsilon$. Partiendo con ese $\epsilon$, sabemos que existe $\rho > 0$ para el cual $|z-l| < \rho \Rightarrow |f(z)-f(l)| < \epsilon$. Y como $0 < |x-a| < \delta \Rightarrow |g(x) - l| < \rho$, combinando las expresiones llegamos a que: $$0 < |x-a| < \delta \Rightarrow |g(x)-l| < \rho \Rightarrow |f(g(x)) - f(l)| < \epsilon $$ \QEDA\\
+\noindent \textbf{Corolario 5}: \textbf{Continuidad de la Funci\'on Compuesta}: Sea $g$ continua en $a$ y $f$ continua en $g(a)$, entonces $(f\circ g)(a)$ es continua en $a$.
+
+\section{Ceros de Funciones Continuas y Teorema de Bolzano}
+\noindent \textbf{Teorema 13}: \textbf{Teorema de Bolzano}: Sea $f$ una funci\'on continua en el intervalo $[a,b]$ : $f(a)\cdot f(b) < 0$ (i.e tienen distino signo), entonces existe $\xi \in (a,b)$ donde $f(\xi) = 0$.\\
+
+\noindent \textbf{M\'etodo de Bisecci\'on}: Dada una funci\'on $f$ continua en un intervalo, que asume valores de diferente signo en los extremos, sucesivamente se calculan los valores de dos sucesiones $a_n$ y $b_n$ que convergen a un cero de la funci\'on. Conocidos $a_n$ y $b_n$, se calcula el valor del punto medio $c_{n+1} = \dfrac{a_n+b_n}{2}$ y se tendr\'a que el valor $c_{n+1}$ aproxima al valor $\xi$ de un cero, con cota $|c_{n+1} - \xi| \leq \dfrac{b-a}{2^{n+1}}$. Es decir, dada una tolerancia $\epsilon$, buscamos $n$ para el cual $\dfrac{b-a}{2^{n+1}} < \epsilon$, encontrando un valor $c_{n+1}$ a menos de una distancia $\epsilon$ de $\xi$.\\
+
+\textbf{Nota}: El cero de $f$ puede no ser \'unico, y si se utilizan otros puntos $a$ y $b$, quizas se encuentran ceros diferentes.\\
+
+\noindent \textbf{Teorema 14}: \textbf{Propiedad de los Valores Intermedios}: Sea $f$ una funci\'on continua en $[a,b]$, donde $f(a) \not = f(b)$ y $k$ un valor comprendido estrictamente entre $f(a)$ y $f(b)$, entonces existe un punto $\xi \in (a,b)$ para el cual resulta $f(\xi)=k$\\
+\noindent \textbf{Demostraci\'on}: Supongamos $f(a)<f(b)$ (si no sucede, es an\'alogo), entonces $f(a)<k<f(b)$. Luego definimos la funci\'on $g(x) = f(x)-k$, y tenemos que $g$ es continua en $[a,b]$ por ser resta de funciones continuas, $g(a)<0$ y $g(b)>0$. Y al satisfacer las hip\'otesis del Teorema de Bolzano, entonces existe un valor $\xi \in (a,b)$ para el cual $0=g(\xi) = f(\xi)-k \therefore f(\xi)=k$
+
+\textbf{Nota}: Dada la funci\'on potencia $f(x)=x^m$, sabemos que es continua. Con PVI y la Propiedad Arquimediana se puede demostrar que todo n\'umero real (real positivo, si $m$ par) es imagen de alg\'un otro. Por ejemplo, $m=2$ se empieza con que dado $y\in \mathbb{R}^+_0$ $0<y<1 \Rightarrow \exists 0<x<1\ :\ f(x)=y$. Luego si $1\leq y$ por Propiedad Arquimediana se sabe que existe $y<n$, luego $f(1)=1\leq y<n\leq n^2 = f(n)$ y aplicando PVI existe $1\leq x < n$ tal que $f(x)=y$.
+
+\section{Continuidad de la Funci\'on Inversa}
+Sabemos que una funci\'on biyectiva admite una funci\'on inversa, y que la misma tambien es biyectiva. Adem\'as, sabemos que es creciente si $\forall x_1, x_2 \in A$, $x_1 < x_2 \Rightarrow f(x_1) < f(x_2)$\\
+
+\noindent \textbf{Teorema 15}: \textbf{Continuidad de la Funci\'on Inversa}: Si $f$ es creciente y continua en un intervalo $[a,b]$, entonces:
+\begin{enumerate}
+\item Existe la funci\'on inversa $f^{-1}$ definida sobre el intervalo $[f(a),f(b)]$
+\item $f^{-1}$ es creciente en $[f(a),f(b)]$
+\item $f^{-1}$ es continua en $[f(a),f(b)]$
+\end{enumerate}
+\textbf{Demostraci\'on}: 
+\begin{enumerate}
+\item $f$ creciente implica $f$ inyectiva o biyectiva restringiendo el dominio. Luego $Rec(f)=[f(a),f(b)]$, por PVI, como $f$ es continua sobre $[a,b]$, podemos asegurar que dado un $z\in[f(a),f(b)]$, existe un $c\in[a,b])$ tal que $f(c) = z$. Luego $f$ admite inversa, y el domino es $[f(a),f(b)]$.
+\item Sean $y_1, y_2$ dos puntos cualesquiera de $[f(a),f(b)]$, y sean $x_1, x_2 \in [a,b]$ tales que $f(x_1)=y_1$ y $f(x_2)=y_2$, para mostrar que $f^{-1}$ es creciente, habr\'a que ver que $y_1<y_2 \Rightarrow f^{-1}(y_1) < f^{-1}(y_2)$:
+\begin{align*}
+\bigg( y_1<y_2 \Rightarrow f^{-1}(y_1) < f^{-1}(y_2) \bigg) & \iff \bigg( f(x_1)<f(x_2) \Rightarrow f^{-1}(f(x_1)) < f^{-1}(f(x_2)) \bigg)\\
+& \iff \bigg( f(x_1)<f(x_2) \Rightarrow x_1 <x_2 \bigg)
+\end{align*}
+Si $x_1 > x_2$ con $f(x_1)<f(x_2)$, contradice que es creciente. Si $x_1 = x_2$ con $f(x_1)<f(x_2)$, contradice que es funci\'on. Ergo, $f^{-1}$ es creciente mon\'otona sobre $[f(a),f(b)]$.
+\item DEMOSTRAR!!!!!!!! TO DO
+\end{enumerate}
+
+\noindent \textbf{Teorema 16}: Si $f$ es decreciente y continua en un intervalo $[a,b]$, entonces:
+\begin{enumerate}
+\item Existe la funci\'on inversa $f^{-1}$ definida sobre el intervalo $[f(a),f(b)]$
+\item $f^{-1}$ es decreciente en $[f(a),f(b)]$
+\item $f^{-1}$ es continua en $[f(a),f(b)]$
+\end{enumerate}
+
+\section{Valores Extremos y Teoremas de Weierstrass}
+Sea $f$ una funci\'on definida sobre un conjunto $A$, diremos que:
+\begin{itemize}
+\item el valor $M$ es el \textbf{m\'aximo} de $f$ en $A$ si existe un n\'umero $x^* \in A$ : $M = f(x^*) \geq f(x),\ \forall x \in A$.
+\item el valor $m$ es el \textbf{m\'aximo} de $f$ en $A$ si existe un n\'umero $x^* \in A$ : $Mm= f(x^*) \leq f(x),\ \forall x \in A$.
+\end{itemize}
+Luego notamos $\ \ \ \ M = \displaystyle{\max_{x\in A} f(x)} \ \ \ \ $ y $\ \ \ \ m = \displaystyle{\min_{x\in A} f(x)}$\\
+
+\textbf{Nota}: $\displaystyle{\max_{x\in A} f(x)}$ = $\displaystyle{-\min_{x\in A} (-f)(x)} \ \ \ \ $ y $\ \ \ \ \displaystyle{\min_{x\in A} f(x)}$ = $\displaystyle{-\max_{x\in A} (-f)(x)}$
+
+\newpage
+
+\noindent \textbf{Teorema 17}: \textbf{Primer Teorema de Weierstrass}: Si $f$ es una funci\'on continua en un intervalo $[a,b]$, entonces $f$ est\'a acotada en dicho intervalo.\\
+
+\noindent \textbf{Teorema 18}: \textbf{Segundo Teorema de Weierstrass}: Si $f$ es una funci\'on continua en un intervalo $[a,b]$, entonces $f$ alcanza sus valores m\'aximo y m\'inimo en $[a,b]$.\\
+\textbf{Demostraci\'on}: Por W1, $f$ est\'a acotada en $[a,b]$, es decir, $\exists M$ : $f(x)\leq M\ \forall x \in [a,b]$.\\ Luego $M$ puede pertenecer o no al $Rec(f)$. \\ 
+Suponiendo que no pertenece, es decir, $f(x)<M, \forall x \in [a,b]$, tenemos que $M-f(x)>0,\ \forall x \in [a,b]$. Luego queda bien definida la funci\'on $g(x)=\dfrac{1}{M-f(x)}$ (la cual es continua por ser la rec\'iproca de una funci\'on continua). Nuevamente por W1, $g$ est\'a acotada en el intervalo $[a,b]$. Por lo tanto, existe $M' > 0$ : $g(x) < M',\ \forall x \in [a,b]$. En consecuencia se tiene que:
+$$0 < g(x) < M' \Rightarrow 0 < \dfrac{1}{M-f(x)} < M' \Rightarrow 0 < \dfrac{1}{M'} < M - f(x) \Rightarrow f(x) < M-\dfrac{1}{M'} < M$$
+Lo cual quiere decir que $f$ admite una cota superior estrictamente menor que $M$, asumido como supremo.\\
+\indent Entonces $M$ tiene que pertenecer al $Rec(f)$, luego existe $x^* \in Dom(f)$ : $f(x^*)=M$ y la existencia del m\'aximo est\'a probada.\\
+
+\noindent \textbf{Teorema 19}: \textbf{Teorema de los Valores Intermedios}: Sea $f$ una funci\'on definida en un intervalo cerrado y acotado $[a,b]$, y supongamos que $f$ es continua en $[a,b]$, con $m$ y $M$ sus respectivos valores m\'inimo y m\'aximo absolutos. Entonces, $f$ alcanza todos los valores entre $m$ y $M$. Es decir, $Rec(f) = [m,M]$
 \end{document}
