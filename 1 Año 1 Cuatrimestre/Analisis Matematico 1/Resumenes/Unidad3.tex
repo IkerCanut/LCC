@@ -304,6 +304,8 @@ Y como sabemos que $\displaystyle{\lim_{x \to 0} \cos x = 1} \not = 0 \Rightarro
 Utilizando el Teorema del Sandwich, se concluye que $\displaystyle{\lim_{x \to 0} \dfrac{x}{\sin x} = 1 \not = 0}$ y luego $\displaystyle{\lim_{x \to 0} \dfrac{\sin x}{x} = 1}$
 \QEDA\\
 
+\noindent Adem\'as, se puede concluir que si $f(x) \not = 0$ en un $E'(a, \rho)$, y $\displaystyle{\lim_{x \to a} f(x) = 0}$ entonces $\displaystyle{\lim_{x \to a} \dfrac{\sin f(x)}{f(x)} = 1}$
+
 \section{Generalizaci\'on del Concepto de L\'imite}
 \begin{itemize}
 \item Una funci\'on tiene limite $+\infty$ en el punto $a$ si para cualquier $M>0$ existe un $\delta>0$ tal que: $0<|x-a|<\delta \Rightarrow f(x)>M$. Luego, notamos $\displaystyle{\lim_{x \to a} f(x) = +\infty}$
@@ -388,8 +390,70 @@ Y como $f(x)>M>0 \Rightarrow 0 <\dfrac{1}{f(x)}<\dfrac{1}{M} \Rightarrow \left|\
 \item $\displaystyle{\lim_{x \to \pm\infty} f(x) = l} \iff \displaystyle{\lim_{x \to 0^\pm} f\left(\dfrac{1}{x}\right) = l}$ \\ (Lo mismo ocurre si se reemplaza $l$ por $+\infty$ o $-\infty$).\\
 \textbf{Demostraci\'on}: Queremos demostrar que\\ $\left[ 0<H<x \Rightarrow |f(x)-l| < \epsilon \right] \iff \left[ 0 < x < 0 + \delta  \Rightarrow \left|f\left(\dfrac{1}{x}\right)-l\right| < \epsilon \right]$\\
 Y como $0<H<x \Rightarrow 0<\dfrac{1}{x} < \dfrac{1}{H} \Rightarrow |f(x)-l|<\epsilon$, tomando $\delta = \dfrac{1}{H}$ y haciendo un cambio de variable $x'=x$, tenemos que $0< x' < \delta \Rightarrow \left|f\left(\dfrac{1}{x'}\right)-l\right|<\epsilon$ \QEDA
-
 \end{itemize}
+
+\subsection{L\'imites de Funciones Racionales en el Infinito}
+\begin{itemize}
+\item Se puede demostrar que si $n \in \mathbb{N}$, entonces $\displaystyle{\lim_{x \to +\infty} x^n = +\infty}$ a trav\'es de la definici\'on formal:\\
+$\forall M > 0,\ \exists H>0$ : $x > H > 0 \Rightarrow x^n > M$, luego $x^n > M > 0 \Rightarrow x > H = \sqrt[n]{M} > 0 \Rightarrow x^n > M$\\
+Y tenemos que $H = \sqrt[n]{M} > 0$, $x>H=\sqrt[n]{M} \Rightarrow x^n>M$ \QEDA\\
+
+\item Dada la funci\'on polin\'omica $p(x)=x^n+a_{n-1} \cdot x^{n-1}+...+a_1 \cdot x + a_0$, $\displaystyle{\lim_{x \to +\infty} p(x) = +\infty}$. \\
+Se empieza sacando factor com\'un $x^n$. Ya esta demostrado que $\displaystyle{\lim_{x \to +\infty} x^n = +\infty}$, y por la $P10$, $\displaystyle{\lim_{x \to +\infty} \dfrac{1}{x^n} = 0}$. Obteniendo as\'i: $\overbrace{x^n}^{\to +\infty}\cdot \overbrace{(1+ \underbrace{a_{n-1} \cdot \dfrac{1}{x}}_{\to 0}+...+\underbrace{a_1 \cdot \dfrac{1}{x^{n-1}}}_{\to 0} + \underbrace{a_0 \cdot \dfrac{1}{x^n}}_{\to 0})}^{\to 1} = +\infty$ \QEDA\\
+
+\item Sean $a_n, b_m \in \mathbb{R} - \{0\}$: \\
+$\displaystyle{\lim_{x \to +\infty} \dfrac{a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0}{b_mx^m + b_{m-1}x^{m-1} + ... + b_1x + b_0} = } \left\{\begin{array}{ll}
++\infty &: m<n, a_n\cdot b_m > 0\\
+-\infty &: m<n, a_n\cdot b_m < 0\\
+\frac{a_n}{b_m} &: m=n\\
+0 &: m>n\\
+\end{array}\right.
+$
+
+\begin{itemize}
+\item Si tenemos que $m<n$ y $a_n\cdot b_m > 0 \Rightarrow n-m \in \mathbb{N}$, entonces $\displaystyle{\lim_{x \to +\infty} n^{n-m} = +\infty}$:\\
+$\displaystyle{\lim_{x \to +\infty} \underbrace{x^{n-m}}_{\to +\infty} \cdot \underbrace{\dfrac{a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0}{b_mx^m + b_{m-1}x^{m-1} + ... + b_1x + b_0}}_{\to \frac{a_n}{b_m} > 0} = +\infty}$ \QEDA
+\item Si $m<n$ y $a_n\cdot b_m < 0 \Rightarrow n-m \in \mathbb{N}$, entonces $\displaystyle{\lim_{x \to +\infty} n^{n-m} = +\infty}$:\\
+$\displaystyle{\lim_{x \to +\infty} \underbrace{x^{n-m}}_{\to +\infty} \cdot \underbrace{\dfrac{a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0}{b_mx^m + b_{m-1}x^{m-1} + ... + b_1x + b_0}}_{\to \frac{a_n}{b_m} < 0} = -\infty}$ \QEDA
+\item Si $m=n$, entonces $\displaystyle{\lim_{x \to +\infty} n^{n-m} = n^0 = 1}$:\\
+$\displaystyle{\lim_{x \to +\infty} \underbrace{x^{n-m}}_{\to +\infty} \cdot \underbrace{\dfrac{a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0}{b_mx^m + b_{m-1}x^{m-1} + ... + b_1x + b_0}}_{\to \frac{a_n}{b_m}} = \dfrac{a_n}{b_m}}$ \QEDA
+\item Si $m>n$, $m-n \in \mathbb{N}$, entonces $\displaystyle{\lim_{x \to +\infty} x^{m-n} = +\infty}$ y
+$\displaystyle{\lim_{x \to +\infty} x^{n-m} = \lim_{x \to +\infty} \dfrac{1}{x^{m-n}}} = 0$:\\
+$\displaystyle{\lim_{x \to +\infty} \underbrace{x^{n-m}}_{\to 0} \cdot \underbrace{\dfrac{a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0}{b_mx^m + b_{m-1}x^{m-1} + ... + b_1x + b_0}}_{\text{ un valor acotado }} = 0}$ \QEDA
+\end{itemize}
+\end{itemize}
+
+\section{M\'as Algebra de L\'imites}
+\textbf{Teorema}: Sea $a\in\mathbb{R}$,$f$ y $g$ funciones tales que: $\displaystyle{\lim_{x \to a^+} f(x) = L}\ \land \ \displaystyle{\lim_{x \to a^+} g(x) = +\infty}\ \land\ \displaystyle{\lim_{x \to a^+} h(x) = -\infty} $ 
+
+
+$$ \displaystyle{\lim_{x \to a^+} (f+x)(x) = +\infty}$$
+$$ \displaystyle{\lim_{x \to a^+} (f+h)(x) = -\infty}$$
+$$ \lim_{x \to a^+} (fg)(x) = \left\{\begin{array}{ll} +\infty &, L>0\\ -\infty &, L<0 \end{array}\right.$$
+Se puede reemplazar $x\to a^+$ por $x\to a^-$, $x\to +\infty$ o $x\to -\infty$.
+
+\section{As\'intotas}
+\noindent Se dice que la recta vertical $x=a$ es una \textbf{asíntota vertical} de la función $f$ en el punto $a$ si se verifica por lo menos uno de estos cuatro límites:
+\begin{multicols}{4}
+$\displaystyle{\lim_{x \to a^+} f(x) = +\infty}$\\
+$\displaystyle{\lim_{x \to a^+} f(x) = -\infty}$\\
+$\displaystyle{\lim_{x \to a^-} f(x) = +\infty}$\\
+$\displaystyle{\lim_{x \to a^-} f(x) = -\infty}$
+\end{multicols}
+
+\noindent Se dice que la recta horizontal $y=b$ es una \textbf{asíntota horizontal} de la función $f$ si se verifica por lo menos uno de estos dos límites:
+\begin{multicols}{4}
+\ \\
+$\displaystyle{\lim_{x \to +\infty} f(x) = b}$\\
+$\displaystyle{\lim_{x \to -\infty} f(x) = b}$\\
+\ 
+\end{multicols}
+
+\noindent Se dice que la recta $y=mx+b$, con $m \not = 0$, es una \textbf{asíntota oblicua} de la función $f$ si se verifica por lo menos uno de estos dos límites:
+\begin{multicols}{2}
+$\displaystyle{\lim_{x \to +\infty} (f(x)-(mx+b)) = 0}$\\
+$\displaystyle{\lim_{x \to -\infty} (f(x)-(mx+b)) = 0}$
+\end{multicols}
 
 \section{L\'imites Indeterminados}
 \begin{itemize}
@@ -439,8 +503,6 @@ Ejemplos:
 \item $f(x)=x\cdot\sin\left(\dfrac{1}{x}\right)$. Es continua en todo $\mathbb{R}$. Es continua en 0 por el T6\footnote{$\displaystyle{\lim_{x\to a}f(x) = 0}$ y $g$ est\'a acotada en un entorno reducido $E'(a,\rho)$, entonces $\displaystyle{\lim_{x\to a}(fg)(x) = 0}$}, en el resto por composici\'on de funciones continuas.
 \end{itemize}
 
-\newpage
-
 \section{Teoremas de Funciones Continuas}
 \textbf{Proposici\'on 11}: Sea $f$ una funci\'on continua en $a$, entonces existe un entorno de $a$ en el cual $f$ est\'a acotada. Es decir, existen $\delta > 0$, $M > 0$ : $x \in E(a, \delta) \Rightarrow |f(x)| \leq M$\\
 \noindent \textbf{Proposici\'on 12}: Sea $f$ una funci\'on continua en $a$ y $k$ un n\'umero real tal que $f(a) > k$ (resp. $f(a) < k$), entonces existe un entorno de $a$ en el cual $f$ asume valores todos mayores (resp. menores) a $k$, es decir, existe $\delta > 0$ : $x \in E(a,\delta) \Rightarrow f(x) > k$ (resp. $f(x) < k$).\\
@@ -455,6 +517,12 @@ Ejemplos:
 
 \section{Ceros de Funciones Continuas y Teorema de Bolzano}
 \noindent \textbf{Teorema 13}: \textbf{Teorema de Bolzano}: Sea $f$ una funci\'on continua en el intervalo $[a,b]$ : $f(a)\cdot f(b) < 0$ (i.e tienen distino signo), entonces existe $\xi \in (a,b)$ donde $f(\xi) = 0$.\\
+\indent Recordando el teorema de conservaci\'on de signo de las funciones continuas, que se demuestra m\'as adelante, Sea $f$ continua en $c$, y supongamos que $f(c)\not = 0$, existe entonces un intervalo $(c-\rho, c+\rho)$ en el que $f$ tiene el mismo signo que $f(x)$.\\
+\textbf{Demostraci\'on del Teorema de Bolzano}: Supongase $f(a)<0$ y $f(b)>0$. Sea $S$ el conjunto de todos los puntos del intervalo $[a,b]$ para los cuales $f(x)\leq 0$. Hay al menos un punto, puesto que $f(a) < 0$. Luego, $S$ es un conjunto no vacio y est\'a acotado superiormente, puesto que todos los valores est\'an en $[a,b]$, luego tiene un supremo, llam\'emoslo $c$. Y se demostrar\'a que $f(c)=0$.\\
+\indent Como sabemos por tricotom\'ia que solo hay 3 posibilidades, $f(c) > 0\ \underline{\lor}\ f(c) < 0\ \underline{\lor}\ f(x) = 0$.\\
+\indent Comenzamos suponiendo que $f(x)>0$, luego existe un intervalo $(c-\delta, c+\delta)$, o $(c-\delta, c)$ si $c=b$, en donde si $x$ est\'a en ese intervalo $f(x)$ es positivo. Y como ning\'un punto mayor que $c-\delta$ puede pertenecer al conjunto $S$ (puesto que su imagen es positiva), entonces $c-\delta$ es una cota superior de $S$. Lo cual contradice que $c$ es supremo del conjunto.\\
+\indent Suponiendo que $f(c) < 0$, luego existe un intervalo $c-\delta,c+\delta$ (o $(c, c+\delta$ si $a=c$) en donde si $x$ pertenece a dicho intervalo, entonces su imagen es negativa. Pero entonces existe $x > c$ tal que su imagen es menor que cero, entonces $x$ deberia pertenecer al conjunto, y contradice que $c$ sea el supremo del mismo.\\ 
+\indent Luego, solo queda la posibilidad de que $f(c)=0$ y queda demostrado el Teorema de Bolzano. \QEDA\\
 
 \noindent \textbf{M\'etodo de Bisecci\'on}: Dada una funci\'on $f$ continua en un intervalo, que asume valores de diferente signo en los extremos, sucesivamente se calculan los valores de dos sucesiones $a_n$ y $b_n$ que convergen a un cero de la funci\'on. Conocidos $a_n$ y $b_n$, se calcula el valor del punto medio $c_{n+1} = \dfrac{a_n+b_n}{2}$ y se tendr\'a que el valor $c_{n+1}$ aproxima al valor $\xi$ de un cero, con cota $|c_{n+1} - \xi| \leq \dfrac{b-a}{2^{n+1}}$. Es decir, dada una tolerancia $\epsilon$, buscamos $n$ para el cual $\dfrac{b-a}{2^{n+1}} < \epsilon$, encontrando un valor $c_{n+1}$ a menos de una distancia $\epsilon$ de $\xi$.\\
 
@@ -502,8 +570,6 @@ Sea $f$ una funci\'on definida sobre un conjunto $A$, diremos que:
 Luego notamos $\ \ \ \ M = \displaystyle{\max_{x\in A} f(x)} \ \ \ \ $ y $\ \ \ \ m = \displaystyle{\min_{x\in A} f(x)}$\\
 
 \textbf{Nota}: $\displaystyle{\max_{x\in A} f(x)}$ = $\displaystyle{-\min_{x\in A} (-f)(x)} \ \ \ \ $ y $\ \ \ \ \displaystyle{\min_{x\in A} f(x)}$ = $\displaystyle{-\max_{x\in A} (-f)(x)}$
-
-\newpage
 
 \noindent \textbf{Teorema 17}: \textbf{Primer Teorema de Weierstrass}: Si $f$ es una funci\'on continua en un intervalo $[a,b]$, entonces $f$ est\'a acotada en dicho intervalo.\\
 
