@@ -37,7 +37,7 @@ La sintaxis de racket establece que una operación tiene notación prefija y deb
 Claramente se pueden usar operadores como \textbf{+}, \textbf{-}, \textbf{/} y \textbf{*}. Luego, otros más interesantes son: \textbf{modulo}, \textbf{sqrt}, \textbf{sin}, \textbf{cos}, \textbf{tan}, \textbf{log}, \textbf{expt}, \textbf{random} ,\textbf{max}, \textbf{min}, \textbf{floor}, \textbf{ceiling}, \textbf{abs}.
 
 \subsection{Strings}
-Un string es una secuencia de caracteres encerrada entre comillas. Algunas operaciones utiles de strings son: \textbf{string-append}, \textbf{string-length}, \textbf{number->string}, \textbf{string-ith} (que dados un string y un n\'umero n, nos devuelve el caracter que ocupa la n-ésima posición, o \textbf{substring}, que dado un string y dos numeros nos devuelve el intervalo cerrado abierto (consejo, restar mayor y menor, te da cuantos caracteres).
+Un string es una secuencia de caracteres encerrada entre comillas. Algunas operaciones utiles de strings son: \textbf{string-append}, \textbf{string-length}, \textbf{number->string}, \textbf{string-ith} (que dados un string y un n\'umero n, nos devuelve el caracter que ocupa la n-ésima posición $[0, n)$, o \textbf{substring}, que dado un string y dos numeros nos devuelve el intervalo cerrado abierto $[a,b)$ (consejo, restar mayor y menor, te da cuantos caracteres).
 
 \subsection{Valores Booleanos}
 En Racket se escriben como \textbf{\#t} (o \#true) y \textbf{\#f} (o \#false). Se pueden usar los operadores \textbf{and}, \textbf{or} y \textbf{not}. Tambien se pueden usar el \textbf{<}, \textbf{>}, \textbf{<=} y \textbf{>=}.
@@ -89,7 +89,7 @@ Primero se evalúa la primer condición. Si esta reduce a \#true, entonces el re
 
 \section{Predicados}
 Son funciones que devuelven un valor de verdad. DrRacket provee funciones para establecer si un valor pertenece a una
-determinada clase, como \textbf{string?}, \textbf{number?}, \textbf{boolean}...
+determinada clase, como \textbf{string?}, \textbf{number?}, \textbf{boolean?}...
 
 \newpage
 \section{Dise\~nando Programas}
@@ -115,7 +115,7 @@ determinada clase, como \textbf{string?}, \textbf{number?}, \textbf{boolean}...
 
 \section{Programas Interactivos}
 \textbf{Programas por lotes}: una vez lanzado el proceso no necesitan ningún tipo de interacción.\\
-\textbf{Programas interactivos}: esperan la intervención del usuario (o de eventos producidos por las computadoras) para llevar a cabo sus funciones. Los programas reciben información de su entorno a través de \textbf{eventos}. Los eventos describen la ocurrencia de alguna situación contemplada en la programación que requiere información para tomar una determinada acción. E.g, presionar una tecla, mover el mouse, otro programa env\'ia un mensaje, el reloj de la computadora marca el paso del tiempo (ticks)... La acción que se lleva a cabo queda establecida a partir de la definición de una función llamada \textbf{manejador de eventos}. Los manejadores de eventos cambian determinadas propiedades o valores dentro del programa, es decir, cambian el \textbf{estado} del mismo.
+\textbf{Programas interactivos}: esperan la intervención del usuario (o de eventos producidos por las computadoras) para llevar a cabo sus funciones. Los programas reciben información de su entorno a través de \textbf{eventos}. Los eventos describen la ocurrencia de alguna situación contemplada, que requiere información para tomar una determinada acción. E.g, presionar una tecla, mover el mouse, otro programa env\'ia un mensaje, el reloj de la computadora marca el paso del tiempo (ticks)... La acción que se lleva a cabo queda establecida a partir de la definición de una función llamada \textbf{manejador de eventos}. Los manejadores de eventos cambian determinadas propiedades o valores dentro del programa, es decir, cambian el \textbf{estado} del mismo.
 
 \subsection{big-bang}
 \begin{siderules}
@@ -206,7 +206,7 @@ Es importante notar que \textbf{list} no es un constructor, sino un \textit{oper
 \textbf{filter}: Nos quedamos con los elementos de una lista que cumplen determinada condici\'on.
 \begin{siderules}
 (define (filter p l)\\
-\indent \indent \indent (cond [(empty? l) empty]\\
+\indent \indent \indent \ (cond [(empty? l) empty]\\
 \indent \indent \indent \indent \indent [else (if (p (first l))\\
 \indent \indent \indent \indent \indent \indent \indent (cons (first l) (filter p (rest l)))\\
 \indent \indent \indent \indent \indent \indent \indent (filter p (rest l)))]))
@@ -218,6 +218,8 @@ Es importante notar que \textbf{list} no es un constructor, sino un \textit{oper
 \indent \indent \indent (cond \ [(empty? l) empty]\\
 \indent \indent \indent \indent \indent [else (cons (f (first l)) (map f (rest l)))]))
 \end{siderules}
+
+\newpage
 
 \noindent \textbf{foldr}: realizar una operaci\'on que involucra a todos los elementos de la lista. $[a0, a1, ..., an] \rightarrow (f a0 (f a1 (... (f an-1 an))))$
 \begin{siderules}
@@ -240,9 +242,9 @@ Es importante notar que \textbf{list} no es un constructor, sino un \textit{oper
 
 \textit{(require racket/list)}\\
 
-\noindent \textbf{(take l pos)}: devuelve una lista cuyos elementos son los primeros pos elementos de l.\\
+\noindent \textbf{(take l pos)}: devuelve una lista cuyos elementos son los primeros pos elementos de l. $[0,n]$\\
 
-\noindent \textbf{(drop l pos)}: devuelve una lista cuyos elementos son los elementos de l sin los primeros pos.\\
+\noindent \textbf{(drop l pos)}: devuelve una lista cuyos elementos son los elementos de l sin los primeros pos. $[0,n]$\\
 
 \noindent \textbf{check-duplicates}: dada una lista devuelve el primer duplicado que tiene. \#f si no encontr\'o ninguno.\\
 
