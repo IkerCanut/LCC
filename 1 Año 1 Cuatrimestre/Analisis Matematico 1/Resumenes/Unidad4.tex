@@ -165,10 +165,10 @@ $$\displaystyle{\lim_{h \to 0} \dfrac{k}{f(a+k)-f(a)}} = \displaystyle{\lim_{k \
 
 \noindent \textbf{Proposici\'on 6}: \textbf{Derivada de Potencias de Exponente Racional}:\\
 \textbf{1.} Si $n \in \mathbb{N}$, entonces $x^{\frac{1}{n}} = \sqrt[n]{x}$ es derivable en todo $a$ del dominio con $a\not=0$ y vale $f'(a) = \dfrac{1}{n} \cdot a^{\frac{1}{n}-1}$\\
-\textbf{Demostraci\'on}: Sabemos que $f(x)=\sqrt[n]{x}$ es la inversa de $g(x)=x^n$. Luego, $f$ es derivable en todo $b = g(a)$, donde $g'(a)\not=0$, en este caso, $b\not=0$. Y vale $$f'(b)=\dfrac{1}{g'(a)} = \dfrac{1}{n\cdot a^{n-1}} = \dfrac{1}{n(\sqrt[n]{x})^{n-1}} = \dfrac{1}{n\cdot b^{1-\frac{1}{n}}} = \dfrac{1}{n}\cdot b^{\frac{1}{n}-1}$$
+\textbf{Demostraci\'on}: Sabemos que $f(x)=\sqrt[n]{x}$ es la inversa de $g(x)=x^n$. Luego, $f$ es derivable en todo $b = g(a)$, donde $g'(a)\not=0$, en este caso, $b\not=0$. Y vale $$f'(b)=\dfrac{1}{g'(a)} = \dfrac{1}{n\cdot a^{n-1}} = \dfrac{1}{n(\sqrt[n]{x})^{n-1}} = \dfrac{1}{n\cdot b^{1-\frac{1}{n}}} = \dfrac{1}{n}\cdot b^{\frac{1}{n}-1}$$ \QEDA
 
-\textbf{2.} Si $n=\dfrac{p}{q} \in \mathbb{Q} \Rightarrow f(x)=x^{\frac{p}{q}}$ es derivable en todo $a$ del dominio, $a\not=0$, y vale: $f'(a) = \dfrac{p}{q}a^{\frac{p}{q}-1}$\\
-\textbf{Demostraci\'on}: $f(x)=x^\frac{p}{q}=(x^\frac{1}{q})^p$. Por la regla de la cadena, $$f'(a) = p(a^\frac{1}{q})^{p-1} \cdot \dfrac{1}{q}a^{\frac{1}{q}-1} = \dfrac{p}{q}a^\frac{p}{q}-1$$
+\noindent \textbf{2.} Si $n=\dfrac{p}{q} \in \mathbb{Q} \Rightarrow f(x)=x^{\frac{p}{q}}$ es derivable en todo $a$ del dominio, $a\not=0$, y vale: $f'(a) = \dfrac{p}{q}a^{\frac{p}{q}-1}$\\
+\textbf{Demostraci\'on}: $f(x)=x^\frac{p}{q}=(x^\frac{1}{q})^p$. Por la regla de la cadena, $$f'(a) = p(a^\frac{1}{q})^{p-1} \cdot \dfrac{1}{q}a^{\frac{1}{q}-1} = \dfrac{p}{q}a^\frac{p}{q}-1$$ \QEDA
 
 \section{Derivada de Funciones Trigonom\'etricas Inversas}
 \subsection{Derivada del Arco Seno}
@@ -189,4 +189,115 @@ $(\arcsin)'(b) = \dfrac{1}{\sqrt{1 - b^2}}$\\
 $(\arccos)'(b) = -\dfrac{1}{\sqrt{1 - b^2}}$\\
 $(\arctan)'(b) = \dfrac{1}{1 + b^2}$\\
 \end{multicols}
+
+\section{Diferenciabilidad y Aproximaci\'on de Primer Orden}
+Decimos que una funci\'on $f$ es diferenciable en un punto $a$, si existe un real $\alpha$ y una funci\'on $\theta$, definida en un entorno del punto $a$ tales que, para $h>0$: $$f(a+h) = f(a) + \alpha\cdot h + h \cdot \theta(h),\ \ \ \ \text{ donde } \displaystyle{\lim_{h \to 0} \theta(h) = 0}$$
+
+
+\noindent \textbf{Teorema 7}: Una funci\'on es derivable en un punto $a$ $\iff$ es diferenciable en $a$.\\
+\textbf{Demostraci\'on}:\\
+$\Rightarrow)$ Tenemos que $f'(a)=\displaystyle{\lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h}}$. Luego, definiendo $\theta$ como:
+$$\theta(h) = \left\{ \begin{array}{cl}
+\dfrac{f(a+h)-f(a)}{h} & \text{ si } h\not=0\\ \\
+0 & \text{ si } h=0\\
+\end{array}\right.$$
+Junto a $\alpha = f'(a)$, verifican la condici\'on: $f(a+h)=f(a)+f'(a) \cdot h + h \cdot \theta(h),\ \ \ \ \displaystyle{\lim_{h \to 0} \theta(h) = 0}$\\
+$\Leftarrow)$ Empezando con que $f(a+h) = f(a) + \alpha \cdot h + h \cdot \theta(h),\ \ \ \ \displaystyle{\lim_{h \to 0} \theta(h) = 0}$\\
+Luego, para $\alpha \not = 0$, $\dfrac{f(a+h)-f(a)}{h} = \alpha + \theta(h)$\\
+
+Y cuando $\alpha \to 0$, $\displaystyle{\lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h} = \alpha + \lim_{h\to 0} \theta(h) = \alpha}$\\
+
+Y por lo tanto $f$ es derivable en $a$ y vale $f'(a) = \alpha$ \QEDA\\
+
+\noindent \textbf{Nota}: Cuando $f$ es continua en un punto $a$, entonces para $h$ chico, podemos aproximar el valor de $f(a+h)$ por el valor de $f(a)$, ya que: $f(a+h)=f(a)+(f(a+h)-f(a)) = f(a) + e_0(h)$, donde $\displaystyle{\lim_{h \to 0} e_0(h) = 0}$\\
+
+Y como una funci\'on $f$ es diferenciable/derivable en un punto $a$, entonces podemos afirmar que $$f(a+h) = f(a)+f'(a)\cdot h + e_1(h)$$ donde $\displaystyle{\lim_{h \to 0} e_1(h) = 0}$, y se aproxima tan r\'apido a cero que $\displaystyle{\lim_{h \to 0} \dfrac{e_1(h)}{h} = 0}$, y la nueva aproximaci\'on resulta entonces mejor que la obtenida para funciones continuas. Se llama \textbf{aproximaci\'on de primer orden} o \textbf{aproximaci\'on por linealizaci\'on}.\\
+
+El caso de continuidad corresponde a aproximar los valores de la curva $y=f(x)$ por los de la recta horizontal $y=f(a)$, mientras que en el caso de la aproximaci\'on de primer orden, se aproximan, cerca del punto $a$, a los valores de la curva por los de la recta tangente a la gr\'afica de $f$ en el punto $a$.\\
+
+\noindent Y podemos aproximar el valor de $$f(a+h) \approx f(a) + \alpha \cdot h$$ o siendo $x = a+h$, $$f(x) \approx f(a) + \alpha \cdot (x-a)$$
+
+\newpage
+\section{Teoremas de Valor Medio}
+\subsection{Extremos Relativos de una Funci\'on. Teorema de Fermat}
+Sean $f$ una funci\'on y un n\'umero $x_0 \in Dom(f)$, diremos que:
+\begin{enumerate}
+\item $f$ alcanza un \textbf{m\'aximo relativo} en $x_0$ si $\exists\ E(x_0, \delta)$ tal que $\forall\ x\in E(x_0, \delta)$, $f(x) \leq f(x_0)$
+\item $f$ alcanza un \textbf{m\'inimo relativo} en $x_0$ si $\exists\ E(x_0, \delta)$ tal que $\forall\ x\in E(x_0, \delta)$, $f(x) \geq f(x_0)$
+\item $f$ tiene un \textbf{extremo relativo} en $x_0$ si tiene un m\'aximo o un m\'inimo relativo en $x_0$.
+\end{enumerate}
+\textbf{Nota}: Todo m\'aximo absoluto es, en particular, un m\'aximo relativo.\\
+
+\noindent \textbf{Teorema 8}: \textbf{Teorema de Fermat}:
+Sea $f$ definida en un entorno de un punto $x_0$, y supongamos que $f$ tiene en $x_0$ un extremo relativo, entonces si $f$ es derivable en $x_0$, se tiene que $f'(x_0)=0$.\\
+\textbf{Demostraci\'on}: Suponemos que $f'(x_0) > 0$, entonces $f'(x_0) = \displaystyle{\lim_{x \to x_0} \dfrac{f(x)-f(x_0)}{x-x_0} > 0}$. Luego, por el Teorema de Conservaci\'on del Signo, existe $E(x_0, \delta)$ donde $0<|x-x_0|<\delta \Rightarrow \dfrac{f(x)-f(x_0)}{x-x_0} > 0$.\\
+Analizando las posiciones relativas de los valores $x$ y $x_0$, tenemos que si:
+\begin{itemize}
+\item $x_0 - \delta < x < x_0 \land \dfrac{f(x)-f(x_0)}{x-x_0} > 0$ entonces $x-x_0 < 0 \land f(x)-f(x_0)<0 \Rightarrow f(x)<f(x_0)$
+\item $x_0 < x < x_0 + \delta \land \dfrac{f(x)-f(x_0)}{x-x_0} > 0$ entonces $x-x_0 > 0 \land f(x)-f(x_0)>0 \Rightarrow f(x)>f(x_0)$
+\end{itemize}
+Pero esto contradice la hipotesis del teorema, ya que $f$ no podr\'ia tener un extremo relativo en $x_0$.\\
+An\'alogamente se concluye que $f'(x_0) \not < 0$. Por tricotom\'ia se concluye que $f'(x_0) = 0$. \QEDA\\
+
+\noindent \textbf{Nota}: La reciproca no siempre es cierta. E.g $f(x)=x^3$.\\
+\textbf{Nota}: Si $f$ tiene un extremo relativo en $x_0$, o bien $f'(x_0)=0$ o bien $f$ no es derivable en $x_0$.\\
+
+\noindent Decimos que $x_0 \in Dom(f)$ es un \textbf{punto critico} de $f$ si $f'(x_0)=0$ o si $f$ no es derivable en $x_0$. Luego, si $f$ tiene un extremo relativo en $x_0$, entonces $x_0$ es un punto critico de $f$.\\
+
+\noindent\textbf{Nota}: El Teorema de Weierstrass nos asegura la existencia de m\'aximo y m\'inimo absolutos para una funci\'on continua en $[a,b]$.\\
+
+Es decir, para hallar los extremos absolutos, deberemos localizar los puntos criticos de $f$ en $(a,b)$ y comparar el valor de $f$ en ellos con $f(a)$ y $f(b)$.
+
+\section{Teoremas de Valor Medio del C\'alculo Diferencial}
+\noindent \textbf{Teorema 9}: \textbf{Teorema de Rolle}: Sea $f$ definida en un intervalo cerrado y acotado $[a,b]$, tal que $f$ es continua en $[a,b]$ y derivable en $(a,b)$. Si adem\'as vale que $f(a)=f(b)$, entonces existe al menos un $c\in(a,b)$ tal que $f'(c)=0$.\\ 
+\textit{Entre 2 ceros de una funci\'on derivable se encuentra siempre al menos un cero de su derivada.}\\
+\noindent\textbf{Demostraci\'on}: Por ser $f$ continua en $[a,b]$, el T. de Weierstrass, asegura la existencia de extremos en $[a,b]$, sean $M$ y $m$ los valores m\'aximo y el m\'inimo, entonces $m \leq M$. Si $m=M$ entonces es una funci\'on constante y todos los puntos en el intervalo $(a,b)$ tienen derivada 0.\\
+Si $m<M$: al menos uno de los 2 extremos se asume en un punto interior $x\in(a,b)$, luego por el Teorema de Fermat ($f$ es continua y derivable en $(a,b)$), tenemos que $f'(c)=0$.\QEDA\\
+
+\newpage
+
+\noindent \textbf{Teorema 10}: \textbf{Teorema de Lagrange}: Sea $f$ definida en un intervalo cerrado y acotado $[a,b]$, continua en $[a,b]$ y derivable $(a,b)$, entonces al menos existe un $c\in (a,b)$ tal que $f'(c) = \dfrac{f(b)-f(a)}{b-a}$.\\
+\textit{Dada la recta secante a la gr\'afica de $f$ que pasa por los puntos $(a,f(a))$ y $(b,f(b))$, existe un $c$ en el interior del intervalo $(a,b)$ tal que la recta tangente a $f$ en el punto $(c,f(c))$ tiene la misma pendiente.}\\
+\noindent \textbf{Demostraci\'on}: Definamos la funci\'on $F(x)=f(x) \overbrace{- \dfrac{f(b)-f(a)}{b-a}(x-a)}$ en el intervalo $[a,b]$, la cual verifica las condiciones del Teorema de Rolle: es continua por \'Algebra de Funciones Continuas, es derivable por \'Algebra de Derivadas y $F(a)=F(b)$: 
+$$F(a)=f(a)-\dfrac{f(b)-f(a)}{b-a}(a-a) = f(a)$$
+$$F(b)=f(b)-\dfrac{f(b)-f(a)}{b-a}(b-a) = f(b)-f(b)+f(a) = f(a)$$
+Entonces podemos asegurar que existe un valor $c \in (a,b)$ tal que $F'(c)=0$. Luego, calculando $F'(x)$, vemos que para $x\in(a,b)$ es: $$F'(x) = f'(x)-\dfrac{f(b)-f(a)}{b-a} \Rightarrow 0=F'(c)=f'(c)-\dfrac{f(b)-f(a)}{b-a}\ \therefore\ f'(c)=\dfrac{f(b)-f(a)}{b-a}$$\QEDA\\
+
+\noindent \textbf{Corolario 1}: Sea $f$ una funci\'on contina en un intervalo $[a,b]$, y derivable en $(a,b)$, tal que la derivada es nula, entonces $f$ es constante en $[a,b]$. Considerando un intervalo $[x_1,x_2] \subseteq [a,b]$, entonces existe $c\in(x_1,x_2)$ donde $\dfrac{f(x_2)-f(x_1)}{x_2-x_1} = f'(c) = 0 \Rightarrow f(x_2) - f(x_1) = 0 \Rightarrow f(x_2)=f(x_1)$\\
+Luego, de la arbitrariedad de $x_1$ y $x_2$, $\forall\ x \in [a,b]$ debe ser $f(x)=f(x_1)=f(x_2)=k$ \QEDA\\
+
+\noindent \textbf{Corolario 2}: Sean $f$ y $g$ dos funciones continuas en un intervalo $[a,b]$ y derivables en $(a,b)$, tal que $\forall\ x \in (a,b)$ $f'(x) = g'(x)$, entonces existe $k \in \mathbb{R}$ tal que $\forall\ x\in[a,b]$: $$f(x) = g(x)+k$$
+\textbf{Demostraci\'on}: $\forall x\in[a,b]$ se tiene que $0 = f'(x)-g'(x) = (f-g)(x) = (f-g)'(x)$. Por el corolario 1, existe $k \in \mathbb{R}$ tal que $\forall\ x\in[a,b]$, $k=(f-g)(x)\ \therefore\ f(x)=g(x)+k$ \QEDA\\
+
+\noindent \textbf{Teorema 11}: \textbf{Teorema de Cauchy}: Sean $f$ y $g$ dos funciones definidas en un intervalo acotado $[a,b]$, tal que ambas son continuas en $[a,b]$ y derivables en $(a,b)$, entonces existe $c\in(a,b)$ tal que $$f'(c)(g(b)-g(a)) = g'(c)(f(b)-f(a))$$
+\textbf{Demostraci\'on}: Sea $h(x)=f(x)(g(b)-g(a))-g(x)(f(b)-f(a))$, basta encontrar $c\in(a,b)$ : $h'(x)=0$\\
+Y como $h$ es continua en $[a,b]$ y derivable en $(a,b)$, viendo que 
+
+$\left.\begin{array}{l}
+h(a) = f(a)(g(b)-g(a))-g(a)(f(b)-f(a))\\
+h(b) = f(b)(g(b)-g(a))-g(b)(f(b)-f(a))
+\end{array}\right\} h(a)=h(b)$\\
+Luego, por el Teorema de Rolle, $\exists\ c \in (a,b) : h'(c) = 0$\QEDA\\
+
+Observamos que el Teorema de Rolle es un caso particular del Teorema de Lagrange, que a su vez es un caso particular del teorema de Cauchy, cuando $g(x)=x$.
+
+\newpage
+\section{Propiedad de los Valores Intermedios para Derivadas}
+\textbf{Teorema 12}: Sea $f$ una funci\'on derivable en un intervalo $[a,b]$, supongamos $f'(a) < f'(b)$, y sea $z$ tal que $f'(a)<z<f'(b)$, entonces existe un valor $c \in (a,b)$ tal que $f'(c) = z$.\\
+\textbf{Demostraci\'on}: Consideremos la funci\'on $g(x)=f(x)-zx$ definida en el intervalo $[a,b]$. $f$ y $g$ son continuas y derivables en el intervalo $[a,b]$. Por Weierstrass, existe $c \in [a,b]$ donde $g$ alcanza su valor m\'inimo, y por el Teorema de Fermat, $g'(c) = 0$. Luego, $0 = g'(c) = f'(c) - z \ \ \therefore \ \ f'(c) = z$ \QEDA\\
+
+Dada una funci\'on $f$ derivable en un conjunto $A$, y sea $f'$ su derivada. Sabemos que $f$ es continua, pero es $f'$ continua? No necesariamente. Por ejemplo:
+$$f(x) = \left\{\begin{array}{ll}
+x^2\cdot \cos\left(\dfrac{1}{x}\right) & x\not=0\\
+0 & x=0
+\end{array}\right.$$
+Luego, 
+$$f'(x) = \left\{\begin{array}{ll}
+2x\cdot \cos\left(\dfrac{1}{x}\right) + \sin\left(\dfrac{1}{x}\right) & x\not=0\\
+0 & x=0
+\end{array}\right.$$
+
+Y como $\displaystyle{\lim_{x \to 0} 2x\cdot \cos\left(\dfrac{1}{x}\right) = 0}$, entonces $\displaystyle{\lim_{x \to 0} \sin\left(\dfrac{1}{x}\right)}$ deber\'ia ser 0, pero no existe. Y tenemos que $f'(x)$ no es continua.\\
+
+\noindent \textbf{Corolario 3}: Si $f$ es derivable en un conjunto $[a,b]$, la funci\'on derivada $f'$ no puede tener discontinuidades evitables ni de salto en $[a,b]$. Es decir, si las tiene son esenciales.
 \end{document}
