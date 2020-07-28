@@ -1,0 +1,129 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{bigints}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\usepackage{float}
+\restylefloat{table}
+
+\author{Iker M. Canut}
+\title{Unidad 5: Introducci\'on al C\'alculo Integral\\ Analisis Matem\'atico I}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Primitiva de una Funci\'on}
+Decimos que $F$ es una \textbf{primitiva} de $f$ sobre el conjunto $I$ si $F'(x) = f(x),\ \forall x \in I$. Tambi\'en suele llamarse Antiderivada.
+
+\begin{itemize}
+\item Si $F$ es una primitiva de $f$ y si $c$ es una constante cualquiera, entonces $F+c$ tambi\'en es una primitiva de $f$: $(F+c)' = F'+c' = F'+0 = F;$
+\item Si $F$ y $G$ son dos primitivas cualesquiera de $f$, entonces $F$ y $G$ difieren en una constante: $G(X)=F(x)+c,\ \forall x \in I$
+\item Por lo tanto, $F(x)+c$ (donde $F$ es una primitiva particular de $f$, y $c$ una constante arbitraria) describe la \textbf{familia} de todas las primitivas de $f$ sobre $I$.
+\end{itemize}
+
+Llamamos \textbf{integral indefinida} de una funci\'on $f$ al conjunto de todas las primitivas de $f$: 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccccc}
+$\int$ & $f(x)$ & $dx$ & $=$ & $F(x)$ & $+$ & $c$\\
+Simbolo & Integrando & Variable de  && Primitiva de $f$ & & \\
+Integral & & Integraci\'on & & \multicolumn{3}{|c|}{}\\
+\cline{5-7}
+& & & & \multicolumn{3}{c}{Familia de todas las funciones}\\
+& & & & \multicolumn{3}{c}{que constituyen la integral indefinida}\\
+\end{tabular}
+\end{table}
+
+\section{Tabla de Integrales Inmediatas}
+\begin{table}[h]
+\centering
+\begin{tabular}{cc}
+$\int 1dx = x + c$ &
+$\int x^\alpha dx = \dfrac{x^{\alpha+1}}{\alpha+1}+ c$ \\ \\
+$\int \sin xdx = -\cos + c$ & 
+$\int \cos x dx = \sin x + c$\\ \\
+$\int \dfrac{1}{\cos^2 x} dx = \tan x + c$ & 
+$\int \dfrac{1}{\sin^2 x} dx = \cot x + c$\\ \\
+$\int \dfrac{1}{\sqrt{1 - x^2}} dx = \arcsin x + c$ & 
+$\int \dfrac{-1}{\sqrt{1 - x^2}} dx = \arccos x + c$ \\ \\
+$\int \dfrac{1}{1 + x^2} dx = \arctan x + c$ &
+$\int \dfrac{1}{x} dx$ = $\ln|x| + c$ \\ \\
+$\int e^xdx = e^x+c$ &
+$\int a^xdx = \dfrac{a^x}{\ln a} + c$
+\end{tabular}
+\end{table}
+
+\textbf{Proposici\'on 1}: \textbf{Linealidad}: Si $F$ y $G$ son primitivas de $f$ y $g$, y $a$ es una constante real, entonces:
+\begin{itemize}
+\item $a \cdot F$ es una primitiva de $a \cdot f$: $\bigints a \cdot f(x)dx = a \cdot F(x)+c$\\
+Como $F' = f$, luego $(a\cdot F)'=a\cdot F' = a\cdot f$, entonces $\ a \cdot F$ es una primitiva de $a \cdot f$.
+\item $F + G$ es una primitiva de $f+g$: $\bigints (f(x)+g(x))dx = F(x)+G(x)+c$\\
+Tenemos que $(F+G)' = F'+G' = f+g$, luego $F+G$ es una primitiva de $f+g$ \QEDA\\
+\end{itemize}
+\begin{center}
+$\bigints(a \cdot f(x) + b \cdot g(x)) = a \cdot \bigints f(x) dx + b \cdot \bigints g(x) dx$
+\end{center}
+
+\section{La Regla de Sustituci\'on}
+$$\left[ f(g(x)) \right]' = f'(g(x)) \cdot g'(x) \Rightarrow \int f'(g(x)) \cdot g'(x) dx = f(g(x))+c $$
+\textbf{Teorema 1}: \textbf{M\'etodo de Sustituci\'on}: Sea $f$ continua en $I$, y $g$ derivable con derivada continua en $I$ tal que $Im(g) \subset I$, entonces: $$\int f'(g(x))\cdot g'(x) dx \underset{t=g(x)}{=} \int f(t)dt$$
+donde $dt = g'(x)dx$.\\
+
+Para resolver ejercicios, primero hacemos el cambio de variable, es decir, $t=g(x)$, y calculamos $g'(x)$. Luego multiplicamos y dividimos por $\dfrac{g'(x)}{g'(x)}$ (aplicando el Principio de Linealidad podemos sacar el numerador del integrando) y $dt = g'(x)\cdot dx$. Integramos facilmente la funci\'on $f$, y realizamos las sustituciones correspondientes para dejar el resultado sin ninguna $t$.
+
+\section{Integraci\'on por Partes}
+$$[f(x)\cdot g(x)] = f'(x)\cdot g(x) + f(x)\cdot g'(x) \Rightarrow \int (f'(x)\cdot g(x) + f(x)\cdot g'(x))dx = f(x)\cdot g(x)+c$$
+
+Sean $f$ y $g$ derivables con derivada continua en $I$, $\bigints f(x)\cdot g'(x)dx = f(x)\cdot g(x) - \bigints f'(x)\cdot g(x) dx$\\
+
+Conviene elegir $f$ tal que se vaya reduciendo. E.g $x^2$.
+
+\section{Integraci\'on de Funciones Racionales Propias}
+Llamamos Funci\'on Racional Propia al cociente $\dfrac{P(x)}{Q(x)}$ donde $P$ y $Q$ son polinomios y $gr(P)<gr(Q)$.\\
+
+Si $gr(P)\geq gr(Q)$, sabemos que existen \'unicos polinomios $C$ y $R$ con $gr(R)<gr(Q)$ tales que $P=CQ+R$, luego $\dfrac{P}{Q} = C + \dfrac{R}{Q}$, y $\dfrac{R}{Q}$ ser\'a propia.
+
+\subsection{Raices Reales Simples}
+Entonces (suponiendo que el coeficiente principal de $Q$ es 1), el polinomio $Q$ factorizado es:\\ $Q(x)=(x-a_1)\cdot(x-a_2)...(x-a_n)$. Y ser\'a: $$\dfrac{P(x)}{Q(x)} = \dfrac{A_1}{x-a_1} + \dfrac{A_2}{x-a_2} + ... + \dfrac{A_n}{x-a_n}$$
+Con $A_i$ constantes a determinar.
+Una vez que se llega a la expresi\'on, se hace denominador com\'un, y luego se sacan todos los $A_i$ como factor com\'un. Por \'ultimo se plantea la igualdad y se resuelve el sistema de ecuaciones.
+
+\newpage
+\subsection{Raices M\'ultiples}
+Entonces, suponiendo que el coeficiente principal de $Q$ es 1, el polinomio $Q$ factorizado es: $$Q(x) = (x-a_1)^{r_1} \cdot (x-a_2)^{r_2} ... (x-a_n)^{r_n}$$
+Y ser\'a 
+\begin{align*}
+\dfrac{P(x)}{Q(x)} 
+&= \dfrac{A_{11}}{(x-\alpha_1)} + \dfrac{A_{12}}{(x-\alpha_1)^2} + ... + \dfrac{A_{1r1}}{(x-\alpha_{r_1})^{r_1}} + \\ 
+&+ \dfrac{A_{21}}{(x-\alpha_2)} + \dfrac{A_{22}}{(x-\alpha_2)^2} + ... + \dfrac{A_{2r2}}{(x-\alpha_{r_2})^{r_2}} + \\
+&+ ... +\ \\
+&+ \dfrac{A_{n1}}{(x-\alpha_n)} + \dfrac{A_{n2}}{(x-\alpha_n)^2} + ... + \dfrac{A_{nrn}}{(x-\alpha_{n})^{r_n}}
+\end{align*}
+Para resolver y que no parezca tan abrumador, luego de escribir todas los cocientes, se checkea que la cantidad de t\'erminos coincida con la suma de las raices contadas con su multiplicidad ($r_1+r_2+...+r_n$). Nuevamente se hace denominador com\'un y se sacan las $A$s como factor com\'un. Finalmente se resuelve el sistema de ecuaciones.
+
+\section{C\'alculo de Integrales Definidas} 
+\textbf{Teorema 3}: \textbf{Primer Teorema Fundamental del C\'alculo}: Sea $f$ integrable en $[a,b]$ para cada $x\in[a,b]$, y sea $c\in[a,b]$, definimos: $$F_c(x) = \int_{c}^{x} f(t)dt, \text{ para $x \in [a,b]$}$$
+Luego $F_c$ es continua en $[a,b]$ y si $f$ es continua en $x\in(a,b)$, $F_c$ es derivable en $x$ y $F'_c(x)=f(x)$.\\
+
+\noindent \textbf{Teorema 4}: \textbf{Segundo Teorema Fundamental del C\'alculo}: Sea $f$ continua en $[a,b]$ y sea $P$ una primitiva de $f$ en $(a,b)$, entonces para todo $c\in(a,b)$ vale $$P(x) = P(c) + \int^x_c f(t)dt, \text{ para todo $x\in(a,b)$}$$
+O bien $$\int^x_cf(t)dt = P(x)-P(c)$$\\
+
+\noindent \textbf{Regla de Barrow}: Si $P$ es una primitiva de $f$ entonces $$\int_a^b f(t)dt = P(b)-P(a)$$
+Notaci\'on: $$P(x)\left|^b_a = P(b)-P(a) \right.$$
+
+\subsection{Integraci\'on por Sustituci\'on y Por Partes en Integrales Definidas}
+$$\int_a^b f'(g(x))\cdot g'(x)dx = \int_{g(a)}^{g(b)} f(t)dt$$
+$$\int_a^b f(x)=f(x)g(x)|^b_a - \int_a^bf'(x)g(x)dx$$
+\end{document}
