@@ -7,12 +7,16 @@
 \usepackage{graphicx}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{multicol}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
 \author{Iker M. Canut}
 \title{Unidad 6: Inducci\'on}
 \begin{document}
 \maketitle
 \newpage
-
+\section{Inducci\'on}
 \textbf{Objetivo general}: Demostrar enunciados del estilo: $\forall n, P(n)$, donde $P(n)$ es una proposici\'on que depende del numero natural $n$.\\
 
 \textbf{Axiomas}: $\forall a,b,c \in \mathbb{R}$:
@@ -53,7 +57,7 @@ Un subconjunto $H \subset \mathbb{R}$ se llama \textbf{inductivo} si:
 \item $1 \in X_i\ \forall i \in I$, luego $1 \in \displaystyle{\bigcap_{i \in I}} X_i$
 \item Si $x \in X_i \Rightarrow x+1 \in X_i\ \forall i \in I$, luego $x \in \displaystyle{\bigcap_{i \in I} Xi} \Rightarrow x + 1 \in \displaystyle{\bigcap_{i \in I}} X_i$
 \end{itemize}
-Entonces tenemos que $\displaystyle{\bigcap_{i \in I} X_i}$ es un subconjunto inductivo.
+Entonces tenemos que $\displaystyle{\bigcap_{i \in I} X_i}$ es un subconjunto inductivo.\QEDA
 
 \noindent \dotfill
 
@@ -61,14 +65,14 @@ Se define a $\mathbb{N}$ como la intersecci\'on de todos los subconjuntos induct
 
 \noindent \dotfill
 
-\textbf{Teorema}: Principio de Inducci\'on: Sea $P(n)$ una proposici\'on que depende de $n \in \mathbb{N}$. Si:
+\textbf{Teorema}: \textbf{Principio de Inducci\'on}: Sea $P(n)$ una proposici\'on que depende de $n \in \mathbb{N}$. Si:
 \begin{enumerate}
 \item $P(1)$ es verdadera
 \item $P(k) \Rightarrow P(k+1)\ \forall k \in \mathbb{N}$ 
 \end{enumerate}
 Entonces $P(n)$ es verdadera $\forall n \in \mathbb{N}$.\\
 
-Se demuestra considerando $H = \{ k \in \mathbb{N} : P(k) \text{ es verdadera} \}$. Sabemos que $1 \in H$ y que si $k \in H \Rightarrow k+1 \in H$. Luego, $H$ es un subconjunto inductivo de $\mathbb{R}$, contenido en $\mathbb{N}$. Y como $\mathbb{N}$ es el menor de subconjunto inductivo de $\mathbb{R}$, resulta $H = \mathbb{N}$ y $\therefore P(n)$ es verdadera $\forall n \in \mathbb{N}$.
+Se demuestra considerando $H = \{ k \in \mathbb{N} : P(k) \text{ es verdadera} \}$. Sabemos que $1 \in H$ y que si $k \in H \Rightarrow k+1 \in H$. Luego, $H$ es un subconjunto inductivo de $\mathbb{R}$, contenido en $\mathbb{N}$. Y como $\mathbb{N}$ es el menor de subconjunto inductivo de $\mathbb{R}$, resulta $H = \mathbb{N}$ y $\therefore P(n)$ es verdadera $\forall n \in \mathbb{N}$. \QEDA
 
 \noindent \dotfill
 \newpage
@@ -80,5 +84,68 @@ Se demuestra considerando $H = \{ k \in \mathbb{N} : P(k) \text{ es verdadera} \
 \end{enumerate}
 Entonces $P(n)$ es verdadera $\forall k \geq n_0$\\
 
-Se demuestra considerando $Q(n) = P(n_0 + n - 1)$. Luego sabemos que $Q(1) = P(n_0)$ es verdadera. Y sea $k \geq 1$, vemos que si $Q(k) = P(n_0 + k - 1)$ es verdadera, entonces $Q(k+1) = P(n_0 + k)$ tambi\'en lo es. Y por el principio de inducci\'on, $Q(n)$ es verdadera $\forall n \in \mathbb{N}$. I.e $P(n)$ es verdadera $\forall n \geq n_0$.
+Se demuestra considerando $Q(n) = P(n_0 + n - 1)$. Luego sabemos que $Q(1) = P(n_0)$ es verdadera. Y sea $k \geq 1$, vemos que si $Q(k) = P(n_0 + k - 1)$ es verdadera, entonces $Q(k+1) = P(n_0 + k)$ tambi\'en lo es. Y por el principio de inducci\'on, $Q(n)$ es verdadera $\forall n \in \mathbb{N}$. I.e $P(n)$ es verdadera $\forall n \geq n_0$. \QEDA\\
+
+\noindent \textbf{Observaci\'on}: $P(n) \Rightarrow P(n+1)$ ocurre siempre. Pero que $P(1)\Rightarrow P(2)$ no quiere decir que $P(2)$ sea verdadera... Es decir, $P(1)$ puede ser falso y sin importar el valor de $P(2)$, la proposici\'on es verdadera.\\
+
+\noindent \dotfill\\
+\textbf{Propiedades elementales de los $\mathbb{N}$}
+\begin{enumerate}
+\item $n\in\mathbb{N} \land n\not=1 \Rightarrow n-1 \in \mathbb{N}$, es decir, $\exists m \in \mathbb{N}:\ n=m+1$\\
+$P(1)$ es falsa, $P(2)$ es verdadera. Suponemos $P(n)$ y probamos $P(n+1)$: $(n+1)-1=n$.\\ Luego es verdadera $\forall\ n\geq2$, que es equivalente a decir $P(n),\ (\forall n \in \mathbb{N} \land n\not=1)$ \QEDA
+\item $m,n\in\mathbb{N} \Rightarrow (m+n\in\mathbb{N} \land m\cdot n \in \mathbb{N})$\\
+Fijamos $m$, inducci\'on en $n$. $P(n) = m + n,\ Q(n) = m\cdot n$. Luego, $P(1)$ y $Q(1)$ son verdaderas. $P(n)\Rightarrow P(n+1) = m+(n+1) = (m+n)+1 \in \mathbb{N}$.\\ $Q(n)\Rightarrow Q(n+1)  = m(n+1) = mn+m \in \mathbb{N}$ \QEDA
+\item $m,n\in\mathbb{N} \land m<n \Rightarrow n-m\in\mathbb{N}$\\
+Fijamos $n$ y hacemos inducci\'on en $m$. $P(1): 1<n \Rightarrow n-1\in\mathbb{N}$. Luego $P(m)\Rightarrow P(m+1): (m+1)<n \Rightarrow n-(m+1) \in \mathbb{N}$. Tenemos que $m<n$ y por HI. tenemos que $1<n-m$. Luego, $n-(m+1) = (n-m)-1 \in \mathbb{N}$ \QEDA
+\item $n\in\mathbb{N} \land (a\in\mathbb{R}:\ n-1<a<n) \Rightarrow a\not\in\mathbb{N}$
+$P(1)$ es veradera, pues $0<a<1 \Rightarrow a \not \in \mathbb{N}$. $P(n)\Rightarrow P(n+1)$: $n<a<n+1$. Suponemos que $a\in\mathbb{N}$, luego $0<a-n<1$, pero es absurdo ya que $a>n\Rightarrow a-n \in \mathbb{N}$. \QEDA 
+\end{enumerate}
+
+\noindent \dotfill
+\section{Definiciones Recursivas}
+Una sucesi\'on $u_1, u_2, ... u_n$ est\'a \textbf{definida recursivamente} si puede obtenerse de la siguiente manera:
+\begin{itemize}
+\item Se explicita el/los primer/os elemento/s $u_1 [, u_2, ..., u_{n0}]$.
+\item Hay una regla para obtener el elemento $u_{n+1}$ con $n\geq1$ [o $n\geq n_0$] en funci\'on de los elementos anteriores de la sucesi\'on.
+\end{itemize}
+
+
+\subsection{Sumatoria}
+Dados $n$ n\'umeros $x_1, x_2, ..., x_n$, podemos definir recursivamente su suma $\displaystyle{\sum_{i=1}^n}x_i$ como: 
+$$\left\{\begin{array}{l}
+\sum_{i=1}^nx_i = x_1\\ \\
+\sum_{i=1}^{k+1}x_i = \sum_{i=1}^{k}x_i + x_{k+1},\ 2\leq k \leq n-1
+\end{array}\right.$$
+
+\subsection{Productoria}
+Dados $n$ n\'umeros $x_1, x_2, ..., x_n$, podemos definir recursivamente su producto $\displaystyle{\prod_{i=1}^n}x_i$ como: 
+$$\left\{\begin{array}{l}
+\prod_{i=1}^nx_i = x_1\\ \\
+\prod_{i=1}^{k+1}x_i = \prod_{i=1}^{k}x_i \cdot x_{k+1},\ 2\leq k \leq n-1
+\end{array}\right.$$
+
+\noindent \dotfill \\
+
+\section{Orden}
+\noindent Un subconjunto $A$ de $\mathbb{R}$ tiene \textbf{primer elemento} si $\exists\ a \in A : a \leq x,\ \forall x \in A$ (se dice que $a$ es el m\'inimo, no hay que confundirlo con el \'infimo)\\
+\noindent Un subconjunto $A$ de $\mathbb{R}$ se dice \textbf{bien ordenado} si todo subconjunto no vacio de $A$ tiene primer elemento. Hay que tener cuidado porque el conjunto vacio est\'a bien ordenado.\\
+
+\noindent Sea $a<b$, los intervalos $(a,b)$ y $(a,b]$ no tienen primer elemento, mientras que $[a,b)$ y $[a,b]$ si tienen. De todas maneras, ninguno de \'estos est\'a bien ordenado, ya que se puede encontrar un intervalo dentro del mismo en donde no se tenga un primer elemento!\\
+
+\noindent \textbf{Teorema}: \textbf{Principio de buena ordenaci\'on}: $\mathbb{N}$ es un conjunto bien ordenado.\\
+\textbf{Demostraci\'on}: Por el absurdo, suponemos $X \subset \mathbb{N}$: que no tiene primer elemento.\\
+Sea $H = \{n\in\mathbb{N}: \{1,...,n\} \subset \mathbb{N} - X \}$; la idea es demostrar que $H$ es inductivo, ergo $X$ es $\emptyset$.\\ Comenzamos con que $1 \in H$ (si no sucede es primer elemento de $X$). \\
+Luego, si tenemos que el natural $k\in H$, hay dos posibilidades para $k+1$, que est\'e en $H$ o que no est\'e, significando \'esto que pertenece a $X$. Pero si perteneciera a $X$, \'este ser\'ia el primer elemento, lo cual es absurdo. Entonces $x+1 \in H$ y $H$ es inductivo $\Rightarrow H = \mathbb{N}$ y $X=\emptyset$.\\
+$\therefore$ Todo subconjunto no vac\'io de $\mathbb{N}$ tiene primer elemento. \QEDA\\
+
+\noindent \textbf{Teorema}: \textbf{Principio de Inducci\'on Fuerte}
+Sea $P(n)$ una proposici\'on que depende del natural $n$:
+\begin{enumerate}
+\item Si $P(1)$ es verdadera
+\item Si $\forall k \geq 1$, si $P(1), P(2),...,P(k)$ son verdaderas, entonces $P(k+1)$ es verdadera.
+\end{enumerate}
+Entonces $P(n)$ es verdadera para todo $n\in\mathbb{N}$.\\
+\textbf{Demostraci\'on}: Sea $X = \{n\in\mathbb{N} : \text{ P(n) es falsa}\}$, queremos ver que $X=\emptyset$. \\
+Supongamos $x\not=\emptyset$ y que $n_0$ es el primer elemento de $X$. Observar que $n_0 \geq 2$, pues $P(1)$ es verdadera.\\
+Luego, $1,...,n_0-1 \not \in X$, o equivalentemente, $P(1),...,P(n_0-1)$ son verdaderas. Pero el \textit{item 2} nos dice implica que $P(n_0)$ tiene que ser verdadera, y por ende no pertenecer a $X$, lo cual es absurdo.
 \end{document}
