@@ -1,0 +1,245 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\author{Iker M. Canut}
+\title{Unidad 7: Vectores}
+\begin{document}
+\maketitle
+\newpage
+
+\noindent $\mathbb{R}^2 = \{(x,y) : x\in\mathbb{R}, y\in\mathbb{R}\}$: es el conjunto de todos los pares ordenados de n\'umeros reales.\\
+\noindent $\mathbb{R}^n = \{(x_1,...,x_n) : x_i\in\mathbb{R}, i=1..n\}$: es el conjunto de todas las n-uplas ordenadas de n\'umeros reales.
+
+\section{Sistema de Coordenaas}
+\subsection{En la Recta}
+\noindent Dada una recta y un punto $O$ llamado \textbf{origen} (al cual le corresponde el 0), quedan determinadas \textbf{dos semirectas}. Eligiendo arbitrariamente otro punto $P\not=0$, se le hace corresponder el $1$. El segmento $\overline{OP}$ se lo llama \textbf{segmento unitario}. El mismo determina la escala, y crea una correspondencia biun\'ivoca entre los puntos de la recta y los n\'umeros reales. El punto $Q$ ubicado sobre la recta, sim\'etricamente a $P$ respecto del origen, le corresponde el n\'umero $-1$. $P$ est\'a en el \textbf{semieje positivo}, $Q$ en el \textbf{negativo}.
+\subsection{En el Plano}
+Considerando un par de \textbf{rectas perpendiculares} (vertical y horizontal), se intersecan en el \textbf{origen}. Sobre cada recta se eligen unos puntos $P_1$ y $P_2$, los cuales determinan la unidad de medida, la escala. Si ambas son iguales, se llama \textbf{sistema de ejes cartesianos ortogonales}. Luego, se establece una correspondencia biunívoca entre los puntos de un plano y el conjunto de los pares ordenados de $\mathbb{R}^2$. Sea $P(a,b)$ un punto, $a$ es la abscisa y $b$ la ordenada de $P$.
+\subsection{En el Espacio}
+Consideramos 3 rectas que no est\'an en el mismo plano, perpendiculares dos a dos entre si, que se cortan en el origen. Nuevamente tenemos $P_1, P_2$ y $P_3$. Los 3 planos ($XY$, $YZ$ y $XZ$), forman 8 octantes. Luego, se establece una correspondencia biunivoca entre los puntos del espacio y las ternas de n\'umeros reales: Si trazamos por $P$ el plano paralelo a $YZ$, corta al eje x en un solo punto. An\'alogamente, trazando el plano paralelo a $XZ$ corta en un solo punto al eje y, y el plano paralelo a $XY$ corta en un solo punto al eje z. Obteniendo asi las coordenadas $a$, $b$ y $c$ de $P$. Se escribe $P(a,b,c)$.
+
+\section{Vectores}
+Se llama \textbf{vector} a todo segmento orientado, es decir, a todo segmento determinado por un par ordenado $(O,U)$ de puntos. El punto $O$ se lo llama origen, y el punto $U$ extremo del vector.\\
+En todo vector se distinguen:
+\begin{itemize}
+\item \textbf{Direcci\'on}: dada por la recta que lo contiene (llamada recta sost\'en), o por una paralela a ella.
+\item \textbf{Sentido}: Dado por la orientaci\'on de la flecha. Cada flecha tiene dos sentidos.
+\item \textbf{M\'odulo}: Es igual a la longitud del segmento orientado. Si el m\'odulo es 0, el vector es un punto, y aunque carece de direcci\'on y sentido, se lo denomina vector nulo.
+\end{itemize}
+\subsection{Igualdad de Vectores}
+Dos vectores son iguales cuando ambos tienen m\'odulo 0 o cuando ambos tienen la misma direcci\'on, sentido e iguales modulos. Dado un vector $\overrightarrow{OU}$ y un punto $A$, se puede asegurar que existe un vector igual a $\overrightarrow{OU}$ con origen en $A$, es decir, existe un $B$ tal que $\overrightarrow{OU}$ = $\overrightarrow{AB}$. Si dos vectores iguales tienen el mismo origen, se llaman \textbf{fijos}. Si est\'an en la misma recta sost\'en, \textbf{deslizantes}, y sin\'o se llaman \textbf{libres}.
+\subsection{Definiciones}
+\begin{itemize}
+\item Se llama \textbf{versor} a todo vector de m\'odulo 1.
+\item Se llama \textbf{versor asociado} a $\overrightarrow{u}$ y se simboliza con $\overrightarrow{u_0}$ al versor de igual sentido que $\overrightarrow{u}$.
+\item Dos vectores son \textbf{paralelos} cuando tienen igual direcci\'on (a\'un con sentidos opuestos).\
+\item Dado el vector $\overrightarrow{u} = \overrightarrow{AB}$, el vector $\overrightarrow{BA}$ se lo llama \textbf{vector opuesto}. Se simboliza $-\overrightarrow{u}$. Si $\overrightarrow{u}$ y $\overrightarrow{v}$ son no nulos, tienen mismo m\'odulo y direcci\'on. El vector nulo es igual a su opuesto.
+\item Dados dos vectores no nulos $\overrightarrow{u}$ y $\overrightarrow{v}$, se define el \textbf{\'angulo} entre vecotres, representandolo como $(\overrightarrow{u}\overset{\wedge}{,}\overrightarrow{v})$ al \'angulo convexo determinado por dichos vectores cuando sus origenes aplican en un punto comun. Si son paralelos el \'angulo es $0^{\circ}$ o $180^{\circ}$, dependiendo del sentido.
+\item $(\overrightarrow{u}\overset{\wedge}{,}\overrightarrow{v}) + (\overrightarrow{-u}\overset{\wedge}{,}\overrightarrow{v}) = 180^\circ$
+\end{itemize}
+
+\section{Suma de Vectores}
+\noindent Sean $\overrightarrow{u}$ y $\overrightarrow{v}$, fijando un $A$, queda determinado un $B$ tal que $\overrightarrow{AB} = \overrightarrow{u}$, que a su vez determina un $C$ tal que $\overrightarrow{BC} = \overrightarrow{v}$. Se llama \textbf{suma} de $\overrightarrow{u}$ y $\overrightarrow{v}$ al vector obtenido $\overrightarrow{AC}$, y simbolizamos $\overrightarrow{u} + \overrightarrow{v}$.
+\textbf{Propiedades}: Sean $\overrightarrow{u}$, $\overrightarrow{v}$ y $\overrightarrow{w}$, se verifica que:
+\begin{itemize}
+\item $\overrightarrow{u} + \overrightarrow{v} = \overrightarrow{v} + \overrightarrow{u}$ (Conmutativa)
+\item $(\overrightarrow{u} + \overrightarrow{v})+\overrightarrow{w} = \overrightarrow{u} + (\overrightarrow{v}+\overrightarrow{w})$ (Asociativa)
+\item $\overrightarrow{u} + \overrightarrow{0} = \overrightarrow{0} + \overrightarrow{u}$ (Existencia de elemento neutro)
+\item $\overrightarrow{v} + \overrightarrow{-v} = \overrightarrow{-v} + \overrightarrow{v} = \overrightarrow{0}$ (Existencia del elemento opuesto)
+\end{itemize}
+Dados $\overrightarrow{u}$ y $\overrightarrow{v}$, se llama \textbf{vector diferencia} entre $\overrightarrow{u}$ y $\overrightarrow{v}$, simbolizando $\overrightarrow{u} -\overrightarrow{v}$ a $\overrightarrow{u} + \overrightarrow{-v}$. 
+
+\section{Producto de un Vector por un Escalar}
+\noindent Sea $\overrightarrow{v}$ un vector y $a$ un escalar cualquiera, se llama \textbf{producto del escalar $a$ por el vector $\overrightarrow{v}$} y se simboliza $a\cdot \overrightarrow{v}$ al vector que verifica:
+\begin{itemize}
+\item $|a \cdot \overrightarrow{v}| = |a| \cdot |\overrightarrow{v}|$
+\item Si $a\not=0$ y $\overrightarrow{v}\not=\overrightarrow{0}$, entonces $a\cdot\overrightarrow{v}$ tiene la misma direcci\'on que $v$ (son paralelos).
+\item Si $a>0$ entonces $a\cdot\overrightarrow{v}$ tiene el mismo sentido que $\overrightarrow{v}$. Si $a<0$, sentido opuesto.
+\end{itemize}
+\noindent \textbf{Propiedades}: Cualesquiera sean los escalares $a$ y $b$, los vectores $\overrightarrow{u}$ y $\overrightarrow{v}$ verifican que:
+\begin{itemize}
+\item $a\cdot(\overrightarrow{u} + \overrightarrow{v}) = a\cdot\overrightarrow{u} + a\cdot\overrightarrow{v}$ (Distributiva respecto a la suma de vectores)
+\item $(a+b)\cdot\overrightarrow{u} = a\cdot\overrightarrow{u} + b\cdot\overrightarrow{u}$ (Distributiva respecto de la suma deescalares)
+\item $a\cdot(b\cdot\overrightarrow{u}) = (a\cdot b)\cdot\overrightarrow{u}$ (Homogeneidad o asociativa de los escalares)
+\item $1\cdot\overrightarrow{u} = \overrightarrow{u}$ (El escalar 1 es la unidad para el producto)
+\item $(-1)\cdot\overrightarrow{u} = \overrightarrow{-u}$
+\item $(-a)\cdot\overrightarrow{u} = -(a\cdot\overrightarrow{u})$
+\item $a\cdot\overrightarrow{u} = \overrightarrow{0} \Rightarrow a=0 \lor \overrightarrow{u}=\overrightarrow{0}$
+\item $\overrightarrow{u_0} = \dfrac{1}{|\overrightarrow{u}|}\cdot\overrightarrow{u}$
+\end{itemize}
+
+\section{Condici\'on de Paralelismo entre Vectores}
+\noindent Dos vectores $\overrightarrow{u},\overrightarrow{v}$ no nulos son paralelos $\iff$ existe un real $a\not=0$ tal que $\overrightarrow{v} = a \cdot\overrightarrow{u}$\\
+$\Rightarrow)$ Supongamos que $\overrightarrow{u} \parallel \overrightarrow{v}$. Pueden tener igual ($a>0$) o distinto sentido ($a<0$). Si tienen el mismo sentido, $a=\dfrac{|\overrightarrow{v}|}{|\overrightarrow{u}|}$, si no, $a=-\dfrac{|\overrightarrow{v}|}{|\overrightarrow{u}|}$\\
+$\Leftarrow)$ Si existe $a\not=0 : \overrightarrow{v} = a\cdot\overrightarrow{u}$, por definici\'on de vector por escalar, son paralelos. \QEDA
+
+\newpage
+
+\section{Proyecci\'on Ortogonal de un Vector Sobre la Direcci\'on de Otro}
+\noindent Dados los vectores $\overrightarrow{u} = \overrightarrow{OU}$ y $\overrightarrow{v} = \overrightarrow{OV}$ no nulos, se llama \textbf{vector proyecci\'on ortogonal} de $\overrightarrow{u}$ sobre $\overrightarrow{v}$ y se nota $proy_{\overrightarrow{v}}\overrightarrow{u}$ al vector $\overrightarrow{OP}$, donde $P$ es el punto de intersecci\'on entre la recta sost\'en de $\overrightarrow{v}$ y la perpendicular a ella que contiene a $U$. Si $\overrightarrow{u} = \overrightarrow{0}$, definimos $proy_{\overrightarrow{v}}\overrightarrow{u} = \overrightarrow{0}$. Al n\'umero $p=|\overrightarrow{u}|\cdot\cos (\overrightarrow{u},\overrightarrow{v})$ se lo llama \textbf{proyecci\'on escalar} de $\overrightarrow{u}$ sobre $\overrightarrow{v}$.
+
+\section{Producto Escalar}
+\noindent Sean $\overrightarrow{u}$ y $\overrightarrow{v}$ dos vectores cualesquiera, se llama \textbf{producto escalar} de $\overrightarrow{u}$ por $\overrightarrow{v}$, simbolizando $\overrightarrow{u}\times\overrightarrow{v}$ al numero real definido por:
+$$\overrightarrow{u}\times\overrightarrow{v}\left\{\begin{array}{ll}
+|\overrightarrow{u}|\cdot|\overrightarrow{v}| & \text { cuando $\overrightarrow{u} \not = \overrightarrow{0} \land \overrightarrow{v}\not=0$}\\
+0 & \text{ cuando $\overrightarrow{u} = \overrightarrow{0} \lor \overrightarrow{v} = \overrightarrow{0}$}
+\end{array}\right.$$
+Luego, $\overrightarrow{u}\times\overrightarrow{u} = |\overrightarrow{u}|^2$, es decir ”El producto escalar entre $\overrightarrow{u}$ y $\overrightarrow{u}$ es igual al módulo de $\overrightarrow{u}$ al cuadrado”.\\
+\noindent \textbf{Propiedades}: Sean los vectores $\overrightarrow{u}, \overrightarrow{v}, \overrightarrow{w}$ y el escalar $a$, se verifica que:
+\begin{itemize}
+\item $\overrightarrow{u}\times\overrightarrow{v} = \overrightarrow{v}\times\overrightarrow{u}$ (Conmutativa)
+\item $\overrightarrow{u}\times(\overrightarrow{v}+\overrightarrow{w}) = \overrightarrow{u}\times\overrightarrow{v} + \overrightarrow{u}\times\overrightarrow{w}$ (Distributiva)
+\item $a\cdot(\overrightarrow{u}\times\overrightarrow{v}) = (a\cdot\overrightarrow{u})\times\overrightarrow{v} = \overrightarrow{u}\times(a\cdot\overrightarrow{v})$
+\item $\overrightarrow{u}\times\overrightarrow{u} \geq 0$, valiendo la igualdad si y solo si $\overrightarrow{u} = \overrightarrow{0}$
+\end{itemize}
+\indent \indent Sean $\overrightarrow{u}$ y $\overrightarrow{v}$ no nulos, decimos que $\overrightarrow{u}$ es \textbf{perpendicular} a $\overrightarrow{v}$, $\overrightarrow{u}\perp\overrightarrow{v}$, si y solo si $(\overrightarrow{u}\overset{\wedge}{,}\overrightarrow{v}) = 90^\circ$. Luego $\overrightarrow{u}\perp\overrightarrow{v}\iff \overrightarrow{u}\times\overrightarrow{v}=0$\\
+\indent Adem\'as, $proy_{\overrightarrow{v}}\overrightarrow{u} = (\overrightarrow{u}\times\overrightarrow{v_0})\cdot \overrightarrow{v_0} = p \cdot \overrightarrow{v_0}$
+
+\section{Descomposici\'on de un Vector}
+\noindent Notamos con $\mathbb{V}_1,\mathbb{V}_2$ y $\mathbb{V}_3$ al conjunto de los vectores de una recta, un plano y del espacio.
+\subsection{En una Recta}
+\noindent Dado $\overrightarrow{u}$ no nulo, cualquier otro vector $\overrightarrow{v}$ de $\mathbb{V}_1$ se puede expresar de manera \'unica como $\overrightarrow{v} = \alpha \cdot \overrightarrow{u}$. A esto se lo llama \textbf{descomposici\'on} de $\overrightarrow{v}$ \textit{en la base formada por} $\overrightarrow{u}$. Y $a$ es la \textbf{componente escalar} de $ \overrightarrow{v}$ \textit{en la base formada por} $\overrightarrow{u}$. Luego, se establece una relaci\'on biun\'ivoca entre vectores de $\mathbb{V}_1$ y $\mathbb{R}$.
+\subsection{En el Plano}
+Sean dos vectores $\overrightarrow{u} = \overrightarrow{OU}$ y $\overrightarrow{v} = \overrightarrow{OV}$, no nulos ni paralelos, cualquier otro vector $\overrightarrow{w} = \overrightarrow{OW}$ puede escribirse como $\overrightarrow{w} = a \cdot \overrightarrow{u} + b \cdot \overrightarrow{v}$ (trazando rectas paralelas a los vectores se determinan respectivamente los puntos $A$ y $B$ que son respectivamente paralelos a $\overrightarrow{u}$ y $\overrightarrow{v}$, i.e existen unicos $a$ y $b$ tales que $\overrightarrow{OA} = a \cdot \overrightarrow{u}$ y $\overrightarrow{OB} = b \cdot \overrightarrow{v}$). Luego, $\overrightarrow{u}$ y $\overrightarrow{v}$ constituyen una base para los vectores de un plano, estableciendo asi una correspondencia biun\'ivoca entre $\mathbb{V}_2$ y $\mathbb{R}^2$. Por ejemplo, a $\overrightarrow{w}$ le corresponde el par ordenado $(a,b)$, que son los \'unicos escalares que permiten expresar a $\overrightarrow{w}$ como combinaci\'on lineal de los vectores en la base dada. Obviamente si se cambia la base, los escalares tambi\'en cambian.\\
+
+\noindent En general el vector $a_1\cdot\overrightarrow{v}_1 + a_2\cdot\overrightarrow{v}_2 + ... + a_n\cdot\overrightarrow{v}_n$ se llama \textbf{combinaci\'on lineal} de los vectores $\overrightarrow{v}_1, \overrightarrow{v}_2, ..., \overrightarrow{v}_n$ con los escalares $a_1, a_2, ..., a_n$.
+
+\subsection{En el Espacio}
+\noindent Dados 3 vectores $\overrightarrow{u} = \overrightarrow{OU}, \overrightarrow{v} = \overrightarrow{OV}, \overrightarrow{w} = \overrightarrow{OW}$, no nulos ni paralelos a un mismo plano. Sea un vector $\overrightarrow{x} = \overrightarrow{OX}$, si por dicho punto trazamos una recta paralela a $\overrightarrow{w}$, esta corta al plano determinado por $\overrightarrow{u}$ y $\overrightarrow{v}$ en un punto llamado $M$. Luego $\overrightarrow{OM} = a \cdot \overrightarrow{u} + b \cdot \overrightarrow{v}$. Por otra parte, $\overrightarrow{x} = \overrightarrow{OM} + \overrightarrow{MX}$, y $\overrightarrow{MX} = \gamma \cdot \overrightarrow{w}$, entonces $\overrightarrow{x} = a\cdot \overrightarrow{u} + b \cdot \overrightarrow{v} + \gamma \cdot \overrightarrow{w}$. Luego, de fijada la base, queda establecida una relaci\'on biun\'ivoca entre los vectores de $\mathbb{V}_3$ y las ternas ordenadas de $\mathbb{R}^3$.
+
+\section{Versores Fundamentales. Descomposici\'on Can\'onica}
+\noindent Dado un sistema de ejes cartesianos ortogonales en el plano $(O,x,y)$, llamamos \textbf{versores fundamentales} y simbolizamos $\overrightarrow{i}, \overrightarrow{j}$ a los versores cuyas direcciones y sentidos son los de los semiejes coordenados positivos $x$ e $y$ respectivamente. Dado un punto $V(v_1, v_2)$, queda determinado un $\overrightarrow{OV}$. Si trazamos paralelas a los ejes sobre $V$, se obtienen los puntos $A(v_1, 0)$ y $B(0,v_2)$. Luego $\overrightarrow{v}=\overrightarrow{OA} + \overrightarrow{OB} = v_1 \cdot \overrightarrow{i} + v_2 \cdot \overrightarrow{j}$. Esto se llama \textbf{descomposici\'on can\'onica} de $\overrightarrow{v}$ en la base $\{\overrightarrow{i}, \overrightarrow{j}\}$. Luego escribimos $\overrightarrow{v} = v_1 \cdot \overrightarrow{i} + v_2 \cdot \overrightarrow{j} = (v_1, v_2)$. An\'alogamente para el espacio.
+\begin{itemize}
+\item Las componentes de $\overrightarrow{i}$ son $(1,0,0)$, ya que $\overrightarrow{i} = 1 \cdot \overrightarrow{i} + 0 \cdot \overrightarrow{j} + 0 \cdot \overrightarrow{k}$
+\item Sea $\overrightarrow{u} = (u_1,u_2,u_3)$ y $\overrightarrow{v}=(v_1,v_2,v_3)$, entonces $\overrightarrow{u} = \overrightarrow{v} \iff u_i = v_i,\ \forall i$
+\item $\overrightarrow{v} = (\overrightarrow{v}\times\overrightarrow{i}) \cdot \overrightarrow{i} + (\overrightarrow{v}\times\overrightarrow{j})\cdot\overrightarrow{j} + (\overrightarrow{v}\times\overrightarrow{k})\cdot \overrightarrow{k}$. Recordar que $v_1 = \overrightarrow{v} \cdot \overrightarrow{i}$
+\end{itemize}
+
+\section{Operaciones por Componentes}
+\begin{itemize}
+\item $\overrightarrow{u} + \overrightarrow{v} = u_1\cdot \overrightarrow{i} + u_2 \cdot \overrightarrow{k} + u_3 \cdot \overrightarrow{k} + v_1\cdot\overrightarrow{i} + v_2\cdot\overrightarrow{j} + v_3\cdot\overrightarrow{k} = (u_1+v_1)\cdot\overrightarrow{i}+(u_2+v_2)\cdot\overrightarrow{j}+(u_3+v_3)\cdot\overrightarrow{k}$\\
+\indent \indent \indent $\therefore\ \overrightarrow{u} + \overrightarrow{v} = (u_1+v_1,u_2+v_2,u_3+v_3)$
+\item $a \cdot \overrightarrow{u} = a \cdot (u_1\cdot \overrightarrow{i} + u_2 \cdot \overrightarrow{k} + u_3 \cdot \overrightarrow{k}) = a \cdot u_1\cdot \overrightarrow{i} + a \cdot u_2 \cdot \overrightarrow{k} + a\cdot u_3 \cdot \overrightarrow{k}$\\
+\indent \indent \indent $\therefore\ a \cdot \overrightarrow{u} = (a\cdot u_1,a\cdot u_2,a\cdot u_3)$
+\item $\overrightarrow{u}\times\overrightarrow{v} = (u_1\cdot\overrightarrow{i} + u_2\cdot\overrightarrow{j}) \times (v_1 \cdot \overrightarrow{i} + v_2\cdot \overrightarrow{j}) \\ = 
+(u_1\cdot\overrightarrow{i})\times(v_1\cdot\overrightarrow{i}) + 
+(u_1\cdot\overrightarrow{i})\times(v_2\cdot\overrightarrow{j}) +
+(u_2\cdot\overrightarrow{j})\times(v_1\cdot\overrightarrow{i}) + 
+(u_2\cdot\overrightarrow{j})\times(v_2\cdot\overrightarrow{j}) \\ = 
+u_1 \cdot v_1 \cdot (\overrightarrow{i}\times\overrightarrow{i})+
+u_1 \cdot v_2 \cdot (\overrightarrow{i}\times\overrightarrow{j})+
+u_2 \cdot v_1 \cdot (\overrightarrow{j}\times\overrightarrow{i})+
+u_2 \cdot v_2 \cdot (\overrightarrow{j}\times\overrightarrow{j}) \\ =
+u_1 \cdot v_1 \cdot 1+
+u_1 \cdot v_2 \cdot 0+
+u_2 \cdot v_1 \cdot 0+
+u_2 \cdot v_2 \cdot 1 = 
+u_1 \cdot v_1 +
+u_2 \cdot v_2 $\\
+\indent \indent \indent $\therefore \overrightarrow{u}\times\overrightarrow{v}=u_1 \cdot v_1 + u_2 \cdot v_2 + u_3 \cdot v_3$
+\end{itemize}
+
+\subsection{Consecuencias inmediatas}
+\begin{itemize}
+\item Del paralelismo de vectores, surge que si dos vectores (sin componentes nulas) son paralelos, entonces $\dfrac{v_1}{u_1} = \dfrac{v_2}{u2} = \dfrac{v_3}{u3} = a$. 
+Si $a>0$ entonces tienen el mismo sentido. Si $a<0$, opuesto.
+\item Si $\overrightarrow{u} = (u_1,u_2,u_3)$, sabiendo que $\overrightarrow{u}\times\overrightarrow{u} = |u|^2$, entonces $|u|=\sqrt{u_1^2 + u_2^2 + u_3^2}$.
+\item $\overrightarrow{-u} = (-u_1, -u_2, -u_3)$ y $\overrightarrow{u_0} = \dfrac{1}{|\overrightarrow{u}|}\cdot\overrightarrow{u} = \left( \dfrac{u_1}{\sqrt{u_1^2 + u_2^2 + u_3^2}}, \dfrac{u_2}{\sqrt{u_1^2 + u_2^2 + u_3^2}}, \dfrac{u_3}{\sqrt{u_1^2 + u_2^2 + u_3^2}} \right)$.
+\item $\cos(\overrightarrow{u}\overset{\wedge}{,}\overrightarrow{v}) = \dfrac{\overrightarrow{u}\times\overrightarrow{v}}{|\overrightarrow{u}|\cdot|\overrightarrow{v}|} = \dfrac{u_1 \cdot v_1 + u_2 \cdot v_2 + u_3 \cdot v_3}{\sqrt{u_1^2 + u_2^2 + u_3^2}\cdot\sqrt{v_1^2 + v_2^2 + v_3^2}}$.
+\item Dos vectores no nulos son perpendiculares si $\overrightarrow{u}\times\overrightarrow{v}=0$, es decir, si $u_1 \cdot v_1 + u_2 \cdot v_2 + u_3 \cdot v_3 = 0$.
+\item Sea $A$ el conjunto de todos los vectores paralelos a $\overrightarrow{u}$, y $B$ todos los perpendiculares a $\overrightarrow{u}$, considerando el vector nulo paralelo y perpendicular a cualquier vector, se puede expresar como $A=\{a\cdot\overrightarrow{u}, \text{ con $a\in\mathbb{R}$}\}$ y $B=\{(a,b) : \overrightarrow{u} \times (a,b) = 0, \text{ con $a,b\in\mathbb{R}$}\}=\{(a,b):u_1\cdot a + u_2\cdot b = 0\}$.
+\end{itemize}
+
+\section{\'Angulos y Cosenos Directores de un Vector}
+\noindent Sea $\overrightarrow{v} = \overrightarrow{OV} = (v_1,v_2)$ no nulo, determina los \'angulos $\alpha=(\overrightarrow{v}\overset{\wedge}{,}\overrightarrow{i})$ y $\beta = (\overrightarrow{v}\overset{\wedge}{,}\overrightarrow{i})$, que llamamos \textbf{\'angulos directores}. A los cosenos de dichos \'angulos, los llamamos \textbf{cosenos directores}. Luego,
+$$\cos \alpha = \cos (\overrightarrow{v}\overset{\wedge}{,}\overrightarrow{i}) = \dfrac{v_1}{|\overrightarrow{v}|},\ \ \ \ \cos \beta = \cos (\overrightarrow{v}\overset{\wedge}{,}\overrightarrow{j}) = \dfrac{v_2}{|\overrightarrow{v}|}$$
+Y se llega a que $$(\cos \alpha, \cos \beta) = \left(\dfrac{v_1}{|\overrightarrow{v}|}, \dfrac{v_2}{|\overrightarrow{v}|}\right) = \overrightarrow{v_0}$$
+Es decir, los cosenos directores son las componentes del versor asociado. Adem\'as, $\cos^2\alpha+\cos^2\beta=1$.\\
+
+\noindent An\'alogamente, $(\cos \alpha, \cos \beta, \cos \gamma) = \left(\dfrac{v_1}{|\overrightarrow{v}|}, \dfrac{v_2}{|\overrightarrow{v}|}, \dfrac{v_3}{|\overrightarrow{v}|}\right) = \overrightarrow{v_0}$ y tambi\'en $\cos^2\alpha+\cos^2\beta+\cos\gamma=1$.
+
+\section{Problemas}
+\subsection{Componentes de un Vector a partir de dos puntos}
+Dados $P_0(x_0,y_0,z_0)$ y $P_1(x_1,y_1,z_1)$, si queremos encontrar las componentes de $\overrightarrow{P_0P_1}$, observamos que es equivalente a $\overrightarrow{OP_1}-\overrightarrow{OP_0} = (x_1-x_0, y_1-y_0, z_1-z_0)$
+\subsection{Coordenadas del Punto Medio entre dos puntos}
+Comenzando con que $2 \cdot \overrightarrow{P_0M} = \overrightarrow{P_0P_1}$ y operando por componentes, llegamos a que: $$x=\dfrac{x_0+x_1}{2},\ \ \ \ y=\dfrac{y_0+y_1}{2},\ \ \ \ z=\dfrac{z_0+z_1}{2}$$
+
+\section{Orientabilidad}
+Curve los dedos de la \textbf{mano derecha} de tal forma que señalen el sentido de rotación del vector $\overrightarrow{i}$ hacia el vector $\overrightarrow{j}$, por el camino más corto, entonces el dedo pulgar extendido marcará la dirección del vector producto vectorial $\overrightarrow{i}\times\overrightarrow{j}$. Luego se dice que es una terna orientada en sentido directo.
+
+\section{Producto Vectorial}
+\noindent Fijada una terna $(\overrightarrow{i}, \overrightarrow{j}, \overrightarrow{k})$ y dados $\overrightarrow{u},\overrightarrow{v}\in\mathbb{V}_3$, se llama \textbf{producto vectorial}: $\overrightarrow{u} \wedge \overrightarrow{v}$ al vector que:
+\begin{itemize}
+\item Si $\overrightarrow{u} \lor \overrightarrow{v}$ son nulos, entonces $\overrightarrow{u}\wedge\overrightarrow{v} = \overrightarrow{0}$
+\item Si no son nulos, entonces
+\begin{itemize}
+\item $|\overrightarrow{u}\wedge\overrightarrow{v}| = |\overrightarrow{u}|\cdot|\overrightarrow{v}|\cdot\sin(\overrightarrow{u}\overset{\wedge}{,}\overrightarrow{v})$
+\item La direcci\'on es perpendicular a la direcci\'on de $\overrightarrow{u}$ y $\overrightarrow{v}$.
+\item El sentido es tal que la terna $(\overrightarrow{u},\overrightarrow{v},\overrightarrow{u}\wedge\overrightarrow{v})$ tenga la misma orientaci\'on que $(\overrightarrow{i},\overrightarrow{j},\overrightarrow{k})$.
+\end{itemize}
+\end{itemize}
+
+\subsection{Consecuencias Inmediatas de la Definici\'on}
+\noindent Sean $\overrightarrow{u}$ y $\overrightarrow{v}$ no nulos, $\overrightarrow{u}\wedge\overrightarrow{v}=\overrightarrow{0} \iff |\overrightarrow{u}||\overrightarrow{v}|\cdot\sin (\overrightarrow{u}\overset{\wedge}{,}\overrightarrow{v}) \iff (\overrightarrow{u}\overset{\wedge}{,}\overrightarrow{v}) = 0^\circ \lor 180^\circ \iff \overrightarrow{u} \parallel \overrightarrow{v}$\\
+
+\noindent $\overrightarrow{i} \wedge \overrightarrow{i} = \overrightarrow{j} \wedge \overrightarrow{j} = \overrightarrow{k} \wedge \overrightarrow{k} = \overrightarrow{0}$
+\begin{multicols}{6}
+\noindent $\overrightarrow{i} \wedge \overrightarrow{j} = \overrightarrow{k}$\\
+$\overrightarrow{j} \wedge \overrightarrow{k} = \overrightarrow{i}$\\
+$\overrightarrow{k} \wedge \overrightarrow{i} = \overrightarrow{j}$\\
+$\overrightarrow{i} \wedge \overrightarrow{k} = \overrightarrow{-j}$\\
+$\overrightarrow{j} \wedge \overrightarrow{i} = \overrightarrow{-k}$\\
+$\overrightarrow{k} \wedge \overrightarrow{j} = \overrightarrow{-i}$
+\end{multicols}
+
+\subsection{Algunas Propiedades del Producto Vectorial}
+\begin{itemize}
+\item $\overrightarrow{u} \wedge \overrightarrow{v} = -(\overrightarrow{v}\wedge\overrightarrow{u})$
+\item $a\cdot(\overrightarrow{u} \wedge \overrightarrow{v}) = (a\cdot\overrightarrow{u})\wedge\overrightarrow{v} = \overrightarrow{u}\wedge(a\cdot\overrightarrow{v})$
+\item $\overrightarrow{u}\wedge(\overrightarrow{v}+\overrightarrow{w}) = \overrightarrow{u}\wedge\overrightarrow{v} + \overrightarrow{u} \wedge \overrightarrow{w}$
+\end{itemize}
+
+\subsection{Proucto Vectorial por Componentes}
+\noindent $\overrightarrow{u} \wedge \overrightarrow{v} = (u_1\cdot\overrightarrow{i} + u_2\cdot\overrightarrow{j} + u_3\cdot\overrightarrow{k}) \wedge (v_1\cdot\overrightarrow{i} + v_2\cdot\overrightarrow{j} + v_3\cdot\overrightarrow{k})$\\
+\indent \indent $\ = 
+u_1v_1 (\overrightarrow{i}\wedge\overrightarrow{i}) + 
+u_1v_2 (\overrightarrow{i}\wedge\overrightarrow{j}) + 
+u_1v_3 (\overrightarrow{i}\wedge\overrightarrow{k}) + 
+u_2v_1 (\overrightarrow{j}\wedge\overrightarrow{i}) + 
+u_2v_2 (\overrightarrow{j}\wedge\overrightarrow{j}) + $\\
+\indent \indent \indent $
+u_2v_3 (\overrightarrow{j}\wedge\overrightarrow{k}) + 
+u_3v_1 (\overrightarrow{k}\wedge\overrightarrow{i}) + 
+u_3v_2 (\overrightarrow{k}\wedge\overrightarrow{j}) + 
+u_3v_3 (\overrightarrow{k}\wedge\overrightarrow{k})$ \\
+\indent \indent $\ = (u_2v_3-u_3v_2)\cdot\overrightarrow{i} + (u_3v_1-u_1v_3)\cdot \overrightarrow{j} + (u_1v_2-u_2v_1) \cdot \overrightarrow{k}$\\
+
+\noindent Para simplificar se puede resolver un determinante.
+$\begin{vmatrix}
+\overrightarrow{i} & \overrightarrow{j} & \overrightarrow{k} \\ 
+u_1 & u_2 & u_3 \\ 
+v_1 & v_2 & v_3
+\end{vmatrix}$
+
+\subsection{Interpretaci\'on geom\'etrica del m\'odulo del producto vectorial}
+\noindent El m\'odulo del producto vectorial de dos vectores no nulos ni paralelos es igual al \textbf{\'area del paralelogramo} determinado por ambos vectores:
+$$|\overrightarrow{u}\wedge\overrightarrow{v}| = |\overrightarrow{u}||\overrightarrow{v}|\sin (\overrightarrow{u}\overset{\wedge}{,}\overrightarrow{v}) = |\overrightarrow{u}| \cdot h = \mathcal{A}(ABCD)$$
+
+\section{Producto Mixto}
+\noindent Dados $\overrightarrow{u}, \overrightarrow{v}, \overrightarrow{w} \in \mathbb{V}_3$, se llama \textbf{producto mixto} a $(\overrightarrow{u}\wedge\overrightarrow{v})\times\overrightarrow{w}$. El mismo es un n\'umero real.
+
+\subsection{Interpretaci\'on geom\'etrica del m\'odulo del producto mixto}
+\noindent Equivale al volumen del paralelep\'ipedo determinado por los vectores (no coplanares).
+$$\overrightarrow{u}\wedge\overrightarrow{v}\times\overrightarrow{w} = |\overrightarrow{u}\wedge\overrightarrow{v}||\overrightarrow{w}|\cos(\overrightarrow{u}\wedge\overrightarrow{v}\overset{\wedge}{,}\overrightarrow{w}) = \mathcal{A}(ABCD)\cdot h = \mathcal{V}$$
+
+\end{document}
