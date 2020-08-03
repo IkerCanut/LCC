@@ -1,0 +1,124 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows, automata, positioning, calc, through, angles, quotes, intersections}
+\usepackage{pgfplots}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\author{Iker M. Canut}
+\title{Unidad 8: Rectas}
+\begin{document}
+\maketitle
+\newpage
+
+\section{Ecuaciones de la recta en el plano}
+Dado un punto $P$ y un vector no nulo $\overrightarrow{u}$, la \textbf{recta} $r$ que pasa por $P$ en la direcci\'on de $\overrightarrow{u}$, es el lugar geom\'etrico de los puntos $Q$ tales que $\overrightarrow{PQ} \parallel \overrightarrow{u}$. Es decir, $Q \in r \iff \exists\ \lambda \in \mathbb{R} :\ \overrightarrow{PQ} = \lambda \cdot \overrightarrow{u}$\\
+\noindent Y como $\overrightarrow{OP} + \overrightarrow{PQ} = \overrightarrow{OQ}$, la recta $r$ est\'a compuesta por todos los puntos $Q$ que verifican: 
+\begin{equation}
+\overrightarrow{OQ} = \overrightarrow{OP} + \lambda \cdot \overrightarrow{u},\ \lambda \in \mathbb{R}
+\end{equation}
+\'Esto se llama \textbf{ECUACI\'ON VECTORIAL} de la recta $r$.\\
+
+Dada una recta que pasa por un punto $P(x_0, y_0)$, en la direcci\'on de un vector $\overrightarrow{u}=(u_1,u_2)$, sabemos que un punto $Q$ pertenece a la recta $r$ si y solo si $\overrightarrow{OQ} = \overrightarrow{OP} + \lambda \cdot \overrightarrow{u},\ \lambda \in \mathbb{R}$. Luego, se puede concluir que $\overrightarrow{OQ} = \overrightarrow{OP} + \lambda \cdot \overrightarrow{u} = (x_0 + \lambda \cdot u_1, y_0+\lambda\cdot u_2)$. Y llegamos a que:
+\begin{equation}
+\left\{\begin{array}{lll}
+x & = & x_0 + \lambda \cdot u_1\\
+y & = & y_0 + \lambda \cdot u_2
+\end{array}\right.
+\end{equation}
+Y llegamos a las \textbf{ECUACIONES PARAM\'ETRICAS} de la recta.\\
+
+\noindent Suponiendo $u_1\not=0$, si $Q(x,y)\in r \Rightarrow\ \exists \lambda \in \mathbb{R}$, y despejando $\lambda$ llegamos a que: $\lambda = \dfrac{x-x_0}{u_1}$ y por lo tanto, $y=y_0+\dfrac{x-x_0}{u_1}\cdot u_2 \iff y - \dfrac{u_2\cdot x}{u_1}+\dfrac{u_2\cdot x_0}{u_1}-y_0 = 0 \iff u_2\cdot x - u_1 \cdot y -u_2\cdot x_0 + u_1 \cdot y_0 = 0$, y tomando $a=u_2,\ b=-u_1,\ c=-u_2\cdot x_0 + u_1 \cdot y_0$, llegamos a:
+\begin{equation}
+a\cdot x+b\cdot y+c=0
+\end{equation}
+Que se denomina \textbf{ECUACI\'ON CARTESIANA (general)} de la recta.\\
+Se observa que $(a,b) = (u_2,-u_1)$ es un vector \textit{perpendicular}, es decir, normal a la recta. Y $\overrightarrow{u} = (b,-a)$ o $\overrightarrow{u'} = (-b,a)$ son las \textit{direcciones} de $r$. Por \'ultimo, sea $\alpha \in \mathbb{R}, \alpha\not=0$, $a'=\alpha\cdot a, b'=\alpha\cdot b, c'=\alpha\cdot c$, entonces $ax+by+c=0$ y $a'x+b'y+c'=0$ son ecuaciones de la \textit{misma} recta. Si $c=0$ entonces pasa por el origen. Si $a=0\land b\not=0$, se puede escribir como $y=\frac{c}{b}$ y es una recta \textit{horizontal}. Si $a\not=0, b=0$, se puede escribir como $x=\frac{c}{a}$ y es una recta \textit{vertical}.\\
+
+\noindent Si tomamos particularmente los valores $a=\dfrac{a'}{\sqrt{a'^2+b'^2}}, b=\dfrac{b'}{\sqrt{a'^2+b'^2}}, c=\dfrac{c'}{\sqrt{a'^2+b'^2}}$, tenemos que:
+\begin{equation}
+a\cdot x+b\cdot y + c = 0,\ \ \text{ donde } |(a,b)| = \sqrt{a^2+b^2} = 1
+\end{equation}
+Siendo \'esta la \textbf{ECUACI\'ON NORMAL} de la recta. Notamos que $|c|$ es la distancia de r al origen.\\
+
+\noindent Si restamos $c$ a ambos terminos, y multiplicamos por el rec\'iproco de $-c$, obtenemos:\\ $-\dfrac{a}{c}x-\dfrac{b}{c}=1 \iff \dfrac{x}{-\frac{c}{a}} + \dfrac{y}{-\frac{c}{b}} = 1$. Llamando $k= -\dfrac{c}{a}$ y $h = -\dfrac{c}{b}$:
+\begin{equation}
+\dfrac{x}{k} + \dfrac{y}{h} = 1
+\end{equation}
+\noindent Que se denomina \textbf{ECUACI\'ON SEGMENTARIA} de la recta. Observamos que $(k,0)$ y $(0,h)$ son las intersecciones de la recta con los ejes $x$ e $y$. Adem\'as, si $r$ no pasa por el origen, o es paralelo a algun eje, la segmentaria es \'unica.\\
+
+\noindent Dado $ax+by+c=0$, podemos reescribirlo como $y=-\dfrac{a}{b}x-\dfrac{c}{b}$, y llamando $m=-\dfrac{a}{b}$ y $h=-\dfrac{c}{b}:$
+\begin{equation}
+y=mx+h
+\end{equation}
+Es la \textbf{ECUACI\'ON EXPLICITA} de la recta. $m$ es la pendiente, que es la tangente del angulo que forma $r$ con el semieje positivo de las $x$. $h$ es la ordenada al origen. Si $y=mx+h$, luego la general es: $-mx+y-h=0$. Con lo cual $(-m,y)$ es normal a la recta, y $(1,m)$ es la direcci\'on. Como $h$ es la ordenada al origen, $(0,h) \in r$ y adem\'as tenemos que $\left\{\begin{array}{l}
+x=\lambda\\
+y=h+m\cdot\lambda
+\end{array}\right.$
+
+\newpage
+\section{Problemas con Rectas}
+\subsection{\'Angulo Entre 2 Rectas}
+\noindent Dadas $r_1$ y $r_2$, el \'angulo entre las mismas se nota $(r_1\overset{\wedge}{,}r_2)$ y es el \'angulo agudo o recto que forman si se cortan en un punto. Si son paralelas, el \'angulo es 0. Sean $\overrightarrow{u_1}$ y $\overrightarrow{u_2}$ las direcciones, $(r_1\overset{\wedge}{,}r_2) = (\overrightarrow{u_1}\overset{\wedge}{,}\overrightarrow{u_2})$.
+
+\subsection{Posici\'on Relativa Entre 2 Rectas}
+\begin{center}
+$\begin{array}{l}
+r_1,r_2 \left\{\begin{array}{l}
+\text{Paralelas}
+\left\{
+\begin{array}{l}
+\text{Coincidentes $\longrightarrow$ \textbf{Compatible Indeterminado}}\\ \\
+\text{No Coincidentes $\longrightarrow$ \textbf{Incompatible}}
+\end{array}
+\right.
+\\ \\
+\text{Secantes $\longrightarrow$ \textbf{Compatible Determinado}}
+\end{array}\right.
+\\
+\end{array}$
+\end{center}
+\subsubsection{Dadas Ecuaciones Param\'etricas}
+Sean $r_1)\left\{\begin{array}{l}x=x_0+\lambda u_1\\y=y_0+\lambda u_2\end{array}\right.$, $r_2)\left\{\begin{array}{l}x=x_0'+\lambda' u_1'\\y=y_0'+\lambda' u_2'\end{array}\right.$, entonces $r_1 \parallel r_2 \iff \overrightarrow{u} \parallel \overrightarrow{u'}$.\\
+
+\noindent Son paralelas coincidentes si la direcci\'on que dan dos puntos, uno perteneciente a cada recta, es paralela a la direcci\'on de $r_1$ y $r_2$. Equivalentemente, si dado $P(x_0,y_0)\in r_1$, verifica la ecuaci\'on de $r_2$.
+\subsubsection{Dadas Ecuaciones Cartesianas}
+Sean $r_1) ax+by+c=0$, $r_2)a'x+b'y+c'=0$, entonces $r_1 \parallel r_2 \iff (a,b)\perp(b,-a) \iff a\cdot b' - b\cdot a' = 0$. Luego, si $r_1 \parallel r_2, r_1=r_2 \iff \left(c=c'=0 \lor \dfrac{c'}{c}=\dfrac{a'}{a} \lor \dfrac{c'}{c}=\dfrac{b'}{b}\right)$
+
+\subsubsection{Dadas Ecuaciones Explicitas}
+Sean $r_1)y=mx+h$, $r_2)y=m'x+h'$, $r_1 \parallel r_2 \iff m=m'$. Adem\'as, $r_1=r_2\iff m=m' \land h=h'$.
+
+\subsection{Determinante}
+El n\'umero $a \cdot b' - a' \cdot b$ se denomina \textbf{determinante} de la matriz $\begin{pmatrix}a&b\\a'&b'\\\end{pmatrix}$ y se denota $\begin{vmatrix}a&b\\a'&b'\\\end{vmatrix} = a \cdot b' - a' \cdot b$
+
+\noindent Un sistema es determinado $\iff \begin{vmatrix}a&b\\a'&b'\\\end{vmatrix} \not = 0$\\
+\noindent Un sistema es incompatible o indeterminado $\iff \begin{vmatrix}a&b\\a'&b'\\\end{vmatrix} = 0$
+
+\subsection{Distancia de un Punto a una Recta}
+Trazamos una perpendicular a $r$ que pase por $P$, corta a $r$ en $P'$. Se denomina distancia de $P$ a $r$, denotado como $d(P,r)$ a la distancia entre $P$ y $P'$. Si $P\in r$ es inmediato que $d(P,r)=d(P,P)=0$.\\
+\noindent Sea $r$ con ecuaci\'on general $ax+by+c=0$ y $P(x_0,y_0)$, entonces $d(P,r) = \dfrac{|a\cdot x_0 + b \cdot y_0 + c|}{\sqrt{a^2+b^2}}$.\\
+\textbf{Demostraci\'on}: Sea $Q \in r, \overrightarrow{v}=(a,b) \perp r$, entonces $d(P,r)=|proy_{\overrightarrow{v}}\overrightarrow{QP}|$,\\ y como $Q \in r \Rightarrow ax'+by'+c=0 \Rightarrow c= -ax'-by'$. Luego $\overrightarrow{QP} = (x_0 - x', y_0 - y')$.\\ Y el versor asociado a $\overrightarrow{v}$ es $\overrightarrow{v_0} = \left(\dfrac{a}{\sqrt{a^2+b^2}} + \dfrac{b}{\sqrt{a^2+b^2}}\right)$.\\ $d(P,r) = |proy_{\overrightarrow{v}}\overrightarrow{QP}| = |\overrightarrow{QP} \times \overrightarrow{v_0}| \cdot \overrightarrow{v_0} = \left| \dfrac{a(x_0 - x') + b (x_0-y')}{\sqrt{a^2+b^2}} \right| = \left|\dfrac{a \cdot x_0+b \cdot y_0+c}{\sqrt{a^2+b^2}}\right|$\\ \\
+
+\noindent \textbf{NOTA}: Si $ax+by + c = 0,\ \ \text{ donde } |(a,b)| = \sqrt{a^2+b^2} = 1$, entonces $d(O,r) = |c|$.\\
+\textbf{NOTA}: La distancia entre dos rectas paralelas es $d(r_1,r_2) = d(P,r_2)$, donde $P\in r_1$.
+
+\section{Inecuaciones Lineales de 2 Inc\'ognitas}
+En general, una inecuaci\'on representar\'a un semiplano: Dada una recta $r) ax+by+c=0,\ P(x_0,y_0) \in r$ y $Q$ un punto tal que $\overrightarrow{n}=(a,b)=\overrightarrow{PQ}$, entonces el semiplano determinado por $r$ que contiene a $Q$ est\'a caracterizado por $ax+by+c>0$, y el semiplano opuesto por $ax+by+c<0$.\\
+\textbf{Demostraci\'on}: $\overrightarrow{n} = (a,b) \perp r$. Fijando $P(x_0,y_0)\in r$, y sea $Q : \overrightarrow{n} = \overrightarrow{PQ}$, $S$ es el semiplano determinado por $R$ que contiene a $Q$. Luego, $R(x,y) \in S \iff (\overrightarrow{PR}\overset{\wedge}{,}\overrightarrow{n}) < 90^\circ \iff \cos (\overrightarrow{PR}\overset{\wedge}{,}\overrightarrow{n}) > 0$, que es equivalente a $\overrightarrow{PR} \times \overrightarrow{n} > 0$, i.e, $R \in S \iff (x-x_0,y-y_0) \times (a,b) = ax+by-ax_0-by_0 > 0$. Como $P \in r,\ c = -ax_0-by_0 \Rightarrow R \in S \iff ax+by+c>0$ \QEDA
+
+
+
+
+\end{document}
