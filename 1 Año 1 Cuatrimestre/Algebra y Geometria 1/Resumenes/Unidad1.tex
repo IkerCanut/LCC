@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\title{Unidad 1: N\'umeros Complejos y Polinomios\\\'Algebra y Geometr\'ia Anal\'itica}
+\begin{document}
+\maketitle
+\newpage
+\section{N\'umeros Complejos}
+\noindent El conjunto de los n\'umeros complejos es $\mathbb{C} = \{ z = a+bi:\ a,b \in \mathbb{R}\}$, donde $i$ es la \textbf{unidad imaginaria} que verifica $i^2 = -1$. Si $z\in\mathbb{C}$, $z=a+bi$ es la \textbf{forma bin\'omica} de $z$.\\
+
+\noindent La \textbf{parte real} de $z$ es $a$, $Re\ z = a$, y la \textbf{parte imaginaria} de $z$ es $b$, $Im\ z = b$.\\
+$z = w \iff Re\ z = Re\ w \land Im\ z = Im\ w$.\\
+
+\noindent Sea $z=a+bi$ y $w=c+di$, luego $z+w = (a+c)+(b+d)i$ y tambi\'en $z \cdot w = (ac-bd)+(ad+bc)i$\\
+
+\noindent La suma y el producto son asociativos y conmutativos, y vale la propiedad distributiva.\\
+
+\noindent Sea $z=a+bi \in \mathbb{C}$, llamamos \textbf{conjugado} de $z$ al complejo $\overline{z}=a-bi$. Y llamamos \textbf{m\'odulo} de $z$ al real $|z| = \sqrt{a^2+b^2}$. Adem\'as, $|z|^2 = z\cdot\overline{z}$ y tambi\'en $z^{-1} = \dfrac{\overline{z}}{|z|^2}$. Luego, $\dfrac{z}{w} = \dfrac{ac+bd}{c^2+d^2} + \dfrac{bc-ad}{c^2+d^2}i$.
+
+\subsection{Propiedades}
+\begin{itemize}
+\begin{multicols}{3}
+\item $\overline{\overline{z}} = z$
+\item $\overline{z+w} = \overline{z} + \overline{w}$
+\item $\overline{z\cdot w} = \overline{z} \cdot \overline{w}$
+\item Si $z \not = 0$, $\overline{z^{-1}} = (\overline{z})^{-1}$
+\item $z + \overline{z} = 2\cdot Re\ z$
+\item $z - \overline{z} = 2\cdot (Im\ z) \cdot i$
+\item $z = 0 \iff |z| = 0$
+\item $|z\cdot w| = |z|\cdot|w|$
+\item $|z|=|\overline{z}|$
+\item $|z|=|-z|$
+\item Si $z \not = 0$, $|z^{-1}| = |z|^{-1}$
+\item Si $z \not = 0$, $\left|\dfrac{z}{w}\right| = \dfrac{|z|}{|w|}$
+\end{multicols}
+\end{itemize}
+
+\subsection{Otras Formas}
+\noindent La \textbf{forma polar} de $z \in \mathbb{C}$ es $z = |z|_{arg\ z}$, donde $arg\ z$ es el \'unico real tal que:
+\begin{multicols}{3}
+\begin{itemize}
+\item $0\leq arg\ z \leq 2\pi$
+\item $\cos (arg\ z) = \dfrac{a}{|z|}$
+\item $\sin (arg\ z) = \dfrac{b}{|z|}$
+\end{itemize}
+\end{multicols}
+
+\noindent La \textbf{forma trigonom\'etrica} de $z \in \mathbb{C}$ es $z = |z| (\cos arg\ z + i \sin arg\ z)$.\\
+\noindent Sea $z=\rho (\cos \alpha + i \sin \alpha)$ y $w = \tau (\cos \beta + i \sin \beta)$, $z=w \iff (\rho = \tau) \land \alpha = \beta + 2k\pi,\ k \in \mathbb{Z}$.\\
+
+\noindent \textbf{Teorema de Moivre}: Sean $z,w \in \mathbb{C}, z\not=0, w\not=0,\ \ z=|z|(\cos \alpha + i \sin \alpha),\ \ w = |w| (\cos \beta + i \sin \beta)$
+$$z \cdot w = |z||w|[\cos (\alpha + \beta) + i\sin(\alpha+\beta)]$$
+
+\begin{itemize}
+\begin{multicols}{2}
+\item $z^{-1} = |z|^{-1}[\cos (-\alpha) + i \sin (-\alpha)]$
+\item $\overline{z} = |z|[\cos (-\alpha) + i \sin (-\alpha)]$
+\item $\dfrac{z}{w} = \dfrac{|z|}{|w|} [\cos (\alpha - \beta) + i \sin (\alpha - \beta)]$
+\item $z^n = |z|^n [\cos (n\cdot\alpha) + i \sin (n\cdot\alpha)]$, con $n\in\mathbb{N}$
+\end{multicols}
+\end{itemize}
+
+\noindent Si $w\in\mathbb{C}, w\not=0$, una \textbf{raiz n-\'esima} de $w$, con $n\in\mathbb{N}$, es un n\'umero $z$ tal que $z^n=w$:
+$$z = |z|^{\dfrac{1}{n}} \left[\cos \dfrac{arg\ w + 2k\pi}{n} + i \sin \dfrac{arg\ w + 2k\pi}{n}\right], \ \ \ \ 0 \leq k \leq n-1, k \in \mathbb{N}$$
+
+\noindent La \textbf{notaci\'on exponencial} de $z$ es $z=|z|e^{i\alpha}$. Se verifica que $\overline{e^{i\alpha}} = e^{\overline{i\alpha}} = e^{-i\alpha}$ y que $e^{i\alpha} \cdot e^{i\beta} = e^{i(\alpha+\beta)}$
+
+$$\sqrt[n]{z} = \sqrt[n]{|z|} e^{\dfrac{i(\theta + 2k\pi)}{n}}$$
+
+\end{document}
