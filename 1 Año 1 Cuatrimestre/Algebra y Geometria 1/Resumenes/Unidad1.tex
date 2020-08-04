@@ -9,6 +9,10 @@
 \usepackage{multicol}
 \author{Iker M. Canut}
 \title{Unidad 1: N\'umeros Complejos y Polinomios\\\'Algebra y Geometr\'ia Anal\'itica}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
 \begin{document}
 \maketitle
 \newpage
@@ -74,4 +78,64 @@ $$z = |z|^{\dfrac{1}{n}} \left[\cos \dfrac{arg\ w + 2k\pi}{n} + i \sin \dfrac{ar
 
 $$\sqrt[n]{z} = \sqrt[n]{|z|} e^{\dfrac{i(\theta + 2k\pi)}{n}}$$
 
+\section{Polinomios}
+\noindent Sea $\mathbb{K}$ el conjunto de reales $\mathbb{R}$ o de complejos $\mathbb{C}$, un polinomio con coeficientes en $\mathbb{K}$ es una expresi\'on: 
+\begin{equation}
+P(x)=a_nx^n + a_{n-1}x^{n-1}+...+a_1x+a_0 = \sum_{k=0}^n a_kx^k,\ \ \ \ \text{con $a_k \in \mathbb{K}$, $0\leq k \leq n$, $n\in\mathbb{N}$}
+\end{equation}
+Denotamos por $\mathbb{K}[x]$ al conjunto de todos los polinomios con coeficientes en $\mathbb{K}$. Cada t\'ermino de a forma $a_kx^k$ se denomina \textbf{monomio} y $k$ es el \textbf{grado} de dicho monomio. Cada $a_k$ es un \textbf{coeficiente}. Un polinomio dado por $(1)$, con $a_n \not = 0$, tiene \textbf{grado} n. El polinomio \textbf{nulo}, $P(x)=0$ no tiene grado.\\
+
+\noindent Dados $P(x)=a_nx^n + ... + a_1x+a_0$ y $Q(x)=b_mx^m+...+b_1x+b_0$, con $a_n \not = 0$ y $b_m \not = 0$.
+\begin{itemize}
+\item Dos polinomios son \textbf{iguales}, es decir, $P=Q \iff \left\{\begin{array}{l} n = m\\ a_k=b_k,\ \forall k = 0,...,n=m \end{array}\right.$\\
+\item La \textbf{suma} $P+Q \left\{\begin{array}{ll} 
+\text{Si } n=m, & (P+Q)(x) = \sum_{k=0}^n(a_k+b_k)x^k \\
+\text{Si } n>m, & P+Q = P+Q^*, \text{ donde $Q^* = 0x^n + 0x^{n-1} + ... + b_mx^m + ... + b_0$}\\
+\text{Si } n<m, & P+Q = P^*+Q, \text{ donde $P^*$ se define de manera an\'aloga a $Q^*$}\\ \\
+\end{array}\right.$
+
+La suma de polinomios es una operaci\'on cerrada en $\mathbb{C}[x]$, asociativa, conmutativa, con elemento neutro (polinomio nulo), tal que todo $P(x) \in \mathbb{C}[x]$ admite elemento opuesto, que denotamos $-P$.\\ Siendo $(-P)(x) = (-a_n)x^n + ... + (-a_1)x+(-a_0)$. La \textbf{diferencia} entre $P$ y $Q$ es $P-Q = P+(-Q)$\\
+Adem\'as, se verifica que $gr(P+Q) \leq \max\{gr(P), gr(Q)\}$
+
+\item El \textbf{producto} $(P \cdot Q)(x)= (a_n\cdot b_m)x^{n+m} + (a_nb_{m-1}+a_{m-1}b_m)x^{n+m-1} + ... + (a_1b_0+a_0b_1)x + a_0b_0$.\\ Operaci\'on cerrada en $\mathbb{C}[x]$, asociativa, conmutativa y con elemento neutro (constante igual a 1).\\
+Adem\'as, si ninguno es nulo, se verifica que $gr(P \cdot Q) = gr(P) + gr(Q)$.
+
+\item \textbf{Divisi\'on}: Dados $P, Q \in \mathbb{C}[x]$, $Q\not=0$, existen \'unicos polinomios $C$ y $R$ tales que\\ 
+$(R=0 \lor gr\ R < gr\ Q ) \land (P = C \cdot Q + R)$. Luego, $C$ es el \textbf{cociente} y $R$ el \textbf{resto}.
+\end{itemize}
+\textbf{Demostraci\'on}: Considerando el conjunto $A=\{P - H \cdot Q : H \in \mathbb{C}[x]\}$. El polinomio nulo puede estar en $A$, luego existe $H'$ tal que $P - H' \cdot Q = 0$ y tomando $C = H'$, vale el teorema con $R=0$; o el polinomio nulo no est\'a en $A$, luego $\forall H\in\mathbb{C}[x] [P - H\cdot Q\not=0]$. Sea $n_0$ el m\'inimo de los grados de los polinomios que est\'an en $A$ $\Rightarrow$ existe $H_0 : gr (P-H_0\cdot Q) = n_0$, y definimos $R_0 = P - H_0 \cdot Q$.\\
+- Para ver que $gr(P_0) < gr(Q)$, suponemos $gr(P_0) \geq gr(Q)$. Sea $R_0 = \sum_{i=1}^{n_0} r_ix^i$ y que $Q = \sum_{i=0}^{m} q_ix^i$, con $gr(Q) = m$. Luego, sea $R' = R_0 - \dfrac{r_{n_0}}{q_m} x^{n_0-m} \cdot Q = P - \left(H_0 + \dfrac{r_{n_0}}{q_m} x^{n0-m}\cdot Q \right)$. Se ve que $R' \in A$ pues $\left(H_0 + \dfrac{r_{n_0}}{q_m} x^{n_0-m}\right) \in \mathbb{C}[x]$. Tenemos que $gr\left(\dfrac{r_{n_0}}{q_m} x^{n_0-m}\cdot Q \right) = n_0 - m + m = n_0$. Resulta $gr(R') \leq n_0$, pero como no puede ser igual porque el t\'ermino de grado $n_0$ seria 0, tenemos que $gr(R') < n_0$. Pero es absurdo porque $R'\in A$, y el grado m\'inimo de los polinomios es $n_0$. Luego, $n_0 < m$, y tomando $C=H_0$ y $R=R_0$, tenemos que $P = C \cdot Q + R$.\\
+- Para demostrar la unicidad de $C$ y $R$, suponemos $C'$ y $R'$ y tenemos que $P = C\cdot Q + R = C'\cdot Q + R' \Rightarrow (C-C')\cdot Q = (R' - R)$. Si fuese $C \not = C'$, entonces $gr((C-C') \cdot Q) = gr(C-C') + gr(Q) \geq gr(Q)$, pero por otra parte, $gr(R'-R) \leq \max\{gr(R'), gr(R)\} \leq gr(Q)$, y esto no puede ocurrir. Luego $C-C' = 0$ y $R'-R=0$, y finalmente $C=C'$ y $R=R'$. \QEDA\\
+
+\noindent \textbf{Corolario}: Sean $P,Q \in \mathbb{C}[x]$, con $Q\not=0, gr(P)\geq gr(Q) : P=C\cdot Q + R \Rightarrow gr(C) = gr(P) - gr(Q)$.\\
+
+\noindent \textbf{Regla de Rufini}: $P(x) = a_nx^n + ... + a_1x + a_0$ y $Q(x)=x-\alpha, \alpha\in\mathbb{C}$, entonces $P(x) = C(x) \cdot (x-\alpha) + R$\\ Con $C(x) = b_{n-1}x^{n-1}+...+b_1x+b_0$ y $R = a_0 + \alpha b_0$, donde $\{b_{n-1} = a_n \land b_i = a_{i+1} + \alpha b_{i+1}\}$\\ \textbf{Demostraci\'on}: Por el algoritmo de la divisi\'on, sabemos que existe $C \in \mathbb{C}[x]$ tal que $P = C\cdot Q + R$. Luego, si $C(x) = b_{n-1}x^{n-1} + ... + b_1x + b_0$, entonces:\\ \indent \indent \indent \indent $P = C\cdot Q + R = b_{n-1}x^n + (b_{n-2} - \alpha b_{n-1}x^{n-1}) + ... + (b_0 + \alpha b_1)x - b_0 + R \alpha$ \QEDA
+
+\noindent Dado $P\in\mathbb{K}[x]$ y $z \in \mathbb{C}$, la \textbf{evaluaci\'on} de $P$ en $z$ es el n\'umero complejo $\displaystyle{P(z) = \sum_{k=0}^na_kz^k}$\\
+
+\noindent \textbf{Teorema del Resto}: $P\in\mathbb{C}[x], gr(P) \geq 1, z \in \mathbb{C} \Rightarrow P(z)$ es el resto de dividir $P$ por $Q(x)=x-z$. \\
+\textbf{Demostraci\'on}: Sea $C(x)$ el cociente de dividir $P$ por $Q$ y $r$ el resto, luego $P(x)=C(x)\cdot Q(x) + r$. Pero como $Q(z)=z-z=0$, entonces $P(z)=C(z)\cdot 0 + r = r$ \QEDA\\
+
+\noindent Luego decimos que un polinomio $P$ es \textbf{divisible} por $Q$ si el resto de dividir $P$ por $Q$ es 0. Se nota $Q|P$. Entonces, $P$ se \textbf{factoriza} como $C \cdot Q$, donde $C$ es el cociente de la divisi\'on de $P$ por $Q$.
+
+\section{Factorizaci\'on de Polinomios}
+\noindent Sea $P\in\mathbb{C}[x]$, decimos que un n\'umero complejo $\alpha$ es \textbf{ra\'iz} de $P$ si $P(\alpha) = 0$. Luego, $\alpha$ es una ra\'iz de $P$ si y solo si $P$ es divisible por $Q(x) = x-\alpha$.\\
+
+\noindent Sea $P\in\mathbb{C}[x], h \in \mathbb{N}$, decimos que $\alpha$ es una \textbf{ra\'iz de multiplicidad h} de $P$ si $P$ es divisible por $(x-a)^h$ pero no por $(x-a)^{h+1}$. Es decir, $(x-a)^h | P$ y $(x-a)^{h+1} \not |\ P$\\
+
+\noindent \textbf{Teorema Fundamental del \'Algebra}: Todo polinomio $P \in \mathbb{C}[x]$ de grado mayor o igual a $1$, admite al menos una raiz compleja. \QEDA\\
+\noindent \textbf{Corolario}: Todo $P\in\mathbb{C}[x]$ de grado $n\geq 1$ admite exactamente $n$ raices complejas, contadas con su multiplicidad. Por el TFA, sabemos que tiene 1 raiz. Luego, definimos $P_1 \in \mathbb{C}$ tal que $P(x) = P_1 \cdot (x-\alpha_1)$ y $gr(P_1) = gr(P) - 1 = n-1$. Luego, aplicando el TFA a $P_1$, tenemos que existe una raiz compleja $\alpha_2$, y encontramos un $P_2$. Continuamos de manera recursiva hasta encontrar las $n$ raices. \QEDA\\
+
+\noindent \textbf{Teorema de Descomposici\'on Factorial}: Sea $P = a_nx^n + ... + a_1x + a_0$ y sean $\alpha_1,...,\alpha_s$ las raices distintas de $P$, de multiplicidad $h_1,...,h_n$ / $h_1+...+h_s=n$, entonces $P(x) = a_n(x-\alpha_1)^{h_1} ... (x-\alpha_s)^{h_s}$\\
+\textbf{Demostraci\'on}: Tras $n-1$ pasos encontramos $n-1$ raices de $P$, que pueden llegar a repetirse. Luego, queda factorizado como $P(x)=(x-\alpha_1)\cdot (x-\alpha_2)\cdot ...\cdot (x-\alpha_{n-1})\cdot C_{n-1}(x)$. Donde $C_{n-1}$ tiene grado 1, es decir, $C_{n-1} = ax+b$ con $a\not=0$, y $ax+b = a\left(x + \frac{b}{a}\right)$ y finalmente $\alpha_n = -\frac{b}{a}$, obteniendo asi $P(x)=a(x-\alpha_1)\cdot (x-\alpha_2)\cdot ...\cdot (x-\alpha_{n-1})\cdot (x-\alpha_n)$ \QEDA\\
+
+\noindent \textbf{Teorema}: Sea $P\in\mathbb{R}[x]$, si $\alpha \in \mathbb{C}$ es una raiz de $P$, entonces $\overline{\alpha}$ tambi\'en es una raiz de $P$.\\ \textbf{Demostraci\'on}: Del hecho que $a_i = \overline{a_i}$, pues cada $a_i$ es un real, tenemos que:\\ $P(\overline{\alpha}) = a_n\overline{\alpha}^n+...+a_1\overline{\alpha} + a_0 = \overline{a_nx^n+...+a_1x+a_0} = \overline{0} = 0$.\\
+
+\noindent \textbf{Nota}: Luego, todo polinomio a coeficientes reales tiene una cantidad par de raices complejas. Y se puede concluir que si tiene grado impar, tiene al menos una raiz real.\\
+\noindent \textbf{Nota}: Adem\'as, todo polinomio a coeficientes reales puede factorizarse siempre como producto de polinomios lineales, o cuadr\'aticos a coeficientes reales. En efecto, si $\alpha=a+ib$ es una ra\'iz de $P$, luego $\overline{\alpha}=a-ib$ tambi\'en es una ra\'iz de $P$. Entonces $(x-\alpha)^h(x-\overline{\alpha})^h = [x^2-(\alpha+\overline{\alpha})x+\alpha\overline{\alpha}]^h$\\
+
+\noindent \textbf{Teorema de Gauss}: Sea $P(x)=a_xx^n + ... +a_1x+a_0 \in \mathbb{Z}[x]$, con $a_0\not=0$, si $\alpha=\dfrac{r}{s}$ es una raiz racional de $P$, con $r$ y $s$ primos relativos, entonces $r$ divide a $a_0$ y $s$ divide a $a_n$.\\
+\textbf{Demostraci\'on}: Como $P(\alpha) = 0$, tenemos que $\left(a_n\dfrac{r^n}{s^n} + ... + a_1\dfrac{r}{s}+a_0\right) = 0$ y multiplicando ambos miembros por $s^n$, tenemos que $a_nr^n + ... + a_1s^{n-1}r+a_0s^{n} = 0$. \textbf{Sacando factor com\'un r}, $r(a_nr^{n-1} + ... + a_1s^{n-1}) = -a_0s^{n}$. Tambi\'en, tenemos que $a_0\not=0, r\not=0$ (0 no es raiz de $P$). Luego, $a_nr^{n-1} + ... + a_1s^{n-1} \in \mathbb{Z}$ y por lo tanto $\dfrac{-a_0s^n}{r} \in \mathbb{Z}$. No puede suceder que $r$ divide a $s^n$ pues son primos relativos, luego $r$ divide a $a_0$. - An\'alogamente, \textbf{sacando factor comun s}, llegamos a que $s$ divide a $a_n$. \QEDA\\
+
+\noindent \textbf{Teorema}: $a\in\mathbb{C}$ es raiz de $P\in\mathbb{C}[x]$ de multiplicidad $k$ $\iff$ $P(a)=P'(a)=...=P^{(k-1)}(a)=0$
 \end{document}
