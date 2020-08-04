@@ -1,0 +1,231 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\title{Unidad 1: N\'umeros Complejos y Polinomios\\\'Algebra y Geometr\'ia Anal\'itica}
+\begin{document}
+\maketitle
+\newpage
+
+\section{Definiciones}
+\noindent Las \textbf{proposiciones} son oraciones declarativas que tienen un valor de verdad (V o F). Los \textbf{conectores l\'ogicos} son operadores que sirven para formar proposiciones nuevas, a partir de proposiciones dadas:
+\begin{multicols}{3}
+\noindent \textbf{1. NEGACI\'ON}:\\
+
+\indent $\begin{array}{|c|c|}
+p & \lnot p\\
+\hline
+0 & 1 \\
+1 & 0
+\end{array}$\\ \\ \\
+
+\noindent \textbf{DISY. EXCLUSIVA}: \\
+\indent $\begin{array}{|cc|c|}
+p & q & p \underline{\lor} q\\
+\hline
+0 & 0 & 0\\
+0 & 1 & 1\\
+1 & 0 & 1\\
+1 & 1 & 0
+\end{array}$\\
+
+\noindent \textbf{2. CONJUNCI\'ON}:\\
+\indent $\begin{array}{|cc|c|}
+p & q & p \land q\\
+\hline
+0 & 0 & 0\\
+0 & 1 & 0\\
+1 & 0 & 0\\
+1 & 1 & 1
+\end{array}$\\ \\
+
+\noindent \textbf{4. IMPLICACI\'ON}: \\
+\indent $\begin{array}{|cc|c|}
+p & q & p \rightarrow q\\
+\hline
+0 & 0 & 1\\
+0 & 1 & 1\\
+1 & 0 & 0\\
+1 & 1 & 1
+\end{array}$\\
+
+\noindent \textbf{3. DISYUNCI\'ON}: \\
+\indent $\begin{array}{|cc|c|}
+p & q & p \lor q\\
+\hline
+0 & 0 & 0\\
+0 & 1 & 1\\
+1 & 0 & 1\\
+1 & 1 & 1
+\end{array}$\\ \\
+
+\noindent \textbf{5. BICONDICIONAL}: \\
+\indent $\begin{array}{|cc|c|}
+p & q & p \leftrightarrow q\\
+\hline
+0 & 0 & 1\\
+0 & 1 & 0\\
+1 & 0 & 0\\
+1 & 1 & 1
+\end{array}$\\
+\end{multicols}
+
+\noindent Las \textbf{proposiciones primitivas} son proposiciones que no se pueden formar a partir de otras proposiciones (utilizando conectores l\'ogicos).\\
+
+\noindent Una proposici\'on compuesta es una \textbf{tautolog\'ia} $(T_0)$ si es verdadera para todas las asignaciones de verdad de las proposiciones que la componen. An\'alogamente, se define la \textbf{contradicci\'on} $(F_0)$, si es falsa para todas las asignaciones posibles.\\
+
+\noindent Dos proposiciones $S_1$ y $S_2$ son \textbf{l\'ogicamente equivalentes}, y notamos $S_1 \Leftrightarrow S_2$ si tienen las mismas tablas de verdad. Si $S_1 \Leftrightarrow S_2$, entonces $S_1 \leftrightarrow S_2$ es una tautolog\'ia.
+
+\begin{table}[h]
+\quad\quad\quad\quad
+$\begin{array}{|cc|c|c|}
+p & q & p \rightarrow q & \lnot p \lor q\\
+\hline
+0 & 0 & 1 & 1\\
+0 & 1 & 1 & 1\\
+1 & 0 & 0 & 0\\
+1 & 1 & 1 & 1
+\end{array}$
+\quad\quad\quad
+$\begin{array}{|cc|c|c|c|c|}
+p & q & p \rightarrow q & q \rightarrow p & (p \rightarrow q) \land (q \rightarrow p) & p \leftrightarrow q\\
+\hline
+0 & 0 & 1 & 1 & 1 & 1\\
+0 & 1 & 1 & 0 & 0 & 0\\
+1 & 0 & 0 & 1 & 0 & 0\\
+1 & 1 & 1 & 1 & 1 & 1
+\end{array}$
+\end{table}
+
+\section{Leyes de la L\'ogica}
+\begin{tabular}{lcc}
+\textbf{Doble negaci\'on}: & \quad $\lnot(\lnot p) \Leftrightarrow p$\\
+\textbf{De Morgan}: & \quad $\lnot(p \lor q) \Leftrightarrow \lnot p \land \lnot q$ & \quad $\lnot(p \land q) \Leftrightarrow \lnot p \lor \lnot q$\\
+\textbf{Conmutativa}: & \quad $p \lor q \Leftrightarrow q \lor p$ & \quad $p \land q \Leftrightarrow q \land p$\\
+\textbf{Asociativa}: & \quad $p \lor (q \lor r) \Leftrightarrow (p \lor q) \lor r$ & \quad $p \land (q \land r) \Leftrightarrow (p \land q) \land r$\\
+\textbf{Distributiva}: & \quad $p \lor (q \land r) \Leftrightarrow (p \lor q) \land (p \lor r)$ & \quad $p \land (q \lor r) \Leftrightarrow (p \land q) \lor (p \land r)$\\
+\textbf{Idempotente}: & \quad $p \lor p \Leftrightarrow p$ & \quad $p \land p \Leftrightarrow p$\\
+\textbf{Inversa}: & \quad $p \lor \lnot p \Leftrightarrow T_0$ & \quad $p \land \lnot p \Leftrightarrow F_0$\\
+\textbf{Neutro}: & \quad $p \lor F_0 \Leftrightarrow p$ & \quad $p \land T_0 \Leftrightarrow p$\\
+\textbf{Dominaci\'on}: & \quad $p \lor T_0 \Leftrightarrow T_0$ & \quad $p \land F_0 \Leftrightarrow F_0$\\
+\textbf{Absorci\'on}: & \quad $p \lor (p \land q) \Leftrightarrow p$ & \quad $p \land (p \lor q) \Leftrightarrow p$\\
+& \quad $p \lor (\lnot p \land q) \Leftrightarrow p \lor q$ & \quad $p \land (\lnot p \lor q) \Leftrightarrow p \land q$
+\end{tabular}
+
+\begin{itemize}
+\item $S_1 \Leftrightarrow S_1$
+\item $S_1 \Leftrightarrow S_2$ si y solo si $S_2 \Leftrightarrow S_1$
+\item $S_1 \Leftrightarrow S_2$ y tambi\'en $S_2 \Leftrightarrow S_3$, entonces $S_1 \Leftrightarrow S_3$
+\end{itemize}
+
+\subsection{Reglas de Sustituci\'on}
+\noindent Supongamos que una proposici\'on compuesta $P$ es una tautolog\'ia y que $p$ es una proposici\'on primitiva que aparece en $P$. Si reempazamos cada ocurrencia de $p$ por la proposici\'on $q$, entonces la proposici\'on resultante tambi\'en es una tautolog\'ia.\\
+\noindent Sea $P$ una proposici\'on compuesta y $p$ una proposici\'on arbitraria que aparece en $P$. Sea $q$ una proposici\'on tal que $p \Leftrightarrow q$, supongamos que reemplazamos en $P$ una o m\'as ocurrencias de $p$ por $q$, y llamamos $P'$ a la proposici\'on obtenida. Luego, $P \Leftrightarrow P'$.
+
+\subsection{Proposiciones Relacionadas con $p \rightarrow q$}
+\begin{multicols}{2}
+\begin{itemize}
+\item \textbf{Rec\'iproca}: $q \rightarrow p$
+\item \textbf{Inversa}: $\lnot p \rightarrow \lnot q$
+\item \textbf{Contrarrecíproca}: $\lnot q \rightarrow \lnot p$
+\end{itemize}
+
+\noindent $p \rightarrow q \Leftrightarrow \lnot q \rightarrow \lnot p$\\ \\
+\noindent $q \rightarrow p \Leftrightarrow \lnot p \rightarrow \lnot q$\\
+\end{multicols}
+
+\noindent Sea $S$ una proposici\'on que no contiene conectivas l\'ogicas distintas de $\land$ y $\lor$, entonces el \textbf{dual} de $S$, notado $S^d$, es la proposici\'on que se obtiene al reemplazar cada $\land$ por $\lor$, cada $T_0$ por $F_0$, y viceversa.
+$$\text{Si } (S \Leftrightarrow T) \rightarrow (S^d \Leftrightarrow T^d)$$
+
+\section{Cuantificadores}
+\noindent Una \textbf{proposición abierta} es una expresi\'on que contiene variables, que al ser sustituidas por valores determinados, hace que la expresión se convierta en una proposición.\\
+
+\noindent \textbf{Cuantificador Existencial}: $\exists x\ p(x)$, existe $x$ tal que $p(x)$ es $V$.\\
+\noindent \textbf{Cuantificador Universal}: $\forall x\ p(x)$, para todo $x$, $p(x)$ es $V$.\\
+
+Para demostrar un cuantificador:
+\begin{itemize}
+\item Existencial, basta con encontrar un ejemplo.
+\item Universal, hay que demostrarlo.
+\item $\lnot$ Existencial, hay que demostrarlo.
+\item $\lnot$ Universal, basta con encontrar un contraejemplo.
+\end{itemize}
+
+\noindent Si $p(x,y)$ es una proposici\'on abierta en dos variables, $\forall x \forall y\ p(x,y) \Leftrightarrow \forall y \forall x\ p(x,y)$, con lo que se simplifica a $\forall x, y\ p(x,y)$.
+
+\subsection{Implicaci\'on L\'ogica}
+\noindent $p$ implica l\'ogicamente $q$, y se nota $p \Rightarrow q$, si $p \rightarrow q$ es una $T_0$.\\
+\indent e.g $\forall x\ p(x) \Rightarrow \exists x\ p(x)$ (considerando un universo no vacio)
+
+\subsection{Cuantificadores Implicitos}
+\noindent Sean $p(x)$ y $q(x)$ proposiciones abiertas, 
+\begin{itemize}
+\item $p(x)$ es \textbf{logicamente equivalente} a $q(x)$ cuando el bicondicional $p(a) \leftrightarrow q(a)$ es verdadero para cada $a$ en el universo dado: $\forall x [p(x) \Leftrightarrow q(x)]$.
+\item $p(x)$ \textbf{implica logicamente} $q(x)$ si $p(a) \rightarrow q(a)$ es verdadera para cada $a$ en el universo dado: $\forall x [p(x)\Rightarrow q(x)]$.
+\item Dada la proposici\'on $\forall x [p(x) \rightarrow q(x)]$ podemos definir la \textbf{contrapositiva} $\forall x [\lnot q(x) \rightarrow \lnot p(x)]$, la \textbf{rec\'iproca} $\forall x [q(x) \rightarrow p(x)]$ y la \textbf{inversa} $\forall x [\lnot p(x) \rightarrow \lnot q(x)]$.
+\end{itemize}
+
+\subsection{Equivalencias e Implicaciones L\'ogicas para Proposiciones Cuantificadas}
+$$\exists x [p(x) \land q(x)] \Rightarrow [\exists x\ p(x) \land \exists x\ q(x)]$$
+$$\exists x [p(x) \lor q(x)] \Leftrightarrow [\exists x\ p(x) \lor \exists x\ q(x)]$$
+$$\forall x [p(x) \land q(x)] \Leftrightarrow [\forall x\ p(x) \land \forall x\ q(x)]$$
+$$\forall x [p(x) \lor q(x)] \Leftarrow [\forall x\ p(x) \lor \forall x\ q(x)]$$
+
+\subsection{Negaci\'on de Cuantificadores}
+$$\lnot[\exists x\ p(x)] \Leftrightarrow \forall x\ \lnot p(x)$$
+$$\lnot[\forall x\ p(x)] \Leftrightarrow \exists x\ \lnot p(x)$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
