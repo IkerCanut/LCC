@@ -17,20 +17,23 @@
 \maketitle
 \newpage
 \section{N\'umeros Complejos}
-\noindent El conjunto de los n\'umeros complejos es $\mathbb{C} = \{ z = a+bi:\ a,b \in \mathbb{R}\}$, donde $i$ es la \textbf{unidad imaginaria} que verifica $i^2 = -1$. Si $z\in\mathbb{C}$, $z=a+bi$ es la \textbf{forma bin\'omica} de $z$.\\
+\noindent El conjunto de los n\'umeros complejos es $\mathbb{C} = \{ z = a+bi:\ a,b \in \mathbb{R}\}$, donde $i$ es la \textbf{unidad imaginaria} que verifica $i^2 = -1$, pues $(0,1)\cdot(0,1)=(0\cdot0-1\cdot1,0\cdot1+1\cdot0) = (-1,0)$. Se nota, $(a,b) = (a+bi)$. Si $z\in\mathbb{C}$, $z=a+bi$ es la \textbf{forma bin\'omica} de $z$.\\
 
 \noindent La \textbf{parte real} de $z$ es $a$, $Re\ z = a$, y la \textbf{parte imaginaria} de $z$ es $b$, $Im\ z = b$.\\
 $z = w \iff Re\ z = Re\ w \land Im\ z = Im\ w$.\\
 
 \noindent Sea $z=a+bi$ y $w=c+di$, luego $z+w = (a+c)+(b+d)i$ y tambi\'en $z \cdot w = (ac-bd)+(ad+bc)i$\\
-
-\noindent La suma y el producto son asociativos y conmutativos, y vale la propiedad distributiva.\\
+\noindent La suma y el producto son \textit{asociativos} y \textit{conmutativos}, vale la propiedad \textit{distributiva}, existen \textit{elementos neutros} $(0,0)$ y $(1,0)$, existe el \textit{elemento opuesto} $(-a,-b)$ y existe el \textit{inverso}, $z^{-1} = (\dfrac{a}{a^2+b^2}, -\dfrac{b}{a^2+b^2})$.\\
 
 \noindent Sea $z=a+bi \in \mathbb{C}$, llamamos \textbf{conjugado} de $z$ al complejo $\overline{z}=a-bi$. Y llamamos \textbf{m\'odulo} de $z$ al real $|z| = \sqrt{a^2+b^2}$. Adem\'as, $|z|^2 = z\cdot\overline{z}$ y tambi\'en $z^{-1} = \dfrac{\overline{z}}{|z|^2}$. Luego, $\dfrac{z}{w} = \dfrac{ac+bd}{c^2+d^2} + \dfrac{bc-ad}{c^2+d^2}i$.
 
 \subsection{Propiedades}
 \begin{itemize}
-\begin{multicols}{3}
+\begin{multicols}{4}
+\item $z^k \cdot z^n = z^{k+n}$
+\item $(z^k)^n = z^{k \cdot n}$
+\item $(z \cdot w)^n = z^n \cdot w^n$
+\item $\left(\dfrac{z}{w}\right)^n = \dfrac{z^n}{w^n}$
 \item $\overline{\overline{z}} = z$
 \item $\overline{z+w} = \overline{z} + \overline{w}$
 \item $\overline{z\cdot w} = \overline{z} \cdot \overline{w}$
@@ -47,7 +50,7 @@ $z = w \iff Re\ z = Re\ w \land Im\ z = Im\ w$.\\
 \end{itemize}
 
 \subsection{Otras Formas}
-\noindent La \textbf{forma polar} de $z \in \mathbb{C}$ es $z = |z|_{arg\ z}$, donde $arg\ z$ es el \'unico real tal que:
+\noindent La \textbf{forma polar} de $z \in \mathbb{C}$ es $z = |z|_{arg\ z}$, donde $arg\ z$ es el \textbf{argumento} y es el \'unico real tal que:
 \begin{multicols}{3}
 \begin{itemize}
 \item $0\leq arg\ z \leq 2\pi$
@@ -55,6 +58,8 @@ $z = w \iff Re\ z = Re\ w \land Im\ z = Im\ w$.\\
 \item $\sin (arg\ z) = \dfrac{b}{|z|}$
 \end{itemize}
 \end{multicols}
+
+\noindent Sea $z=\rho_{\theta}$ y $w=\delta_\gamma$, entonces \quad $z\cdot w = (\rho \cdot \delta)_{\theta+\gamma}$, \quad $\dfrac{z}{w} = (\rho \cdot \delta)_{\theta-\gamma}$ \quad y \quad $z^n = \rho^n_{\theta \cdot n}$.\\
 
 \noindent La \textbf{forma trigonom\'etrica} de $z \in \mathbb{C}$ es $z = |z| (\cos arg\ z + i \sin arg\ z)$.\\
 \noindent Sea $z=\rho (\cos \alpha + i \sin \alpha)$ y $w = \tau (\cos \beta + i \sin \beta)$, $z=w \iff (\rho = \tau) \land \alpha = \beta + 2k\pi,\ k \in \mathbb{Z}$.\\
