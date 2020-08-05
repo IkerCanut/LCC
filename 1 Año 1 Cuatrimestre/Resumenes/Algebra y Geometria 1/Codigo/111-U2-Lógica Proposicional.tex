@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{multicol}
+\usepackage{enumitem}
 \author{Iker M. Canut}
 \title{Unidad 2: L\'ogica\\\'Algebra y Geometr\'ia Anal\'itica I (R-111)\\Licenciatura en Ciencias de la Computaci\'on}
 \date{2020}
@@ -130,19 +131,16 @@ p & q & p \rightarrow q & q \rightarrow p & (p \rightarrow q) \land (q \rightarr
 \noindent Sea $P$ una proposici\'on compuesta y $p$ una proposici\'on arbitraria que aparece en $P$. Sea $q$ una proposici\'on tal que $p \Leftrightarrow q$, supongamos que reemplazamos en $P$ una o m\'as ocurrencias de $p$ por $q$, y llamamos $P'$ a la proposici\'on obtenida. Luego, $P \Leftrightarrow P'$.
 
 \subsection{Proposiciones Relacionadas con $p \rightarrow q$}
-\begin{multicols}{2}
-\begin{itemize}
+\begin{multicols}{3}
+\begin{itemize}[leftmargin=*]
 \item \textbf{Rec\'iproca}: $q \rightarrow p$
 \item \textbf{Inversa}: $\lnot p \rightarrow \lnot q$
 \item \textbf{Contrarrecíproca}: $\lnot q \rightarrow \lnot p$
 \end{itemize}
-
-\noindent $p \rightarrow q \Leftrightarrow \lnot q \rightarrow \lnot p$\\ \\
-\noindent $q \rightarrow p \Leftrightarrow \lnot p \rightarrow \lnot q$\\
 \end{multicols}
 
-\noindent Sea $S$ una proposici\'on que no contiene conectivas l\'ogicas distintas de $\land$ y $\lor$, entonces el \textbf{dual} de $S$, notado $S^d$, es la proposici\'on que se obtiene al reemplazar cada $\land$ por $\lor$, cada $T_0$ por $F_0$, y viceversa.
-$$\text{Si } (S \Leftrightarrow T) \rightarrow (S^d \Leftrightarrow T^d)$$
+\noindent Sea $S$ una proposici\'on que no contiene conectivas l\'ogicas distintas de $\land$ y $\lor$, entonces el \textbf{dual} de $S$, notado $S^d$, es la proposici\'on que se obtiene al reemplazar cada $\land$ por $\lor$, cada $T_0$ por $F_0$, y viceversa.\\
+\indent \indent \indent \indent \indent \indent \indent \indent \indent \indent \indent $\text{Si } (S \Leftrightarrow T)$ entonces $(S^d \Leftrightarrow T^d)$
 
 \section{Cuantificadores}
 \noindent Una \textbf{proposición abierta} es una expresi\'on que contiene variables, que al ser sustituidas por valores determinados, hace que la expresión se convierta en una proposición.\\
@@ -150,19 +148,7 @@ $$\text{Si } (S \Leftrightarrow T) \rightarrow (S^d \Leftrightarrow T^d)$$
 \noindent \textbf{Cuantificador Existencial}: $\exists x\ p(x)$, existe $x$ tal que $p(x)$ es $V$.\\
 \noindent \textbf{Cuantificador Universal}: $\forall x\ p(x)$, para todo $x$, $p(x)$ es $V$.\\
 
-Para demostrar un cuantificador:
-\begin{itemize}
-\item Existencial, basta con encontrar un ejemplo.
-\item Universal, hay que demostrarlo.
-\item $\lnot$ Existencial, hay que demostrarlo.
-\item $\lnot$ Universal, basta con encontrar un contraejemplo.
-\end{itemize}
-
 \noindent Si $p(x,y)$ es una proposici\'on abierta en dos variables, $\forall x \forall y\ p(x,y) \Leftrightarrow \forall y \forall x\ p(x,y)$, con lo que se simplifica a $\forall x, y\ p(x,y)$.
-
-\subsection{Implicaci\'on L\'ogica}
-\noindent $p$ implica l\'ogicamente $q$, y se nota $p \Rightarrow q$, si $p \rightarrow q$ es una $T_0$.\\
-\indent e.g $\forall x\ p(x) \Rightarrow \exists x\ p(x)$ (considerando un universo no vacio)
 
 \subsection{Cuantificadores Implicitos}
 \noindent Sean $p(x)$ y $q(x)$ proposiciones abiertas, 
@@ -179,54 +165,9 @@ $$\forall x [p(x) \land q(x)] \Leftrightarrow [\forall x\ p(x) \land \forall x\ 
 $$\forall x [p(x) \lor q(x)] \Leftarrow [\forall x\ p(x) \lor \forall x\ q(x)]$$
 
 \subsection{Negaci\'on de Cuantificadores}
-$$\lnot[\exists x\ p(x)] \Leftrightarrow \forall x\ \lnot p(x)$$
-$$\lnot[\forall x\ p(x)] \Leftrightarrow \exists x\ \lnot p(x)$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{multicols}{2}
+\quad \quad \quad \quad \quad $\lnot[\exists x\ p(x)] \Leftrightarrow \forall x\ \lnot p(x)$\\
+\quad \quad \quad \quad \quad $\lnot[\forall x\ p(x)] \Leftrightarrow \exists x\ \lnot p(x)$
+\end{multicols}
 
 \end{document}
