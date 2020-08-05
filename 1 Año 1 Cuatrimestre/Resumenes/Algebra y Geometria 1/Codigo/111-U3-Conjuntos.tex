@@ -14,16 +14,14 @@
 \maketitle
 \newpage
 \section{Teor\'ia de Conjuntos}
-\textbf{Conjunto}: Colecci\'on bien definida de elementos. Los conjuntos se escriben con letras may\'usculas, los elementos con min\'usculas.
+\noindent \textbf{Conjunto}: Colecci\'on bien definida de elementos. Los conjuntos se escriben con letras may\'usculas, los elementos con min\'usculas.
 \begin{itemize}
 \item $a \in A$: El elemento $a$ \textbf{pertenece} al conjunto $A$.
 \item $a \not \in A$: El elemento $a$ \textbf{no pertenece} al conjunto $A$.
 \end{itemize}
-Definimos un conjunto por \textbf{extensi\'on} si enumeramos todos los elementos que pertenecen. Definimos un conjunto por \textbf{comprensi\'on} si damos una caracteristica, una ley que define si un elemento pertenece o no al conjunto.\\
+\noindent Definimos un conjunto por \textbf{extensi\'on} si enumeramos todos los elementos que pertenecen, o podemos definirlo por \textbf{comprensi\'on} si damos una caracteristica, una ley que define si un elemento pertenece o no al conjunto.\\
 
-El universo en el cual estan todos los elementos, se lo denomina \textbf{universal}, $\mathbb{U}$.\\
-
-\noindent \dotfill\\
+\noindent El universo en el cual estan todos los elementos, se lo denomina \textbf{universal}, $\mathbb{U}$.\\
 
 \begin{itemize}
 \item $C$ es un \textbf{subconjunto} de $D$ $\iff C \subseteq D \iff \forall x[x \in C \Rightarrow x \in D]$
@@ -41,9 +39,8 @@ El universo en el cual estan todos los elementos, se lo denomina \textbf{univers
 \item $C$ es \textbf{igual} a $D$ $\iff C = D \iff C \subseteq D \land D \subseteq C \iff \forall x[x \in C \iff x \in D]$
 \item $C$ es \textbf{distinto} a $D$ $\iff C \not = D \iff C \not \subseteq D \lor D \not \subseteq C$
 \end{itemize}
-\noindent \dotfill\\
 
-Sean $A, B, C \subseteq U$
+\noindent Sean $A, B, C \subseteq U$
 \begin{multicols}{2}
 \begin{itemize}
 \item Si $A \subseteq B \land B \subseteq C \Rightarrow A \subseteq C$
@@ -52,17 +49,14 @@ Sean $A, B, C \subseteq U$
 \item Si $A \subset B \land B \subset C \Rightarrow A \subset C$
 \end{itemize}
 \end{multicols}
-\noindent \dotfill\\
 
-Se llama \textbf{conjunto vacio}, $\emptyset$ o $\{\}$ al conjunto que no tiene elementos. $|\emptyset| = 0$\\
+\noindent Se llama \textbf{conjunto vacio}, $\emptyset$ o $\{\}$ al conjunto que no tiene elementos. $|\emptyset| = 0$\\
 
-Para cualquier $\mathbb{U}$, $A \subseteq U$ se tiene que $\emptyset \subseteq A$. Y si $a \not = \emptyset \Rightarrow \emptyset \subset A$\\
+\noindent Para cualquier $\mathbb{U}$, $A \subseteq U$ se tiene que $\emptyset \subseteq A$. Y si $a \not = \emptyset \Rightarrow \emptyset \subset A$\\
 
-\noindent \dotfill\\
 
-Dado un conjunto $A$, se llama \textbf{conjunto de partes} de $A$ al conjunto cuyos elementos son todos los subconjuntos de $A$. $P(A) = \{ F . F \subseteq A \}$\\
+\noindent Dado un conjunto $A$, se llama \textbf{conjunto de partes} de $A$ al conjunto cuyos elementos son todos los subconjuntos de $A$. $P(A) = \{ F . F \subseteq A \}$\\
 
-\noindent \dotfill\\
 \newpage
 
 \section{Operaciones de Conjuntos}
@@ -70,13 +64,11 @@ Dado un conjunto $A$, se llama \textbf{conjunto de partes} de $A$ al conjunto cu
 \item \textbf{Uni\'on} de $A$ y $B$: Es el conjunto cuyos elemento pertenecen a $A$ o a $B$.\\
 $A \cup B = \{x\in \mathbb{U} . x\in A \lor x\in B\}$
 
-\noindent \dotfill
 \item \textbf{Intersecci\'on} de $A$ y $B$: Es el conjunto cuyos elementos pertenecen a $A$ y a $B$.\\
 $A \cap B = \{x\in \mathbb{U} . x\in A \land x\in B\}$\\
 Dos conjuntos son \textbf{disjuntos} si la intersecci\'on es el conjunto vacio.\\
 $A$ y $B$ son disjuntos $\iff$ $A \cup B = A \triangle B$
 
-\noindent \dotfill
 \item \textbf{Diferencia} de $A$ y $B$: Es el conjunto de elementos que pertenecen a $A$ y no a $B$.\\
 $A - B = \{x\in \mathbb{U}.x\in A, x\not \in B\} = A \cap \overline{B}$
 \begin{itemize}
@@ -91,7 +83,6 @@ $A - B = \{x\in \mathbb{U}.x\in A, x\not \in B\} = A \cap \overline{B}$
 \end{multicols}
 \end{itemize}
 
-\noindent \dotfill
 \item \textbf{Complemento} de $B$ respecto de $A$: es la diferencia.\\
 $\complement_A B = A-B = \{x.x\in A, x\not \in B\}$\\
 Si tomamos $A$ = $\mathbb{U}$, notamos $\complement_U B = \complement B = \overline{B}$
@@ -106,7 +97,6 @@ Si tomamos $A$ = $\mathbb{U}$, notamos $\complement_U B = \complement B = \overl
 \end{multicols}
 \end{itemize}
 
-\noindent \dotfill
 \item \textbf{Diferencia Simetrica} de $A$ y $B$: son los elementos que pertenecen a $A$ o a $B$, pero no a ambos.
 \begin{align*}
 A \triangle B 
@@ -115,35 +105,34 @@ A \triangle B
 &= (A \cup B) \cap \overline{(A \cap B)} = (A-B) \cup (B-A)
 \end{align*}
 
-\noindent \dotfill
 \item \textbf{Producto Cartesiano} de $A$ y $B$: es el conjunto de pares ordenados $(a,b)$ tal que la primer componente pertenece a $A$ y la segunda pertenece a $B$.\\
 $A\times B = \{ (a,b) . a\in A, b\in B \}$\\
 Si $A = B$ se escribe $A \times A = A^2$\\
-
-\noindent \dotfill
 \end{itemize}
 \newpage
 
 \section{Generalizaciones}
-Sean $E_1, E_2,...E_n \subseteq U$ se llama:
+\noindent Sean $E_1, E_2,...E_n \subseteq U$ se llama:
 \begin{itemize}
 \item \textbf{uni\'on} de $E_1, E_2,...E_n$ al conjunto $E_1 \cup E_2 \cup ... \cup E_n$ = $\displaystyle{\bigcup_{i \in 1}^{n} E_i} = \{ x \in \mathbb{U} . x\in E_i, \text{para algun } i=1..n \}$
 \item \textbf{intersecci\'on} de $E_1, E_2,...E_n$ al conjunto $E_1 \cap E_2 \cap ... \cap E_n$ = $\displaystyle{\bigcap_{i \in 1}^{n} E_i} = \{ x \in \mathbb{U} . x\in E_i, \forall i=1..n \}$
 \end{itemize}
-\noindent \dotfill\\
 
-Sea $I$ un conjunto no vacio, $U$ el conjunto universal,\\
+\noindent Sea $I$ un conjunto no vacio, $U$ el conjunto universal,\\
 $\forall i \in I$ sea $A_i \subseteq \mathbb{U}$. Cada $i$ es un indice, e $I$ es el conjunto de indices.\\
 \begin{itemize}
+\begin{multicols}{2}
 \item $\displaystyle{\bigcup_{i \in I} A_i} = \{ x \in \mathbb{U} . x\in A_i, \text{ para algun } i\in I \}$
 \item $\displaystyle{\bigcap_{i \in I} A_i} = \{ x \in \mathbb{U} . x\in A_i, \text{ para todo } i\in I \}$
+\end{multicols}
 \end{itemize}
 Equivalentemente,
 \begin{itemize}
+\begin{multicols}{2}
 \item $x \in \displaystyle{\bigcup_{i \in I} A_i} \iff \exists i \in I . (x \in A_i)$
 \item $x \in \displaystyle{\bigcap_{i \in I} A_i} \iff \forall i \in I . (x \in A_i)$
+\end{multicols}
 \end{itemize}
-\noindent \dotfill\\
 
 \begin{itemize}
 \begin{multicols}{2}
@@ -151,9 +140,7 @@ Equivalentemente,
 \item $\overline{\displaystyle{\bigcap_{i \in I} A_i}} = \displaystyle{\bigcup_{i \in I} \overline{A_i}}$
 \end{multicols}
 \end{itemize}
-\noindent \dotfill
 
-\newpage
 \section{Leyes}
 \begin{tabular}{p{0.03\textwidth}p{0.33\textwidth}p{0.33\textwidth}p{0.15\textwidth}}
 1. & $\overline{\overline{A}} = A$ & & Doble negaci\'on \\
@@ -165,21 +152,20 @@ Equivalentemente,
 7. & $A \cup \emptyset = A$ & $A \cap \mathbb{U} = A$ & Neutro \\
 8. & $A \cup \overline{A} = \mathbb{U}$ & $A \cap \overline{A} = \emptyset$ & Inverso \\
 9. & $A \cup \mathbb{U} = \mathbb{U}$ & $A \cap \emptyset = \emptyset$ & Dominaci\'on \\
-10. & $A \cup (A \cap B) = A$ & $A \cap (A \cup B) = A$ & Absorci\'on \\
+10. & $A \cup (A \cap B) = A$ & $A \cap (A \cup B) = A$ & Absorci\'on\\
+    & $A \cup (\overline{A} \cap B) = A \cup B$ & $A \cap (\overline{A} \cup B) = A \cap B$
 \end{tabular}
 
-\vspace{1cm}
-\noindent \dotfill\\
 
 \section{Cardinalidad}
-La cardinalidad de un conjunto finito es la cantidad de elementos que contiene.
+\noindent La cardinalidad de un conjunto finito es la cantidad de elementos que contiene.
 \begin{itemize}
 \item $|A\cup B| = |A| + |B| - |A \cap B|$
 \item $|\overline{A} \cap \overline{B} \cap \overline{C}| = |\overline{A \cup B \cup C}| = |U| = |A \cup B \cup C|\\ = |U| - |A| - |B| - |C| + |A \cap B| + |A \cap C| + |B \cap C| - |A \cap B \cap C|$
 \end{itemize}
 
-\section{Dual}
-Para conseguir el dual de un conjunto, se reemplazan:
+\section{Dualidad}
+\noindent Para conseguir el dual de un conjunto, se reemplazan:
 \begin{itemize}
 \item $\emptyset$ por $\mathbb{U}$ y $\mathbb{U}$ por $\emptyset$.
 \item $\cup$ por $\cap$ y $\cap$ por $\cup$.
