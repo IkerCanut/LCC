@@ -25,7 +25,7 @@ p & \lnot p\\
 \hline
 0 & 1 \\
 1 & 0
-\end{array}$\\ \\ \\
+\end{array}$\\ \\
 
 \noindent \textbf{DISY. EXCLUSIVA}: \\
 \indent $\begin{array}{|cc|c|}
@@ -45,7 +45,7 @@ p & q & p \land q\\
 0 & 1 & 0\\
 1 & 0 & 0\\
 1 & 1 & 1
-\end{array}$\\ \\
+\end{array}$\\
 
 \noindent \textbf{4. IMPLICACI\'ON}: \\
 \indent $\begin{array}{|cc|c|}
@@ -65,7 +65,7 @@ p & q & p \lor q\\
 0 & 1 & 1\\
 1 & 0 & 1\\
 1 & 1 & 1
-\end{array}$\\ \\
+\end{array}$\\
 
 \noindent \textbf{5. BICONDICIONAL}: \\
 \indent $\begin{array}{|cc|c|}
@@ -77,6 +77,9 @@ p & q & p \leftrightarrow q\\
 1 & 1 & 1
 \end{array}$\\
 \end{multicols}
+
+\noindent \textit{$p$ implica $q$} = \textit{si $p$ entonces $q$} = \textit{$p$ es suficiente para $q$} = \textit{$p$ solo si $q$} = \textit{$q$ es necesario para $p$}.\\
+\noindent \textit{$p$ si y solo si $q$} = \textit{$p$ es necesario y suficiente para $q$}.\\
 
 \noindent Las \textbf{proposiciones primitivas} son proposiciones que no se pueden formar a partir de otras proposiciones (utilizando conectores l\'ogicos).\\
 
@@ -104,21 +107,23 @@ p & q & p \rightarrow q & q \rightarrow p & (p \rightarrow q) \land (q \rightarr
 1 & 1 & 1 & 1 & 1 & 1
 \end{array}$
 \end{table}
-
+\vspace{-0.47cm}
 \section{Leyes de la L\'ogica}
 \begin{tabular}{lcc}
-\textbf{Doble negaci\'on}: & \quad $\lnot(\lnot p) \Leftrightarrow p$\\
-\textbf{De Morgan}: & \quad $\lnot(p \lor q) \Leftrightarrow \lnot p \land \lnot q$ & \quad $\lnot(p \land q) \Leftrightarrow \lnot p \lor \lnot q$\\
-\textbf{Conmutativa}: & \quad $p \lor q \Leftrightarrow q \lor p$ & \quad $p \land q \Leftrightarrow q \land p$\\
-\textbf{Asociativa}: & \quad $p \lor (q \lor r) \Leftrightarrow (p \lor q) \lor r$ & \quad $p \land (q \land r) \Leftrightarrow (p \land q) \land r$\\
-\textbf{Distributiva}: & \quad $p \lor (q \land r) \Leftrightarrow (p \lor q) \land (p \lor r)$ & \quad $p \land (q \lor r) \Leftrightarrow (p \land q) \lor (p \land r)$\\
-\textbf{Idempotente}: & \quad $p \lor p \Leftrightarrow p$ & \quad $p \land p \Leftrightarrow p$\\
-\textbf{Inversa}: & \quad $p \lor \lnot p \Leftrightarrow T_0$ & \quad $p \land \lnot p \Leftrightarrow F_0$\\
-\textbf{Neutro}: & \quad $p \lor F_0 \Leftrightarrow p$ & \quad $p \land T_0 \Leftrightarrow p$\\
-\textbf{Dominaci\'on}: & \quad $p \lor T_0 \Leftrightarrow T_0$ & \quad $p \land F_0 \Leftrightarrow F_0$\\
+ \hline
+\textbf{Doble negaci\'on}: & \quad $\lnot(\lnot p) \Leftrightarrow p$\\ \hline
+\textbf{De Morgan}: & \quad $\lnot(p \lor q) \Leftrightarrow \lnot p \land \lnot q$ & \quad $\lnot(p \land q) \Leftrightarrow \lnot p \lor \lnot q$\\ \hline
+\textbf{Conmutativa}: & \quad $p \lor q \Leftrightarrow q \lor p$ & \quad $p \land q \Leftrightarrow q \land p$\\ \hline
+\textbf{Asociativa}: & \quad $p \lor (q \lor r) \Leftrightarrow (p \lor q) \lor r$ & \quad $p \land (q \land r) \Leftrightarrow (p \land q) \land r$\\ \hline
+\textbf{Distributiva}: & \quad $p \lor (q \land r) \Leftrightarrow (p \lor q) \land (p \lor r)$ & \quad $p \land (q \lor r) \Leftrightarrow (p \land q) \lor (p \land r)$\\ \hline
+\textbf{Idempotente}: & \quad $p \lor p \Leftrightarrow p$ & \quad $p \land p \Leftrightarrow p$\\ \hline
+\textbf{Inversa}: & \quad $p \lor \lnot p \Leftrightarrow T_0$ & \quad $p \land \lnot p \Leftrightarrow F_0$\\ \hline
+\textbf{Neutro}: & \quad $p \lor F_0 \Leftrightarrow p$ & \quad $p \land T_0 \Leftrightarrow p$\\ \hline
+\textbf{Dominaci\'on}: & \quad $p \lor T_0 \Leftrightarrow T_0$ & \quad $p \land F_0 \Leftrightarrow F_0$\\ \hline
 \textbf{Absorci\'on}: & \quad $p \lor (p \land q) \Leftrightarrow p$ & \quad $p \land (p \lor q) \Leftrightarrow p$\\
-& \quad $p \lor (\lnot p \land q) \Leftrightarrow p \lor q$ & \quad $p \land (\lnot p \lor q) \Leftrightarrow p \land q$
+& \quad $p \lor (\lnot p \land q) \Leftrightarrow p \lor q$ & \quad $p \land (\lnot p \lor q) \Leftrightarrow p \land q$ \\ \hline
 \end{tabular}
+
 
 \begin{itemize}
 \item $S_1 \Leftrightarrow S_1$
