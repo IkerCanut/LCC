@@ -21,7 +21,7 @@
 \item $a \in A$: El elemento $a$ \textbf{pertenece} al conjunto $A$.
 \item $a \not \in A$: El elemento $a$ \textbf{no pertenece} al conjunto $A$.
 \end{itemize}
-\noindent Definimos un conjunto por \textbf{extensi\'on} si enumeramos todos los elementos que pertenecen, o podemos definirlo por \textbf{comprensi\'on} si damos una caracteristica, una ley que define si un elemento pertenece o no al conjunto. \\ \noindent El universo en el cual estan todos los elementos, se lo denomina \textbf{universal}, $\mathbb{U}$.\\
+\noindent Definimos un conjunto por \textbf{extensi\'on} si enumeramos todos los elementos que pertenecen, o podemos definirlo por \textbf{comprensi\'on} si damos una caracter\'istica, una ley que define si un elemento pertenece o no al conjunto. \\ \noindent El universo en el cual estan todos los elementos, se lo denomina \textbf{universal}, $\mathbb{U}$.\\
 
 \begin{itemize}
 \item $C$ es un \textbf{subconjunto} de $D$ $\iff C \subseteq D \iff \forall x[x \in C \Rightarrow x \in D]$
@@ -71,7 +71,7 @@ Tambi\'en se lo conoce como \textit{"Paradoja del barbero"}.
 \item \textbf{Uni\'on} de $A$ y $B$: Conjunto cuyos elemento pertenecen a $A$ o a $B$. $\ A \cup B = \{x\in \mathbb{U} . x\in A \lor x\in B\}$
 \begin{itemize}
 \item $A \cup B = B \cup A$\\
-\indent \textbf{Dem/} $x \in (A \cup B) \iff x \in A \land x \in B \iff x \in B \land x \in A \iff x \in (B \cup A)$ \QEDA
+\indent \textbf{Dem/} $x \in (A \cup B) \iff x \in A \lor x \in B \iff x \in B \lor x \in A \iff x \in (B \cup A)$ \QEDA
 \item $B \subseteq A \iff B \cup A = A$\\
 \indent \textbf{Dem/} $\Rightarrow)\ x \in A \Rightarrow $ (por amp. disy.) $x \in A \lor x \in B \Rightarrow x \in (A \cup B) $ i.e $A \subseteq (A \cup B)$.\\
 Sea $x \in (A \cup B) \Rightarrow x \in A \lor x \in B \Rightarrow x \in A \lor x \in A \Rightarrow x \in A$ i.e $(A \cup B) \subseteq A$ $\therefore A = B \cup A$\\
@@ -94,7 +94,8 @@ $\Leftarrow) $ Sea $x \in B \Rightarrow x \in A \cap B \Rightarrow x \in B \land
 \item $X \cap Y = \emptyset \Rightarrow P(X) \cap P(Y) = \{\emptyset\}$\\
 \textbf{Dem/} Suponemos que $P(X) \cap P(Y) \not = \{\emptyset\}$. Luego existe $Z \not = \emptyset : Z \in P(X) \cap P(Y)$. Entonces $Z \in P(X) \land Z \in P(Y) \Rightarrow Z \subseteq X \land Z \subseteq Y$. Y al no ser vacio, existe $x \in Z \subset X$, y para el mismo $x$, tenemos que $x \in Y$. Luego $X \cap Y \not = \emptyset$, contradiciendo la hipotesis. \QEDA
 \item $A$ y $B$ son disjuntos $\iff$ $A \cup B = A \triangle B$\\
-\textbf{Dem/} \QEDA
+\textbf{Dem/} $\Rightarrow)\ x \in A \cup B \iff x \in A \cup B - x \in \emptyset \iff x \in A \cup B - x \in A \cap B \iff \\ x \in A \triangle B \therefore A \cup B = A \triangle B$\\
+$\Leftarrow) A \cup B = A \triangle B \iff (A \cup B) = (A \cup B) - (A \cap B) \Rightarrow A \cap B = \emptyset$ i.e $A$ y $B$ son disjuntos. \QEDA
 
 \end{itemize}
 
@@ -127,7 +128,7 @@ Si tomamos $A$ = $\mathbb{U}$, notamos $\complement_U B = \complement B = \overl
 \item $\complement (A \cup B) = \complement A \cap \complement B$\\
 \textbf{Dem/} $x \in \complement (A \cup B) = x \in \mathbb{U} \land x \not \in (A \cup B) = x \in \mathbb{U} \land \lnot (x \in A \lor x \in B)) = \\ = x \in \mathbb{U} \land x \not \in A \land x \not \in B$ \QEDA
 \item $\complement (A \cap B) = \complement A \cup \complement B$\\
-\textbf{Dem/} $\subseteq)\ x \in \overline{A \cap B} \Rightarrow \lnot(x \in A \land x \in B) \Rightarrow x \not \in A \lor x \not \in B \Rightarrow x \in \overline{A} \lor x \in \overline{B}$ \QEDB\\
+\textbf{Dem/} $\subseteq)\ x \in \overline{A \cap B} \Rightarrow \lnot(x \in A \land x \in B) \Rightarrow x \not \in A \lor x \not \in B \Rightarrow x \in \overline{A} \lor x \in \overline{B}$ \\
 $\supseteq)\ x \in \overline{A} \cup \overline{B}$. Suponemos que $x \in A\cap B$, luego $x \in A \land x \in B \Rightarrow x \not \in \overline{A} \land x \not \in \overline{B} \Rightarrow \\ \lnot (x \in \overline{A} \land x \in \overline{B})$, contradiciendo asi la hip\'otesis. Luego, $x \in \overline{A \cap B}$ i.e $\overline{A} \cup \overline{B} \subseteq \overline{A \cap B}$\QEDA
 \item $A \subseteq B \Rightarrow A \cup \complement_B A = B$\\
 \textbf{Dem/} $\subseteq)\ x \in (A \cup \complement_B A) \Rightarrow x \in A \lor (x \in B \land x \not \in A) \Rightarrow x \in A \lor x \in B \Rightarrow \\ x \in B \lor x \in B \Rightarrow x \in B$ i.e $A \cup \complement_B A \subseteq B$\\
