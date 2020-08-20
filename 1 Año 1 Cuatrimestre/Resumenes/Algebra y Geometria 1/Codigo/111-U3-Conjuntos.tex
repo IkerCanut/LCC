@@ -10,6 +10,8 @@
 \author{Iker M. Canut}
 \title{Unidad 3: Conjuntos\\\'Algebra y Geometr\'ia Anal\'itica I (R-111)\\Licenciatura en Ciencias de la Computaci\'on}
 \date{2020}
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
 \begin{document}
 \maketitle
 \newpage
@@ -19,25 +21,23 @@
 \item $a \in A$: El elemento $a$ \textbf{pertenece} al conjunto $A$.
 \item $a \not \in A$: El elemento $a$ \textbf{no pertenece} al conjunto $A$.
 \end{itemize}
-\noindent Definimos un conjunto por \textbf{extensi\'on} si enumeramos todos los elementos que pertenecen, o podemos definirlo por \textbf{comprensi\'on} si damos una caracteristica, una ley que define si un elemento pertenece o no al conjunto.\\
-
-\noindent El universo en el cual estan todos los elementos, se lo denomina \textbf{universal}, $\mathbb{U}$.\\
+\noindent Definimos un conjunto por \textbf{extensi\'on} si enumeramos todos los elementos que pertenecen, o podemos definirlo por \textbf{comprensi\'on} si damos una caracteristica, una ley que define si un elemento pertenece o no al conjunto. \\ \noindent El universo en el cual estan todos los elementos, se lo denomina \textbf{universal}, $\mathbb{U}$.\\
 
 \begin{itemize}
 \item $C$ es un \textbf{subconjunto} de $D$ $\iff C \subseteq D \iff \forall x[x \in C \Rightarrow x \in D]$
 \begin{multicols}{2}
 \item $C \not \subseteq D \iff \exists x [x \in C \land x \not \in D]$
-\item $C \subseteq D \Rightarrow |C| \leq |D|$\\
+\item $C \subseteq D \Rightarrow |C| \leq |D|$
 \end{multicols}
 
 \item $C$ es un \textbf{subconjunto propio} de $D$ $\iff C \subset D \iff C \subseteq D \land C \not = D$
 \begin{multicols}{2}
 \item $C \not \subset D \iff C \not \subseteq D \lor C=D$
-\item $C \subset D \Rightarrow |C| < |D|$\\
+\item $C \subset D \Rightarrow |C| < |D|$
 \end{multicols}
 
 \item $C$ es \textbf{igual} a $D$ $\iff C = D \iff C \subseteq D \land D \subseteq C \iff \forall x[x \in C \iff x \in D]$
-\item $C$ es \textbf{distinto} a $D$ $\iff C \not = D \iff C \not \subseteq D \lor D \not \subseteq C$
+\item $C$ es \textbf{distinto} a $D$ $\iff C \not = D \iff C \not \subseteq D \lor D \not \subseteq C$\\
 \end{itemize}
 
 \noindent Sean $A, B, C \subseteq U$
@@ -50,51 +50,88 @@
 \end{itemize}
 \end{multicols}
 
+\noindent \textbf{Demostraci\'on}: $A \subset B \land B \subseteq C \Rightarrow A \subset C$.\\ Como $A \subset B$, entonces $\forall x \in A \Rightarrow x \in B \land \exists y \in B : y \not \in A$ y adem\'as como $\land B \subseteq C \forall x \in B \Rightarrow x \in C$. Para probar que $A \subset C$, hay que demostrar que $x\in A \Rightarrow x\in C$ y existe un $y \in C : y \not \in A$. Sea $x \in A \Rightarrow x \in B \Rightarrow x \in C$ y adem\'as $\exists y \in B : y \not \in A$, pero ese $y$ pertenece a $C$, ergo, $\exists y \in C : y \not \in A$. \QEDA \\
+
 \noindent Se llama \textbf{conjunto vacio}, $\emptyset$ o $\{\}$ al conjunto que no tiene elementos. $|\emptyset| = 0$\\
 
 \noindent Para cualquier $\mathbb{U}$, $A \subseteq U$ se tiene que $\emptyset \subseteq A$. Y si $a \not = \emptyset \Rightarrow \emptyset \subset A$\\
-
+\noindent \textbf{Demostraci\'on}: Por absurdo, si $\emptyset \not \subseteq A$ entonces $\exists x \in \emptyset : x \not \in A$. Pero es absurdo. Luego, $\emptyset \subseteq A$. Finalmente, si $A \not = \emptyset$, entonces $\exists a[a \in A \land a \not \in \emptyset]\therefore \ \emptyset \subset A$ \QEDA \\
 
 \noindent Dado un conjunto $A$, se llama \textbf{conjunto de partes} de $A$ al conjunto cuyos elementos son todos los subconjuntos de $A$. $P(A) = \{ F . F \subseteq A \}$\\
 
+\noindent \textbf{Paradoja de Russel}: Sea $S$ el conjunto de todos los conjuntos $A$ que no son elemenos de si mismos, es decir $S = \{A: A \not \in A\}$, entonces $S \in S \iff S \not \in S$. Es decir, 
+\begin{quote}
+“El conjunto cuyos elementos son todos los conjuntos que no son elementos de sí mismos, ¿es o no es elemento de sí mismo?”
+\end{quote}
+Tambi\'en se lo conoce como \textit{"Paradoja del barbero"}. 
 \newpage
 
 \section{Operaciones de Conjuntos}
 \begin{itemize}
-\item \textbf{Uni\'on} de $A$ y $B$: Es el conjunto cuyos elemento pertenecen a $A$ o a $B$.\\
-$A \cup B = \{x\in \mathbb{U} . x\in A \lor x\in B\}$
-
-\item \textbf{Intersecci\'on} de $A$ y $B$: Es el conjunto cuyos elementos pertenecen a $A$ y a $B$.\\
-$A \cap B = \{x\in \mathbb{U} . x\in A \land x\in B\}$\\
-Dos conjuntos son \textbf{disjuntos} si la intersecci\'on es el conjunto vacio.\\
-$A$ y $B$ son disjuntos $\iff$ $A \cup B = A \triangle B$
-
-\item \textbf{Diferencia} de $A$ y $B$: Es el conjunto de elementos que pertenecen a $A$ y no a $B$.\\
-$A - B = \{x\in \mathbb{U}.x\in A, x\not \in B\} = A \cap \overline{B}$
+\item \textbf{Uni\'on} de $A$ y $B$: Conjunto cuyos elemento pertenecen a $A$ o a $B$. $\ A \cup B = \{x\in \mathbb{U} . x\in A \lor x\in B\}$
 \begin{itemize}
-\begin{multicols}{3}
-\item $A - A = \emptyset$
-\item $A - \emptyset = A$
-\item $\emptyset - A = \emptyset$
-\end{multicols}
-\begin{multicols}{2}
-\item $(A-B = B-A) \iff A=B$
-\item $(A-B)-C = A-(B-C)$
-\end{multicols}
+\item $A \cup B = B \cup A$\\
+\indent \textbf{Dem/} $x \in (A \cup B) \iff x \in A \land x \in B \iff x \in B \land x \in A \iff x \in (B \cup A)$ \QEDA
+\item $B \subseteq A \iff B \cup A = A$\\
+\indent \textbf{Dem/} $\Rightarrow)\ x \in A \Rightarrow $ (por amp. disy.) $x \in A \lor x \in B \Rightarrow x \in (A \cup B) $ i.e $A \subseteq (A \cup B)$.\\
+Sea $x \in (A \cup B) \Rightarrow x \in A \lor x \in B \Rightarrow x \in A \lor x \in A \Rightarrow x \in A$ i.e $(A \cup B) \subseteq A$ $\therefore A = B \cup A$\\
+\indent $\Leftarrow)$ $x \in B \Rightarrow x \in B \lor x \in A \iff x \in B \cup A = A \iff x \in A \QEDA$
+\item $(A \cup B) \cup C = A \cup (B \cup C)$\\
+\indent \textbf{Dem/} $x \in (A \cup B) \cup C \iff x \in (A \cup B) \lor x \in C \iff (x \in A \lor x \in B) \lor x \in C \iff x \in A \lor (x \in B \lor x \in C) \iff x \in A \lor x \in (B \cup C) \iff x \in A \cup (B \cup C)$ \QEDA
 \end{itemize}
 
-\item \textbf{Complemento} de $B$ respecto de $A$: es la diferencia.\\
-$\complement_A B = A-B = \{x.x\in A, x\not \in B\}$\\
+\item \textbf{Intersecci\'on} de $A$ y $B$: Elementos que pertenecen a $A$ y a $B$. $\ A \cap B = \{x\in \mathbb{U} . x\in A \land x\in B\}$
+\begin{itemize}
+\item $A \cap B = B \cap A$\\
+\indent \textbf{Dem/} $x \in A \cap B \iff x \in A \land x \in B \iff x \in B \land x \in A \iff x \in B \cap A$ \QEDA
+\item $B \subseteq A \iff B \cap A = B$\\
+\indent \textbf{Dem/} $\Rightarrow)\ x \in B \cap A \Rightarrow x \in B \land x \in A \Rightarrow x \in B$ i.e $B\cap A \subseteq B$ \\
+Sea $x \in B \Rightarrow x \in B \land x \in B \Rightarrow x \in A \land x \in B \Rightarrow x \in A\cap B$ i.e $B \subseteq A\cap B \therefore B \cap A = B$\\
+$\Leftarrow) $ Sea $x \in B \Rightarrow x \in A \cap B \Rightarrow x \in B \land x \in A \Rightarrow x \in A$ i.e $B \subseteq A$ \QEDA
+\item $(A \cap B) \cap C = A \cap (B \cap C)$\\
+\indent \textbf{Dem/} $x \in (A \cap B) \cap C \iff x \in (A \cap B) \land x \in C \iff (x \in A \land x \in B) \land x \in C \iff x \in A \land (x \in B \land x \in C) \iff x \in A \land x \in (B \cap C) \iff x \in A \cap (B \cap C)$ \QEDA
+\item Dos conjuntos son \textbf{disjuntos} si la intersecci\'on es el conjunto vacio.
+\item $X \cap Y = \emptyset \Rightarrow P(X) \cap P(Y) = \{\emptyset\}$\\
+\textbf{Dem/} Suponemos que $P(X) \cap P(Y) \not = \{\emptyset\}$. Luego existe $Z \not = \emptyset : Z \in P(X) \cap P(Y)$. Entonces $Z \in P(X) \land Z \in P(Y) \Rightarrow Z \subseteq X \land Z \subseteq Y$. Y al no ser vacio, existe $x \in Z \subset X$, y para el mismo $x$, tenemos que $x \in Y$. Luego $X \cap Y \not = \emptyset$, contradiciendo la hipotesis. \QEDA
+\item $A$ y $B$ son disjuntos $\iff$ $A \cup B = A \triangle B$\\
+\textbf{Dem/} \QEDA
+
+\end{itemize}
+
+\item \textbf{Diferencia} de $A$ y $B$: Elem. que pertenecen a $A$ y no a $B$. $\ A - B = \{x\in \mathbb{U}.x\in A, x\not \in B\} = A \cap \overline{B}$
+\begin{itemize}
+\item $A - A = \emptyset$\\
+\textbf{Dem/} $A - A = \{x : x \in A \land x \not \in A\} = \{x : F_0\} = \emptyset$ \QEDA
+\item $A - \emptyset = A$\\
+\textbf{Dem/} $A - \emptyset = \{x : x \in A \land x \not \in \emptyset\} = \{x : x \in A\} = A$ \QEDA
+\item $\emptyset - A = \emptyset$\\
+\textbf{Dem/} $\emptyset - A = \{x : x \in \emptyset \land x \not \in A\} = \emptyset$\QEDA
+\item $(A-B = B-A) \iff A=B$\\
+\textbf{Dem/} $\Rightarrow)$ Suponemos $A \not = B$. Luego $A-B = B-A \not = \emptyset$. Dado $x \in A-B$, para ese mismo $x$, $x \in B-A$. Por lo tanto $x \in A \land x \in B$, pero entonces no podria estar en $A-B$ o en $B-A$ llegando asi a una contradicci\'on.\\
+$\Leftarrow) $ Sea $A = B \Rightarrow A - B = \emptyset \land B - A = \emptyset$ $\therefore A - B = B - A$ \QEDA
+\item $(A-B)-C \subseteq A-(B-C)$\\
+\textbf{Dem/} $x \in (A-B)-C \Rightarrow (x \in A \land x \not \in B) \land x \not \in C \Rightarrow (x \in A \land x \not \in B) \Rightarrow \\ x \in A \land (x \not \in B \lor x \in C) \Rightarrow x \in A \land \lnot (x \in B \land x \not \in C) \Rightarrow \\ x \in A \land \lnot (x \in B - C) \Rightarrow x \in A \land x \not \in B - C \Rightarrow x \in A-(B-C)$\QEDA
+\end{itemize}
+
+\newpage
+
+\item \textbf{Complemento} de $B$ respecto de $A$: es la diferencia. $\ \complement_A B = A-B = \{x.x\in A, x\not \in B\}$\\
 Si tomamos $A$ = $\mathbb{U}$, notamos $\complement_U B = \complement B = \overline{B}$
 \begin{itemize}
-\begin{multicols}{3}
-\item $\complement \mathbb{U} = \emptyset$
-\item $\complement \emptyset = \mathbb{U}$
-\item $\complement (\complement A) = A$
-\item $\complement (A \cup B) = \complement A \cap \complement B$
-\item $\complement (A \cap B) = \complement A \cup \complement B$
-\item $A \subseteq B \Rightarrow A \cup \complement_B A = B$
-\end{multicols}
+\item $\complement \mathbb{U} = \emptyset$\\
+\textbf{Dem/} $\complement\mathbb{U} = \complement_\mathbb{U} \mathbb{U} = \mathbb{U} - \mathbb{U} = \emptyset $\QEDA
+\item $\complement \emptyset = \mathbb{U}$\\
+\textbf{Dem/} $\complement \emptyset = \complement_\mathbb{U} \emptyset = \mathbb{U} - \emptyset = \mathbb{U} $\QEDA
+\item $\complement (\complement A) = A$\\
+\textbf{Dem/} $\complement (\complement A) = U - (U - A) = \{ x \in \mathbb{U} \land x \not \in (\mathbb{U} - A)\} = \{x \in \mathbb{U} \land \lnot (x \in \mathbb{U} \land x \not \in A)\} = \\ = \{x \in \mathbb{U} \land (x \not \in \mathbb{U} \lor x \in A)\} = \{ x \in \mathbb{U} \land x \in A\} = A$\QEDA
+\item $\complement (A \cup B) = \complement A \cap \complement B$\\
+\textbf{Dem/} $x \in \complement (A \cup B) = x \in \mathbb{U} \land x \not \in (A \cup B) = x \in \mathbb{U} \land \lnot (x \in A \lor x \in B)) = \\ = x \in \mathbb{U} \land x \not \in A \land x \not \in B$ \QEDA
+\item $\complement (A \cap B) = \complement A \cup \complement B$\\
+\textbf{Dem/} $\subseteq)\ x \in \overline{A \cap B} \Rightarrow \lnot(x \in A \land x \in B) \Rightarrow x \not \in A \lor x \not \in B \Rightarrow x \in \overline{A} \lor x \in \overline{B}$ \QEDB\\
+$\supseteq)\ x \in \overline{A} \cup \overline{B}$. Suponemos que $x \in A\cap B$, luego $x \in A \land x \in B \Rightarrow x \not \in \overline{A} \land x \not \in \overline{B} \Rightarrow \\ \lnot (x \in \overline{A} \land x \in \overline{B})$, contradiciendo asi la hip\'otesis. Luego, $x \in \overline{A \cap B}$ i.e $\overline{A} \cup \overline{B} \subseteq \overline{A \cap B}$\QEDA
+\item $A \subseteq B \Rightarrow A \cup \complement_B A = B$\\
+\textbf{Dem/} $\subseteq)\ x \in (A \cup \complement_B A) \Rightarrow x \in A \lor (x \in B \land x \not \in A) \Rightarrow x \in A \lor x \in B \Rightarrow \\ x \in B \lor x \in B \Rightarrow x \in B$ i.e $A \cup \complement_B A \subseteq B$\\
+$\supseteq)\ x \in B \Rightarrow x \in A \lor x \in B \Rightarrow x \in A \lor (x \in B \land x \not \in A) \Rightarrow x \in A \cup (B - A) \Rightarrow \\ x \in A \cup \complement_B A$ i.e $A \cup \complement_B A \supseteq B\ \therefore\ A \cup \complement_B A = B$\QEDA
 \end{itemize}
 
 \item \textbf{Diferencia Simetrica} de $A$ y $B$: son los elementos que pertenecen a $A$ o a $B$, pero no a ambos.
@@ -105,9 +142,27 @@ A \triangle B
 &= (A \cup B) \cap \overline{(A \cap B)} = (A-B) \cup (B-A)
 \end{align*}
 
+\begin{itemize}
+\item $A \triangle B = (A \cup B) \cap \complement (A \cap B)$\\
+\textbf{Dem/} $x \in A \triangle B \iff x \in A \cup B \land x \not \in (A \cap B) \iff \\
+(x \in A \lor x \in B) \land \lnot (x \in A \land x \in B) \iff
+x \in (A \cup B) \cap \overline{(A \cap B)}$ \QEDA
+\item $A \triangle B = (A \cap \complement B) \cup (\complement A \cap B)$\\
+\textbf{Dem/} $x \in A \triangle B \iff (x \in A \lor x \in B) \land \lnot (x \in A \land x \in B) \iff \\
+((x \in A \lor x \in B) \land x \not \in A) \lor ((x \in A \lor x \in B) \land x \not \in B) \iff \\
+(x \not \in A \land x \in B) \lor (x \in A \land x \not \in B) \iff x \in (A \cap \overline{B}) \cup (\overline{A} \cap B)$ \QEDA
+\item $A \triangle B = (A-B) \cup (B-A)$\\
+\textbf{Dem/} $x \in A \triangle B \iff x \in (A \cap \overline{B}) \cup (\overline{A} \cap B) \iff x \in (A - B) \cup (B - A)
+$ \QEDA
+\end{itemize}
+
 \item \textbf{Producto Cartesiano} de $A$ y $B$: es el conjunto de pares ordenados $(a,b)$ tal que la primer componente pertenece a $A$ y la segunda pertenece a $B$.\\
 $A\times B = \{ (a,b) . a\in A, b\in B \}$\\
 Si $A = B$ se escribe $A \times A = A^2$\\
+
+$[a,b] = \{x \in \mathbb{R} : a \leq x \leq b\}$\\
+$[c,d] = \{x \in \mathbb{R} : c \leq x \leq d\}$\\
+$[a,b]\times[c,d] = \{(x,y) \in \mathbb{R}^2 : a \leq x \leq b \land c \leq y \leq d\}$
 \end{itemize}
 \newpage
 
