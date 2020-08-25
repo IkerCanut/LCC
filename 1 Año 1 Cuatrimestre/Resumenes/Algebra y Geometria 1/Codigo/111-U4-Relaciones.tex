@@ -10,6 +10,8 @@
 \author{Iker M. Canut}
 \title{Unidad 4: Relaciones\\\'Algebra y Geometr\'ia Anal\'itica I (R-111)\\Licenciatura en Ciencias de la Computaci\'on}
 \date{2020}
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
 \begin{document}
 \maketitle
 \newpage
@@ -21,16 +23,22 @@
 
 \noindent Recordando que $(A=B \iff A\subseteq B \land B\subseteq A)$, sean $A,B, C$ conjuntos, entonces:
 \begin{itemize}
-\begin{multicols}{2}
-\item $A \times (B \cap C) = (A \times B) \cap (A \times C)$
-\item $A \times (B \cup C) = (A \times B) \cup (A \times C)$
-\item $(A \cap B) \times C = (A \times C) \cap (B \times C)$
-\item $(A \cup B) \times C = (A \times C) \cup (B \times C)$
-\end{multicols}
+\item $A \times (B \cap C) = (A \times B) \cap (A \times C)$\\
+$\subseteq)$ Sea $(x,y) \in A \times (B \cap C) \Rightarrow x \in A \land y \in B \land y \in C$. Por definici\'on de producto cartesiano, $(x,y) \in A\times B \land (x,y)\in A\times C$. Por lo tanto, $(x,y) \in A \times B \cap A \times C \therefore A \times (B \cap C) \subseteq A \times B \cap A \times C$.\\
+$\supseteq)$ Sea $(x,y) \in (A\times B) \cap (A\times C) \Rightarrow x \in A \land y \in B \land y \in C \therefore y \in B\cap C$. Por definici\'on de producto cartesiano, $(x,y) \in A \times (B \cap C) \therefore (A\times B) \cap (A \times C) \subseteq A \times (B \cap C)$. \QEDA
+\item $A \times (B \cup C) = (A \times B) \cup (A \times C)$\\
+$\subseteq)$ Sea $(x,y) \in A \times (B \cup C) \Rightarrow x \in A \land (y \in B \lor y \in C)$. Por definici\'on de producto cartesiano, $(x,y) \in A\times B \lor (x,y)\in A\times C$. Por lo tanto, $(x,y) \in A \times B \cup A \times C \therefore A \times (B \cup C) \subseteq A \times B \cup A \times C$.\\
+$\supseteq)$ Sea $(x,y) \in (A\times B) \cup (A\times C) \Rightarrow x \in A \land (y \in B \lor y \in C) \therefore y \in B\cup C$. Por definici\'on de producto cartesiano, $(x,y) \in A \times (B \cup C) \therefore (A\times B) \cup (A \times C) \subseteq A \times (B \cup C)$. \QEDA
+\item $A \times (B - C) = (A \times B) - (A \times C)$\\
+$\subseteq) $ Sea $(x,y) \in A \times (B - C) \Rightarrow x \in A \land y \in (B - C) \Rightarrow x \in A \land y \in B \land y \not \in C \Rightarrow\\ (x \in A \land y \in B) \land (x \in A \land y \not \in C)$ que por definici\'on de producto cartesiano, llegamos a que $(x,y) \in A \times B \land (x,y) \not \in A \times C \therefore (x,y) \in (A \times B) - (A \times C) \therefore A \times (B - C) \subseteq (A \times B) - (A \times C)$.\\
+$\supseteq) $ Sea $(x,y) \in (A \times B) - (A \times C) \Rightarrow (x,y) \in A\times B \land (x,y) \not \in A \times C$. Es decir, \\$x \in A \land y \in B \land (x \not \in A \lor y \not \in C) \Rightarrow x \in A \land y \in B \land y \not \in C \Rightarrow x \in A \land y \in B - C$. Por definici\'on de producto cartesiano, tenemos que $(x,y) \in A \times (B - C)$. \QEDA
+\item $A \times B \subseteq C \times D \iff A \subseteq C \land B \subseteq D $\\
+$\Rightarrow)$ Sea $(x,y) \in A \times B \Rightarrow (x,y) \in C \times D$. Es decir, $x \in A \land y \in B \Rightarrow x \in C \land y \in D$. Luego, \\ $[x \in A \Rightarrow x \in C] \land [y \in B \Rightarrow y \in D] \therefore A \times B \subseteq C \times D \Rightarrow A \subseteq C \land B \subseteq D$\\
+$\Leftarrow)$ $A \subseteq C \land B \subseteq D$, entonces $x \in A \Rightarrow x \in C \land y \in B \Rightarrow y \in D$. Sea $(x,y) \in A\times B$, $x \in A \land y \in B$ \\ $\therefore x \in C \land y \in D$ y de esta manera $(x,y) \in C\times D$, i.e $A \subseteq C \land B \subseteq D \Rightarrow A \times B \subseteq C \times D$ \QEDA
 \end{itemize}
 
 
-\noindent Una \textbf{relaci\'on} de un conjunto A en un conjunto B es un subconjunto $R$ de $A \times B$. Si $(a,b) \in R$, se dice que $a$ est\'a relacionado con $b$ por $R$, y se nota $aRb$.\\ \\
+\noindent Una \textbf{relaci\'on} de un conjunto A en un conjunto B es un subconjunto $R$ de $A \times B$. Si $(a,b) \in R$, se dice que $a$ est\'a relacionado con $b$ por $R$, y se nota $aRb$.\\
 
 \noindent Sea $R \subseteq A \times B$, $X \subseteq A$, $Y \subseteq B$
 \begin{itemize}
@@ -41,7 +49,6 @@
 \item La \textbf{inversa} de $R$, $R^{-1}: B\rightarrow A$ definida por: \hfill $R^{-1} = \{ (x,y):(y,x) \in R \}$\\
 \end{itemize}
 
-
 \noindent \textbf{Nota}: Sea $R \subseteq A \times B, x\in A, X\subseteq A$, notar que:
 \begin{itemize}
 \item $R^{-1}(x)$ es la \textit{preimagen del elemento} $x$ por $R$.
@@ -49,22 +56,51 @@
 \item $R^{-1}$ es la \textit{relaci\'on inversa} de R.\\
 \end{itemize}
 
+\noindent Sea $R \subseteq A \times B$, entonces $(R^{-1})^{-1} = R$ \\
+$(R^{-1})^{-1} = \{(x,y): (y,x) \in \{ (y,x) : (x,y) \in R \} \} = \{(x,y) : (x,y) \in R\} = R$ \QEDA\\
+
 \noindent Sea $R \subseteq A \times B$ y $S \subseteq B \times C$, la relaci\'on \textbf{composici\'on} de $R$ en $S$, notada como $S \circ R$, es una relaci\'on de $A$ en $C$ definida por $x(S \circ R)y \iff \exists u \in B : xRu \land uSy$
 $$ S \circ R = \{ (x,y) \in A\times C : (x,u) \in R \land (u,y) \in S, \text{ para algun } u \in B \} $$
 
-\begin{multicols}{2}
 \begin{itemize}
-\item $T \circ (S \circ R) = (T \circ S) \circ R$
-\item $(T \circ S)^{-1} = S^{-1} \circ T^{-1}$
+\item $T \circ (S \circ R) = (T \circ S) \circ R$\\
+$\subseteq)\ \forall (x,w) \in [(T \circ S) \circ R]
+\Rightarrow (x,y) \in R \land (y,w) \in (T \circ S)
+\Rightarrow (x,y) \in R \land [(y,z) \in S \land (z,w) \in T]\\
+\Rightarrow [(x,y) \in R \land (y,z) \in S] \land (z,w) \in T
+\Rightarrow (x,z) \in (S \circ R) \land (z,w) \in T
+\Rightarrow (x,w) \in T \circ (S \circ R)$\\
+$\supseteq)\ \forall (x,w) \in [T \circ (S \circ R)]
+\Rightarrow (x,z) \in (S \circ R) \land (z,w) \in T
+\Rightarrow [(x,y) \in R \land (y,z) \in S] \land (z,w) \in T\\
+\Rightarrow (x,y) \in R \land [(y,z) \in S \land (z,w) \in T]
+\Rightarrow (x,y) \in R \land (y,w) \in (T \circ S)
+\Rightarrow (x,w) \in (T \circ S) \circ R\ \ 
+$\QEDA\\
+\item $(S \circ R)^{-1} = R^{-1} \circ S^{-1}$\\
+$ \subseteq)\ \forall (x,z) \in (S \circ R)^{-1}
+\Rightarrow (z,x) \in (S \circ R)
+\Rightarrow (z,y) \in R \land (y,x) \in S
+\Rightarrow (y,z) \in R^{-1} \land (x,y) \in S^{-1}\\
+\Rightarrow (x,y) \in S^{-1} \land (y,z) \in R^{-1}
+\Rightarrow (x,z) \in R^{-1} \circ S^{-1}$\\
+$ \supseteq)\ \forall (x,z) \in R^{-1} \circ S^{-1}
+\Rightarrow (x,y) \in S^{-1} \land (y,z) \in R^{-1}
+\Rightarrow (y,x) \in S \land (z,y) \in R\\
+\Rightarrow (z,y) \in R \land (y,x) \in S
+\Rightarrow (z,x) \in S \circ R
+\Rightarrow (x,z) \in (S \circ R)^{-1}
+$
+\QEDA\\
 \end{itemize}
-\end{multicols}
 
+Cabe aclarar que la composici\'on de funciones no es conmutativa.
 
 \newpage
 \section{Relaciones en un conjunto}
 \noindent Sea $R \subseteq A \times A$, y $a,b,c \in A$, se dice que $R$ es:
 \begin{itemize}
-\item \textbf{Reflexiva}: si $(a,a) \in R \forall a \in A$
+\item \textbf{Reflexiva}: si $(a,a) \in R\ \forall a \in A$
 \item \textbf{Sim\'etrica}: si $(a,b) \in R \Rightarrow (b,a \in A)$
 \item \textbf{Antisim\'etrica}: $(a,b) \in R \land a \not = b \Rightarrow (b,a) \not \in R$, equivalentemente, $(a,b) \in R \land (b,a) \in R \Rightarrow a = b$
 \item \textbf{Transitiva}: si $(a,b) \in R \land (b,c) \in R \Rightarrow (a,c) \in R$
@@ -113,9 +149,16 @@ $$[a] = \{ x \in A : (a,x) \in \mathbb{R} \}$$
 \noindent Observemos que como es sim\'etrica, $[a] = \{ x \in A : (x,a) \in \mathbb{R} \}$ tambien vale. Todo elemento $x \in [a]$ se dice que es un \textbf{representante} de esa clase de equivalencia.
 
 \begin{itemize}
-\item $[a] \not = \emptyset$
-\item $(a,b) \in R \iff [a]=[b]$
-\item $(a,b) \not \in R \iff [a]\cap[b] = \emptyset$
+\item $[a] \not = \emptyset$\\
+Sabemos que $a \in [a]$ ya que es reflexiva, luego $[a] \not = \emptyset$ \QEDA
+\item $(a,b) \in R \iff [a]=[b]$\\
+$\Rightarrow)\ \subseteq)\ x \in [a] \Rightarrow (a,x) \in R \Rightarrow (x,a) \in R$ (por simetr\'ia). Por H) $(a,b) \in R \Rightarrow (x,b) \in R$ (por \\ \indent $\ \ \ \ \ \ $ transitividad) $\therefore x \in [b]$.\\
+\indent $\ \ \ $ $ \ \ \supseteq)\ x \in [b] \Rightarrow (b,x) \in R \Rightarrow (x,b) \in R$. Como $(b,a) \in R \Rightarrow (x,a) \in R \therefore x \in [a]$\\
+$\Leftarrow)$ Sean $a,b \in A : [a]=[b]$ luego $a \in [b] \therefore (a,b) \in R$ \QEDA
+\item $(a,b) \not \in R \iff [a]\cap[b] = \emptyset$\\
+$\Rightarrow)$ $(a,b) \not \in R \Rightarrow [a]\cap[b] = \emptyset$ es equivalente a $[a]\cap[b] \not = \emptyset \Rightarrow (a,b) \in R$.\\
+\indent $\ \ \ \ $ Si existe $x \in [a]\cap[b]$, luego $(a,x) \in R \land (b,x) \in R \Rightarrow (a,x) \in R \land (x,b) \in R \therefore (a,b) \in R$\\
+$\Leftarrow)$ $[a]\cap[b] = \emptyset \Rightarrow (a,b) \not \in R$ es equivalente a $(a,b) \in R \Rightarrow [a]\cap[b] \not = \emptyset$. Y por el punto anterior,\\ \indent $\ \ \ \ $ sabemos que $[a]=[b]$. Y particularmente $a \in [a]\cap[b]$ \QEDA
 \end{itemize}
 
 \noindent Es decir, todo elemento de $A$ pertenece a alguna clase y dos clases de equivalencia, o bien son iguales o son conjuntos disjuntos.\\
@@ -123,10 +166,17 @@ $$[a] = \{ x \in A : (a,x) \in \mathbb{R} \}$$
 \noindent Una \textbf{partici\'on} $P$ de un conjunto $A$ es una colecci\'on de conjuntos no vacios $\{ X_1, X_2, ...\}$ tales que:
 \begin{itemize}
 \item $i \not = j \Rightarrow X_i \cap X_j = \emptyset$,
-\item $\forall a \in A, \exists X_i \in P : a \in X_i$
+\item $\forall a \in A, \exists X_i \in P : a \in X_i$\\
 \end{itemize}
 
-\noindent Sea $P$ una partici\'on de $A$, existe una \'unica relaci\'on de equivalencia en $A$ cuyas clases de equivalencia son los elementos de $P$.\\
+\noindent Sea $P$ una partici\'on de $A \not = \emptyset$, existe una \'unica relaci\'on de equivalencia en $A$ cuyas clases de equivalencia son los elementos de $P$.\\
+\noindent\textbf{Dem/} Se define una relaci\'on $R$ en $A$ tal que $(x,y) \in R \iff$ existe $X_i \in P$ tal que $x,y \in X_i$, i.e:\\
+Sea $P = \{A_1, A_2, ..., A_n\}$ una partici\'on de $A$, se define $R = \{(x,y) : x \in A_i, y \in A_i, A_i \in P\}$. Luego,
+\begin{itemize}
+\item $R$ es reflexiva, como $A \not = \emptyset$, existe $x \in A$. Y como $P$ es una partici\'on de $A$, $x \in A_i, A_i \in P$
+\item $R$ es sim\'etrica pues $xRy$, $x \in A_i \land y \in A_i$, y por lo tanto $yRx$.
+\item $R$ es transitiva, si $xRy \land yRz$, entonces $x \in A_i \land y \in A_i$ y tambi\'en $y \in A_j \land z \in A_j$. Y como $y \in A_i \land y \in A_j \Rightarrow A_i = A_j \therefore x \in A_i \land z \in A_i$, de donde $xRz$. \QEDA\\
+\end{itemize}
 
 \noindent Sea $R$ una relaci\'on de equivalencia en $A$, llamamos \textbf{conjunto cociente} de $A$ por $R$, y lo notamos $A|_R$ al conjunto cuyos elementos son las clases de equivalencia de $A$ definidadas por $R$: $$A|_R = \{ [a] : a \in A \}$$
 \end{document}
