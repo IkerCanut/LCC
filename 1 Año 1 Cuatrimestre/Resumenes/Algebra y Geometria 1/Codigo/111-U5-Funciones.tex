@@ -30,71 +30,109 @@ $f(A_1) = \{ b \in B : f(a) = b, a \in A_1 \}$
 y decimos que es la imagen de $A_1$ por $f$. Si $A_1 = A$, notamos $f(A) = Im(f)$ y ese es el \textbf{conjunto imagen} de $f$.\\ \\
 
 
-\noindent Decimos que $f : A \rightarrow B$ es \textbf{inyectiva} si cada elemento de $B$ aparece a lo sumo una vez como segunda componente de los pares ordenados de la relaci\'on: $$\forall a_1, a_2 \in A, f(a_1) = f(a_2) \Rightarrow a_1 = a_2$$
+\noindent Decimos que $f : A \rightarrow B$ es \textbf{inyectiva} si cada elemento de $B$ aparece a lo sumo una vez como segunda componente de los pares ordenados de la relaci\'on: $\forall a_1, a_2 \in A, f(a_1) = f(a_2) \Rightarrow a_1 = a_2$\\
 
 \noindent \textbf{Teorema}: Sea $f:A\rightarrow B, A_1, A_2 \subseteq A$:
-\begin{multicols}{2}
 \begin{itemize}
-\item $f(A_1 \cup A_2) = f(A_1) \cup f(A_2)$
-\item $f(A_1 \cap A_2) \subseteq f(A_1) \cap f(A_2)$
+\item $f(A_1 \cup A_2) = f(A_1) \cup f(A_2)$\\
+$\subseteq)$ $y \in f(A_1 \cup A_2) \Rightarrow \exists x \in A_1 \cup A_2 : f(x) = y \Rightarrow x \in A_1 \lor x \in A_2 \Rightarrow \\ $ \indent $\ \ \ $ $f(x)=y \in f(A_1) \lor f(x)=y \in f(A_2) \therefore y \in f(A_1) \cup f(A_2)$\\
+$\supseteq)$ $y\in f(A_1) \cup f(A_2) \Rightarrow \exists x_1 \in A_1 : f(x_1) = y \lor \exists x_2 \in A_2 : f(x_2) = y$. En cualquier caso\\ $ \indent $\ \ \ \ $ \exists x \in A_1\cup A_2 : f(x) = y \therefore y \in f(A_1 \cup A_2)$ \QEDA
+\item $f(A_1 \cap A_2) \subseteq f(A_1) \cap f(A_2)$\\
+\textbf{D/} $y \in f(A_1 \cap A_2) \Rightarrow \exists x \in A_1 \cap A_2 : f(x) = y \Rightarrow x \in A_1 \land x \in A_2 \Rightarrow $ \\ \indent $\ \ \ \ \ f(x) = y \in f(A_1) \land y \in f(A_2) \Rightarrow y \in f(A_1) \cap f(A_2)$ \QEDA
+\item Si $f$ es inyectiva, $f(A_1 \cap A_2) = f(A_1) \cap f(A_2)$\\
+$\subseteq)$ Demostrado en el punto anterior.\\
+$\supseteq)$ Sea $y \in f(A_1) \cap f(A_2) \Rightarrow \exists x_1 \in A_1 : f(x_1) = y \land \exists x_2 \in A_2 : f(x_2) = y$. Y como $f$ es inyectiva, $x_1 = x_2$. Luego, $\exists x \in A_1 \cap A_2 : f(x) = y \therefore y \in f(A_1 \cap A_2)$ \QEDA\\
+
 \end{itemize}
-\end{multicols}
-\noindent \textbf{Teorema}: $\forall X_1, X_2 \subseteq A$, $[f(X_1 \cap X_2) = f(X_1) \cap f(X_2)] \iff \text{ $f$ es inyectiva}$\\
-\textbf{Demostraci\'on}: \\ 
+
+\noindent \textbf{Teorema}: Sea $f:A\rightarrow B$, $\forall X_1, X_2 \subseteq A$, $[f(X_1 \cap X_2) = f(X_1) \cap f(X_2)] \iff \text{ $f$ es inyectiva}$\\
 $\Leftarrow)$ Por el teorema anterior, sabemos que $\forall X_1, X_2 \subseteq A$, $f(X_1 \cap X_2) \subseteq f(X_1) \cap f(X_2)$. Ahora, \\$y\in [f(X_1) \cap f(X_2)] \Rightarrow y \in f(X_1) \land y \in f(X_2) \Rightarrow \exists x_1\in X_1, x_2\in X_2$: $y=f(x_1) \land y=f(x_2)$. Luego $f(x_1) = f(x_2)$, y como es inyectiva, $x_1 = x_2 \in X_1 \cap X_2$ i.e $y\in f(X_1 \cap X_2)$ \QEDB\\
 $\Rightarrow)$ Sean $x_1, x_2 \in A$: $f(x_1) = f(x_2)$, definimos $X_1 = \{x_1\}$ y $X_2=\{x_2\}$, luego\\ $f(X_1) \cap f(X_2) = \{f(x_1)\} = \{f(x_2)\}$. Por hipotesis, $f(X_1 \cap X_2) = f(X_1) \cap f(X_2)$, pero\\ si $x_1\not=x_2$, $X_1\cap X_2 = \emptyset$, luego $x_1 = x_2$ demostrando asi la inyectividad. \QEDA\\
 
 \noindent Sea $f:A\rightarrow B, A_1 \subseteq A \subseteq A_2$:
 \begin{itemize}
-\item $f|_{A_1} : A \rightarrow B : f|_{A_1}(a) = f(a)$ si $a \in A_1$, es la \textbf{restricci\'on} de $f$ a $A_1$.
-\item $g : A_2 \rightarrow B : g(a) = f(a)$ si $a \in A$ es una \textbf{extensi\'on} de $f$ a $A_2$.\\
+\item $f|_{A_1} : A \rightarrow B : f|_{A_1}(a) = f(a)$ si $a \in A_1$, es LA \textbf{restricci\'on} de $f$ a $A_1$.
+\item $g : A_2 \rightarrow B : g(a) = f(a)$ si $a \in A$ es UNA \textbf{extensi\'on} de $f$ a $A_2$.\\
 \end{itemize}
 
 \noindent Sea $f: A \rightarrow B, B_1 \subseteq B$, la \textbf{preimagen} de $B_1$ por medio de $f$, notada como $f^{-1}(B_1)$ es el conjunto:
-$$f^{-1}(B_1) = \{ x \in A : f(x) \in B_1 \}$$
+$$f^{-1}(B_1) = \{ x \in A : f(x) \in B_1 \}$$\\
 
+\newpage
+\noindent \textbf{Teorema}: Sea $f: A \rightarrow B, B_1, B_2 \subseteq B$
 \begin{itemize}
-\item $f^{-1}(B_1 \cup B_2) = f^{-1}(B_1) \cup f^{-1}(B_2)$
-\item $f^{-1}(B_1 \cap B_2) = f^{-1}(B_1) \cap f^{-1}(B_2)$
+\item $f^{-1}(B_1 \cup B_2) = f^{-1}(B_1) \cup f^{-1}(B_2)$\\
+$x \in f^{-1}(B_1 \cup B_2) \iff f(x) \in B_1 \cup B_2 \iff f(x) \in B_1 \lor f(x) \in B_2 \iff \\ x \in f^{-1}(B_1) \lor x \in f^{-1}(B_2) \iff x \in f^{-1}(B_1) \cup f^{-1}(B_2)$ \QEDA
+\item $f^{-1}(B_1 \cap B_2) = f^{-1}(B_1) \cap f^{-1}(B_2)$\\
+$x \in f^{-1}(B_1 \cap B_2) \iff f(x) \in B_1 \cap B_2 \iff f(x) \in B_1 \land f(x) \in B_2 \iff \\ x \in f^{-1}(B_1) \land x \in f^{-1}(B_2) \iff x \in f^{-1}(B_1) \cap f^{-1}(B_2)$ \QEDA
 \item $f^{-1}(\overline{B_1}) = \overline{f^{-1}(B_1)}$\\
 \indent $a\in f^{-1}(\overline{B_1}) \iff f(a)\in\overline{B_1} \iff \lnot(f(a)\in B_1) \iff \lnot(a\in f^{-1}(B_1)) \iff a \in \overline{f^{-1}(B_1)}$ \QEDA\\
 \end{itemize}
 
 \noindent Diremos que $f : A \rightarrow B$ es \textbf{suryectiva} si cada elemento de $B$ aparece al menos una vez como segunda componente de los pares ordenados de la relaci\'on: $f(A) = Im(f) = B$. Es decir:$$ \text{Dado } y \in B, \exists x \in A : f(x) = y $$
 
+Sea $f : A \rightarrow B$, $A_1 \subseteq A$
+\begin{itemize}
+\item Si $f$ es inyectiva, entonces $f_{|A_1}$ es inyectiva.\\
+\textbf{D/} Suponiendo que $f_{|A_1}$ no es inyectiva, luego $\exists x_1, x_2 \in A_1 : f(x_1) = f(x_2)$, con $x_1 \not = x_2$. Pero $x_1, x_2 \in A$ y $A$ no ser\'ia inyectiva $\therefore f_{|A_1}$ es inyectiva. \QEDA
+\item Si $f_{|A_1}$ es inyectiva, $f$ no necesariamente es inyectiva, puesto que puede existir algun $x$ que no pertenezca a $A_1$, cuya imagen coinicida con alguna imagen de otra $x$ perteneciente a $A_1$. Por ejemplo $A = [-2,2], A_1 = [0,2]$ y $f(x)=x^2$\QEDA
+\item Si $f$ es suryectiva, entonces $f_{|A_1}$ no necesariamente es suryectiva, puesto que al restringir el dominio, se puede dejar fuera alguna $x$ que era la \'unica que obten\'ia cierta imagen. Por ejemplo, $A=[0,4], A_1 = [1,3]$ y $f(x)=x$\QEDA
+\item Si $f_{|A_1}$ es suryectiva, entonces $f$ es suryectiva, puesto que todo elemento de $B$, tiene una preimagen que pertenece a $A_1$, ergo pertenece a $A$, puesto que $A_1 \subseteq A$ \QEDA
+\end{itemize}
 
-\noindent Luego, una funci\'on es \textbf{biyectiva} si es inyectiva y suryectiva.
+\noindent Luego, una funci\'on es \textbf{biyectiva} si es inyectiva y suryectiva.\\
 
+\noindent \textbf{Corolario}: Sea $f : A \rightarrow B, g : C \rightarrow D$, definimos $h : A \times C \rightarrow B \times D$ por $h(a,c) = (f(a),g(b))$. Luego, \\ $h$ es biyectiva $\iff$ $f$ y $g$ son biyectivas.\\
+$\Rightarrow)$ Se demuestra para $f$, $g$ es an\'alogo. Sabemos que: \\ 
+\indent - $\forall (a_1,c_1), (a_2,c_2) \in A \times C, h(a_1, c_1) = h(a_2,c_2) \Rightarrow (a_1,c_1) = (a_2,c_2) \Rightarrow a_1 = a_2 \land c_1 = c_2$ \hfill \textbf{(1)}\\
+\indent - $\forall (b,d) \in B \times D,\ \exists (a,c) \in A \times C : h(a,c) = (b,d)$\hfill \textbf{(2)}
+\begin{itemize}
+\item Inyectividad: Es decir, Sean $a_1,a_2 \in A : f(a_1) = f(a_2) \Rightarrow a_1 = a_2?$\\
+Sabemos que $f(a_1) = f(a_2)$ y tambi\'en \textbf{(1)}. Por lo que tenemos que tomar un $c$ fijo, y trabajando con los pares $(f(a_1),g(c)), (f(a_2),g(c))$, sabemos que $f(a_1) = f(a_2) \land g(c) = g(c)$. Luego, $(f(a_1),g(c)) = (f(a_2),g(c)) \Rightarrow h(a_2, c) = h(a_1, c) \Rightarrow (a_1,c) = (a_2,c) \Rightarrow a_1 = a_2$ \QEDB
+\item Suryectividad: Sea $b \in B, \exists a \in A : f(a) = b?$\\
+Considerando un $c \in C$ fijo, y el par $(b,g(c)) \in B \times D$, por \textbf{(2)} $\exists (a,c) \in A \times C : h(a,c) = (b,g(c))$. Por definici\'on de $h$, $h(a,c) = (f(a),g(c)) = (b,g(c)) \Rightarrow \exists a \in A : f(a) = b$ \QEDB
+\end{itemize}
+$\Leftarrow)$ Sabemos que $f$ y $g$ son biyectivas, hay que demostrar que $h$ tambi\'en lo es.
+\begin{itemize}
+\item Inyectividad: Sean $(a_1,c_1), (a_2,c_2) \in A \times C$, entonces $h(a_1,c_1) = h(a_2,c_2) \Rightarrow \\ \Rightarrow (f(a_1),g(c_1)) = (f(a_2),g(c_2)) \Rightarrow f(a_1) = f(a_2) \land g(c_1) = g(c_2)$ y como $f$ y $g$ son inyectivas, entonces $a_1 = a_2 \land c_1 = c_2 \Rightarrow (a_1, c_1) = (a_2,c_2)$ $\therefore$ $h$ es inyectiva \QEDB
+\item Suryectividad: Sea $(b,d) \in B \times D \Rightarrow b \in B \land d \in D$, y como $f$ y $g$ son suryectivas, entonces $\exists a \in A : f(a) = b \land \exists c \in C : g(c) = d \Rightarrow (f(a),g(c)) = (b,d)$. Es decir, $\exists (a,c) \in A \times C : h(a,c) = (b,d)\ \therefore\ h$ es suryectiva.\QEDA\\
+\end{itemize}
 \newpage
 
 \noindent Sean $f$ y $g$ dos funciones, tales que $Im(f) \cap Dom(g) \not = \emptyset$, se define la \textbf{composici\'on} de $g$ con $f$, y se lo nota $g \circ f$, a la funci\'on con dominio: $Dom (g \circ f) = \{ x \in Dom(f) : f(x) \in Dom(g) \}$ y tal que $$(g \circ f) (x) = g(f(x)), \forall x \in Dom(g \circ f)$$
 
 \noindent Bajo la condici\'on $Im(f) \cap Dom(g) \not = \emptyset$ decimos que la composici\'on de $g$ con $f$ es posible ya que su dominio es no vacio. Adem\'as, hay funciones para las cuales $(g\circ f)$ esta bien definida, pero $(f\circ g)$ no lo est\'a. Tambi\'en pueden existir y ser distintas. Por lo tanto, no es conmutativa.\\
 
-\noindent Pero la composici\'on de funciones si es asociativa, es decir, $(h \circ g) \circ f = h \circ (g \circ f)$\\
+\noindent \textbf{Proposici\'on}: La composici\'on de funciones es asociativa, es decir, $(h \circ g) \circ f = h \circ (g \circ f)$\\
+\textbf{D/} 
+$(h \circ g) \circ f(x)=
+(h \circ g) (f(x)) = 
+h(g(f(x))) = 
+h(g \circ f(x)) =
+h \circ (g \circ f) (x),\ \ \forall x \in Dom(f)$ \QEDA\\
 
 \noindent Sea $f: A \rightarrow A$, la composici\'on $(f \circ f)$ es posible y se nota $f^2$. Recursivamente, $f^n = (f \circ f^{n-1})$\\
 
-\noindent \textbf{Teorema}: Si $f: A \rightarrow B$ y $g: B \rightarrow C$ son inyectivas, entonces $(g \circ f) : A \rightarrow C$ es inyectiva.\\
-\textbf{Dem}: $a_1, a_2 \in A$, $(g \circ f)(a_1) = (g \circ f)(a_2) \Rightarrow g(f(a_1)) = g(f(a_1)) \Rightarrow f(a_1) = f(a_2) \Rightarrow a_1 = a_2$ \QEDA\\
+\noindent \textbf{Teorema}: Si $f: A \rightarrow B$ y $g: B \rightarrow C$ sonx inyectivas, entonces $(g \circ f) : A \rightarrow C$ es inyectiva.\\
+\textbf{D/} $a_1, a_2 \in A$, $(g \circ f)(a_1) = (g \circ f)(a_2) \Rightarrow g(f(a_1)) = g(f(a_1)) \Rightarrow f(a_1) = f(a_2) \Rightarrow a_1 = a_2$ \QEDA\\
 
 \noindent \textbf{Teorema}: Si $f: A \rightarrow B$ y $g: B \rightarrow C$ son suryectivas, entonces $(g \circ f) : A \rightarrow C$ es suryectivas.\\
-\textbf{Dem}: Dado $c\in C$ sabemos que existe $b \in B : g(b)=c$. Dado ese mismo $b$, sabemos que existe $a\in A : f(a)=b$ $\therefore$ Dado $c \in C\ \exists a \in A : g(f(a)) = g(b) = c$ i.e es suryectiva. \QEDA\\
+\textbf{D/} Dado $c\in C$ sabemos que existe $b \in B : g(b)=c$. Dado ese mismo $b$, sabemos que existe $a\in A : f(a)=b$ $\therefore$ Dado $c \in C\ \exists a \in A : g(f(a)) = g(b) = c$ i.e es suryectiva. \QEDA\\
 
 \noindent Una funci\'on $f : A \rightarrow B$ es \textbf{inversible} si existe $g : B \rightarrow A :$ $(g\circ f) = id_A \text{  y  } (f\circ g) = id_B$\\
 Luego, si $f$ es inversible, entonces $g$ tambi\'en lo es.\\
 
 \noindent \textbf{Teorema}: $f : A \rightarrow B$ es inversible y $g : B \rightarrow A$ es una inversa de $f$, entonces es unica.\\
-\textbf{Dem}: Supongamos $g:B \rightarrow A$ y $h:B \rightarrow A$ / $(f \circ h) = id_B$, $(f \circ g) = id_B$, $(g \circ f) = id_A$, $(h \circ f) = id_A$, luego: $h = h \circ id_B = h \circ (f \circ g) = (h \circ f) \circ g = id_A \circ g = g$ \QEDA\\
+\textbf{D/} Supongamos $g:B \rightarrow A$ y $h:B \rightarrow A$ / $(f \circ h) = id_B$, $(f \circ g) = id_B$, $(g \circ f) = id_A$, $(h \circ f) = id_A$, luego: $h = h \circ id_B = h \circ (f \circ g) = (h \circ f) \circ g = id_A \circ g = g$ \QEDA\\
 
 \noindent \textbf{Teorema}: $f$ es inversible $\iff$ $f$ es biyectiva.\\
 $\Rightarrow)$ $f(a_1)=f(a_2) \Rightarrow f^{-1}(a_1) = f^{-1}(a_2) \Rightarrow a_1=a_2$\\
 \indent Como $f(a)=b \iff a = f^{-1}(b)$, y sabemos que existe $f^{-1}$ para todo $b \in B$, $\Rightarrow$ $f^{-1}(b) \in A$ \QEDB\\
-$\Leftarrow)$ Como $f$ es suryectiva, defino $g:B\rightarrow A$ de manera tal que\\ \indent a cada elemento de $B$ le asigna $a\in A / f(a)=b$\\
-\indent Por la inyectividad, $g$ es funci\'on, es decir, si $g(b)=a_1 \land g(b)=a_2$ con $a_1\not=a_2$, ser\'ia porque \\ \indent $f(a_1)=f(a_2)$, contradiciendo la inyectividad de $f$. Luego, es inversible. \QEDA\\
+$\Leftarrow)$ Como $f$ es suryectiva, defino $g:B\rightarrow A$ de manera tal que a cada elemento de $B$ le asigna $a\in A / f(a)=b$
+Por la inyectividad, $g$ es funci\'on, es decir, si $g(b)=a_1 \land g(b)=a_2$ con $a_1\not=a_2$, ser\'ia porque $f(a_1)=f(a_2)$, contradiciendo la inyectividad de $f$. Luego, es inversible. \QEDA\\
 
 \noindent \textbf{Teorema}: $f : A \rightarrow B, g: B \rightarrow C$ son inversibles, entonces $(g \circ f)$ es inversible y $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.\\
-\textbf{Dem}: Como la composici\'on de funciones biyectivas es biyectiva, $g\circ f$ es inversible.\\ Resta verificar que la inversa es $f^{-1} \circ g^{-1}$: \\
+\textbf{D/} Como la composici\'on de funciones biyectivas es biyectiva, $g\circ f$ es inversible.\\ Resta verificar que la inversa es $f^{-1} \circ g^{-1}$: \\
 $(f^{-1} \circ g^{-1})\circ(g \circ f) = f^{-1} \circ (g^{-1})\circ g) \circ f = f^{-1} \circ id_B \circ f = (f^{-1} \circ id_B) \circ f = f^{-1} \circ f = id_A$\\
 An\'alogamente, $(g \circ f) \circ (f^{-1} \circ g^{-1}) = id_B$ \QEDA\\
 
@@ -108,19 +146,15 @@ An\'alogamente, $(g \circ f) \circ (f^{-1} \circ g^{-1}) = id_B$ \QEDA\\
 \item[(iii)] $f$ es inversible
 \end{enumerate}
 \end{multicols}
-\noindent \textbf{Dem}: Ya sabemos que $(i)\land(ii) \iff (iii)$, falta probar que $(i)\iff(ii)$. Vamos por el absurdo:\\
+\noindent \textbf{D/} Ya sabemos que $(i)\land(ii) \iff (iii)$, falta probar que $(i)\iff(ii)$. Vamos por el absurdo:\\
 - Supongamos que no es inyectiva y que vale $(ii)$, entonces $\exists a_1 \not = a_2 / f(a_1) = f(a_2)$, con lo cual\\ \indent $|A|>|f(A)|=|B|$, teniendo as\'i una contradicci\'on.\\
 - Suponiendo que no es suryectiva y que vale $(i)$, entonces $|f(A)| < |B| = |A|s$, pero como es inyectiva,\\ \indent $|A| \leq |f(A)|$, teniendo asi otra contradicci\'on. \\
-Luego, $(i)\iff(ii)\iff(iii)$, demostrando asi el teorema. \QEDA
+Luego, $(i)\iff(ii)\iff(iii)$, demostrando asi el teorema. \QEDA \\ \\
 
 
-\newpage
 \section{Operaciones}
 \noindent Dados $A$ y $B$ no vacios, una funci\'on $f : A \times A \rightarrow B$ es una \textbf{operaci\'on binaria} en $A$. Si adem\'as, $Im(f) \subseteq A$, la operaci\'on es \textbf{cerrada} en $A$.\\
-
 \noindent Una funci\'on $g : A \rightarrow A$ es una \textbf{operaci\'on monaria} (unaria) en $A$.\\
-
-\noindent \dotfill
 
 
 \noindent Dada $f: A \times A \rightarrow B$, operaci\'on binaria en $A$, 
@@ -130,18 +164,20 @@ Luego, $(i)\iff(ii)\iff(iii)$, demostrando asi el teorema. \QEDA
 \end{itemize}
 \noindent Podemos notar $f(a,b) = a \otimes b$, y estas propiedadades son mas amigables: Por ejemplo la asociatividad ser\'ia: $(a \otimes b) \otimes c = a \otimes (b \otimes c)$.\\
 
-\noindent \dotfill
-
 \noindent Luego, dado $f : A \times A \rightarrow A$, decimos que tiene \textbf{neutro} si existe $a_0 \in A$ tal que $$f(a, a_0) = f(a_0, a) = a, \forall a \in A$$
 \noindent Es decir, $$a \otimes a_0 = a_0 \otimes a = a$$
 
-\noindent Adem\'as, si $f : A \times A \rightarrow A$ tiene neutro, \'este es \'unico.\\
-
-\noindent \dotfill
+\noindent \textbf{Teorema}: Si $f : A \times A \rightarrow A$ tiene neutro, \'este es \'unico.\\
+\textbf{D/} Sea $f(a,b) = a \otimes b$ y sean $x,y \in A$ elementos neutros, entonces $a \otimes x = x \otimes a = a = a \otimes y = y \otimes a$.
+\[ \left. \begin{array}{l}
+x \in A, y \text{ neutro } \Rightarrow x \otimes y = y \otimes x = x\\
+y \in A, x \text{ neutro } \Rightarrow x \otimes y = y \otimes x = y
+\end{array} \right\} \Rightarrow x = y\]  \QEDA\\
 
 \noindent Dada $f : A \times A \rightarrow A$, si $f$ posee neutro $x \in A$, decimos que la operaci\'on posee inversos si $$\forall a \in A \exists a' : f(a, a') = f(a', a) = x$$
 
-\noindent Luego, si $f : A \times A \rightarrow A$ es una operaci\'on asociativa, con elemento neutro $x \in A$ que posee \textbf{inversos}, entonces cada elemento posee un \'unico inverso: Supongamos que tiene 2 inversos $a_1$ y $a_2$, $$a_1 = a_1 \otimes x = a_1 \otimes (a \otimes a_2) = (a_1 \otimes a) \otimes a_2 = x \otimes\ a_2 = a_2$$
+\noindent \textbf{Teorema}: Si $f : A \times A \rightarrow A$ es una operaci\'on asociativa, con elemento neutro $x \in A$ que posee inversos, entonces cada elemento posee un \'unico inverso.\\
+\textbf{D/} Supongamos que $a \in A$ posee 2 elementos inversos $a_1$ y $a_2$, y notemos $f(a,b) = a \otimes b$, entonces: \\ $a_1 = a_1 \otimes x = a_1 \otimes (a \otimes a_2) = (a_1 \otimes a) \otimes a_2 = x \otimes\ a_2 = a_2$\QEDA\\
 
-\noindent \dotfill
+\noindent Sea $A = B = \mathbb{R}$, se define $\Pi_A(D)$ y $\Pi_B(D)$ como las funciones proyecci\'on de la primer y segunda componente de un par ordenado, $D \subseteq A \times B$. Es decir, $\Pi_A(D) : D \rightarrow A : \Pi_A(a,b) = a$.
 \end{document}
