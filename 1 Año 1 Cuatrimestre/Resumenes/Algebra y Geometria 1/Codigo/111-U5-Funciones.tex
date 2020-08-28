@@ -46,7 +46,7 @@ $\supseteq)$ Sea $y \in f(A_1) \cap f(A_2) \Rightarrow \exists x_1 \in A_1 : f(x
 \end{itemize}
 
 \noindent \textbf{Teorema}: Sea $f:A\rightarrow B$, $\forall X_1, X_2 \subseteq A$, $[f(X_1 \cap X_2) = f(X_1) \cap f(X_2)] \iff \text{ $f$ es inyectiva}$\\
-$\Leftarrow)$ Por el teorema anterior, sabemos que $\forall X_1, X_2 \subseteq A$, $f(X_1 \cap X_2) \subseteq f(X_1) \cap f(X_2)$. Ahora, \\$y\in [f(X_1) \cap f(X_2)] \Rightarrow y \in f(X_1) \land y \in f(X_2) \Rightarrow \exists x_1\in X_1, x_2\in X_2$: $y=f(x_1) \land y=f(x_2)$. Luego $f(x_1) = f(x_2)$, y como es inyectiva, $x_1 = x_2 \in X_1 \cap X_2$ i.e $y\in f(X_1 \cap X_2)$ \QEDB\\
+$\Leftarrow)$ Por el teorema anterior, sabemos que $\forall X_1, X_2 \subseteq A$, $f(X_1 \cap X_2) \subseteq f(X_1) \cap f(X_2)$. Ahora, \\$y\in [f(X_1) \cap f(X_2)] \Rightarrow y \in f(X_1) \land y \in f(X_2) \Rightarrow \exists x_1\in X_1, x_2\in X_2$: $y=f(x_1) \land y=f(x_2)$. Luego $f(x_1) = f(x_2)$, y como es inyectiva, $x_1 = x_2 \in X_1 \cap X_2$ i.e $y\in f(X_1 \cap X_2)$ \\
 $\Rightarrow)$ Sean $x_1, x_2 \in A$: $f(x_1) = f(x_2)$, definimos $X_1 = \{x_1\}$ y $X_2=\{x_2\}$, luego\\ $f(X_1) \cap f(X_2) = \{f(x_1)\} = \{f(x_2)\}$. Por hipotesis, $f(X_1 \cap X_2) = f(X_1) \cap f(X_2)$, pero\\ si $x_1\not=x_2$, $X_1\cap X_2 = \emptyset$, luego $x_1 = x_2$ demostrando asi la inyectividad. \QEDA\\
 
 \noindent Sea $f:A\rightarrow B, A_1 \subseteq A \subseteq A_2$:
@@ -88,13 +88,13 @@ $\Rightarrow)$ Se demuestra para $f$, $g$ es an\'alogo. Sabemos que: \\
 \indent - $\forall (b,d) \in B \times D,\ \exists (a,c) \in A \times C : h(a,c) = (b,d)$\hfill \textbf{(2)}
 \begin{itemize}
 \item Inyectividad: Es decir, Sean $a_1,a_2 \in A : f(a_1) = f(a_2) \Rightarrow a_1 = a_2?$\\
-Sabemos que $f(a_1) = f(a_2)$ y tambi\'en \textbf{(1)}. Por lo que tenemos que tomar un $c$ fijo, y trabajando con los pares $(f(a_1),g(c)), (f(a_2),g(c))$, sabemos que $f(a_1) = f(a_2) \land g(c) = g(c)$. Luego, $(f(a_1),g(c)) = (f(a_2),g(c)) \Rightarrow h(a_2, c) = h(a_1, c) \Rightarrow (a_1,c) = (a_2,c) \Rightarrow a_1 = a_2$ \QEDB
+Sabemos que $f(a_1) = f(a_2)$ y tambi\'en \textbf{(1)}. Por lo que tenemos que tomar un $c$ fijo, y trabajando con los pares $(f(a_1),g(c)), (f(a_2),g(c))$, sabemos que $f(a_1) = f(a_2) \land g(c) = g(c)$. Luego, $(f(a_1),g(c)) = (f(a_2),g(c)) \Rightarrow h(a_2, c) = h(a_1, c) \Rightarrow (a_1,c) = (a_2,c) \Rightarrow a_1 = a_2$
 \item Suryectividad: Sea $b \in B, \exists a \in A : f(a) = b?$\\
-Considerando un $c \in C$ fijo, y el par $(b,g(c)) \in B \times D$, por \textbf{(2)} $\exists (a,c) \in A \times C : h(a,c) = (b,g(c))$. Por definici\'on de $h$, $h(a,c) = (f(a),g(c)) = (b,g(c)) \Rightarrow \exists a \in A : f(a) = b$ \QEDB
+Considerando un $c \in C$ fijo, y el par $(b,g(c)) \in B \times D$, por \textbf{(2)} $\exists (a,c) \in A \times C : h(a,c) = (b,g(c))$. Por definici\'on de $h$, $h(a,c) = (f(a),g(c)) = (b,g(c)) \Rightarrow \exists a \in A : f(a) = b$
 \end{itemize}
 $\Leftarrow)$ Sabemos que $f$ y $g$ son biyectivas, hay que demostrar que $h$ tambi\'en lo es.
 \begin{itemize}
-\item Inyectividad: Sean $(a_1,c_1), (a_2,c_2) \in A \times C$, entonces $h(a_1,c_1) = h(a_2,c_2) \Rightarrow \\ \Rightarrow (f(a_1),g(c_1)) = (f(a_2),g(c_2)) \Rightarrow f(a_1) = f(a_2) \land g(c_1) = g(c_2)$ y como $f$ y $g$ son inyectivas, entonces $a_1 = a_2 \land c_1 = c_2 \Rightarrow (a_1, c_1) = (a_2,c_2)$ $\therefore$ $h$ es inyectiva \QEDB
+\item Inyectividad: Sean $(a_1,c_1), (a_2,c_2) \in A \times C$, entonces $h(a_1,c_1) = h(a_2,c_2) \Rightarrow \\ \Rightarrow (f(a_1),g(c_1)) = (f(a_2),g(c_2)) \Rightarrow f(a_1) = f(a_2) \land g(c_1) = g(c_2)$ y como $f$ y $g$ son inyectivas, entonces $a_1 = a_2 \land c_1 = c_2 \Rightarrow (a_1, c_1) = (a_2,c_2)$ $\therefore$ $h$ es inyectiva
 \item Suryectividad: Sea $(b,d) \in B \times D \Rightarrow b \in B \land d \in D$, y como $f$ y $g$ son suryectivas, entonces $\exists a \in A : f(a) = b \land \exists c \in C : g(c) = d \Rightarrow (f(a),g(c)) = (b,d)$. Es decir, $\exists (a,c) \in A \times C : h(a,c) = (b,d)\ \therefore\ h$ es suryectiva.\QEDA\\
 \end{itemize}
 \newpage
@@ -113,7 +113,7 @@ h \circ (g \circ f) (x),\ \ \forall x \in Dom(f)$ \QEDA\\
 
 \noindent Sea $f: A \rightarrow A$, la composici\'on $(f \circ f)$ es posible y se nota $f^2$. Recursivamente, $f^n = (f \circ f^{n-1})$\\
 
-\noindent \textbf{Teorema}: Si $f: A \rightarrow B$ y $g: B \rightarrow C$ sonx inyectivas, entonces $(g \circ f) : A \rightarrow C$ es inyectiva.\\
+\noindent \textbf{Teorema}: Si $f: A \rightarrow B$ y $g: B \rightarrow C$ son inyectivas, entonces $(g \circ f) : A \rightarrow C$ es inyectiva.\\
 \textbf{D/} $a_1, a_2 \in A$, $(g \circ f)(a_1) = (g \circ f)(a_2) \Rightarrow g(f(a_1)) = g(f(a_1)) \Rightarrow f(a_1) = f(a_2) \Rightarrow a_1 = a_2$ \QEDA\\
 
 \noindent \textbf{Teorema}: Si $f: A \rightarrow B$ y $g: B \rightarrow C$ son suryectivas, entonces $(g \circ f) : A \rightarrow C$ es suryectivas.\\
@@ -126,8 +126,8 @@ Luego, si $f$ es inversible, entonces $g$ tambi\'en lo es.\\
 \textbf{D/} Supongamos $g:B \rightarrow A$ y $h:B \rightarrow A$ / $(f \circ h) = id_B$, $(f \circ g) = id_B$, $(g \circ f) = id_A$, $(h \circ f) = id_A$, luego: $h = h \circ id_B = h \circ (f \circ g) = (h \circ f) \circ g = id_A \circ g = g$ \QEDA\\
 
 \noindent \textbf{Teorema}: $f$ es inversible $\iff$ $f$ es biyectiva.\\
-$\Rightarrow)$ $f(a_1)=f(a_2) \Rightarrow f^{-1}(a_1) = f^{-1}(a_2) \Rightarrow a_1=a_2$\\
-\indent Como $f(a)=b \iff a = f^{-1}(b)$, y sabemos que existe $f^{-1}$ para todo $b \in B$, $\Rightarrow$ $f^{-1}(b) \in A$ \QEDB\\
+$\Rightarrow)$ $f(a_1)=f(a_2) \Rightarrow f^{-1}(f(a_1)) = f^{-1}(f(a_2)) \Rightarrow a_1=a_2$, luego $f$ es inyectiva.\\
+\indent Como $f(a)=b \iff a = f^{-1}(b)$, y como existe $f^{-1}$ $\forall\ b \in B$, $\Rightarrow$ $f^{-1}(b) \in A$, $f$ es suryectiva.\\
 $\Leftarrow)$ Como $f$ es suryectiva, defino $g:B\rightarrow A$ de manera tal que a cada elemento de $B$ le asigna $a\in A / f(a)=b$
 Por la inyectividad, $g$ es funci\'on, es decir, si $g(b)=a_1 \land g(b)=a_2$ con $a_1\not=a_2$, ser\'ia porque $f(a_1)=f(a_2)$, contradiciendo la inyectividad de $f$. Luego, es inversible. \QEDA\\
 
@@ -179,5 +179,5 @@ y \in A, x \text{ neutro } \Rightarrow x \otimes y = y \otimes x = y
 \noindent \textbf{Teorema}: Si $f : A \times A \rightarrow A$ es una operaci\'on asociativa, con elemento neutro $x \in A$ que posee inversos, entonces cada elemento posee un \'unico inverso.\\
 \textbf{D/} Supongamos que $a \in A$ posee 2 elementos inversos $a_1$ y $a_2$, y notemos $f(a,b) = a \otimes b$, entonces: \\ $a_1 = a_1 \otimes x = a_1 \otimes (a \otimes a_2) = (a_1 \otimes a) \otimes a_2 = x \otimes\ a_2 = a_2$\QEDA\\
 
-\noindent Sea $A = B = \mathbb{R}$, se define $\Pi_A(D)$ y $\Pi_B(D)$ como las funciones proyecci\'on de la primer y segunda componente de un par ordenado, $D \subseteq A \times B$. Es decir, $\Pi_A(D) : D \rightarrow A : \Pi_A(a,b) = a$.
+\noindent Sea $A = B = \mathbb{R}$, se define $\Pi_A(D)$ y $\Pi_B(D)$ como las \textbf{funciones proyecci\'on} de la primer y segunda componente de un par ordenado, $D \subseteq A \times B$. Es decir, $\Pi_A(D) : D \rightarrow A : \Pi_A(a,b) = a$.
 \end{document}
