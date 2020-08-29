@@ -18,15 +18,15 @@
 \maketitle
 \newpage
 \section{Inducci\'on}
-\textbf{Objetivo general}: Demostrar enunciados del estilo: $\forall n, P(n)$, donde $P(n)$ es una proposici\'on que depende del numero natural $n$.\\
+\noindent \textbf{Objetivo general}: Demostrar enunciados del estilo: $\forall n, P(n)$, donde $P(n)$ es una proposici\'on que depende del numero natural $n$.\\
 
-\textbf{Axiomas}: $\forall a,b,c \in \mathbb{R}$:
+\noindent \textbf{Axiomas}: $\forall a,b,c \in \mathbb{R}$:
 \begin{enumerate}
 \begin{multicols}{2}
 \item[$S_1)$] $(a+b)+c = a+(b+c)$
 \item[$S_2)$] $(a+b) = (b+a)$
 \item[$S_3)$] $\exists 0 \in \mathbb{R} : a+0 = a$
-\item[$S_4)$] $\exists -a \in \mathbb{R} : a + (-a) = 0$
+\item[$S_4)$] $\exists (-a) \in \mathbb{R} : a + (-a) = 0$
 \item[$P_1)$] $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
 \item[$P_2)$] $(a \cdot b) = (b \cdot a)$
 \item[$P_3)$] $\exists 1 \in \mathbb{R} : 1 \not = 0 \land a \cdot 1 = a$
@@ -42,55 +42,48 @@
 \item [$AS$] $Axioma\ del\ Supremo$
 \end{enumerate}
 
-\noindent \dotfill
+\vspace{.8cm}
 
-Un subconjunto $H \subset \mathbb{R}$ se llama \textbf{inductivo} si:
+\noindent Un subconjunto $H \subset \mathbb{R}$ se llama \textbf{inductivo} si:
 \begin{itemize}
 \item $1 \in H$
-\item $x \in H \Rightarrow x+1 \in H$
+\item $x \in H \Rightarrow x+1 \in H$\\
 \end{itemize}
 
-\noindent \dotfill
-
-\textbf{Lema 1}: \textit{La intersecci\'on de una familia arbitraria de subconjuntos inductivos de $\mathbb{R}$ es un subconjunto inductivo.} Se demuestra considerando una familia $\{ X_i : i \in I \}$ en donde $X_i \subset \mathbb{R}$ es inductivo $\forall i \in I$. Entonces tenemos que:
+\noindent \textbf{Lema 1}: La intersecci\'on de una familia arbitraria de subconjuntos inductivos de $\mathbb{R}$ es un subconjunto inductivo.\\ 
+\textbf{D/} Dada una familia $\{ X_i : i \in I \}$ en donde $X_i \subset \mathbb{R}$ es inductivo $\forall i \in I$. Luego:
 
 \begin{itemize}
 \item $1 \in X_i\ \forall i \in I$, luego $1 \in \displaystyle{\bigcap_{i \in I}} X_i$
 \item Si $x \in X_i \Rightarrow x+1 \in X_i\ \forall i \in I$, luego $x \in \displaystyle{\bigcap_{i \in I} Xi} \Rightarrow x + 1 \in \displaystyle{\bigcap_{i \in I}} X_i$
 \end{itemize}
-Entonces tenemos que $\displaystyle{\bigcap_{i \in I} X_i}$ es un subconjunto inductivo.\QEDA
+Entonces tenemos que $\displaystyle{\bigcap_{i \in I} X_i}$ es un subconjunto inductivo.\QEDA\\ \\
 
-\noindent \dotfill
+\noindent Se define a los \textbf{Naturales} $\mathbb{N}$ como la intersecci\'on de todos los subconjuntos inductivos de $\mathbb{R}$. Como el \'unico valor que debe estar por definici\'on es el $1$ (y sus sucesores), entonces $\mathbb{N} = \{ 1,2,3,4,5... \}$\\ \\
 
-Se define a $\mathbb{N}$ como la intersecci\'on de todos los subconjuntos inductivos de $\mathbb{R}$. Como el \'unico valor que \textbf{debe} estar por definici\'on es el $1$ (y sus sucesores), entonces $\mathbb{N} = \{ 1,2,3,4,5... \}$
 
-\noindent \dotfill
-
-\textbf{Teorema}: \textbf{Principio de Inducci\'on}: Sea $P(n)$ una proposici\'on que depende de $n \in \mathbb{N}$. Si:
+\noindent \textbf{Teorema}: \textbf{Principio de Inducci\'on}: Sea $P(n)$ una proposici\'on que depende de $n \in \mathbb{N}$. Si:
 \begin{enumerate}
 \item $P(1)$ es verdadera
 \item $P(k) \Rightarrow P(k+1)\ \forall k \in \mathbb{N}$ 
 \end{enumerate}
-Entonces $P(n)$ es verdadera $\forall n \in \mathbb{N}$.\\
+\indent \indent Entonces $P(n)$ es verdadera $\forall n \in \mathbb{N}$.\\
+\noindent \textbf{D/} Sea $H = \{ k \in \mathbb{N} : P(k) \text{ es verdadera} \}$, sabemos que $1 \in H$ y que si $k \in H \Rightarrow k+1 \in H$. Luego, $H$ es un subconjunto inductivo de $\mathbb{R}$, contenido en $\mathbb{N}$. Y como $\mathbb{N}$ es el menor de subconjunto inductivo de $\mathbb{R}$, resulta $H = \mathbb{N}$ y $\therefore P(n)$ es verdadera $\forall n \in \mathbb{N}$. \QEDA
 
-Se demuestra considerando $H = \{ k \in \mathbb{N} : P(k) \text{ es verdadera} \}$. Sabemos que $1 \in H$ y que si $k \in H \Rightarrow k+1 \in H$. Luego, $H$ es un subconjunto inductivo de $\mathbb{R}$, contenido en $\mathbb{N}$. Y como $\mathbb{N}$ es el menor de subconjunto inductivo de $\mathbb{R}$, resulta $H = \mathbb{N}$ y $\therefore P(n)$ es verdadera $\forall n \in \mathbb{N}$. \QEDA
-
-\noindent \dotfill
 \newpage
 
-\textbf{Teorema}: Sea $P(n)$ una proposici\'on que depende de $n \in \mathbb{N}$. Si:
+\noindent \textbf{Teorema}: Sea $P(n)$ una proposici\'on que depende de $n \in \mathbb{N}$. Si:
 \begin{enumerate}
 \item $P(n_0)$ es verdadera
 \item $P(k) \Rightarrow P(k+1)\ \forall k \geq n_0$
 \end{enumerate}
 Entonces $P(n)$ es verdadera $\forall k \geq n_0$\\
+\textbf{D/} Sea $Q(n) = P(n_0 + n - 1)$, sabemos que $Q(1) = P(n_0)$ es verdadera. Y sea $k \geq 1$, vemos que si $Q(k) = P(n_0 + k - 1)$ es verdadera, entonces $Q(k+1) = P(n_0 + k)$ tambi\'en lo es. Y por el principio de inducci\'on, $Q(n)$ es verdadera $\forall n \in \mathbb{N}$. I.e $P(n)$ es verdadera $\forall n \geq n_0$. \QEDA\\
 
-Se demuestra considerando $Q(n) = P(n_0 + n - 1)$. Luego sabemos que $Q(1) = P(n_0)$ es verdadera. Y sea $k \geq 1$, vemos que si $Q(k) = P(n_0 + k - 1)$ es verdadera, entonces $Q(k+1) = P(n_0 + k)$ tambi\'en lo es. Y por el principio de inducci\'on, $Q(n)$ es verdadera $\forall n \in \mathbb{N}$. I.e $P(n)$ es verdadera $\forall n \geq n_0$. \QEDA\\
+\noindent \textbf{Observaci\'on}: $P(n) \Rightarrow P(n+1)$ ocurre siempre. Pero que $P(1)\Rightarrow P(2)$ no quiere decir que $P(2)$ sea verdadera... Es decir, $P(1)$ puede ser falso y sin importar el valor de $P(2)$, la proposici\'on es verdadera.\\ \\
 
-\noindent \textbf{Observaci\'on}: $P(n) \Rightarrow P(n+1)$ ocurre siempre. Pero que $P(1)\Rightarrow P(2)$ no quiere decir que $P(2)$ sea verdadera... Es decir, $P(1)$ puede ser falso y sin importar el valor de $P(2)$, la proposici\'on es verdadera.\\
 
-\noindent \dotfill\\
-\textbf{Propiedades elementales de los $\mathbb{N}$}
+\noindent \textbf{Propiedades elementales de los $\mathbb{N}$}
 \begin{enumerate}
 \item $n\in\mathbb{N} \land n\not=1 \Rightarrow n-1 \in \mathbb{N}$, es decir, $\exists m \in \mathbb{N}:\ n=m+1$\\
 $P(1)$ es falsa, $P(2)$ es verdadera. Suponemos $P(n)$ y probamos $P(n+1)$: $(n+1)-1=n$.\\ Luego es verdadera $\forall\ n\geq2$, que es equivalente a decir $P(n),\ (\forall n \in \mathbb{N} \land n\not=1)$ \QEDA
@@ -102,9 +95,8 @@ Fijamos $n$ y hacemos inducci\'on en $m$. $P(1): 1<n \Rightarrow n-1\in\mathbb{N
 $P(1)$ es veradera, pues $0<a<1 \Rightarrow a \not \in \mathbb{N}$. $P(n)\Rightarrow P(n+1)$: $n<a<n+1$. Suponemos que $a\in\mathbb{N}$, luego $0<a-n<1$, pero es absurdo ya que $a>n\Rightarrow a-n \in \mathbb{N}$. \QEDA 
 \end{enumerate}
 
-\noindent \dotfill
 \section{Definiciones Recursivas}
-Una sucesi\'on $u_1, u_2, ... u_n$ est\'a \textbf{definida recursivamente} si puede obtenerse de la siguiente manera:
+\noindent Una sucesi\'on $u_1, u_2, ... u_n$ est\'a \textbf{definida recursivamente} si puede obtenerse de la siguiente manera:
 \begin{itemize}
 \item Se explicita el/los primer/os elemento/s $u_1 [, u_2, ..., u_{n0}]$.
 \item Hay una regla para obtener el elemento $u_{n+1}$ con $n\geq1$ [o $n\geq n_0$] en funci\'on de los elementos anteriores de la sucesi\'on.
@@ -112,29 +104,27 @@ Una sucesi\'on $u_1, u_2, ... u_n$ est\'a \textbf{definida recursivamente} si pu
 
 
 \subsection{Sumatoria}
-Dados $n$ n\'umeros $x_1, x_2, ..., x_n$, podemos definir recursivamente su suma $\displaystyle{\sum_{i=1}^n}x_i$ como: 
+\noindent Dados $n$ n\'umeros $x_1, x_2, ..., x_n$, podemos definir recursivamente su suma $\displaystyle{\sum_{i=1}^n}x_i$ como: 
 $$\left\{\begin{array}{l}
 \sum_{i=1}^nx_i = x_1\\ \\
 \sum_{i=1}^{k+1}x_i = \sum_{i=1}^{k}x_i + x_{k+1},\ 2\leq k \leq n-1
 \end{array}\right.$$
 
 \subsection{Productoria}
-Dados $n$ n\'umeros $x_1, x_2, ..., x_n$, podemos definir recursivamente su producto $\displaystyle{\prod_{i=1}^n}x_i$ como: 
+\noindent Dados $n$ n\'umeros $x_1, x_2, ..., x_n$, podemos definir recursivamente su producto $\displaystyle{\prod_{i=1}^n}x_i$ como: 
 $$\left\{\begin{array}{l}
 \prod_{i=1}^nx_i = x_1\\ \\
 \prod_{i=1}^{k+1}x_i = \prod_{i=1}^{k}x_i \cdot x_{k+1},\ 2\leq k \leq n-1
 \end{array}\right.$$
 
-\noindent \dotfill \\
-
 \section{Orden}
-\noindent Un subconjunto $A$ de $\mathbb{R}$ tiene \textbf{primer elemento} si $\exists\ a \in A : a \leq x,\ \forall x \in A$ (se dice que $a$ es el m\'inimo, no hay que confundirlo con el \'infimo)\\
+\noindent Un subconjunto $A$ de $\mathbb{R}$ tiene \textbf{primer elemento} si $\exists\ a \in A : a \leq x,\ \forall x \in A$ (se dice que $a$ es el m\'inimo, no hay que confundirlo con el \'infimo).\\
 \noindent Un subconjunto $A$ de $\mathbb{R}$ se dice \textbf{bien ordenado} si todo subconjunto no vacio de $A$ tiene primer elemento. Hay que tener cuidado porque el conjunto vacio est\'a bien ordenado.\\
 
 \noindent Sea $a<b$, los intervalos $(a,b)$ y $(a,b]$ no tienen primer elemento, mientras que $[a,b)$ y $[a,b]$ si tienen. De todas maneras, ninguno de \'estos est\'a bien ordenado, ya que se puede encontrar un intervalo dentro del mismo en donde no se tenga un primer elemento!\\
 
 \noindent \textbf{Teorema}: \textbf{Principio de buena ordenaci\'on}: $\mathbb{N}$ es un conjunto bien ordenado.\\
-\textbf{Demostraci\'on}: Por el absurdo, suponemos $X \subset \mathbb{N}$: que no tiene primer elemento.\\
+\textbf{D/} Por el absurdo, suponemos $X \subset \mathbb{N}$: que no tiene primer elemento.\\
 Sea $H = \{n\in\mathbb{N}: \{1,...,n\} \subset \mathbb{N} - X \}$; la idea es demostrar que $H$ es inductivo, ergo $X$ es $\emptyset$.\\ Comenzamos con que $1 \in H$ (si no sucede es primer elemento de $X$). \\
 Luego, si tenemos que el natural $k\in H$, hay dos posibilidades para $k+1$, que est\'e en $H$ o que no est\'e, significando \'esto que pertenece a $X$. Pero si perteneciera a $X$, \'este ser\'ia el primer elemento, lo cual es absurdo. Entonces $x+1 \in H$ y $H$ es inductivo $\Rightarrow H = \mathbb{N}$ y $X=\emptyset$.\\
 $\therefore$ Todo subconjunto no vac\'io de $\mathbb{N}$ tiene primer elemento. \QEDA\\
@@ -146,7 +136,19 @@ Sea $P(n)$ una proposici\'on que depende del natural $n$:
 \item Si $\forall k \geq 1$, si $P(1), P(2),...,P(k)$ son verdaderas, entonces $P(k+1)$ es verdadera.
 \end{enumerate}
 Entonces $P(n)$ es verdadera para todo $n\in\mathbb{N}$.\\
-\textbf{Demostraci\'on}: Sea $X = \{n\in\mathbb{N} : \text{ P(n) es falsa}\}$, queremos ver que $X=\emptyset$. \\
+\textbf{D/} Sea $X = \{n\in\mathbb{N} : \text{ P(n) es falsa}\}$, queremos ver que $X=\emptyset$. \\
 Supongamos $x\not=\emptyset$ y que $n_0$ es el primer elemento de $X$. Observar que $n_0 \geq 2$, pues $P(1)$ es verdadera.\\
-Luego, $1,...,n_0-1 \not \in X$, o equivalentemente, $P(1),...,P(n_0-1)$ son verdaderas. Pero el \textit{item 2} nos dice implica que $P(n_0)$ tiene que ser verdadera, y por ende no pertenecer a $X$, lo cual es absurdo.
+Luego, $1,...,n_0-1 \not \in X$, o equivalentemente, $P(1),...,P(n_0-1)$ son verdaderas. Pero el \textit{item 2} nos dice implica que $P(n_0)$ tiene que ser verdadera, y por ende no pertenecer a $X$, lo cual es absurdo. \QEDA\\
+
+\noindent \textbf{Paradoja de los Caballos}
+\textbf{“Teorema”} Todos los caballos son del mismo color.
+\begin{itemize}
+\item Si $n = 1$, hay un único caballo y claramente todos son del mismo color.
+\item Supongamos que la afirmación es cierta para conjuntos de $n$ caballos.
+\item Si tenemos un conjunto con $n + 1$ caballos podemos retirar un caballo del conjunto y por la hipótesis inductiva los $n$ caballos restantes son del mismo color.
+\item Para ver que el caballo que sacamos es del mismo color que los anteriores simplemente lo intercambiamos por alguno de los otros caballos y nuevamente en un conjunto de $n$ caballos, todos deben ser del mismo color, y por el Principio de Inducción, todos son del mismo color.
+\end{itemize}
+El error est\'a en suponer que los dos subconjuntos de $n$ caballos tienen caballos el mismo color. Lo \'unico que se puede afirmar es que tienen la misma cardinalidad, pero nada de los colores. E.g al tener $n = 2$, la premisa es claramente falsa, pues al quitar un caballo del grupo, tenemos un grupo de 1, y al intercambiarlo, tenemos otro grupo de 1. Es decir, necesitamos una intersecci\'on no vacia. 
+
+
 \end{document}
