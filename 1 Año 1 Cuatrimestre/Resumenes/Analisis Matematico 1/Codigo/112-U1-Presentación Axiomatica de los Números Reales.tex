@@ -10,72 +10,96 @@
 \author{Iker M. Canut}
 \title{Unidad 1: Presentaci\'on Axiomatica de los N\'umeros Reales\\ Analisis Matem\'atico I (R-112)\\Licenciatura en Ciencias de la Computaci\'on}
 \date{2020}
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
 \begin{document}
 \maketitle
 \newpage
 
 \section{Axiomas de Cuerpo}
 \begin{itemize}
-\item Propiedad \textbf{Conmutativa}: $a+b = b+a$ y $a \cdot b = b \cdot a$
-\item Propiedad \textbf{Asociativa}: $a+(b+c) = (a+b)+c$ y $a \cdot (b \cdot c) = (a \cdot b) \cdot c$
-\item Propiedad \textbf{Distributiva}: $a\cdot (b+c) = a\cdot b + a\cdot c$
-\item Existencia de \textbf{Elementos Neutros}: $\forall a \in \mathbb{R}, a+0 = a$ y $a\cdot 1 = a$
-\item Existencia de \textbf{Elementos Opuestos}: $\forall a \in \mathbb{R}\ \exists b : a+b = b+a = 0$
-\item Existencia de \textbf{Elementos Rec\'iprocos}: $\forall a \not = 0,\ \exists b : a\cdot b = b\cdot a = 1$
+\item[\textbf{A1)}] Propiedad \textbf{Conmutativa}: $a+b = b+a$ y $a \cdot b = b \cdot a$
+\item[\textbf{A2)}] Propiedad \textbf{Asociativa}: $a+(b+c) = (a+b)+c$ y $a \cdot (b \cdot c) = (a \cdot b) \cdot c$
+\item[\textbf{A3)}] Propiedad \textbf{Distributiva}: $a\cdot (b+c) = a\cdot b + a\cdot c$
+\item[\textbf{A4)}] Existencia de \textbf{Elementos Neutros}: $\forall a \in \mathbb{R}, a+0 = a$ y $a\cdot 1 = a$
+\item[\textbf{A5)}] Existencia de \textbf{Elementos Opuestos}: $\forall a \in \mathbb{R}\ \exists b : a+b = b+a = 0$
+\item[\textbf{A6)}] Existencia de \textbf{Elementos Rec\'iprocos}: $\forall a \not = 0,\ \exists b : a\cdot b = b\cdot a = 1$\\
 \end{itemize}
-\noindent \dotfill
 \begin{multicols}{3}
-$a = a$\\
-$a = b \Rightarrow b = a$\\
-$a = b \land b = c \Rightarrow a = c$
+$a = a$\\ \\
+$a = b \Rightarrow b = a$\\ \\
+$a = b \land b = c \Rightarrow a = c$ \\
 \end{multicols}
 
 \noindent \textbf{Teorema 1}: Propiedad Cancelativa de la Suma: $a+b = a+c \Rightarrow b = c$\\
+\textbf{D/} Sea $d = a + b = a + c$, por $A5$ $\exists y : a + y = y + a = 0$. Luego\\ $b = 0 + b  = (y + a) + b = y + (a + b) = y + d = y + (a + c) = (y + a) + c = 0 + c = c$ \QEDA\\
+
 \noindent \textbf{Corolario 1}: Unicidad del Elemento Neutro de la Suma. $a+0' = 0'+a = a \Rightarrow 0' = 0$\\
+\textbf{D/} Por $A4$ $a + 0 = a$. Por $H$ $a + 0' = a$. Luego $a = a \Rightarrow a + 0 = a + 0'$ y por $T1$ $0 = 0'$ \QEDA\\
+
 \noindent \textbf{Corolario 2}: Unicidad del Elemento Opuesto. $a+b = a+b' = 0 \Rightarrow b=b'$\\
-\vspace{-0.9cm}
-\begin{multicols}{3}
-\noindent \textbf{Teorema 2}:\\ \\
+\textbf{D/} Por $A5$ $\exists b : a+b=0$. Por $H$ $\exists b' : a + b' = 0$. Luego $a+b = a + b'$ y por $T1$ $b = b'$ \QEDA\\
 
+\noindent \textbf{Teorema 2}:
 \begin{itemize}
-\item $-(-a)=a$
-\item $-0 = 0$
-\item $0 \cdot a = 0$
-\item $a \cdot (-b) = (-a) \cdot b = -(a \cdot b)$
-\item $(-a) \cdot (-b) = a \cdot b$
-\item $a \cdot (b-c) = a \cdot c$
+\item $-(-a)=a$\\
+\textbf{D/} Por existencia de elemento opuesto de $a$, $a + (-a) = 0$. Por existencia de elemento opuesto de $-a$, $-(-a) + (-a) = 0$. Luego, $0 = 0 \Rightarrow a + (-a) = (-a) + -(-a)$ y por $T1$, $a = -(-a)$ \QEDA
+\item $-0 = 0$\\
+\textbf{D/} Por $A5$ $0 + (-0) = 0$. Por $A4$ $0 + 0 = 0$. Luego, $0 = 0 \Rightarrow 0 + (-0) = 0 + 0$, por $T1$, $-0 = 0$ \QEDA
+\item $0 \cdot a = 0$\\
+\textbf{D/} $0 \cdot a = 0 \cdot a + 0 = 0 \cdot a + (a + -a) = (0 \cdot a + a) + -a = (0 \cdot a + 1 \cdot a) + -a = \\ \indent \ \ \ \ \ \ \ \ \ \ \ = a \cdot (0 + 1) + -a = a \cdot 1 + -a = a + -a = 0$ \QEDA
+\item $a \cdot (-b) = (-a) \cdot b = -(a \cdot b)$\\
+\textbf{D/} $a (-b) = a (-b) + 0 = a (-b) + (ab + -(ab)) = (a (-b) + ab) + -(ab) = \\ \indent \ \ \ \ \ \ \ \ \ \ \ \ \ = a((-b) + b) + -(ab) = a\cdot 0 + -(ab) = 0 + -(ab) = -(ab)$ \QEDA
+\item $(-a) \cdot (-b) = a \cdot b$\\
+\textbf{D/} $0 = (-a) \cdot (b + (-b)) = (-a) b + (-a)(-b)$. Por otro lado, $0 = (-a)b + ab$.\\ Luego $0 = 0 \Rightarrow (-a) b + (-a)(-b) = (-a)b + ab$ y por $T1$ $(-a)(-b) = ab$ \QEDA
+\item $a \cdot (b-c) = a \cdot b - a \cdot c$\\
+\textbf{D/} Se puede reescribir como $a \cdot (b + (-c))$ y por el $A3$ es igual a $a \cdot b - a \cdot c$ \QEDA
 \end{itemize}
-\end{multicols}
-\noindent \textbf{Teorema 3}: Propiedad Cancelativa del Producto: $a \cdot b = a \cdot c \land a \not = 0 \Rightarrow b = c$\\
-\noindent \textbf{Corolario 3}: Unicidad del Elemento Neutro del Producto. $a+0' = 0'+a = a \Rightarrow 0' = 0$\\
-\noindent \textbf{Corolario 4}: Unicidad del Rec\'iproco. $\forall a \not = 0,$ existe un \'unico $b : a\cdot b = b\cdot a = 1$
-\vspace{-0.4cm}
-\begin{multicols}{3}
-\noindent \textbf{Teorema 4}:\\ \\ \\ \\ \\ \\ \\ \\
 
+\noindent \textbf{Teorema 3}: Propiedad Cancelativa del Producto: $a \cdot b = a \cdot c \land a \not = 0 \Rightarrow b = c$\\
+\textbf{D/} $ab = ac \Rightarrow a^{-1}(ab) = a^{-1}(ac) = (a^{-1}a)b = (a^{-1}a)c = 1\cdot b = 1\cdot c = b=c$ \QEDA\\
+
+\noindent \textbf{Corolario 3}: Unicidad del Elemento Neutro del Producto. $a \cdot 1 = a \cdot 1' = a \Rightarrow 1 = 1'$\\
+\textbf{D/} Por $A4$, $a \cdot 1 = a$. Por $H$, $a \cdot 1' = a$. Luego, $a = a \Rightarrow a \cdot 1 = a \cdot 1'$ y por $T3$, $1 = 1'$ \QEDA\\
+
+\noindent \textbf{Corolario 4}: Unicidad del Rec\'iproco. $\forall a \not = 0,$ existe un \'unico $b : a\cdot b = b\cdot a = 1$\\
+\textbf{D/} Por $A6$ $a \cdot b = 1$, suponemos $a \cdot b' = 1$. Luego, $1=1 \Rightarrow a \cdot b = a \cdot b'$ y por $T3$, $b = b'$ \QEDA\\
+
+\newpage
+
+\noindent \textbf{Teorema 4}:
 \begin{itemize}
-\item $0$ no tiene rec\'iproco.
-\item $1^{-1} = 1$
-\item $\dfrac{a}{1} = a$, si $a \not = 0$, $\dfrac{1}{a} = a^{-1}$
-\item $a\cdot b = 0 \Rightarrow a=0 \lor b=0$
-\item $-a = (-1) \cdot a$
-\item $a\not = 0, b\not = 0, \left(\dfrac{a}{b}\right)^{-1} = \dfrac{a^{-1}}{b^{-1}}$
+\item $0$ no tiene rec\'iproco.\\
+\textbf{D/} Por definici\'on de rec\'iproco, $\forall a \in \mathbb{R} - \{0\},\ \exists b : ab = ba = 1$ \QEDA
+\item $1^{-1} = 1$\\
+\textbf{D/} $1^{-1} = 1 \cdot 1^{-1}$ y como $a \cdot a^{-1} = 1$, con $a=1$, $1 \cdot 1^{-1} = 1$ \QEDA
+\item $\dfrac{a}{1} = a$, si $a \not = 0$, $\dfrac{1}{a} = a^{-1}$\\
+\textbf{D/} $\dfrac{a}{1} = a \cdot 1^{-1} = a \cdot 1 = a$. Adem\'as, $\dfrac{1}{a}$ se puede reescribir por definici\'on como $a^{-1}$ \QEDA
+\item $a\cdot b = 0 \Rightarrow a=0 \lor b=0$\\
+\textbf{D/} Si $a \not = 0$, por $T3$ tenemos que $b = 0$. An\'alogamente el caso de $b \not = 0$. Sino, ambos son 0.\QEDA
 \item $b \not = 0 \land d \not = 0$:
 \begin{itemize}
-\item $(b\cdot d)^{-1} = b^{-1} \cdot d^{-1}$
-\item $\dfrac{a}{b}+\dfrac{c}{d} = \dfrac{a\cdot d + b\cdot c}{b\cdot d}$
-\item $\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a\cdot c}{b \cdot d}$
+\item $(b\cdot d)^{-1} = b^{-1} \cdot d^{-1}$\\
+\textbf{D/} Como $1 = (bd)(bd)^{-1} \land 1 = b(b)^{-1} \land 1 = d(d^{-1})$, luego \\ 
+$1 = 1 \cdot 1 \Rightarrow (bd)(bd)^{-1} = b(b)^{-1} d(d)^{-1}$ y por $T4$ $(bd)^{-1} = b^{-1} d^{-1}$\QEDA
+\item $\dfrac{a}{b}+\dfrac{c}{d} = \dfrac{a\cdot d + b\cdot c}{b\cdot d}$\\
+\textbf{D/} $\dfrac{a}{b}+\dfrac{c}{d} = ab^{-1}\cdot 1+cd^{-1} \cdot 1 = ab^{-1}(dd^{-1})+cd^{-1}(bb^{-1}) = b^{-1}d^{-1}(ad+cb) = \\ \indent \ \ \ \ \ \ \ \ \ \ \ \ \ \ = (bd)^{-1}(ad+cb) = \dfrac{ad+cb}{bd}$ \QEDA
+\item $\dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a\cdot c}{b \cdot d}$\\
+\textbf{D/} $\dfrac{a}{b} \cdot \dfrac{c}{d} = ab^{-1}cd^{-1} = acb^{-1}d^{-1} = ac(bd)^{-1} = \dfrac{ac}{bd}$ \QEDA
 \end{itemize}
+\item $a\not = 0, b\not = 0, \left(\dfrac{a}{b}\right)^{-1} = \dfrac{a^{-1}}{b^{-1}}$\\
+\textbf{D/} $\left(\dfrac{a}{b}\right)^{-1} = (a\cdot(b^{-1}))^{-1} = a^{-1}\cdot(b^{-1})^{-1}$ y reescribiendo llegamos a que $\dfrac{a^{-1}}{b^{-1}}$ \QEDA
+\item $-a = (-1) \cdot a$\\
+\textbf{D/} $-a = 1 \cdot -a = (-1) \cdot a$ \QEDA
 \end{itemize}
-\end{multicols}
 
 \section{Axiomas de Orden}
 \begin{itemize}
-\item Si $a,b \in \mathbb{R}^+_0 \Rightarrow\ a+b \in \mathbb{R}^+_0$ y $a \cdot b \in \mathbb{R}^+_0$
-\item $\forall a \in \mathbb{R} : a \not = 0 \Rightarrow$ o bien $a \in \mathbb{R}^+$ o $-a \in \mathbb{R}^+$
-\item $0 \not \in \mathbb{R}$
+\item[\textbf{A7)}] Si $a,b \in \mathbb{R}^+_0 \Rightarrow\ a+b \in \mathbb{R}^+_0$ y $a \cdot b \in \mathbb{R}^+_0$
+\item[\textbf{A8)}] $\forall a \in \mathbb{R} : a \not = 0 \Rightarrow$ o bien $a \in \mathbb{R}^+$ o $-a \in \mathbb{R}^+$
+\item[\textbf{A9)}] $0 \not \in \mathbb{R}^+$\\
 \end{itemize}
-\noindent \dotfill
+
 \begin{itemize}
 \item $a < b \Rightarrow b - a \in \mathbb{R}^+$
 \item $a > b \Rightarrow a - b \in \mathbb{R}^+$
@@ -84,31 +108,58 @@ $a = b \land b = c \Rightarrow a = c$
 \item $a > 0 \iff a \in \mathbb{R}^+$
 \end{itemize}
 
+\newpage
+
 \noindent \textbf{Teorema 5}: Propiedad de Tricotom\'ia: Dados $a,b \in \mathbb{R}$ sucede solo una de las siguientes proposiciones:
 \begin{multicols}{3}
 $a < b$\\
 $a > b$\\
 $a = b$
 \end{multicols}
-\noindent \textbf{Teorema 6}: Propiedad Transitiva de la Relaci\'on Menor: Si $a < b \land b < c \Rightarrow a < c$
-\vspace{-0.4cm}
-\begin{multicols}{3}
-\noindent \textbf{Teorema 7}:\\ \\ \\ \\ \\ \\ \\ \\ \\
+\begin{enumerate}
+\item [Caso 1. ] $a < b \land a = b \Rightarrow b - a \in \mathbb{R}^+ \land a = b \Rightarrow 0 \in \mathbb{R}^+$ y llegamos asi a una contradicci\'on.
+\item [Caso 2. ] $a < b \land a > b \Rightarrow b - a \in \mathbb{R}^+ \land a - b \in \mathbb{R}^+ \Rightarrow (b-a)+(a-b) \in \mathbb{R}^+ \Rightarrow 0 \in \mathbb{R}^+$, contradicci\'on.
+\end{enumerate} 
+El resto de los casos se resuelve de manera an\'aloga, llegando a las mismas contradicciones. \QEDA\\
 
+\noindent \textbf{Teorema 6}: Propiedad Transitiva de la Relaci\'on Menor: Si $a < b \land b < c \Rightarrow a < c$ \\
+\textbf{D/} $a < b \Rightarrow b-a \in \mathbb{R}^+,\ b < c \Rightarrow c - b \in \mathbb{R}^+$. Por $A7$, $(b-a)+(c-b) \in \mathbb{R}^+\Rightarrow \\ \indent \ \ \ \ \ \ \ \ \Rightarrow b-a+c-b \in \mathbb{R}^+ \Rightarrow c-a \in \mathbb{R}^+ \Rightarrow a < c$ \QEDA\\
+
+\noindent \textbf{Teorema 7}:
 \begin{itemize}
-\item $a < b \Rightarrow a + c < b + c$
-\item $a < b \land c < d \Rightarrow a + c < b + d$
-\item $a < b \land c > 0 \Rightarrow a \cdot c < b \cdot c$
-\item $a < b \land c < 0 \Rightarrow a \cdot c > b \cdot c$
-\item $a \not = 0 \Rightarrow a^2 > 0$
-\item $1 > 0$
-\item $a < b \Rightarrow -b < -a$
+\item $a < b \Rightarrow a + c < b + c$\\
+\textbf{D/} $a < b \Rightarrow b - a \in \mathbb{R}^+ \Rightarrow b - a + (c - c) \in \mathbb{R}^+ \Rightarrow (b + c) - (a + c) \in \mathbb{R}^+ \Rightarrow a + c < b + c$ \QEDA
+\item $a < b \land c < d \Rightarrow a + c < b + d$\\
+\textbf{D/} $a < b \Rightarrow b - a \in \mathbb{R}^+ \land c < d \Rightarrow d - c \in \mathbb{R}^+$. Y por $A7$, $(b-a) + (d - c) \in \mathbb{R}^+ \Rightarrow \\ \indent \ \ \ \ \ \ \ \ \ \ \ \ \Rightarrow (b + d) - (a + c) \in \mathbb{R}^+ \Rightarrow a + c < b + d$ \QEDA
+\item $a < b \land c > 0 \Rightarrow a \cdot c < b \cdot c$\\
+\textbf{D/} $a < b \land c > 0 \Rightarrow (b - a) \cdot c \in \mathbb{R}^+ \Rightarrow bc - ac \in \mathbb{R}^+ \Rightarrow ac < bc$ \QEDA
+\item $a < b \land c < 0 \Rightarrow a \cdot c > b \cdot c$\\
+\textbf{D/} $c < 0 \Rightarrow (-c) > 0.$ Luego, $(b - a)(-c) \in \mathbb{R}^+ \Rightarrow ac - bc \in \mathbb{R}^+ \Rightarrow ac > bc$ \QEDA
+\item $a \not = 0 \Rightarrow a^2 > 0$\\
+\textbf{D/} Por tricotomia, $a < 0\ \underline{\lor}\ a = 0\ \underline{\lor}\ a > 0$
+\begin{enumerate}
+\item [Caso 1. ] $a < 0 \Rightarrow (-a) \in \mathbb{R}^+ \Rightarrow (-a)(-a) \in \mathbb{R}^+ \Rightarrow aa \in \mathbb{R}^+ \Rightarrow a^2 \in \mathbb{R}^+ \Rightarrow a^2 > 0$
+\item [Caso 2. ] Este caso no puede suceder por Hipotesis.
+\item [Caso 3. ] $a > 0 \Rightarrow a \in \mathbb{R}^+ \Rightarrow aa \in \mathbb{R}^+ \Rightarrow a^2 \in \mathbb{R}^+ \Rightarrow a^2 > 0$ \QEDA
+\end{enumerate}
+\item $1 > 0$\\
+\textbf{D/} Por $A4$ sabemos que $1 \not = 0$. Por $A8$ sabemos que $-1 \in \mathbb{R}^+\ \underline{\lor}\ 1 \in \mathbb{R}^+$.\\ Suponemos $-1 \in \mathbb{R}^+ \Rightarrow 1 \not \in \mathbb{R}^+$. Por $A7$, $(-1)(-1) \in \mathbb{R}^+ \Rightarrow 1 \in \mathbb{R}^+$,\\ llegando asi a una contradicci\'on. Luego, $1 \in \mathbb{R}^+ \Rightarrow 1 > 0$ \QEDA
+\item $a < b \Rightarrow -b < -a$\\
+\textbf{D/} $a < b \Rightarrow b - a \in \mathbb{R}^+ \Rightarrow - (-b + a) \in \mathbb{R}^+ \Rightarrow (-a) - (-b) \in \mathbb{R}^+ \Rightarrow -b < -a$ \QEDA
 \item $a \cdot b > 0 \iff a$ y $b$ son los dos positivos o los dos negativos.
 \item $a \cdot b < 0 \iff a$ positivo y $b$ negativo, o $a$ negativo y $b$ positivo.
-\item $a > 0 \iff \dfrac{1}{a} > 0$
-\item $0 < a < b \Rightarrow 0 < \dfrac{1}{b} < \dfrac{1}{a}$
+\begin{enumerate}
+\item [Caso 1. ] $a, b \in \mathbb{R}^+ \Rightarrow a \cdot b \in \mathbb{R}^+$
+\item [Caso 2. ] $a \in \mathbb{R}^+, (-b) \in \mathbb{R}^+ \Rightarrow a(-b) = -(ab) \in \mathbb{R}^+ \Rightarrow 0 + -(ab) \in \mathbb{R}^+ \Rightarrow ab < 0$ 
+\item [Caso 3. ] $(-a) \in \mathbb{R}^+, b \in \mathbb{R}^+ \Rightarrow (-a)b = -(ab) \in \mathbb{R}^+ \Rightarrow 0 + -(ab) \in \mathbb{R}^+ \Rightarrow ab < 0$ 
+\item [Caso 4. ] $(-a),(-b) \in \mathbb{R}^+ \Rightarrow (-a)(-b) = ab \in \mathbb{R}^+$ \QEDA
+\end{enumerate}
+\item $a > 0 \iff \dfrac{1}{a} > 0$\\
+$\Rightarrow) a > 0$, suponemos $\dfrac{1}{a} < 0 \Rightarrow -a^{-1} \in \mathbb{R}^+$ y como $a \in \mathbb{R}^+$, $-a^{-1} \cdot a \in \mathbb{R} \Rightarrow -1 \in \mathbb{R}^+$. \\ Llegando asi a una contradicci\'on, ergo $a > 0 \Rightarrow \dfrac{1}{a} > 0$\\
+$\Leftarrow) \dfrac{1}{a} > 0$, suponemos $a < 0 \Rightarrow -a \in \mathbb{R}^+ \Rightarrow -a \cdot \dfrac{1}{a} \in \mathbb{R}^+ \Rightarrow -1 \in \mathbb{R}^+$. Contradicci\'on, i.e $a > 0$ \QEDA
+\item $0 < a < b \Rightarrow 0 < \dfrac{1}{b} < \dfrac{1}{a}$\\
+\textbf{D/} Sabemos que $\dfrac{1}{a}, \dfrac{1}{b} \in \mathbb{R}^+ \Rightarrow \dfrac{1}{a}\dfrac{1}{b} \in \mathbb{R}^+$. Adem\'as, $a < b \Rightarrow b - a \in \mathbb{R}^+$. Entonces, \\ $(b - a)(a^{-1}b^{-1}) \in \mathbb{R}^+ \Rightarrow (ba^{-1}b^{-1} - aa^{-1}b^{-1}) \in \mathbb{R}^+ \Rightarrow a^{-1}-b^{-1} \in \mathbb{R}^+ \Rightarrow \\ \indent \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Rightarrow b^{-1} < a^{-1}$ $\therefore 0 < \dfrac{1}{b} < \dfrac{1}{a}$ \QEDA
 \end{itemize}
-\end{multicols}
 
 \subsection{N\'umeros Naturales, Enteros, Racionales e Irracionales}
 \noindent \textbf{N\'umeros Naturales}: $\mathbb{N}$. El conjuntos inductivo m\'as peque\~{n}o:
@@ -123,10 +174,15 @@ $a = b$
 
 \noindent \textbf{N\'umeros Racionales}: $\mathbb{Q} = \left\{ x \in \mathbb{R} : \exists p, q \in \mathbb{Z}, q \not = 0 : x = \dfrac{p}{q} \right\}$\\
 
-\noindent \dotfill\\
-Observaciones: • $\mathbb{Z} \subset \mathbb{Q}$ • Dados $a,b \in \mathbb{R}, c,d \in \mathbb{R}-\{0\}, \dfrac{a}{c} = \dfrac{b}{d} \iff ad=bc$
+\noindent Notas:
+\begin{itemize}
+\item $\mathbb{Z} \subset \mathbb{Q}$ 
+\item Dados $a,b \in \mathbb{R}, c,d \in \mathbb{R}-\{0\}, \dfrac{a}{c} = \dfrac{b}{d} \iff ad=bc$\\
+\textbf{D/} $\dfrac{a}{c} = \dfrac{b}{d} \iff \dfrac{d}{d} \dfrac{a}{c} = \dfrac{b}{d} \dfrac{c}{c} \iff \dfrac{ad}{dc} = \dfrac{bc}{dc} \iff $ por cancelaci\'on del producto, $ad = bc$ \QEDA\\
+\end{itemize}
+
 \subsection{Representaci\'on Geometrica de los numeros reales: la recta real}
-En una recta se elige un punto para representar al $0$ y otro punto distinto para representar al $1$ (esta elecci\'on fija la escala). Cada punto de la recta representa a un \'unico n\'umero real y cada n\'umero real est\'a representado por un \'unico punto de la recta.
+\noindent En una recta se elige un punto para representar al $0$ y otro punto distinto para representar al $1$ (esta elecci\'on fija la escala). Cada punto de la recta representa a un \'unico n\'umero real y cada n\'umero real est\'a representado por un \'unico punto de la recta.
 \begin{enumerate}
 \item Si los puntos $A$ y $B$ representan los n\'umeros reales $a$ y $b$, $A$ est\'a a la izquierda de $B$ $\iff$ $a<b$.
 \item Si los puntos $A,B,C,D$ representan a los n\'umeros reales $a,b,c,d$. con $a<b$ y $c<d$, entonces $\overline{AB}$ y $\overline{CD}$ son congruentes $\iff$ $b-a = d - c$.
@@ -159,19 +215,61 @@ x  & \text{, si } x \geq 0\\
 Geom\'etricamente, $|x|$ es la distancia en la recta real entre los puntos $0$ y $x$. Tambi\'en puede verse que la distancia entre dos puntos cualesquiera $x,y \in \mathbb{R}$ est\'a dada por el valor $|x - y| = |y - x|$.\\
 
 \noindent \textbf{Proposici\'on}:
-\begin{multicols}{2}
 \begin{itemize}
-\item $|x| \geq 0$
-\item $|x| = 0 \iff x = 0$
+\item $|x| \geq 0$. Adem\'as, $|x| = 0 \iff x = 0$
+\begin{enumerate}
+\item [Caso 1. ] $x>0 \Rightarrow x \in \mathbb{R}^+ \land |x| = x \Rightarrow |x| \in \mathbb{R}^+ \Rightarrow |x| > 0$
+\item [Caso 2. ] $x=0 \Rightarrow |x| = x \Rightarrow |x| = 0$
+\item [Caso 3. ] $x<0 \Rightarrow (-x) \in \mathbb{R}^+ \land |x| = -x \Rightarrow |x| \in \mathbb{R}^+ \Rightarrow |x| > 0$ \QEDA
+\end{enumerate}
 \item $|x| = |-x|$
+\begin{enumerate}
+\item [Caso 1. ] $x>0 \Rightarrow |x| = x \land |-x| = -(-x) = x \therefore |x| = |-x|$
+\item [Caso 2. ] $x=0 \Rightarrow |x| = 0 \land |-x| = -0 = 0 \therefore |x| = |-x|$
+\item [Caso 3. ] $x<0 \Rightarrow |x| = -x \land |-x| = -x \therefore |x| = |-x|$ \QEDA
+\end{enumerate}
 \item $-|x| \leq x \leq |x|$
+\begin{enumerate}
+\item [Caso 1. ] $x>0 \Rightarrow -x \leq x \leq x$. Adem\'as, $-x < 0$. Entonces $-x<0<x$ $\therefore -x < x \land x \leq x$
+\item [Caso 2. ] $x=0 \Rightarrow 0 \leq 0 \leq 0$
+\item [Caso 3. ] $x<0 \Rightarrow -(-x) \leq x \leq -x$. Adem\'as, $-x > 0$. Entonces $x < 0 < -x$ $\therefore x \leq x \leq -x$\QEDA
+\end{enumerate}
 \item Sea $a>0$: $|x| < a \iff -a < x < a$
+\begin{enumerate}
+\item [$\Rightarrow)$ Caso 1. ] $x>0 \Rightarrow |x| = x \land -a < 0 \therefore -a < 0 < x < a$
+\item [Caso 2. ] $x=0 \Rightarrow |x| = 0 \land -a < 0 \therefore -a < 0 = x < a$
+\item [Caso 3. ] $x<0 \Rightarrow |x| = -x \land -a < 0$. Adem\'as, como $-x < a$, entonces $-a < x \therefore -a < x < 0 < a$ \QEDB
+\item [$\Leftarrow)$ Caso 1. ] $x>0 \Rightarrow |x| = x \therefore -a < |x| < a$
+\item [Caso 2. ] $x=0 \Rightarrow |x| = 0 \land -a < 0 < a \therefore -a < |x| < a$
+\item [Caso 3. ] $x<0 \Rightarrow |x| = -x$. Entonces $-|x| = x \Rightarrow -a < -|x| < a \therefore a > |x| > -a$ \QEDA
+\end{enumerate}
 \item Sea $a>0$: $|x| > a \iff x < -a\ \underline{\lor}\ a < x$
-\item $|x+y| \leq |x| + |y|$
+\begin{enumerate}
+\item [$\Rightarrow)$ Caso 1. ] $x>0 \Rightarrow |x| = x \therefore a < x$
+\item [Caso 2. ] $x=0$ No puede suceder, pues $0 < a < |x|$
+\item [Caso 3. ] $x<0 \Rightarrow |x| = -x \Rightarrow -x > a \therefore x < -a$ \QEDB
+\item [$\Leftarrow)$ Caso 1. ] $0<a<x \Rightarrow |x| = x \therefore a < |x|$
+\item [Caso 2. ] $x<-a<0 \Rightarrow 0 < a < -x \Rightarrow |x| = -x \therefore a < |x|$ \QEDA
+\end{enumerate}
+\item $|x+y| \leq |x| + |y|$\\
+\textbf{D/} Sabemos que $-|x| \leq x \leq |x| \land -|y| \leq y \leq |y| \Rightarrow -|x| + - |y| \leq x + y \leq |x| + |y| \Rightarrow \\ \indent \ \ \ \ \ \ \ \Rightarrow -(|x|+|y|) \leq x+y \leq |x|+|y|$. Llamando $a = |x|+|y| \Rightarrow \\ \indent \ \ \ \ \ \ \ \Rightarrow-a \leq x + y < a \Rightarrow |x+y| \leq a \therefore |x+y| \leq |x|+|y|$ \QEDA
 \item $|x \cdot y| = |x| \cdot |y|$
-\item Sea $y \not = 0$, $\left|\dfrac{x}{y}\right| = \dfrac{|x|}{|y|}$
+\begin{enumerate}
+\item [Caso 1. ] $x\geq0, y\geq0 \Rightarrow xy > 0 \Rightarrow |xy| = xy$. Luego $|x| = x \land |y| = y \therefore |xy|= xy = |x||y|$
+\item [Caso 2. ] $x\geq0, y < 0 \Rightarrow xy<0 \Rightarrow |xy|=-(xy)$. Luego $|x|=x \land |y|=-y \therefore |xy| = -(xy) = |x||y|$ 
+\item [Caso 3. ] $x < 0, y\geq0 \Rightarrow xy < 0 \Rightarrow |xy| = -(xy)$. Luego, $|x|=-x \land |y|=y \therefore |x||y| = -(xy) = |x||y|$
+\item [Caso 4. ] $x < 0, y < 0 \Rightarrow xy>0 \Rightarrow |xy| = xy$. Luego, $|x|=-x \land |y|=-y \therefore |xy| = (-x)(-y) = |x||y|$ \QEDA
+\newpage
+\end{enumerate}
+\item $\left|\dfrac{1}{a}\right| = \dfrac{1}{|a|}$
+\begin{enumerate}
+\item [Caso 1. ] $a>0$, $|a| = a$. Luego $\dfrac{1}{a} > 0 \Rightarrow \left|\dfrac{1}{a}\right| = \dfrac{1}{a} \therefore \left|\dfrac{1}{a}\right| = \dfrac{1}{a} = \dfrac{1}{|a|}$
+\item [Caso 2. ] $a<0$, $|a| = -a$. Luego $\dfrac{1}{a} < 0 \Rightarrow \left|\dfrac{1}{a}\right| = -\dfrac{1}{a} \therefore \left|\dfrac{1}{a}\right| = -\dfrac{1}{a} = \dfrac{1}{-a} = \dfrac{1}{|a|}$ \QEDA
+\end{enumerate}
+
+\item Sea $y \not = 0$, $\left|\dfrac{x}{y}\right| = \dfrac{|x|}{|y|}$\\
+\textbf{D/} $\left|\dfrac{x}{y}\right| = |x\cdot y^{-1}| = |x||y^{-1}| = |x| \cdot \left|\dfrac{1}{y}\right| = |x| \cdot \dfrac{1}{|y|} = \dfrac{|x|}{|y|}$ \QEDA
 \end{itemize}
-\end{multicols}
 
 \section{Introducci\'on A10}
 Sea $A$ un subconjunto no vacio de $\mathbb{R}$
@@ -183,44 +281,59 @@ Sea $A$ un subconjunto no vacio de $\mathbb{R}$
 \item \textbf{\'Infimo}: $b$ es \'infimo de $A \iff (b \leq a\ \forall a \in A) \land (b < c \Rightarrow c$ no es una cota inferior de $A)$.\\
 
 \item \textbf{M\'aximo}: $b$ es m\'aximo de $A$ si $a \leq b\ \forall a \in A$ $\land$ $b \in A$.
-\item \textbf{M\'inimo}: $b$ es m\'inimo de $A$ si $b \leq a\ \forall a \in A$ $\land$ $b \in A$.
+\item \textbf{M\'inimo}: $b$ es m\'inimo de $A$ si $b \leq a\ \forall a \in A$ $\land$ $b \in A$.\\
 \end{itemize}
 
-\noindent \dotfill
-
 \noindent \textbf{Teorema 8}: Unicidad del supremo: Dos n\'umeros distintos no pueden ser supremos de un mismo conjunto. Por esto tenemos una notaci\'on: $b = sup(A)$.\\
-\noindent \textbf{Teorema 9}: Caracterizaci\'on del Supremo: $b = sup(A) \iff b$ es una cota superior de $A$ tal que $\forall \epsilon > 0$ existe algun elemento $a \in A$ tal que $b - \epsilon < a$.\\
-Demostraci\'on:\\
-$\Rightarrow )$ Supongamos que no ocurre, entonces $a \leq b - \epsilon$ y es cota superior de $A$, pero contradice que $b$ es supremo de $A$, porque $a \leq b - \epsilon < b$.\\
-$\Leftarrow )$ Queremos demostrar que $c < b$ no es cota superior de $A$. Sea $\epsilon_c = b - c > 0$ y como $\exists a \in A : b - \epsilon_c < a$, entonces $a > b - \epsilon_c = b - (b - c) = c$ i.e c no es cota superior de A. Luego, $b = sup(A)$.\\
-\noindent \textbf{Proposici\'on 3}: $b = max(A) \iff b \in A \land b = sup(A)$.\\
-\noindent \textbf{Proposici\'on 4}: $b = min(A) \iff b \in A \land b = inf(A)$.
+\textbf{D/} Sean $b$ y $b'$ supremos de un mismo conjunto, ambos son cotas superiores. Luego, considerando a $b$ como supremo y a $b'$ como cota superior, $b \leq b'$. An\'alogamente, $b' \leq b \therefore b = b'$ \QEDA\\
 
-\newpage
+\noindent \textbf{Teorema 9}: Caracterizaci\'on del Supremo: $b = sup(A) \iff b$ es una cota superior de $A$ tal que $\forall \epsilon > 0$ existe algun elemento $a \in A$ tal que $b - \epsilon < a$.\\
+$\Rightarrow )$ Supongamos que no ocurre, entonces $a \leq b - \epsilon$ y es cota superior de $A$, pero contradice que $b$ es supremo de $A$, porque $a \leq b - \epsilon < b$.\\
+$\Leftarrow )$ Queremos demostrar que $c < b$ no es cota superior de $A$. Sea $\epsilon_c = b - c > 0$ y como $\exists a \in A : b - \epsilon_c < a$, entonces $a > b - \epsilon_c = b - (b - c) = c$ i.e c no es cota superior de A. Luego, $b = sup(A)$. \QEDA \\
+
+\noindent \textbf{Proposici\'on 3}: $b = \max(A) \iff b \in A \land b = \sup(A)$.\\
+$\Rightarrow)\ b = \max(A) \Rightarrow a \leq b\ \forall a \in A \land b \in A$. Suponiendo que existe $c$ cota superior del conjunto, como\\ \indent $b \in A$, contradice que $c$ es cota superior, ergo $b$ es supremo de $A$ y $b \in A$\\
+$\Leftarrow)\ b \in A \land b = \sup(A) \Rightarrow b \in A \land a\leq b \forall a \in A \Rightarrow b = \max(A)$ \QEDA\\
+
+\noindent \textbf{Proposici\'on 4}: $b = \min(A) \iff b \in A \land b = \inf(A)$.\\
+$\Rightarrow)\ b = \min(A) \Rightarrow b \leq a\ \forall a \in A \land b \in A$. Suponiendo que existe $c$ cota inferior del conjunto, como\\ \indent $b \in A$, contradice que $c$ es cota inferior, ergo $b$ es infimo de $A$ y $b \in A$\\
+$\Leftarrow)\ b \in A \land b = \inf(A) \Rightarrow b \in A \land b\leq a \forall a \in A \Rightarrow b = \inf(A)$ \QEDA\\
+
 
 \subsection{Axioma del Supremo}
-Todo conjunto no vac\'io de n\'umeros reales que sea acotado superiormente tiene un supremo.\\
+\begin{itemize}
+\item[\textbf{A10)}] Todo conjunto no vac\'io de n\'umeros reales que sea acotado superiormente tiene un supremo.\\
+\end{itemize}
 
-\noindent \textbf{Teorema 10}: Existencia de Raices Cuadradas: Dado $a \geq 0$, existe un \'unico $x \in \mathbb{R}$ : $x \geq 0$ y $x^2 = a$. Si $a=0$ es trivial. Si $a > 0$, sabemos que tiene dos soluciones (solo una es positiva). Se define el conjunto $S_a = \{ x \in \mathbb{R} : x^2 \leq a \}$. Vemos que $S_a \not = \emptyset$ y que est\'a acotado superiormente. Luego existe $b = sup(A)$. Luego, por tricotom\'ia sacamos que $b^2 = a$.\\
+\noindent \textbf{Teorema 10}: Existencia de Raices Cuadradas: Dado $a \geq 0$, existe un \'unico $x \in \mathbb{R}$ : $x \geq 0$ y $x^2 = a$. \\
+\textbf{D/} Si $a=0$ es trivial. Si $a > 0$, sabemos que tiene dos soluciones (solo una es positiva). Se define el conjunto $S_a = \{ x \in \mathbb{R} : x^2 \leq a \}$. Vemos que $S_a \not = \emptyset$ y que est\'a acotado superiormente. Luego existe $b = sup(A)$. Luego, por tricotom\'ia sacamos que $b^2 = a$. \QEDA \\
 
-\noindent \textbf{Teorema 11}: Propiedad Arquimediana de los Reales: Sean $x,y \in \mathbb{R}, x > 0 \Rightarrow \exists n \in \mathbb{N} : y < n \cdot x$. Va por absurdo, suponiendo $n\cdot x \leq y\ \forall n \in \mathbb{N}$. Definimos $S = \{ n\cdot x : n \in \mathbb{N} \}$. S no es vacio, ergo existe $b=sup(S)$. Luego $\exists a \in S : b - x < a$ (Caracterizaci\'on). Y se podria escribir como $a = m \cdot x$, $m \in \mathbb{N}$. Es decir, $b < mx + x = (m+1) \cdot x$. Pero $(m+1) \cdot x \in S$, y $b$ no es cota superior de $S$, lo que contradice que $b = sup(S)$. Se contradice por suponer $S$ acotado superiormente. Luego $\exists n \in \mathbb{N} : y < n\cdot x$.\\
+\noindent \textbf{Teorema 11}: Propiedad Arquimediana de los Reales: Sean $x,y \in \mathbb{R}, x > 0 \Rightarrow \exists n \in \mathbb{N} : y < n \cdot x$.\\ 
+\textbf{D/} Va por absurdo, suponiendo $n\cdot x \leq y\ \forall n \in \mathbb{N}$. Definimos $S = \{ n\cdot x : n \in \mathbb{N} \}$. S no es vacio, ergo existe $b=sup(S)$. Luego $\exists a \in S : b - x < a$ (Caracterizaci\'on). Y se podria escribir como $a = m \cdot x$, $m \in \mathbb{N}$. Es decir, $b < mx + x = (m+1) \cdot x$. Pero $(m+1) \cdot x \in S$, y $b$ no es cota superior de $S$, lo que contradice que $b = sup(S)$. Se contradice por suponer $S$ acotado superiormente. Luego $\exists n \in \mathbb{N} : y < n\cdot x$ \QEDA \\
 
 \noindent \textbf{Corolario 5}:
 \begin{itemize}
 \item $\forall y \in \mathbb{R}, \exists n \in \mathbb{N} : y < N$.
-\item $\mathbb{N}$ no est\'a acotado superiormente.
-\item Sea $x > 0$, $\exists n \in \mathbb{N} : \dfrac{1}{n} < x$
+\begin{enumerate}
+\item [Caso 1. ] Si $y \leq 0$ podemos tomar $n = 1$ i.e $y < n$
+\item [Caso 2. ] Si $y > 0$, aplicando la propiedad arquimediana, con $x = 1$, tenemos que $y < n$ \QEDA
+\end{enumerate}
+\item $\mathbb{N}$ no est\'a acotado superiormente.\\
+\textbf{D/} Por contradicci\'on, si $\mathbb{N}$ estuviese acotado, por $A10$ tiene supremo $b \in \mathbb{R}$. Sea $n \in \mathbb{N}$, podemos asegurar que $b < nx$ (con $x > 0$), por lo tanto $b < nx$, contradiciendo la \textit{P.A.} \QEDA
+\item Sea $x > 0$, $\exists n \in \mathbb{N} : \dfrac{1}{n} < x$\\
+\textbf{D/} $\dfrac{1}{n} < x \Rightarrow 1 < nx$ y al cumplir las hip\'otesis de la \textit{P.A}, podemos asegurar que es v\'alido. \QEDA
 \item $x,y,z \in \mathbb{R}, z > 0$, si $x \leq y < x + \dfrac{z}{n}$ $\forall n \in \mathbb{N}$ entonces $x = y$.\\
-
-\item Si $|x| < \dfrac{1}{n}\ \forall n \in \mathbb{N}$, entonces $x = 0$.
-\item Si $|x| < \epsilon\ \forall \epsilon > 0$ entonces $x = 0$.
+\textbf{D/} Supongo $x < y < x + \dfrac{z}{n}$, luego $0 < y - x < \dfrac{z}{n}$. Reemplazando $y - x$ por $y'$, tenemos que $0 < y'n < z$, que contradice el teorema anterior. Luego, $x = y$ \QEDA
+\item Si $|x| < \dfrac{1}{n}\ \forall n \in \mathbb{N}$, entonces $x = 0$.\\
+\textbf{D/} Sabemos que $|x| \geq 0$. Pero si fuese $|x| > 0$, entonces $\exists n \in \mathbb{N} : \dfrac{1}{n} < x \therefore |x| = 0 \Rightarrow x = 0$ \QEDA
+\item Si $|x| < \epsilon\ \forall \epsilon > 0$ entonces $x = 0$.\\
+\textbf{D/} $0 \leq x < \epsilon \land 0 < \epsilon \Rightarrow 0 = x$ \QEDA
 \end{itemize}
 
-\noindent \textbf{Teorema 12}: Si $A$ est\'a acotado inferiormente, entonces posee \'infimo.
-
-\noindent \dotfill
-
-Dado $x \in \mathbb{R}$, existe un \'unico n\'umero $p$ entero tal que $p \leq x < p + 1$ . Demostracion:
+\noindent \textbf{Teorema 12}: Si $A$ est\'a acotado inferiormente, entonces posee \'infimo.\\
+\textbf{D/} Sea $m$ una cota inferior de $A$ y $H$ el conjunto de todas las cotas inferiores (no esta vacio pues $m \in H$), entonces $H$ est\'a acotado superiormente cualquier elemento de $A$, luego tiene supremo por $A10$. Sea $\mu = \sup(H) \Rightarrow \mu = \inf(A)$, pues $\forall x \in A \mu \leq x$ (pues es cota inferior de A) y adem\'as $\forall y \in H, y \leq \mu$ (pues es supremo de $H$). Luego $\mu$ es el \'infimo de $A$. \QEDA\\
+\newpage
+\noindent\textbf{Corolario 6}: Dado $x \in \mathbb{R}$, existe un \'unico n\'umero $p$ entero tal que $p \leq x < p + 1$.
 \begin{itemize}
 \item Si $x \in \mathbb{Z}$, $p=x$ verifica.
 \item Sino, si $0 < x < 1$, entonces $p = 0$ verifica.
@@ -230,5 +343,5 @@ Dado $x \in \mathbb{R}$, existe un \'unico n\'umero $p$ entero tal que $p \leq x
 Y queda demostrado que cuaquiera sea $x \in \mathbb{R}$, existe un unico $p \in \mathbb{Z} : $
 $$p \leq x < p+1$$
 que suele notarse como $[x]$ y se denomina \textbf{parte entera} de x:
-$$[x] \leq x < [x] + 1$$
+$$[x] \leq x < [x] + 1$$ \QEDA
 \end{document}
