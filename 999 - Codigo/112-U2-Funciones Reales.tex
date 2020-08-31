@@ -33,7 +33,7 @@ Para representar los pares ordenados, se usa un \textbf{sistema de coordenadas c
 
 \section{Propiedades de las funciones}
 \begin{itemize}
-\item Es \textbf{suryectiva} cuando su recorrido coincide con su codominio, es decir, $Rec(f) = Codom(f)$.
+\item Es \textbf{suryectiva} cuando su recorrido coincide con su codominio, es decir, $Rec(f) = Codom(f)$. Es decir, $\forall y \in Codom(f),\ \exists x \in Dom(f) : f(x) = y$.
 \item Es \textbf{inyectiva} cuando a todo par de elementos distintos del dominio le corresponden distintas im\'agenes: dados $x_1,x_2 \in Dom(f), x_1 \not = x_2 \Rightarrow f(x_1) \not = f(x_2)$, o bien, $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$. Si existe una recta horizontal que corta a la gr\'afica en m\'as de un punto, entonces no es inyectiva.
 \item Es \textbf{biyectiva} cuando es suryectiva e inyectiva. Luego, hay una relaci\'on biunivoca entre el dominio y el codominio. Cada elemento del codominio recibe una \'unica flecha.\\
 
@@ -87,30 +87,30 @@ Signo & $\mathbb{R} \rightarrow \mathbb{R}, x \rightarrow \left\{\dfrac{|x|}{x},
 \end{itemize}
 
 \section{Funci\'on Homogr\'afica}
-$\dfrac{ax+b}{cx+d}$ se busca llegar a $A + \dfrac{C}{x+B}$. Se saca $\dfrac{a}{c}$. Luego $...+\dfrac{d}{c}-\dfrac{d}{c}...$ para cancelar el parte del numerador usando el denominador como referencia. Se distribuye, se cancela, y llegamos a:
+\noindent $\dfrac{ax+b}{cx+d}$ se busca llegar a $A + \dfrac{C}{x+B}$. Se saca $\dfrac{a}{c}$. Luego $...+\dfrac{d}{c}-\dfrac{d}{c}...$ para cancelar el parte del numerador usando el denominador como referencia. Se distribuye, se cancela, y llegamos a:
 $$\dfrac{a}{c} + \dfrac{bc-ad}{c^2} \cdot \dfrac{1}{x + \frac{d}{c}}$$
-La asintota horizontal es $y = A = \dfrac{a}{c}$ y la asintota vertical es $x = -B = -\dfrac{d}{c}$\\
+\noindent La asintota horizontal es $y = A = \dfrac{a}{c}$ y la asintota vertical es $x = -B = -\dfrac{d}{c}$\\
 
-La intersecci\'on con los ejes es en los puntos $(0, \dfrac{b}{d})$ y $(-\dfrac{b}{a}, 0)$
+\noindent La intersecci\'on con los ejes es en los puntos $(0, \dfrac{b}{d})$ y $(-\dfrac{b}{a}, 0)$
 
 
 \section{Funci\'on Racional}
-Sea $f(x) = \dfrac{p(x)}{q(x)}$, siendo $p$ y $q$ dos polinomios, $Dom(f) = \mathbb{R} \cap \{x:q(x)\not = 0\}$.
-
-\newpage
+\noindent Sea $f(x) = \dfrac{p(x)}{q(x)}$, siendo $p$ y $q$ dos polinomios, $Dom(f) = \mathbb{R} \cap \{x:q(x)\not = 0\}$.
 
 \section{Funci\'on Peri\'odica}
 Si $f(x) = f(x + p)\ \forall x \in Dom(f)$ y $p$ es el mismo n\'umero positivo que verifica esta relaci\'on.
 
+\newpage
+
 \section{Funciones Trigonom\'etricas}
 \subsection{Funci\'on Seno}
-$f(x) = sin(x)\ \forall x \in \mathbb{R}.\ \ Rec(f) = [-1,1]$, peri\'odica de periodo $2\pi$, funci\'on impar.
+\noindent $f(x) = sin(x)\ \forall x \in \mathbb{R}.\ \ Rec(f) = [-1,1]$, peri\'odica de periodo $2\pi$, funci\'on impar.
 \begin{align*}
 sin\ x = 0 &\iff x = \pi \cdot k, k \in Z\\
 sin\ x = 1 &\iff x = \dfrac{\pi}{2} + 2 \cdot \pi k, k \in Z
 \end{align*}
 \subsection{Funci\'on Coseno}
-$f(x) = cos(x)\ \forall x \in \mathbb{R}.\ \ Rec(f) = [-1,1]$, peri\'odica de periodo $2\pi$, funci\'on par.
+\noindent $f(x) = cos(x)\ \forall x \in \mathbb{R}.\ \ Rec(f) = [-1,1]$, peri\'odica de periodo $2\pi$, funci\'on par.
 \begin{align*}
 cos\ x = 0 &\iff x = \dfrac{\pi}{2} + \pi k, k \in Z\\
 cos\ x = 1 &\iff x = 2\pi \cdot k, k \in Z
@@ -118,23 +118,23 @@ cos\ x = 1 &\iff x = 2\pi \cdot k, k \in Z
 
 $$cos(x) = sin\left(x+\dfrac{\pi}{2}\right),\ \forall x \in \mathbb{R}$$
 \subsection{Funci\'on Tangente}
-$f(x) = tan(x) = \dfrac{sin(x)}{cos(x)}\ \forall x \in \mathbb{R}-\{\dfrac{\pi}{2}+k\cdot \pi, k \in Z\}.\ \ Rec(f) = \mathbb{R}$, peri\'odica de periodo $\pi$, impar.
+\noindent $f(x) = tan(x) = \dfrac{sin(x)}{cos(x)}\ \forall x \in \mathbb{R}-\{\dfrac{\pi}{2}+k\cdot \pi, k \in Z\}.\ \ Rec(f) = \mathbb{R}$, peri\'odica de periodo $\pi$, impar.
 
 \section{Funciones Rec\'iprocas Trigonom\'etricas}
 \subsection{Funci\'on Cosecante}
-$csc(x) = \dfrac{1}{sin\ x}$. $Dom(cosec) = \mathbb{R} - \pi \cdot k, k \in \mathbb{Z}$. $Rec(cosec) = \mathbb{R} - (-1,1)$. \\ 
+\noindent $csc(x) = \dfrac{1}{sin\ x}$. $Dom(cosec) = \mathbb{R} - \pi \cdot k, k \in \mathbb{Z}$. $Rec(cosec) = \mathbb{R} - (-1,1)$. \\ 
 
-Impar, Peri\'odica de periodo $2\pi$.
+\noindent Impar, Peri\'odica de periodo $2\pi$.
 
 \subsection{Funci\'on Secante}
-$csc(x) = \dfrac{1}{cos\ x}$. Peri\'odica de periodo $2\pi$. $Dom(sec) = \mathbb{R} - \{ \pi \cdot k + \dfrac{\pi}{2}, k \in \mathbb{Z}\}$. $Rec(sec) = \mathbb{R} - (-1,1)$\\
+\noindent $csc(x) = \dfrac{1}{cos\ x}$. Peri\'odica de periodo $2\pi$. $Dom(sec) = \mathbb{R} - \{ \pi \cdot k + \dfrac{\pi}{2}, k \in \mathbb{Z}\}$. $Rec(sec) = \mathbb{R} - (-1,1)$\\
 
-Par, Peri\'odica de periodo $2\pi$.
+\noindent Par, Peri\'odica de periodo $2\pi$.
 
 \subsection{Funci\'on Cotangente}
-$csc(x) = \dfrac{1}{tan\ x} = \dfrac{cos\ x}{sin\ x}$. $Dom(cot) = \mathbb{R} - \{\pi \cdot k, k\in \mathbb{Z}\}$. $Rec(cot) = \mathbb{R}$\\
+\noindent $csc(x) = \dfrac{1}{tan\ x} = \dfrac{cos\ x}{sin\ x}$. $Dom(cot) = \mathbb{R} - \{\pi \cdot k, k\in \mathbb{Z}\}$. $Rec(cot) = \mathbb{R}$\\
 
-Impar, Peri\'odica de periodo $\pi$.
+\noindent Impar, Peri\'odica de periodo $\pi$.
 
 \newpage
 
@@ -176,15 +176,15 @@ $$x = \dfrac{x+y}{2} + \dfrac{x-y}{2}\ \ \land \ \ y = \dfrac{x+y}{2}-\dfrac{x-y
 \end{multicols}
 
 \section{Composici\'on de Funciones}
-Dadas dos funciones $f:Dom(f)\rightarrow\mathbb{R},g:Dom(g)\rightarrow\mathbb{R}$, se define la funci\'on compuesta, notado como $(f \circ g)(x) = f(g(x))$. Luego, $Dom(f\circ g)(x) = \{ x \in Dom(g) \land g(x) \in Dom(f) \} $
+\noindent Dadas dos funciones $f:Dom(f)\rightarrow\mathbb{R},g:Dom(g)\rightarrow\mathbb{R}$, se define la funci\'on compuesta, notado como $(f \circ g)(x) = f(g(x))$. Luego, $Dom(f\circ g)(x) = \{ x \in Dom(g) \land g(x) \in Dom(f) \} $
 
 \section{Funci\'on Inversa}
-Sea $f$ una funci\'on inyectiva con dominio $A$ y recorrido $B$, entonces su funci\'on inversa $f^{-1} : B \rightarrow A$ se define para cada $y \in B: f^{-1} = x \iff f(x) = y$. Luego, $(x,y) \in G_f \iff (y,x) \in G_{f^{-1}}$. Es decir, las gr\'aficas de $f$ y $f^{-1}$ son sim\'etricas respecto a la gr\'afica de la funci\'on identidad. Adem\'as, como $f^{-1}(f(x)) = x \iff f(f^{-1}(x)) = y$, tenemos que $f(f^{-1}(x))$, y $f^{-1}(f(x))$, es la funci\'on identidad. \\
+\noindent Sea $f$ una funci\'on inyectiva con dominio $A$ y recorrido $B$, entonces su funci\'on inversa $f^{-1} : B \rightarrow A$ se define para cada $y \in B: f^{-1} = x \iff f(x) = y$. Luego, $(x,y) \in G_f \iff (y,x) \in G_{f^{-1}}$. Es decir, las gr\'aficas de $f$ y $f^{-1}$ son sim\'etricas respecto a la gr\'afica de la funci\'on identidad. Adem\'as, como $f^{-1}(f(x)) = x \iff f(f^{-1}(x)) = y$, tenemos que $f(f^{-1}(x))$, y $f^{-1}(f(x))$, es la funci\'on identidad. \\
 
-Por \'ultimo, cuando $f$ no es inyectiva, podemos restringir el dominio a un subconjunto, donde si lo sea, y definir su inversa.
+\noindent Por \'ultimo, cuando $f$ no es inyectiva, podemos restringir el dominio a un subconjunto, donde si lo sea, y definir su inversa.
 
 \section{Funci\'on Exponencial}
-$f(x) = a^x$, $a>0 \land a \not = 1$. $Dom(f) = \mathbb{R}, Rec(f) = \mathbb{R}^+$. Si $a>1$, creciente. Si $0<a<1$, decreciente. $y=0$ es una asintota horizontal.
+\noindent $f(x) = a^x$, $a>0 \land a \not = 1$. $Dom(f) = \mathbb{R}, Rec(f) = \mathbb{R}^+$. Si $a>1$, creciente. Si $0<a<1$, decreciente. $y=0$ es una asintota horizontal.
 \begin{itemize}
 \item $a^x \not = 0,\ \forall x$
 \item $a^0 = 1,\ \forall a$
@@ -192,7 +192,7 @@ $f(x) = a^x$, $a>0 \land a \not = 1$. $Dom(f) = \mathbb{R}, Rec(f) = \mathbb{R}^
 \item $0 < a < b \land x < 0 \Rightarrow a^x > b^x$
 \end{itemize}
 \subsection{Funci\'on Logaritmica (inversa de la exponencial)}
-$f(x) = log_ax$, $a>0 \land a \not = 1$. $Dom(f) = \mathbb{R}^+, Rec(f) = \mathbb{R}$. Definici\'on: $log_ax = y \iff a^y = x$
+\noindent $f(x) = log_ax$, $a>0 \land a \not = 1$. $Dom(f) = \mathbb{R}^+, Rec(f) = \mathbb{R}$. Definici\'on: $log_ax = y \iff a^y = x$
 \begin{align*}
 log_a(x\cdot y) = log_a(x) + log_a(y)\ &\land\ a^x \cdot a^y = a^{x+y}\\
 log_a\left(\dfrac{x}{y}\right) = log_a(x) - log_a(y)\ &\land\ \dfrac{a^x}{a^y} = a^{x-y}\\
@@ -201,19 +201,19 @@ log_a(x^y) = y \cdot log_a(x)\ &\land\ (a^x)^y = a^{x\cdot y}\\
 
 \section{Funciones Trigonometricas Inversas}
 \subsection{Arco Seno}
-$arcsin\ x = sin^{-1}(x) = y \iff sin\ y = x, -\dfrac{\pi}{2} \leq x \leq \dfrac{\pi}{2}$. Es el n\'umero entre $-\dfrac{\pi}{2}$ y $\dfrac{\pi}{2}$ cuyo seno es x.\\
+\noindent $arcsin\ x = sin^{-1}(x) = y \iff sin\ y = x, -\dfrac{\pi}{2} \leq x \leq \dfrac{\pi}{2}$. Es el n\'umero entre $-\dfrac{\pi}{2}$ y $\dfrac{\pi}{2}$ cuyo seno es x.\\
 
-$Dom(sin\ x) = Rec(arcsin\ x) = [-\dfrac{\pi}{2}, \dfrac{\pi}{2}]$, $Rec(sin\ x) = Dom(arcsin\ x) = [-1,1]$
+\noindent $Dom(sin\ x) = Rec(arcsin\ x) = [-\dfrac{\pi}{2}, \dfrac{\pi}{2}]$, $Rec(sin\ x) = Dom(arcsin\ x) = [-1,1]$
 
 \subsection{Arco Coseno}
-$arccos\ x = cos^{-1}(x) = y \iff cos\ y = x, 0 \leq x \leq \pi$. El n\'umero entre $0$ y $\pi$ cuyo coseno es x.\\
+\noindent $arccos\ x = cos^{-1}(x) = y \iff cos\ y = x, 0 \leq x \leq \pi$. El n\'umero entre $0$ y $\pi$ cuyo coseno es x.\\
 
-$Dom(cos\ x) = Rec(arccos\ x) = [0,\pi]$, $Rec(cos\ x) = Dom(arccos\ x) = [-1,1]$
+\noindent $Dom(cos\ x) = Rec(arccos\ x) = [0,\pi]$, $Rec(cos\ x) = Dom(arccos\ x) = [-1,1]$
 
 \subsection{Arco Tangente}
-$arctan\ x = tan^{-1}(x) = y \iff tan\ y = x, 0 < x < \dfrac{\pi}{2}$. El n\'umero entre $-\dfrac{\pi}{2}$ y $\dfrac{\pi}{2}$ cuya tangente es x.\\
+\noindent $arctan\ x = tan^{-1}(x) = y \iff tan\ y = x, 0 < x < \dfrac{\pi}{2}$. El n\'umero entre $-\dfrac{\pi}{2}$ y $\dfrac{\pi}{2}$ cuya tangente es x.\\
 
-$Dom(tan\ x) = Rec(arctan\ x) = (-\dfrac{\pi}{2}, \dfrac{\pi}{2})$, $Rec(tan\ x) = Dom(arctan\ x) = \mathbb{R}$
+\noindent $Dom(tan\ x) = Rec(arctan\ x) = (-\dfrac{\pi}{2}, \dfrac{\pi}{2})$, $Rec(tan\ x) = Dom(arctan\ x) = \mathbb{R}$
 
 
 \end{document}

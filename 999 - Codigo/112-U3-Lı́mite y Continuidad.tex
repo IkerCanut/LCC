@@ -47,13 +47,13 @@
 \newpage
 
 \section{Distancia de Puntos y Entornos}
-Para $x,y \in \mathbb{R}$, la \textbf{distancia} entre $x$ e $y$ es $d(x,y) = |x-y|$\\
+\noindent Para $x,y \in \mathbb{R}$, la \textbf{distancia} entre $x$ e $y$ es $d(x,y) = |x-y|$\\
 
-Llamamos \textbf{entorno} de un real $a$, de radio $\delta$ al intervalo abierto $(a-\delta, a+\delta)$ y lo notamos\\ $E(a,\delta) = \{x\in\mathbb{R}:a-\delta<x<a+\delta\} = \{x\in\mathbb{R}:-\delta<x-a<\delta\} = \{x\in\mathbb{R}:|x-a|<\delta\}$
+\noindent Llamamos \textbf{entorno} de un real $a$, de radio $\delta$ al intervalo abierto $(a-\delta, a+\delta)$ y lo notamos\\ $E(a,\delta) = \{x\in\mathbb{R}:a-\delta<x<a+\delta\} = \{x\in\mathbb{R}:-\delta<x-a<\delta\} = \{x\in\mathbb{R}:|x-a|<\delta\}$
 
-Llamamos \textbf{entorno reducido} de un real $a$, de radio $\delta$ al conjunto $E(a,\delta) - \{a\}$ y lo notamos $E'(a,\delta) = \{x\in\mathbb{R}:|x-a<\delta\land x\not = a|\} = \{x\in\mathbb{R}:0<|x-a|<\delta\}$\\
+\noindent Llamamos \textbf{entorno reducido} de un real $a$, de radio $\delta$ al conjunto $E(a,\delta) - \{a\}$ y lo notamos $E'(a,\delta) = \{x\in\mathbb{R}:|x-a<\delta\land x\not = a|\} = \{x\in\mathbb{R}:0<|x-a|<\delta\}$\\
 
-Sea $a$ un real, $\delta_1, \delta_2$ dos reales positivos, y $\delta\leq min\{\delta_1, \delta_2\}$, se tiene que:
+\noindent Sea $a$ un real, $\delta_1, \delta_2$ dos reales positivos, y $\delta\leq min\{\delta_1, \delta_2\}$, se tiene que:
 \begin{table}[h]
 \centering
 \begin{tabular}{ccc}
@@ -63,9 +63,9 @@ $|x-a|<\delta \Rightarrow |x-a|<\delta_1 \land |x-a|<\delta_2 \hfill$ & \ y \ & 
 \end{table}
 
 \section{L\'imite Finito en un Punto}
-Dada una funci\'on real $f$ y un real $a$, tal que $f$ est\'a definida en un entorno reducido del punto $a$, decimos que $l$ es el l\'imite de la funci\'on $f$, cuando la variable independiente tiende al valor $a$ y notamos $$\lim_{x\to a}f(x)=l$$ si para cualquier valor $\epsilon > 0$, prefijado, existe un n\'umero positivo $\delta$ tal que: $$0<|x-a|<\delta \Rightarrow |f(x)-l| < \epsilon$$ $$x \in E'(a, \delta) \Rightarrow f(x) \in E(l, \epsilon)$$ $$\forall \epsilon > 0, \exists \delta > 0 /\ \forall x : (0 < |x-a| < \delta \Rightarrow |f(x)-l|<\epsilon)$$\\
+\noindent Dada una funci\'on real $f$ y un real $a$, tal que $f$ est\'a definida en un entorno reducido del punto $a$, decimos que $l$ es el l\'imite de la funci\'on $f$, cuando la variable independiente tiende al valor $a$ y notamos $$\lim_{x\to a}f(x)=l$$ si para cualquier valor $\epsilon > 0$, prefijado, existe un n\'umero positivo $\delta$ tal que: $$0<|x-a|<\delta \Rightarrow |f(x)-l| < \epsilon$$ $$x \in E'(a, \delta) \Rightarrow f(x) \in E(l, \epsilon)$$ $$\forall \epsilon > 0, \exists \delta > 0 /\ \forall x : (0 < |x-a| < \delta \Rightarrow |f(x)-l|<\epsilon)$$\\
 
-No se exige que $a$ est\'e en el dominio de $f$, pero si que $f$ este definida en un entorno reducido de $a$.\\
+\noindent No se exige que $a$ est\'e en el dominio de $f$, pero si que $f$ este definida en un entorno reducido de $a$.\\
 La siguiente simbolog\'ia es equivalente:
 \begin{table}[h]
 \centering
@@ -74,7 +74,7 @@ $\displaystyle{\lim_{x\to a}f(x)=l}$ \ \ & \ \ $\displaystyle{\lim_{x\to 0}f(x+a
 \end{tabular}
 \end{table}
 
-Por \'ultimo, observamos que el n\'umero $\delta$ depende tanto del valor de $\epsilon$ como del punto $a$. Adem\'as, si en un punto $a$, para un $\epsilon$, un n\'umero $\delta$ satisface la definici\'on de l\'imite, entonces cualquier $\delta'<\delta$ tambien es v\'alido. Por otro lado, si un $\delta$ es \'util para un $\epsilon$, tambi\'en es \'util para un $\epsilon' > \epsilon$. $$0 < |x-a| < \delta' \Rightarrow 0 < |x-a| < \delta \Rightarrow |f(x)-l| < \epsilon < \epsilon'$$
+\noindent Por \'ultimo, observamos que el n\'umero $\delta$ depende tanto del valor de $\epsilon$ como del punto $a$. Adem\'as, si en un punto $a$, para un $\epsilon$, un n\'umero $\delta$ satisface la definici\'on de l\'imite, entonces cualquier $\delta'<\delta$ tambien es v\'alido. Por otro lado, si un $\delta$ es \'util para un $\epsilon$, tambi\'en es \'util para un $\epsilon' > \epsilon$. $$0 < |x-a| < \delta' \Rightarrow 0 < |x-a| < \delta \Rightarrow |f(x)-l| < \epsilon < \epsilon'$$
 
 \section{L\'imites Finitos}
 \subsection{Funci\'on Constante}
@@ -106,11 +106,11 @@ Luego, $|x-a|<\dfrac{\epsilon}{3|a|} \land |x+a|<3|a|$. Y tenemos que $$0<|x-a|<
 \subsection{Funci\'on Reciproca}
 $f(x)=\dfrac{1}{x}$, $\displaystyle{\lim_{x\to a}\dfrac{1}{x}=\dfrac{1}{a}}$ hay que demostrar $\forall\epsilon>0,\ \exists\delta>0:\ \forall x: (0<|x-a|<\delta \Rightarrow |\dfrac{1}{x}-\dfrac{1}{a}|<\epsilon)$\\
 
-\indent Se demuestra fijando un $\epsilon$ a cualquier n\'umero. Despu\'es se calcula la otra parte del m\'inimo.
+\noindent Se demuestra fijando un $\epsilon$ a cualquier n\'umero. Despu\'es se calcula la otra parte del m\'inimo.
 
 \section{Unicidad del L\'imite}
 \noindent \textbf{Teorema 1}: \textbf{Unicidad del L\'imite}. Sea $f$ una funci\'on real definida en un entorno reducido del punto $a$ y sean $l_1$ y $l_2$ dos n\'umeros reales tales que: \ \ $\displaystyle{\lim_{x\to a}f(x)=l_1} \ \land \ \displaystyle{\lim_{x\to a}f(x)=l_2} \ \ \Rightarrow \ \ \ \ l_1 = l_2$\\
-\textbf{Demostraci\'on: } Dado $\epsilon > 0$, tenemos $\delta_1$ y $\delta_2$ tales que: $$0 < |x-a| < \delta_1 \Rightarrow |f(x) - l_1| < \dfrac{\epsilon}{2} \ \ \land \ \ 0 < |x-a| < \delta_2 \Rightarrow |f(x) - l_2| < \dfrac{\epsilon}{2}$$
+\textbf{D/} Dado $\epsilon > 0$, tenemos $\delta_1$ y $\delta_2$ tales que: $$0 < |x-a| < \delta_1 \Rightarrow |f(x) - l_1| < \dfrac{\epsilon}{2} \ \ \land \ \ 0 < |x-a| < \delta_2 \Rightarrow |f(x) - l_2| < \dfrac{\epsilon}{2}$$
 Considerando $\delta = \min\{\delta_1, \delta_2\}$, considerando cualquier $E'(a, \delta)$, tenemos que:
 $$|l_1 - l_2| = |l_1 - f(x) + f(x) - l_2| \leq |l_1 - f(x)| + |l_2 - f(x)| < \dfrac{\epsilon}{2} + \dfrac{\epsilon}{2} = \epsilon$$
 Y como tenemos $0 \leq |l_1 - l_2| < \epsilon$, podemos asegurar que $|l_1 - l_2| = 0 \Rightarrow l_1 = l_2$ \QEDA
@@ -124,35 +124,32 @@ $$\lim_{x \to a^+} f(x) = l, \text{ si } \forall \epsilon > 0,\ \exists \delta >
 $$\lim_{x \to a^-} f(x) = l, \text{ si } \forall \epsilon > 0,\ \exists \delta > 0: a-\delta < x < a \Rightarrow |f(x)-l| = \epsilon$$\\
 
 \noindent \textbf{Proposici\'on 1}: $\displaystyle{ \lim_{x \to a} f(x) = l \iff \lim_{x \to a^-} f(x) = l \land \lim_{x \to a^+} f(x) = l}$\\
-\noindent \textbf{Demostraci\'on}:\\ $\Rightarrow)$ Si $\forall \epsilon > 0,\ \exists \delta > 0:\ \forall x: (0<|x-a|<\delta \Rightarrow |f(x)-l|<\epsilon$\\
+$\Rightarrow)$ Si $\forall \epsilon > 0,\ \exists \delta > 0:\ \forall x: (0<|x-a|<\delta \Rightarrow |f(x)-l|<\epsilon$\\
 Para ese $\delta$ se verifica \ $a-\delta<x<a \Rightarrow 0<|x-a|<\delta \Rightarrow |f(x)=l| \therefore \text{ Existe el l\'imite por izquierda.}$\\
 \indent \indent \indent \indent \indent \ \ \ \ \ \ $a<x<a+\delta \Rightarrow 0<|x-a|<\delta \Rightarrow |f(x)=l| \therefore \text{ Existe el l\'imite por derecha.}$ \\
-\QEDB\\
 $\Leftarrow)$ Si $\forall \epsilon > 0, \exists \delta_1, \delta_2$ tales que: \ \
-$a-\delta_1 < x < a \Rightarrow |f(x)-l| < \epsilon \ \ \ \ \land \ \ \ \ a<x<a+\delta \Rightarrow |f(x)-l| < \epsilon$\\
-Sea $\delta=\min{\delta_1, \delta_2}$:\\
+$a-\delta_1 < x < a \Rightarrow |f(x)-l| < \epsilon \ \ \land \ \ a<x<a+\delta \Rightarrow |f(x)-l| < \epsilon$\\
+Sea $\delta=\min\{\delta_1, \delta_2\}$:\\
 $a-\delta<x<a \Rightarrow a-\delta_1<x<a \Rightarrow |f(x)-l| < \epsilon \ \ \land \ \ a<x<a+\delta \Rightarrow a<x<a+\delta_2 \Rightarrow |f(x)-l|<\epsilon$\\
-$\Rightarrow 0<|x-a|<\delta \Rightarrow |f(x)-l| < \epsilon \therefore \displaystyle{\lim_{x \to a} f(x) = l}$\\
-\QEDA \\
+$\Rightarrow 0<|x-a|<\delta \Rightarrow |f(x)-l| < \epsilon \therefore \displaystyle{\lim_{x \to a} f(x) = l}$ \QEDA \\
+
 \textit{Nota: Como la existencia e igualdad de l\'imites laterales en un punto es condici\'on necesaria y suficiente para garantizar la existencia de l\'imites alli, la no existencia de alguno de los l\'imites laterales, o la diferencia entre ambos, implica la no existencia de l\'imites finito de la funci\'on en el punto.}\\
 
 \noindent \textbf{Proposici\'on 2}: Sea $f$ una funci\'on y $a$ un numero tal que existe $\displaystyle{\lim_{x\to a}f(x) = l} \Rightarrow \lim_{x\to a}|f(x)|=|l|$\\
-\textbf{Demostraci\'on}: Dado $\epsilon > 0,\ \exists \delta > 0 : (0<|x-a|<\delta \Rightarrow |f(x)-l)<\epsilon)$\\
-Y como $||f(x)|-|l|| < |f(x)-l|$, para el mismo $\delta$: $(0<|x-a|<\delta \Rightarrow ||f(x)|-|l|| < |f(x)-l)<\epsilon)$\\ \QEDA \\
+\textbf{D/}: Dado $\epsilon > 0,\ \exists \delta > 0 : (0<|x-a|<\delta \Rightarrow |f(x)-l)<\epsilon)$, Y como \\
+$||f(x)|-|l|| < |f(x)-l|$, para el mismo $\delta$: $(0<|x-a|<\delta \Rightarrow ||f(x)|-|l|| < |f(x)-l)<\epsilon)$ \QEDA \\ \\
 
 \noindent \textbf{Teorema 2}: \textbf{Caracter Local del L\'imite}: Sean $a$ un real, y dos funciones $f$ y $g$ para las cuales:
-$$\lim_{x\to a}f(x) = l \ \ \land \ \ f(x) = g(x) \text{ en alg\'un } E'(a, \rho) \ \ \Rightarrow \ \ \lim_{x\to a}g(x) = l$$
-\textbf{Demostraci\'on}: Dado $\epsilon>0, \exists \delta'>0 : (0<|x-a|<\delta' \Rightarrow |f(x)-l|<\epsilon)$\\
-Por Hipotesis, existe $\rho > 0$ tal que $0<|x-a|<\rho \Rightarrow f(x)=g(x)$, y eligiendo $\delta = \min\{\delta', \rho\}$, vale:
-$$0<|x-a|<\delta \Rightarrow |f(x)-l|<\epsilon \ \ \land \ \ f(x)=g(x) \Rightarrow |g(x)-l|<\epsilon \ \ \therefore \ \ 0<|x-a|<\delta \Rightarrow |g(x)-l|<\epsilon$$ \QEDA \\
+$$\displaystyle{\lim_{x\to a}f(x) = l \ \ \land \ \ f(x) = g(x) \text{ en alg\'un } E'(a, \rho) \ \ \Rightarrow \ \ \lim_{x\to a}g(x) = l}$$
+\textbf{D/}: Dado $\epsilon>0, \exists \delta'>0 : (0<|x-a|<\delta' \Rightarrow |f(x)-l|<\epsilon)$\\
+Por Hipotesis, existe $\rho > 0$ tal que $0<|x-a|<\rho \Rightarrow f(x)=g(x)$, y eligiendo $\delta = \min\{\delta', \rho\}$, vale:\\
+$0<|x-a|<\delta \Rightarrow |f(x)-l|<\epsilon \ \ \land \ \ f(x)=g(x) \Rightarrow |g(x)-l|<\epsilon \ \ \therefore \ \ 0<|x-a|<\delta \Rightarrow |g(x)-l|<\epsilon$ \QEDA \\ \\
 
-\noindent \dotfill\\
-
-Sea $A$ un subconjunto no vacio de $\mathbb{R}$ y $f$ una funci\'on definida en $A$, diremos que la funci\'on $F$ est\'a \textbf{acotada} en el conjunto $A$ si existe un n\'umero real $M > 0$ tal que $\forall x \in A$: $|f(x)| \leq M$.\\
-\indent De manera alternativa, $f$ est\'a acotada en $A$ si $\{f(x):x\in A\}$ es un subconjunto acotado de $\mathbb{R}$.\\
+\noindent Sea $A$ un subconjunto no vacio de $\mathbb{R}$ y $f$ una funci\'on definida en $A$, diremos que la funci\'on $F$ est\'a \textbf{acotada} en el conjunto $A$ si existe un n\'umero real $M > 0$ tal que $\forall x \in A$: $|f(x)| \leq M$.\\
+\noindent De manera alternativa, $f$ est\'a acotada en $A$ si $\{f(x):x\in A\}$ es un subconjunto acotado de $\mathbb{R}$.\\
 
 \noindent \textbf{Teorema 3}: Si tenemos que $\displaystyle{\lim_{x\to a}f(x) = l}$, entonces existe $E'(a,\delta)$ en el cual la funci\'on est\'a acotada.\\
-\noindent \textbf{Demostraci\'on}: Dado, por ejemplo, $\epsilon=1$, existe $\delta>0 : x\in E'(a,\delta) \Rightarrow |f(x)-l|<1$. Luego, 
+\noindent \textbf{D/} Dado, por ejemplo, $\epsilon=1$, existe $\delta>0 : x\in E'(a,\delta) \Rightarrow |f(x)-l|<1$. Luego, 
 \begin{align*}
 |f(x)-l| < 1 & \Rightarrow -1 < f(x)-l < 1 \Rightarrow l-1<f(x)<l+1\\
 & \Rightarrow -|l|-1 \leq l-1<f(x)<l+1\leq|l|+1\\
@@ -166,47 +163,42 @@ La rec\'iproca no necesariamente es cierta, hay funciones acotadas en todo entor
 
 \noindent \textbf{Teorema 4}: Si tenemos que $\displaystyle{\lim_{x\to a}f(x) = l}$ y dos n\'umeros $k$ y $h$, tales que $h<l<k$,\\
 entonces existe un entorno reducido $E'(a,\delta)$ donde, $\forall x \in E'(a,\delta)$, se verifica $h < f(x) < k$.\\
-\textbf{Demostraci\'on}: \\
-Siendo $l < k$, eligiendo $\epsilon = k - l > 0$, sabemos que existe $\delta_1 > 0$ tal que\\ si $x\in E'(a,\delta_1) \Rightarrow |f(x)-l|<k-l$. Y en ese entorno, $f(x)-l \leq |f(x)-l| < k-l \therefore f(x) < k$ \hfill \textbf{(1)}\\
+\textbf{D/} Siendo $l < k$, eligiendo $\epsilon = k - l > 0$, sabemos que existe $\delta_1 > 0$ tal que\\ si $x\in E'(a,\delta_1) \Rightarrow |f(x)-l|<k-l$. Y en ese entorno, $f(x)-l \leq |f(x)-l| < k-l \therefore f(x) < k$ \hfill \textbf{(1)}\\
 Siendo $h < l$, eligiendo $\epsilon = l - h > 0$, sabemos que existe $]dekta_2 > 0$ tal que\\ si $x\in E'(a,\delta_2) \Rightarrow |f(x)-l|<l-h$. Y en ese entorno, $h-l<f(x)-l<l-h \therefore h<f(x)$ \hfill \textbf{(2)}\\
-Considerando $\delta=\min\{\delta_1,\delta_2\}$, vale de \textbf{(1)} y \textbf{(2)} que $x\in E'(a,\delta) \Rightarrow h < f(x) < k$\\
+Considerando $\delta=\min\{\delta_1,\delta_2\}$, vale de \textbf{(1)} y \textbf{(2)} que $x\in E'(a,\delta) \Rightarrow h < f(x) < k$
 \QEDA\\
 
 \noindent \textbf{Corolario 1}: \textbf{Teorema de Conservaci\'on del Signo}. Si tenemos que $\displaystyle{\lim_{x\to a}f(x) = l \not = 0}$, entonces existe un entorno reducido $E'(a,\delta)$ donde $f(x)\not = 0$. Y vale, por ejemplo, $|f(x)| > \frac{|l|}{2}$\\
-\noindent \textbf{Demostraci\'on}: Teorema anterior. Si $l<0, h=\dfrac{l}{2}<l$. Si $l>0, k=\dfrac{l}{2}>l$. Por la proposici\'on 2, vale $\displaystyle{\lim_{x\to a}|f(x)| = |l| \not = 0}$\\
-\QEDA\\
+\noindent \textbf{D/}: Teorema anterior. Si $l<0, h=\dfrac{l}{2}<l$. Si $l>0, k=\dfrac{l}{2}>l$. Por la proposici\'on 2, vale $\displaystyle{\lim_{x\to a}|f(x)| = |l| \not = 0}$ \QEDA\\
 
 \section{\'Algebra de L\'imites}
 \noindent \textbf{Teorema 5}: Sea $a$ un real, $f$ y $g$ dos funciones tales que $\displaystyle{\lim_{x\to a}f(x) = l_1}$ y $\displaystyle{\lim_{x\to a}g(x) = l_2}$, entonces:
 \begin{itemize}
 \item $\displaystyle{\lim_{x\to a}(f+g)(x) = l_1 + l_2}$\\
-\textbf{Dem}: $0<|x-a|<\delta_1 \Rightarrow |f(x)-l_1| < \dfrac{\epsilon}{2}$ y $0<|x-a|<\delta_2 \Rightarrow |g(x)-l_2| < \dfrac{\epsilon}{2}$\\
+\textbf{D/} $0<|x-a|<\delta_1 \Rightarrow |f(x)-l_1| < \dfrac{\epsilon}{2}$ y $0<|x-a|<\delta_2 \Rightarrow |g(x)-l_2| < \dfrac{\epsilon}{2}$\\
 Sea $\delta=\min\{\delta_1, \delta_2\}$, y $x$ tal que $0<|x-a|<\delta$,\\
-$|(f+g)(x)-(l_1+l_2)| = |(f(x)-l_1)+(f(x)-l_2)| \leq |f(x)-l_1| + |f(x)-l_2| < \dfrac{\epsilon}{2} + \dfrac{\epsilon}{2} = \epsilon$\\
+$|(f+g)(x)-(l_1+l_2)| = |(f(x)-l_1)+(f(x)-l_2)| \leq |f(x)-l_1| + |f(x)-l_2| < \dfrac{\epsilon}{2} + \dfrac{\epsilon}{2} = \epsilon$
 \QEDA
 \item Sea $c\in \mathbb{R}$, $\displaystyle{\lim_{x\to a}(c\cdot f)(x) = c\cdot l_1}$\\
-\textbf{Dem}: Si $c=0$ es trivial. Sea $c\not = 0$, dado $\epsilon > 0$, sea $\delta > 0$ : $0<|x-a|<\delta \Rightarrow |f(x)-l_1| < \dfrac{\epsilon}{|c|}$.\\
-Entonces para los $x$ : $0<|x-a|<\delta$, $|(c\cdot f)(x) - (c\cdot l_1)| = |c \cdot (f(x)-l_1)| = |c|\cdot|f(x)-l_1| < |c|\cdot\dfrac{\epsilon}{|c|}=\epsilon$\\
+\textbf{D/} Si $c=0$ es trivial. Sea $c\not = 0$, dado $\epsilon > 0$, sea $\delta > 0$ : $0<|x-a|<\delta \Rightarrow |f(x)-l_1| < \dfrac{\epsilon}{|c|}$.\\
+Entonces para los $x$ : $0<|x-a|<\delta$, $|(c\cdot f)(x) - (c\cdot l_1)| = |c \cdot (f(x)-l_1)| = |c|\cdot|f(x)-l_1| < |c|\cdot\dfrac{\epsilon}{|c|}=\epsilon$
 \QEDA
 \item $\displaystyle{\lim_{x\to a}(f-g)(x) = l_1 - l_2}$\\
-\textbf{Dem}: $\displaystyle{\lim_{x\to a}(f-g)(x) = \lim_{x\to a}(f+ (-1)g)(x) = \lim_{x\to a}f(x) + (-1)\lim_{x\to a}g(x) = l_1 - l_2}$\\
-\QEDA
+\textbf{D/}: $\displaystyle{\lim_{x\to a}(f-g)(x) = \lim_{x\to a}(f+ (-1)g)(x) = \lim_{x\to a}f(x) + (-1)\lim_{x\to a}g(x) = l_1 - l_2}$
+\QEDA\\ \\
 \end{itemize}
-\noindent \dotfill\\
 
 \noindent \textbf{Teorema 6}: Si $\displaystyle{\lim_{x\to a}f(x) = 0}$ y $g$ est\'a acotada en un entorno reducido $E'(a,\rho)$, entonces $\displaystyle{\lim_{x\to a}(fg)(x) = 0}$\\
-\noindent \textbf{Demostraci\'on}: Tenemos que $0<|x-a|<\delta' \Rightarrow |f(x)|<\dfrac{\epsilon}{M}$ y $0<|x-a|<\rho \Rightarrow |g(x)| \leq M$.\\
+\noindent \textbf{D/} Tenemos que $0<|x-a|<\delta' \Rightarrow |f(x)|<\dfrac{\epsilon}{M}$ y $0<|x-a|<\rho \Rightarrow |g(x)| \leq M$.\\
 Luego, considerando $\delta = \min\{\delta', \rho\}$, y $x$ tal que $0<|x-a|<\delta$, $$|(f\cdot g)(x)-0| = |f(x)\cdot g(x)| = |f(x)|\cdot|g(x)| < \dfrac{\epsilon}{M} \cdot M = \epsilon$$
 \QEDA\\
-
-\noindent \dotfill\\
 
 \newpage
 
 \noindent \textbf{Teorema 7}: Si $\displaystyle{\lim_{x\to a}f(x) = l_1}$ y $\displaystyle{\lim_{x\to a}g(x) = l_2}$
 \begin{itemize}
 \item Existe el limite de la funci\'on $fg$ en $a$ y vale $\displaystyle{\lim_{x\to a}(f\cdot g)(x) = l_1\cdot l_2}$\\
-\textbf{Dem}: Sabemos que $f$ est\'a acotada en $E'(a, \rho)$ por $M$, es decir, $0<|x-a|<\rho \Rightarrow |f(x)|\leq M$,\\
+\textbf{D/} Sabemos que $f$ est\'a acotada en $E'(a, \rho)$ por $M$, es decir, $0<|x-a|<\rho \Rightarrow |f(x)|\leq M$,\\
 que $0<|x-a|<\delta_1 \Rightarrow |f(x)-l_1| < \epsilon'$ y que $0<|x-a|<\delta_2 \Rightarrow |g(x)-l_2| < \epsilon''$.\\
 Luego, para $\delta = \min\{\rho, \delta_1, \delta_2\}$, para $x$ tal que :
 \begin{align*}
@@ -218,43 +210,44 @@ Luego, para $\delta = \min\{\rho, \delta_1, \delta_2\}$, para $x$ tal que :
 \end{align*}
 Luego, $\epsilon' = \dfrac{\epsilon}{2\cdot |l_2|}$ y $\epsilon'' = \dfrac{\epsilon}{2\cdot M}$\QEDA
 \item Si adem\'as $l_2 \not = 0$, $\displaystyle{\lim_{x\to a}\left(\dfrac{f}{g}\right)(x) = \dfrac{l_1}{l_2}}$\\
-\textbf{Dem}: Como $l_2 \not = 0,\ \exists E'(a,\rho)$ dentro del cual $|g(x)| > m$, para alg\'un $m>0$ (Corolario 1).\\
+\textbf{D/} Como $l_2 \not = 0,\ \exists E'(a,\rho)$ dentro del cual $|g(x)| > m$, para alg\'un $m>0$ (Corolario 1).\\
 Por otro lado, $\forall \epsilon>0,\ \exists \delta>0 : \forall x (0<|x-a|<\delta' \Rightarrow |g(x)-l_2| < \epsilon')$.\\
 Para $\delta\leq \min\{\delta', \rho\}$ y $x$ tal que $0<|x-a|<\delta$\\ $\left|\dfrac{1}{g(x)} - \dfrac{1}{l_2}\right| = \left|\dfrac{l_2-g(x)}{l_2\cdot g(x)}\right| = |l_2-g(x)| \cdot \dfrac{1}{|g(x)|} \cdot \dfrac{1}{|l_2|} < \epsilon' \cdot \dfrac{1}{m} \cdot \dfrac{1}{|l_2|} = \epsilon\ \ \ \therefore \epsilon' = |l_2| \cdot m \cdot \epsilon$ \QEDA
-\item $\displaystyle{\lim_{x\to a}\left(\dfrac{f}{g}\right)(x) = \lim_{x\to a}f(x) \cdot \left(\dfrac{1}{g}\right)(x) = l_1 \cdot \dfrac{1}{l_2} = \dfrac{l_1}{l_2}}$ \QEDA
+\item $\displaystyle{\lim_{x\to a}\left(\dfrac{f}{g}\right)(x) = \lim_{x\to a}f(x) \cdot \left(\dfrac{1}{g}\right)(x) = l_1 \cdot \dfrac{1}{l_2} = \dfrac{l_1}{l_2}}$ \QEDA\\ \\
 \end{itemize}
-\noindent \dotfill\\
+
 Combinando los apartados anteriores, se puede asegurar que:
 \begin{itemize}
 \item $\forall n \in \mathbb{N}, a \in \mathbb{R}$, existe $\displaystyle{\lim_{x\to a} x^n = a^n}$
 \item Dado un polinomio $p(x)=\alpha_nx^n+\alpha_{n-1}x^{n-1}+...+\alpha_1x+\alpha_0, a \in \mathbb{R}$, existe $$\lim_{x\to a}p(x) = \alpha_na^n+\alpha_{n-1}a^{n-1}+...+\alpha_1a+\alpha_0 = p(a)$$
-\item Dada una funci\'on racional $\dfrac{p(x)}{q(x)}$ y un $a \in \mathbb{R}$, $\displaystyle{\lim_{x\to a}\dfrac{p(x)}{q(x)} = \dfrac{p(a)}{q(a)}}$, siempre que $q(a)\not = 0$
+\item Dada una funci\'on racional $\dfrac{p(x)}{q(x)}$ y un $a \in \mathbb{R}$, $\displaystyle{\lim_{x\to a}\dfrac{p(x)}{q(x)} = \dfrac{p(a)}{q(a)}}$, siempre que $q(a)\not = 0$\\ \\
 \end{itemize}
-\noindent \dotfill\\
+
 Todos los resultado son v\'alidos si se reemplazan los s\'imbolos $x\rightarrow a$ por $x\rightarrow a^+$ o $x\rightarrow a^-$.
 
 \newpage
+
 \section{L\'imite de Funciones Trigonom\'etricas}
 \noindent \textbf{Proposici\'on 4}: Si $-\dfrac{\pi}{2} < x < \dfrac{\pi}{2}$, $|sin\ x| \leq |x| \leq |tan\ x|$.\\
-\noindent \textbf{Demostraci\'on}: Para $x=0$ vale la igualdad. Luego, para $-\dfrac{\pi}{2} < x < \dfrac{\pi}{2}, x \not = 0$
+\noindent \textbf{D/}: Para $x=0$ vale la igualdad. Luego, para $-\dfrac{\pi}{2} < x < \dfrac{\pi}{2}, x \not = 0$
 
 \hspace{-1.5cm}
 \begin{tikzpicture}[>=latex]
 \Base
-\filldraw[thick,draw=blue,fill=blue!40,fill opacity=0.3,text opacity=1]
+\filldraw[thick,draw=blue,fill=blue!40,fill opacity=0.2,text opacity=1]
   (O) -- (aux1) -- node[left] {$\sin x$} (aux2)  -- cycle; 
 
 \Base[6.3cm]
-\filldraw[thick,draw=blue,fill=blue!40,fill opacity=0.3,text opacity=1]
+\filldraw[thick,draw=blue,fill=blue!40,fill opacity=0.2,text opacity=1]
   (O) -- (aux1) arc (40:0:4) -- node[below] {$1$} cycle; 
 
 \Base[12.6cm]
-\filldraw[thick,draw=blue,fill=blue!40,fill opacity=0.3,text opacity=1]
+\filldraw[thick,draw=blue,fill=blue!40,fill opacity=0.2,text opacity=1]
   (O) -- (aux3) -- node[right] {$\tan x$} (aux3|-0,0)  -- node[below] {$1$} cycle; 
 \end{tikzpicture}
 \vspace{.1cm}
 Luego, comparando las areas, $\overset{\triangle}{AOB} <$ \'area sector circular $AOB < \overset{\triangle}{AOC}$.\\
-Puesto en valores queda: $\dfrac{|\sin x|}{2} < \dfrac{|x|}{2} < \dfrac{|\tan x|}{2}$ e inmediatamente implica el enunciado.\\
+Puesto en valores queda: $\dfrac{|\sin x|}{2} < \dfrac{|x|}{2} < \dfrac{|\tan x|}{2}$ e inmediatamente implica el enunciado. \QEDA \\ \\
 
 \noindent \textbf{Nota}: La desigualdad $|\sin x| < |x|$ es cierta $\forall x \not = 0$. $|\sin x| \leq 1 < \dfrac{\pi}{2} \leq |x|$\\
 
@@ -268,12 +261,13 @@ Puesto en valores queda: $\dfrac{|\sin x|}{2} < \dfrac{|x|}{2} < \dfrac{|\tan x|
 De esta manera podemos concluir que:
 $$\lim_{x\to 0}\cos x = \lim_{x\to 0}\left(1 - 2\cdot \sin^2 \left(\dfrac{x}{2}\right)\right) = 1$$
 
-\noindent \textbf{Teorema 8}: Para $a \in \mathbb{R}$:
-$$\lim_{x\to a}\sin x = \sin a \ \ \ \ \land \ \ \ \ \lim_{x\to a}\cos x = \cos a$$
-\noindent \textbf{Demostraci\'on}: Usando lo anterior m\'as las siguientes formulas:
+\vspace{1cm}
+
+\noindent \textbf{Teorema 8}: Para $a \in \mathbb{R}$: \hfill $\lim_{x\to a}\sin x = \sin a \ \ \ \ \land \ \ \ \ \lim_{x\to a}\cos x = \cos a$ \hfill \hfill \\
+\noindent \textbf{D/} Usando lo anterior m\'as las siguientes formulas:
 \begin{itemize}
 \item $\displaystyle{\lim_{x\to a}(\sin x) = \lim_{x\to 0} (\sin(x+a)) = \lim_{x\to 0} (\sin x \cdot \cos a + \cos x \cdot \sin a) = 0 \cdot \cos a + 1 \cdot \sin a = \sin a}$
-\item $\displaystyle{\lim_{x\to a}(\cos x) = \lim_{x\to 0} (\cos(x+a)) = \lim_{x\to 0} (\cos x \cdot \cos a - \sin x \cdot \sin a) = 1 \cdot \cos a - 0 \cdot \sin a = \cos a}$
+\item $\displaystyle{\lim_{x\to a}(\cos x) = \lim_{x\to 0} (\cos(x+a)) = \lim_{x\to 0} (\cos x \cdot \cos a - \sin x \cdot \sin a) = 1 \cdot \cos a - 0 \cdot \sin a = \cos a}$ \QEDA \\ \\
 \end{itemize}
 
 \noindent \textbf{Corolario 2}: 
@@ -287,23 +281,25 @@ $$\lim_{x\to a}\sin x = \sin a \ \ \ \ \land \ \ \ \ \lim_{x\to a}\cos x = \cos 
 \noindent \textbf{Teorema 9}: \textbf{El Principio de Intercalaci\'on}: Sean $f,g,h$ tres funciones y $a$ un real, tales que en alg\'un entorno reducido $E'(a, \rho)$ se tiene: $g(x) \leq f(x) \leq h(x)$,\\
 y adem\'as las funciones $g$ y $h$ tienen l\'imite en $a$ siendo $\displaystyle{\lim_{x\to a} g(x) = \lim_{x\to a} h(x) = l}$,\\
 Entonces $f$ tiene l\'imite en el punto $a$ y vale $\displaystyle{\lim_{x\to a} f(x)=l}.$\\
-\noindent \textbf{Demostraci\'on}: Tenemos $0<|x-a|<\delta_1 \Rightarrow|g(x)-l| < \epsilon \ \ \land \ \ 0<|x-a|<\delta_2 \Rightarrow |h(x) - l| < \epsilon$\\
+\noindent \textbf{D/} Tenemos $0<|x-a|<\delta_1 \Rightarrow|g(x)-l| < \epsilon \ \ \land \ \ 0<|x-a|<\delta_2 \Rightarrow |h(x) - l| < \epsilon$\\
 Entonces para $\delta = \min\{\rho, \delta_1, \delta_2\}$, y $x$ tal que:
-\[0 < |x-a| < \delta \left\{\begin{array}{l}
+\[\ \ \ \ \ \ 0 < |x-a| < \delta \left\{\begin{array}{l}
 g(x) \leq f(x) \leq h(x)\\
 l - \epsilon < g(x)\\
 h(x) < l + \epsilon
-\end{array}\right. \Rightarrow (l - \epsilon < f(x) < l + \epsilon) \Rightarrow (|f(x) - l| < \epsilon)\]\\
+\end{array}\right. \Rightarrow (l - \epsilon < f(x) < l + \epsilon) \Rightarrow (|f(x) - l| < \epsilon)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \QEDA\\ \\ \] 
 
-\noindent \textbf{Proposici\'on 5}: El Principio de Intercalaci\'on es valido si se reemplaza $x\rightarrow a$ por $x\rightarrow a^+$ o $x\rightarrow a^-$.
+\vspace{.5cm}
+
+\noindent \textbf{Proposici\'on 5}: El Principio de Intercalaci\'on es valido si se reemplaza $x\rightarrow a$ por $x\rightarrow a^+$ o $x\rightarrow a^-$.\\
 
 \noindent \textbf{Proposici\'on 6}: $\displaystyle{\lim_{x \to 0} \dfrac{\sin x}{x} = 1}$\\
-\noindent \textbf{Demostraci\'on}: Para $-\dfrac{\pi}{2} < x < \dfrac{\pi}{2}, x \not = 0$, tenemos que $|\sin x| < |x| < |\tan x|$\\
+\noindent \textbf{D/} Para $-\dfrac{\pi}{2} < x < \dfrac{\pi}{2}, x \not = 0$, tenemos que $|\sin x| < |x| < |\tan x|$\\
 Para los $x$ tales que $0 < x < \dfrac{\pi}{2}$, si dividimos por $\sin x > 0$, tenemos $1 < \dfrac{x}{\sin x} < \dfrac{1}{\cos x}$\\
 Para los $x$ tales que $\dfrac{\pi}{2} < x < 0$, si dividimos por $-\sin x > 0$, tenemos $1 < \dfrac{x}{\sin x} < \dfrac{1}{\cos x}$\\
 Y como sabemos que $\displaystyle{\lim_{x \to 0} \cos x = 1} \not = 0 \Rightarrow \displaystyle{\lim_{x \to 0} \dfrac{1}{\cos x} = 1}$\\
 Utilizando el Teorema del Sandwich, se concluye que $\displaystyle{\lim_{x \to 0} \dfrac{x}{\sin x} = 1 \not = 0}$ y luego $\displaystyle{\lim_{x \to 0} \dfrac{\sin x}{x} = 1}$
-\QEDA\\
+\QEDA\\ \\
 
 \noindent Adem\'as, se puede concluir que si $f(x) \not = 0$ en un $E'(a, \rho)$, y $\displaystyle{\lim_{x \to a} f(x) = 0}$ entonces $\displaystyle{\lim_{x \to a} \dfrac{\sin f(x)}{f(x)} = 1}$
 
@@ -322,6 +318,7 @@ Utilizando el Teorema del Sandwich, se concluye que $\displaystyle{\lim_{x \to 0
 \item Si $\displaystyle{\lim_{x \to a} f(x) = \pm \infty}$ y $\displaystyle{\lim_{x \to a} g(x) = \pm \infty}$, entonces $\displaystyle{\lim_{x \to a} (f\cdot g)(x) = + \infty}$
 \item Si $\displaystyle{\lim_{x \to a} f(x) = \pm \infty}$ y $\displaystyle{\lim_{x \to a} g(x) = \mp \infty}$, entonces $\displaystyle{\lim_{x \to a} (f\cdot g)(x) = - \infty}$
 \end{itemize}
+\newpage
 \textbf{Demostraciones}
 \begin{itemize}
 \item $ \left.
@@ -344,7 +341,7 @@ $(f-g)(x) = f(x)-g(x) < -M' + -M'' = M \therefore M' = -\dfrac{M}{2} \land M'' =
 \indent $0<|x-a|<\delta_2 \Rightarrow g(x) > -M'',\ (c\cdot g)(x)=c\cdot g(x) < c\cdot -M'' = M \therefore M''= - \dfrac{M}{c}$ \QEDA
 
 \item $0<|x-a|<\delta_1 \Rightarrow f(x) > M',\ (c\cdot f)(x)=c\cdot f(x) < c\cdot M' = -M \therefore M'=-\dfrac{M}{c}$\\
-\indent $0<|x-a|<\delta_2 \Rightarrow g(x) > M'',\ (c\cdot g)(x)=c\cdot g(x) < c\cdot M'' = M \therefore M''=\dfrac{M}{c}$
+\indent $0<|x-a|<\delta_2 \Rightarrow g(x) > M'',\ (c\cdot g)(x)=c\cdot g(x) < c\cdot M'' = M \therefore M''=\dfrac{M}{c}$ \QEDA
 
 \item $ \left.
 \begin{array}{l}
@@ -385,11 +382,11 @@ Notamos que si una propiedad se verifica $\forall x > H_1$, y otra propiedad se 
 \noindent \textbf{Proposici\'on 10}:
 \begin{itemize}
 \item $\displaystyle{\lim_{x \to a} f(x) \Rightarrow \pm\infty} \Rightarrow \displaystyle{\lim_{x \to a} \left(\dfrac{1}{f}\right)(x) = 0}$ \\ (Lo mismo ocurre si se reemplaza $x\to a$ por $x\to a^+$, $x\to a^-$, $x\to +\infty$ o $x\to -\infty$).\\
-\textbf{Demostraci\'on}: Queremos demostrar que\\ $\left[0<|x-a|<\delta \Rightarrow f(x) > M \right] \Rightarrow \left[0<|x-a|<\delta \Rightarrow \left|\dfrac{1}{f(x)}-0\right|<\epsilon\right]$. \\
+\textbf{D/} Queremos demostrar que\\ $\left[0<|x-a|<\delta \Rightarrow f(x) > M \right] \Rightarrow \left[0<|x-a|<\delta \Rightarrow \left|\dfrac{1}{f(x)}-0\right|<\epsilon\right]$. \\
 Y como $f(x)>M>0 \Rightarrow 0 <\dfrac{1}{f(x)}<\dfrac{1}{M} \Rightarrow \left|\dfrac{1}{f(x)}-0\right| < \dfrac{1}{M}$, consideramos $\dfrac{1}{M} = \epsilon > 0$ \QEDA\\
 
 \item $\displaystyle{\lim_{x \to \pm\infty} f(x) = l} \iff \displaystyle{\lim_{x \to 0^\pm} f\left(\dfrac{1}{x}\right) = l}$ \\ (Lo mismo ocurre si se reemplaza $l$ por $+\infty$ o $-\infty$).\\
-\textbf{Demostraci\'on}: Queremos demostrar que\\ $\left[ 0<H<x \Rightarrow |f(x)-l| < \epsilon \right] \iff \left[ 0 < x < 0 + \delta  \Rightarrow \left|f\left(\dfrac{1}{x}\right)-l\right| < \epsilon \right]$\\
+\textbf{D/} Queremos demostrar que\\ $\left[ 0<H<x \Rightarrow |f(x)-l| < \epsilon \right] \iff \left[ 0 < x < 0 + \delta  \Rightarrow \left|f\left(\dfrac{1}{x}\right)-l\right| < \epsilon \right]$\\
 Y como $0<H<x \Rightarrow 0<\dfrac{1}{x} < \dfrac{1}{H} \Rightarrow |f(x)-l|<\epsilon$, tomando $\delta = \dfrac{1}{H}$ y haciendo un cambio de variable $x'=x$, tenemos que $0< x' < \delta \Rightarrow \left|f\left(\dfrac{1}{x'}\right)-l\right|<\epsilon$ \QEDA
 \end{itemize}
 
@@ -468,7 +465,7 @@ Cuando se tiene una indeterminaci\'on del l\'imite, el l\'imite puede ser un n\'
 \textbf{Nota}: Las consideraciones hechas para el c\'alculo de l\'imites puntuales valen para los l\'imites en el infinito y para el c\'alculo de l\'imites laterales, con los mismos casos de indeterminaci\'on.
 
 \section{Definici\'on de Continuidad}
-Sean $f$ una funci\'on y $a$ un n\'umero real, entonces se dice que: $f$ es continua en $a$ $\iff$
+Sean $f$ una funci\'on y $a$ un n\'umero real, entonces se dice que: $f$ es \textbf{continua} en $a$ $\iff$
 \begin{enumerate}
 \item Existe el valor $f(a)$,
 \item Existe el valor $\displaystyle{\lim_{x \to a} f(x)}$ y es finito,
@@ -488,6 +485,8 @@ Una funci\'on se dice que es continua si es continua en todos los puntos de su d
 \item La funcion valor absoluto $f(x)=|x|$.
 \end{itemize}
 
+\newpage
+
 \section{Discontinuidades}
 \subsection{Discontinuidad Evitable}
 Sucede cuando existe el l\'imite finito de la funci\'on en un punto, pero no coincide con el valor de la funci\'on en dicho punto (pudiendo incluso no estar definido).
@@ -506,14 +505,19 @@ Ejemplos:
 
 \section{Teoremas de Funciones Continuas}
 \textbf{Proposici\'on 11}: Sea $f$ una funci\'on continua en $a$, entonces existe un entorno de $a$ en el cual $f$ est\'a acotada. Es decir, existen $\delta > 0$, $M > 0$ : $x \in E(a, \delta) \Rightarrow |f(x)| \leq M$\\
+
 \noindent \textbf{Proposici\'on 12}: Sea $f$ una funci\'on continua en $a$ y $k$ un n\'umero real tal que $f(a) > k$ (resp. $f(a) < k$), entonces existe un entorno de $a$ en el cual $f$ asume valores todos mayores (resp. menores) a $k$, es decir, existe $\delta > 0$ : $x \in E(a,\delta) \Rightarrow f(x) > k$ (resp. $f(x) < k$).\\
+
 \noindent \textbf{Corolario 3}: \textbf{Principio de Conservaci\'on del Signo}: Sea $f$ continua en $a$, tal que $f(a)>0$ (resp. $f(a)<0$), entonces existe un entorno de $a$ en el cual la funci\'on se mantiene positiva (resp. negativa).\\
+
 \noindent \textbf{Corolario 4}: Sea $f$ una funci\'on continua en $a$ tal que, en cualquier entorno de $a$ la funci\'on asume tanto valores positivos como negativos, entonces $f(a)=0$. Se demuestra por el absurdo, ya que si suponemos $f(a)>0$ entonces tenemos un entorno de $a$ donde $f$ es siempre positiva, contradiciendo la hipotesis, luego $f(a)\leq 0$. Analogamente suponemos $f(a)<0$, y llegamos a que $f(a)\geq 0$ $\Rightarrow f(a)=0$.\\
 
 \noindent \textbf{Teorema 11}: \textbf{\'Algebra de Funciones Continuas}: Sean $f$ y $g$ funciones continuas en $a$, entonces son continuas en $a$ las funciones $f \pm g$, $c \cdot f (c \in \mathbb{R})$, $f \cdot g$ y $\frac{f}{g}\ (g(a) \not = 0)$.\\
-\noindent \textbf{Demostraci\'on}: Sabemos que existen $f(a)$ y $g(a)$, luego existe $(f+g)(a) = f(a) + g(a)$. Ademas existen los l\'imites de $f$ y $g$ en $a$, y vale $\displaystyle{\lim_{x \to a} (f+g)(x) = \lim_{x \to a} f(x) + \lim_{x \to a} g(x) = f(a) + g(a) = (f+g)(a)}$. \QEDA\\
+\noindent \textbf{D/} Sabemos que existen $f(a)$ y $g(a)$, luego existe $(f+g)(a) = f(a) + g(a)$. Ademas existen los l\'imites de $f$ y $g$ en $a$, y vale $\displaystyle{\lim_{x \to a} (f+g)(x) = \lim_{x \to a} f(x) + \lim_{x \to a} g(x) = f(a) + g(a) = (f+g)(a)}$. \QEDA\\
+
 \noindent \textbf{Teorema 12}: \textbf{L\'imite de la Funci\'on Compuesta}: Sean $f$ y $g$ dos funciones tales que $Rec(g) \subset Dom(f)$. Si existe el l\'imite $\displaystyle{\lim_{x \to a} g(x) = l}$ y que $f$ es continua en $l$, entonces existe $\displaystyle{\lim_{x \to a} (f\circ g)(x) = f(l)}$.\\
-\textbf{Demostraci\'on}: Queremos llegar a que $0<|x-a|<\delta \Rightarrow |(f \circ g)(x) - f(l)| < \epsilon$. Partiendo con ese $\epsilon$, sabemos que existe $\rho > 0$ para el cual $|z-l| < \rho \Rightarrow |f(z)-f(l)| < \epsilon$. Y como $0 < |x-a| < \delta \Rightarrow |g(x) - l| < \rho$, combinando las expresiones llegamos a que: $$0 < |x-a| < \delta \Rightarrow |g(x)-l| < \rho \Rightarrow |f(g(x)) - f(l)| < \epsilon $$ \QEDA\\
+\textbf{D/} Queremos llegar a que $0<|x-a|<\delta \Rightarrow |(f \circ g)(x) - f(l)| < \epsilon$. Partiendo con ese $\epsilon$, sabemos que existe $\rho > 0$ para el cual $|z-l| < \rho \Rightarrow |f(z)-f(l)| < \epsilon$. Y como $0 < |x-a| < \delta \Rightarrow |g(x) - l| < \rho$, combinando las expresiones llegamos a que: \\ \indent \indent \indent \indent \indent \indent \indent $0 < |x-a| < \delta \Rightarrow |g(x)-l| < \rho \Rightarrow |f(g(x)) - f(l)| < \epsilon $ \QEDA\\
+
 \noindent \textbf{Corolario 5}: \textbf{Continuidad de la Funci\'on Compuesta}: Sea $g$ continua en $a$ y $f$ continua en $g(a)$, entonces $(f\circ g)(a)$ es continua en $a$.
 
 \section{Ceros de Funciones Continuas y Teorema de Bolzano}
@@ -527,33 +531,45 @@ Ejemplos:
 
 \noindent \textbf{M\'etodo de Bisecci\'on}: Dada una funci\'on $f$ continua en un intervalo, que asume valores de diferente signo en los extremos, sucesivamente se calculan los valores de dos sucesiones $a_n$ y $b_n$ que convergen a un cero de la funci\'on. Conocidos $a_n$ y $b_n$, se calcula el valor del punto medio $c_{n+1} = \dfrac{a_n+b_n}{2}$ y se tendr\'a que el valor $c_{n+1}$ aproxima al valor $\xi$ de un cero, con cota $|c_{n+1} - \xi| \leq \dfrac{b-a}{2^{n+1}}$. Es decir, dada una tolerancia $\epsilon$, buscamos $n$ para el cual $\dfrac{b-a}{2^{n+1}} < \epsilon$, encontrando un valor $c_{n+1}$ a menos de una distancia $\epsilon$ de $\xi$.\\
 
-\textbf{Nota}: El cero de $f$ puede no ser \'unico, y si se utilizan otros puntos $a$ y $b$, quizas se encuentran ceros diferentes.\\
+\noindent \textbf{Nota}: El cero de $f$ puede no ser \'unico, y si se utilizan otros puntos $a$ y $b$, quizas se encuentran ceros diferentes.\\
+
+\newpage
 
 \noindent \textbf{Teorema 14}: \textbf{Propiedad de los Valores Intermedios}: Sea $f$ una funci\'on continua en $[a,b]$, donde $f(a) \not = f(b)$ y $k$ un valor comprendido estrictamente entre $f(a)$ y $f(b)$, entonces existe un punto $\xi \in (a,b)$ para el cual resulta $f(\xi)=k$\\
-\noindent \textbf{Demostraci\'on}: Supongamos $f(a)<f(b)$ (si no sucede, es an\'alogo), entonces $f(a)<k<f(b)$. Luego definimos la funci\'on $g(x) = f(x)-k$, y tenemos que $g$ es continua en $[a,b]$ por ser resta de funciones continuas, $g(a)<0$ y $g(b)>0$. Y al satisfacer las hip\'otesis del Teorema de Bolzano, entonces existe un valor $\xi \in (a,b)$ para el cual $0=g(\xi) = f(\xi)-k \therefore f(\xi)=k$
+\noindent \textbf{D/} Supongamos $f(a)<f(b)$ (si no sucede, es an\'alogo), entonces $f(a)<k<f(b)$. Luego definimos la funci\'on $g(x) = f(x)-k$, y tenemos que $g$ es continua en $[a,b]$ por ser resta de funciones continuas, $g(a)<0$ y $g(b)>0$. Y al satisfacer las hip\'otesis del Teorema de Bolzano, entonces existe un valor $\xi \in (a,b)$ para el cual $0=g(\xi) = f(\xi)-k \therefore f(\xi)=k$ \QEDA\\
 
-\textbf{Nota}: Dada la funci\'on potencia $f(x)=x^m$, sabemos que es continua. Con PVI y la Propiedad Arquimediana se puede demostrar que todo n\'umero real (real positivo, si $m$ par) es imagen de alg\'un otro. Por ejemplo, $m=2$ se empieza con que dado $y\in \mathbb{R}^+_0$ $0<y<1 \Rightarrow \exists 0<x<1\ :\ f(x)=y$. Luego si $1\leq y$ por Propiedad Arquimediana se sabe que existe $y<n$, luego $f(1)=1\leq y<n\leq n^2 = f(n)$ y aplicando PVI existe $1\leq x < n$ tal que $f(x)=y$.
+\noindent \textbf{Nota}: Dada la funci\'on potencia $f(x)=x^m$, sabemos que es continua. Con PVI y la Propiedad Arquimediana se puede demostrar que todo n\'umero real (real positivo, si $m$ par) es imagen de alg\'un otro. Por ejemplo, $m=2$ se empieza con que dado $y\in \mathbb{R}^+_0$ $0<y<1 \Rightarrow \exists 0<x<1\ :\ f(x)=y$. Luego si $1\leq y$ por Propiedad Arquimediana se sabe que existe $y<n$, luego $f(1)=1\leq y<n\leq n^2 = f(n)$ y aplicando PVI existe $1\leq x < n$ tal que $f(x)=y$.
 
 \section{Continuidad de la Funci\'on Inversa}
 Sabemos que una funci\'on biyectiva admite una funci\'on inversa, y que la misma tambien es biyectiva. Adem\'as, sabemos que es creciente si $\forall x_1, x_2 \in A$, $x_1 < x_2 \Rightarrow f(x_1) < f(x_2)$\\
 
-\noindent \textbf{Teorema 15}: \textbf{Continuidad de la Funci\'on Inversa}: Si $f$ es creciente y continua en un intervalo $[a,b]$, entonces:
+\noindent \textbf{Teorema 15}: \textbf{Continuidad de la Funci\'on Inversa}: sea $f$ creciente y continua en $[a,b]$, entonces:
 \begin{enumerate}
 \item Existe la funci\'on inversa $f^{-1}$ definida sobre el intervalo $[f(a),f(b)]$
 \item $f^{-1}$ es creciente en $[f(a),f(b)]$
 \item $f^{-1}$ es continua en $[f(a),f(b)]$
 \end{enumerate}
-\textbf{Demostraci\'on}: 
+\textbf{Demostraciones}: 
 \begin{enumerate}
-\item $f$ creciente implica $f$ inyectiva o biyectiva restringiendo el dominio. Luego $Rec(f)=[f(a),f(b)]$, por PVI, como $f$ es continua sobre $[a,b]$, podemos asegurar que dado un $z\in[f(a),f(b)]$, existe un $c\in[a,b])$ tal que $f(c) = z$. Luego $f$ admite inversa, y el domino es $[f(a),f(b)]$.
+\item $f$ creciente implica $f$ inyectiva o biyectiva restringiendo el dominio. Luego $Rec(f)=[f(a),f(b)]$, por PVI, como $f$ es continua sobre $[a,b]$, podemos asegurar que dado un $z\in[f(a),f(b)]$, existe un $c\in[a,b])$ tal que $f(c) = z$. Luego $f$ admite inversa, y el domino es $[f(a),f(b)]$. \QEDA
 \item Sean $y_1, y_2$ dos puntos cualesquiera de $[f(a),f(b)]$, y sean $x_1, x_2 \in [a,b]$ tales que $f(x_1)=y_1$ y $f(x_2)=y_2$, para mostrar que $f^{-1}$ es creciente, habr\'a que ver que $y_1<y_2 \Rightarrow f^{-1}(y_1) < f^{-1}(y_2)$:
 \begin{align*}
 \bigg( y_1<y_2 \Rightarrow f^{-1}(y_1) < f^{-1}(y_2) \bigg) & \iff \bigg( f(x_1)<f(x_2) \Rightarrow f^{-1}(f(x_1)) < f^{-1}(f(x_2)) \bigg)\\
 & \iff \bigg( f(x_1)<f(x_2) \Rightarrow x_1 <x_2 \bigg)
 \end{align*}
-Si $x_1 > x_2$ con $f(x_1)<f(x_2)$, contradice que es creciente. Si $x_1 = x_2$ con $f(x_1)<f(x_2)$, contradice que es funci\'on. Ergo, $f^{-1}$ es creciente mon\'otona sobre $[f(a),f(b)]$.
-\item DEMOSTRAR!!!!!!!! TO DO
+Si $x_1 > x_2$ con $f(x_1)<f(x_2)$, contradice que es creciente. Si $x_1 = x_2$ con $f(x_1)<f(x_2)$, contradice que es funci\'on. Ergo, $f^{-1}$ es creciente mon\'otona sobre $[f(a),f(b)]$. \QEDA
+\item Paso 1. $f^{-1}$ continua en $(f(a),f(b))$. Sea $y_0 = f(x_0) \in (f(a),f(b))$, $f^{-1}$ es continua en $y_0$ si $\forall\ \epsilon > 0,\ \exists \delta > 0 : |y - y_0| < \delta \Rightarrow |f^{-1}(y) - f^{-1}(y_0)| < \epsilon$, o bien, $|f(x)-f(x_0)|<\delta \Rightarrow |x-x_0| < \epsilon$.\\
+Continuando, $|x-x_0| < \epsilon \Rightarrow x_0 - \epsilon < x < x_0 + \epsilon \Rightarrow f(x_0 - \epsilon) < f(x) < f(x_0 + \epsilon)$.\\
+Luego, sea $\delta > 0 : E(y_0,\delta) = E(f(x_0),\delta)$ este incluido en $(f(x_0-\epsilon), f(x_0 + \epsilon))$, tendriamos que:\\
+$\delta \leq \min\{f(x_0) - f(x_0 - \epsilon), f(x_0+\epsilon) - f(x_0)\}$ y ser\'ia $(f(x_0) - \delta, f(x_0) + \delta) \subseteq (f(x_0-\epsilon),f(x_0 + \epsilon))$. \\
+Finalmente, recordando que si $f$ es creciente, $f^{-1}$ tambi\'en lo es,\\
+$|y-y_0| < \delta \Rightarrow y_0 - \delta < y < y_0 + \delta \Rightarrow f(x_0) - \delta < y < f(x_0) + \delta \Rightarrow f(x_0 - \epsilon) < f(x) < f(x_0 + \epsilon) \Rightarrow f^{-1}(f(x_0 - \epsilon)) < f^{-1}(f(x)) < f^{-1}(f(x_0 + \epsilon)) \Rightarrow x_0 - \epsilon < x < x_0 + \epsilon \Rightarrow \\ \Rightarrow |x - x_0| < \epsilon \Rightarrow |f^{-1}(y) - f^{-1}(y_0)| < \epsilon$\\
+\
+Paso 2. Continuidad por derecha en $f(a)$. Dado $\epsilon > 0$, podemos elegir $\epsilon > 0$ tal que $(f(a),f(a) + \delta)$ est\'e incluido en $(f(a),f(a)+\epsilon)$. Luego, $\epsilon \leq \min\{f(a+\epsilon, f(a)\}$ y entonces: \\ $f(a) < y < f(a) + \delta \Rightarrow f(a) < f(x) < f(a + \epsilon) \Rightarrow f^{-1}(f(a)) < f^{-1}(f(x)) < f^{-1}(f(a + \epsilon)) \Rightarrow a < x < a + \epsilon \Rightarrow |x-a| < \epsilon \Rightarrow |f^{-1}(y) - f^{-1}(f(a))| < \epsilon$.\\
+Paso 3. An\'alogamente al paso 2, se demuestra la continuidad por izquierda en $f(b)$. \QEDA
 \end{enumerate}
+
+\newpage
 
 \noindent \textbf{Teorema 16}: Si $f$ es decreciente y continua en un intervalo $[a,b]$, entonces:
 \begin{enumerate}
@@ -570,16 +586,18 @@ Sea $f$ una funci\'on definida sobre un conjunto $A$, diremos que:
 \end{itemize}
 Luego notamos $\ \ \ \ M = \displaystyle{\max_{x\in A} f(x)} \ \ \ \ $ y $\ \ \ \ m = \displaystyle{\min_{x\in A} f(x)}$\\
 
-\textbf{Nota}: $\displaystyle{\max_{x\in A} f(x)}$ = $\displaystyle{-\min_{x\in A} (-f)(x)} \ \ \ \ $ y $\ \ \ \ \displaystyle{\min_{x\in A} f(x)}$ = $\displaystyle{-\max_{x\in A} (-f)(x)}$
+\noindent \textbf{Nota}: $\displaystyle{\max_{x\in A} f(x)}$ = $\displaystyle{-\min_{x\in A} (-f)(x)} \ \ \ \ $ y $\ \ \ \ \displaystyle{\min_{x\in A} f(x)}$ = $\displaystyle{-\max_{x\in A} (-f)(x)}$\\ \\
 
 \noindent \textbf{Teorema 17}: \textbf{Primer Teorema de Weierstrass}: Si $f$ es una funci\'on continua en un intervalo $[a,b]$, entonces $f$ est\'a acotada en dicho intervalo.\\
+\textbf{D/} Suponemos que no est\'a acotada y con el metodo de bipartici\'on, vamos dividiendo en 2 el intervalo. Siempre al menos un de ellos tendria que no estar acotado. Designemos con $A$ el conjunto de los extremos izquierdos, y sea $\alpha$ el extremo superior de $A$. Sabemos que $\alpha \in [a,b]$ y por la continuidad podemos asegurar que existe $(\alpha - \delta, a + \delta)$ en el que $|f(x)-f(a)| < 1$. Luego, $|f(x)| < 1 + |f(\alpha)|$, de modo que ese intervalo est\'a acotado. Sin embargo, el intervalo $[a_n,b_n]$ esta incluido en $(\alpha - \delta, \alpha + \delta)$ cuando $n$ es lo suficientemente grande. Ergo $f$ est\'a acotada, contadiciendo la hipotesis. \QEDA\\
 
 \noindent \textbf{Teorema 18}: \textbf{Segundo Teorema de Weierstrass}: Si $f$ es una funci\'on continua en un intervalo $[a,b]$, entonces $f$ alcanza sus valores m\'aximo y m\'inimo en $[a,b]$.\\
-\textbf{Demostraci\'on}: Por W1, $f$ est\'a acotada en $[a,b]$, es decir, $\exists M$ : $f(x)\leq M\ \forall x \in [a,b]$.\\ Luego $M$ puede pertenecer o no al $Rec(f)$. \\ 
+\textbf{D/}: Por W1, $f$ est\'a acotada en $[a,b]$, es decir, $\exists M$ : $f(x)\leq M\ \forall x \in [a,b]$.\\ Luego $M$ puede pertenecer o no al $Rec(f)$. \\ 
 Suponiendo que no pertenece, es decir, $f(x)<M, \forall x \in [a,b]$, tenemos que $M-f(x)>0,\ \forall x \in [a,b]$. Luego queda bien definida la funci\'on $g(x)=\dfrac{1}{M-f(x)}$ (la cual es continua por ser la rec\'iproca de una funci\'on continua). Nuevamente por W1, $g$ est\'a acotada en el intervalo $[a,b]$. Por lo tanto, existe $M' > 0$ : $g(x) < M',\ \forall x \in [a,b]$. En consecuencia se tiene que:
 $$0 < g(x) < M' \Rightarrow 0 < \dfrac{1}{M-f(x)} < M' \Rightarrow 0 < \dfrac{1}{M'} < M - f(x) \Rightarrow f(x) < M-\dfrac{1}{M'} < M$$
-Lo cual quiere decir que $f$ admite una cota superior estrictamente menor que $M$, asumido como supremo.\\
-\indent Entonces $M$ tiene que pertenecer al $Rec(f)$, luego existe $x^* \in Dom(f)$ : $f(x^*)=M$ y la existencia del m\'aximo est\'a probada.\\
+Esto quiere decir que $f$ admite una cota superior estrictamente menor que $M$, asumido como supremo.\\
+\noindent Entonces $M$ tiene que pertenecer al $Rec(f)$, luego existe $x^* \in Dom(f)$ : $f(x^*)=M$ y la existencia del m\'aximo est\'a probada. \QEDA \\
 
-\noindent \textbf{Teorema 19}: \textbf{Teorema de los Valores Intermedios}: Sea $f$ una funci\'on definida en un intervalo cerrado y acotado $[a,b]$, y supongamos que $f$ es continua en $[a,b]$, con $m$ y $M$ sus respectivos valores m\'inimo y m\'aximo absolutos. Entonces, $f$ alcanza todos los valores entre $m$ y $M$. Es decir, $Rec(f) = [m,M]$
+\noindent \textbf{Teorema 19}: \textbf{Teorema de los Valores Intermedios}: Sea $f$ definida en un intervalo cerrado y acotado $[a,b]$, y supongamos que $f$ es continua en $[a,b]$, con $m$ y $M$ sus respectivos valores m\'inimo y m\'aximo absolutos. Entonces, $f$ alcanza todos los valores entre $m$ y $M$. Es decir, $Rec(f) = [m,M]$
+\textbf{D/} Suponiendo $f(a) < f(b)$ (el otro caso es an\'alogo), hay que demostrar que para cualquier $k$ : $f(a) < k < f(b)$ existe un $c$ : $f(c) = k$. Sea $g(x) = f(x) - k$, dicha funci\'on es continua y adem\'as se cumple que $f(a) < 0$ y $f(b) > 0$. Luego, por el teorema de Bolzano, existe un $c \in (a,b)$ tal que $g(c) = 0$, luego $0 = f(c) - k$ ergo $f(c) = k$ \QEDA
 \end{document}
