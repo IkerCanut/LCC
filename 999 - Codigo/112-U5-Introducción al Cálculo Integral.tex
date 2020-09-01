@@ -25,7 +25,7 @@
 \newpage
 
 \section{Primitiva de una Funci\'on}
-Decimos que $F$ es una \textbf{primitiva} de $f$ sobre el conjunto $I$ si $F'(x) = f(x),\ \forall x \in I$. Tambi\'en suele llamarse Antiderivada.
+\noindent Decimos que $F$ es una \textbf{primitiva} de $f$ sobre el conjunto $I$ si $F'(x) = f(x),\ \forall x \in I$. Tambi\'en suele llamarse Antiderivada.
 
 \begin{itemize}
 \item Si $F$ es una primitiva de $f$ y si $c$ es una constante cualquiera, entonces $F+c$ tambi\'en es una primitiva de $f$: $(F+c)' = F'+c' = F'+0 = F;$
@@ -33,7 +33,7 @@ Decimos que $F$ es una \textbf{primitiva} de $f$ sobre el conjunto $I$ si $F'(x)
 \item Por lo tanto, $F(x)+c$ (donde $F$ es una primitiva particular de $f$, y $c$ una constante arbitraria) describe la \textbf{familia} de todas las primitivas de $f$ sobre $I$.
 \end{itemize}
 
-Llamamos \textbf{integral indefinida} de una funci\'on $f$ al conjunto de todas las primitivas de $f$: 
+\noindent Llamamos \textbf{integral indefinida} de una funci\'on $f$ al conjunto de todas las primitivas de $f$: 
 
 \begin{table}[h]
 \centering
@@ -66,7 +66,7 @@ $\int a^xdx = \dfrac{a^x}{\ln a} + c$
 \end{tabular}
 \end{table}
 
-\textbf{Proposici\'on 1}: \textbf{Linealidad}: Si $F$ y $G$ son primitivas de $f$ y $g$, y $a$ es una constante real, entonces:
+\noindent \textbf{Proposici\'on 1}: \textbf{Linealidad}: Si $F$ y $G$ son primitivas de $f$ y $g$, y $a$ es una constante real, entonces:
 \begin{itemize}
 \item $a \cdot F$ es una primitiva de $a \cdot f$: $\bigints a \cdot f(x)dx = a \cdot F(x)+c$\\
 Como $F' = f$, luego $(a\cdot F)'=a\cdot F' = a\cdot f$, entonces $\ a \cdot F$ es una primitiva de $a \cdot f$.
@@ -82,19 +82,19 @@ $$\left[ f(g(x)) \right]' = f'(g(x)) \cdot g'(x) \Rightarrow \int f'(g(x)) \cdot
 \textbf{Teorema 1}: \textbf{M\'etodo de Sustituci\'on}: Sea $f$ continua en $I$, y $g$ derivable con derivada continua en $I$ tal que $Im(g) \subset I$, entonces: $$\int f'(g(x))\cdot g'(x) dx \underset{t=g(x)}{=} \int f(t)dt$$
 donde $dt = g'(x)dx$.\\
 
-Para resolver ejercicios, primero hacemos el cambio de variable, es decir, $t=g(x)$, y calculamos $g'(x)$. Luego multiplicamos y dividimos por $\dfrac{g'(x)}{g'(x)}$ (aplicando el Principio de Linealidad podemos sacar el numerador del integrando) y $dt = g'(x)\cdot dx$. Integramos facilmente la funci\'on $f$, y realizamos las sustituciones correspondientes para dejar el resultado sin ninguna $t$.
+\noindent Para resolver ejercicios, primero hacemos el cambio de variable, es decir, $t=g(x)$, y calculamos $g'(x)$. Luego multiplicamos y dividimos por $\dfrac{g'(x)}{g'(x)}$ (aplicando el Principio de Linealidad podemos sacar el numerador del integrando) y $dt = g'(x)\cdot dx$. Integramos facilmente la funci\'on $f$, y realizamos las sustituciones correspondientes para dejar el resultado sin ninguna $t$.
 
 \section{Integraci\'on por Partes}
 $$[f(x)\cdot g(x)] = f'(x)\cdot g(x) + f(x)\cdot g'(x) \Rightarrow \int (f'(x)\cdot g(x) + f(x)\cdot g'(x))dx = f(x)\cdot g(x)+c$$
 
-Sean $f$ y $g$ derivables con derivada continua en $I$, $\bigints f(x)\cdot g'(x)dx = f(x)\cdot g(x) - \bigints f'(x)\cdot g(x) dx$\\
+\noindent Sean $f$ y $g$ derivables con derivada continua en $I$, $\bigints f(x)\cdot g'(x)dx = f(x)\cdot g(x) - \bigints f'(x)\cdot g(x) dx$\\
 
-Conviene elegir $f$ tal que se vaya reduciendo. E.g $x^2$.
+\noindent Conviene elegir $f$ tal que se vaya reduciendo. E.g $x^2$.
 
 \section{Integraci\'on de Funciones Racionales Propias}
-Llamamos Funci\'on Racional Propia al cociente $\dfrac{P(x)}{Q(x)}$ donde $P$ y $Q$ son polinomios y $gr(P)<gr(Q)$.\\
+\noindent Llamamos Funci\'on Racional Propia al cociente $\dfrac{P(x)}{Q(x)}$ donde $P$ y $Q$ son polinomios y $gr(P)<gr(Q)$.\\
 
-Si $gr(P)\geq gr(Q)$, sabemos que existen \'unicos polinomios $C$ y $R$ con $gr(R)<gr(Q)$ tales que $P=CQ+R$, luego $\dfrac{P}{Q} = C + \dfrac{R}{Q}$, y $\dfrac{R}{Q}$ ser\'a propia.
+\noindent Si $gr(P)\geq gr(Q)$, sabemos que existen \'unicos polinomios $C$ y $R$ con $gr(R)<gr(Q)$ tales que $P=CQ+R$, luego $\dfrac{P}{Q} = C + \dfrac{R}{Q}$, y $\dfrac{R}{Q}$ ser\'a propia.
 
 \subsection{Raices Reales Simples}
 Entonces (suponiendo que el coeficiente principal de $Q$ es 1), el polinomio $Q$ factorizado es:\\ $Q(x)=(x-a_1)\cdot(x-a_2)...(x-a_n)$. Y ser\'a: $$\dfrac{P(x)}{Q(x)} = \dfrac{A_1}{x-a_1} + \dfrac{A_2}{x-a_2} + ... + \dfrac{A_n}{x-a_n}$$
