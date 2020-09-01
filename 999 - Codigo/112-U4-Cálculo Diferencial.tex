@@ -25,70 +25,70 @@
 \section{Motivacion}
 \textbf{Recta tangente}: fijando el punto $A$ sobre la curva de una funci\'on, y otro punto $P\not=A$, la recta $AP$ es secante a la curva, y su pendiente es la tangente trigonom\'etrica del \'angulo $B\hat{A}P$:
 $$\text{Pendiente de $AP$} = \tan(B\hat{A}P) = \dfrac{f(x)-f(a)}{x-a}$$
-\indent Luego, la pendiente de la recta tangente, es la tangente trigonom\'etrica del \'angulo $B\hat{A}T$:
+\noindent Luego, la pendiente de la recta tangente, es la tangente trigonom\'etrica del \'angulo $B\hat{A}T$:
 $$\text{Pendiente de $AT$} = \tan(B\hat{A}T) = \displaystyle{\lim_{x \to a} \dfrac{f(x)-f(a)}{x-a}}$$
 
-\noindent \textbf{Velocidad Instant\'anea}: Se define la velociadd instant\'anea en el tiempo $t=a$ como:
+\noindent \textbf{Velocidad Instant\'anea}: Se define la velocidad instant\'anea en el tiempo $t=a$ como:
 $$v(a) = \displaystyle{\lim_{t \to a} \dfrac{f(t)-f(a)}{t-a}}$$
 
 \section{Definici\'on de Derivada}
-\indent \indent Sea $f$ una funci\'on definida en un intervalo abierto y $a$ un punto cualquiera de dicho intervalo, se dice que la funci\'on $f$ tiene \textbf{derivada} en el punto $a$ $\iff$ existe el l\'imite: $\displaystyle{\lim_{x \to a} \dfrac{f(x)-f(a)}{x-a}}$.\\
-\indent Proponiendo el \textbf{cambio de variable} $h=x-a$, $f$ es derivable en $a$ $\iff$ $\displaystyle{\lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h}}$\\ \\
+\noindent Sea $f$ una funci\'on definida en un intervalo abierto y $a$ un punto cualquiera de dicho intervalo, se dice que la funci\'on $f$ tiene \textbf{derivada} en el punto $a$ $\iff$ existe el l\'imite: $\displaystyle{\lim_{x \to a} \dfrac{f(x)-f(a)}{x-a}}$.\\
+\noindent Proponiendo el \textbf{cambio de variable} $h=x-a$, $f$ es derivable en $a$ $\iff$ $\displaystyle{\lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h}}$\\
 
-Llamamos \textbf{cociente incremental} a cualquiera de las expresiones: $\dfrac{f(x)-f(a)}{x-a}$ o $\dfrac{f(a+h)-f(a)}{h}$, y al l\'imite, si existe, lo denominamos derivada de $f$ en $a$, y lo denotamos con $f'(a)$.\\
+\noindent Llamamos \textbf{cociente incremental} a cualquiera de las expresiones: $\dfrac{f(x)-f(a)}{x-a}$ o $\dfrac{f(a+h)-f(a)}{h}$, y al l\'imite, si existe, lo denominamos derivada de $f$ en $a$, y lo denotamos con $f'(a)$.\\
 
-Algunas \textbf{notaciones} para referir a la derivada de la funci\'on $f$ en un punto $a$ son:
+\noindent Algunas \textbf{notaciones} para referir a la derivada de la funci\'on $f$ en un punto $a$ son:
 $$f'(a),\ \ \ \ \ \ \ \ Df(a),\ \ \ \ \ \ \ \ \dfrac{df}{dx}(a),\ \ \ \ \ \ \ \ \dfrac{dy}{dx}(a), \text{ donde $y=f(x)$}$$
 
 \section{Funci\'on Derivada y Derivadas Sucesivas}
-\indent \indent En el conjunto $\{x \in Dom(f) : f \text{ es derivable en $x$}\} \subseteq Dom(f)$ definimos la \textbf{funci\'on derivada primera} de $f$ como $f' : Dom(f') \rightarrow \mathbb{R}, x\rightarrow f'(x)$.\\
+\noindent En el conjunto $\{x \in Dom(f) : f \text{ es derivable en $x$}\} \subseteq Dom(f)$ definimos la \textbf{funci\'on derivada primera} de $f$ como $f' : Dom(f') \rightarrow \mathbb{R}, x\rightarrow f'(x)$.\\
 
-Dada la funci\'on derivada $(n-1)$-\'esima de la funci\'on $f$, se llama derivada n-\'esima de $f$ a la funci\'on derivada primera de la funci\'on $f^{(n-1)}$ y se lo nota $f^{(n)} = \left(f^{(n-1)}\right)'$.\\
-Para las funciones derivadas de orden $n$, notamos:
+\noindent Dada la funci\'on derivada $(n-1)$-\'esima de la funci\'on $f$, se llama \textbf{derivada n-\'esima} de $f$ a la funci\'on derivada primera de la funci\'on $f^{(n-1)}$ y se lo nota $f^{(n)} = \left(f^{(n-1)}\right)'$. Notamos:
 $$f^{(n)}(a),\ \ \ \ \ \ \ \ D^nf(a),\ \ \ \ \ \ \ \ \dfrac{d^nf}{dx^n}(a),\ \ \ \ \ \ \ \ \dfrac{d^ny}{dx^n}(a), \text{ donde $y=f(x)$}$$
 
 \section{Interpretaciones de la Derivada}
-\indent \indent Si $f$ es una funci\'on derivable en un punto $a$, la \textbf{recta tangente} a la gr\'afica de $f$ en el punto $(a,f(a))$ es la recta que pasa por dicho punto, con pendiente $f'(a)$. O en forma explicita, $y = f'(a)(x-a)+f(a)$.\\
+\noindent Si $f$ es una funci\'on derivable en un punto $a$, la \textbf{recta tangente} a la gr\'afica de $f$ en el punto $(a,f(a))$ es la recta que pasa por dicho punto, con pendiente $f'(a)$. O en forma explicita, $y = f'(a)(x-a)+f(a)$.\\
 
-Si el cociente incremental no tiene limite en el punto, pero si tiene limites laterales diferentes, al punto se lo llama anguloso, y no cuenta con recta tangente all\'i.\\
+\noindent Si el cociente incremental no tiene limite en el punto, pero si tiene limites laterales diferentes, al punto se lo llama anguloso, y no cuenta con recta tangente all\'i.\\
 
-La \textbf{recta normal} de una gr\'afica de una funci\'on $f$ en el punto $(a,f(a))$ es la recta que pasa por dicho punto, con pendiente $\dfrac{-1}{f'(a)}$, si $f'(a)\not=0$, de ecuaci\'on $-\dfrac{1}{f'(a)}(x-a)+f(a)$, o $x=a$ si $f'(a)=0$.\\
+\noindent La \textbf{recta normal} de una gr\'afica de una funci\'on $f$ en el punto $(a,f(a))$ es la recta que pasa por dicho punto, con pendiente $\dfrac{-1}{f'(a)}$, si $f'(a)\not=0$, de ecuaci\'on $-\dfrac{1}{f'(a)}(x-a)+f(a)$, o $x=a$ si $f'(a)=0$.\\
 
-Dada una funci\'on $y=f(x)$, el valor de la derivada $f'(a)$ se interpreta como la \textbf{raz\'on de cambio} de la variable $y$, respecto de la variable $x$, cuando $x=a$. Es decir, $\dfrac{dy}{dx}(a) = f'(a)$, donde $y=f(x)$.\\
+\noindent Dada una funci\'on $y=f(x)$, el valor de la derivada $f'(a)$ se interpreta como la \textbf{raz\'on de cambio} de la variable $y$, respecto de la variable $x$, cuando $x=a$. Es decir, $\dfrac{dy}{dx}(a) = f'(a)$, donde $y=f(x)$.\\
+\noindent La raz\'on de cambio de la \textbf{posici\'on} es la \textbf{velocidad}, y su raz\'on de cambio es la \textbf{aceleraci\'on}.
 
-La raz\'on de cambio de la \textbf{posici\'on} es la \textbf{velocidad}, y su raz\'on de cambio es la \textbf{aceleraci\'on}.
 
 \section{Algunas Derivadas}
 \subsection{Funci\'on Lineal}
-La funci\'on lineal $f(x) = m\cdot x + h$ es derivable en todo $a\in\mathbb{R}$ y vale $f'(a)=m$.\\
-\textbf{Demostraci\'on}: $\displaystyle{f'(a) = \lim_{x \to a} \dfrac{(mx+h)-(ma+h)}{x-a} = \lim_{x \to a} \dfrac{m(x-a)}{x-a}=m }$
+\noindent La funci\'on lineal $f(x) = m\cdot x + h$ es derivable en todo $a\in\mathbb{R}$ y vale $f'(a)=m$.\\
+\textbf{D/} $\displaystyle{f'(a) = \lim_{x \to a} \dfrac{(mx+h)-(ma+h)}{x-a} = \lim_{x \to a} \dfrac{m(x-a)}{x-a}=m }$ \QEDA
 
 \subsection{Funci\'on Potencia}
-Recordamos que $(x+y)^n = \displaystyle{\sum_{k=0}^n \binom{n}{k} x^{n-k}\cdot y^k}$, luego\\
+\noindent Recordamos que $(x+y)^n = \displaystyle{\sum_{k=0}^n \binom{n}{k} x^{n-k}\cdot y^k}$, luego\\
 Para $n \in \mathbb{N}$, la funci\'on $f(x)=x^n$ es derivable en todo $a \in \mathbb{R}$ y vale $f'(a)=n\cdot a^{n-1}$.\\
-\textbf{Demostraci\'on}:
+\textbf{D/ } 
+\vspace{-.4cm}
 \begin{align*}
 f'(a) &= \lim_{h \to 0}\dfrac{(a+h)^n - a^n}{h} = \lim_{h\to 0}\dfrac{\left(\sum_{k=0}^n \binom{n}{k} a^{n-k}\cdot h^k\right) - a^n}{h} = \lim_{h\to 0}\dfrac{\left(a^n + \sum_{k=1}^n \binom{n}{k} a^{n-k}\cdot h^k\right) - a^n}{h} \\ &= \lim_{h\to 0}\dfrac{\sum_{k=1}^n \binom{n}{k} a^{n-k}\cdot h^k}{h} = \lim_{h\to 0}\dfrac{\binom{n}{1}a^{n-1}h + \sum_{k=2}^n \binom{n}{k} a^{n-k}\cdot h^k}{h} \\ &= \lim_{h\to 0}n\cdot a^{n-1} + \sum_{k=2}^n \binom{n}{k} a^{n-k}\cdot h^{k-1} = n\cdot a^{n-1} + 0 = n\cdot a^{n-1}
-\end{align*}
+\end{align*} \QEDA
 
 \subsection{Funciones Trigonom\'etricas}
-Recordando que:
+\noindent Recordando que:
 \begin{multicols}{2}
 \indent \indent \indent \indent $\displaystyle{\lim_{h \to 0} \dfrac{\sin h}{h} = 1}$ \\  \\
 $\sin(a+h) = \sin a \cdot \cos h + \cos a \cdot \sin h$ \\ 
 \indent \indent \indent \indent $\displaystyle{\lim_{h \to 0} \dfrac{\cos h - 1}{h} = 0}$ \\ \\ 
 $\cos(a+h) = \cos a \cdot \cos h - \sin a \cdot \sin h$
 \end{multicols}
-$f(x)=\sin x$ y $g(x)=\cos x$ son derivables en todo $a\in\mathbb{R}$ y valen $f'(x)=\cos x$ y $g'(x)=-\sin x$\\
-\textbf{Demostraci\'on}: 
+\noindent $f(x)=\sin x$ y $g(x)=\cos x$ son derivables en todo $a\in\mathbb{R}$ y valen $f'(x)=\cos x$ y $g'(x)=-\sin x$\\
+\textbf{D/} \vspace{-.5cm}
 \begin{align*}
 f'(a) &= \displaystyle{\lim_{h \to 0} \dfrac{\sin(a+h) - \sin a}{h} = \lim_{h \to 0} \dfrac{(\sin a \cdot \cos h + \cos a \cdot \sin h) - \sin a}{h}} \\ &= \displaystyle{\lim_{h \to 0} \sin a \cdot \dfrac{\cos h - 1}{h} + \cos a \cdot \dfrac{\sin h}{h} = \sin a \cdot 0 \cos a \cdot 1} = \cos a\\ \\
 g'(a) &= \displaystyle{\lim_{h \to 0} \dfrac{\cos(a+h)-\cos a}{h} = \lim_{h \to 0} \dfrac{(\cos a \cdot \cos h - \sin a \cdot \sin h)-\cos a}{h}} \\ &= \displaystyle{\lim_{h \to 0} \cos a \cdot \dfrac{\cos h - 1}{h} - \sin a \cdot \dfrac{\sin h}{h} = \cos a \cdot 0 - \sin a \cdot 1 = -\sin a}
-\end{align*}
+\end{align*} \QEDA
 
 \section{Continuidad de las Funciones Derivables}
-\textbf{Teorema 1}: Si una fncion $f$ es derivable en un punto, entonces es continua en dicho punto.\\
-\textbf{Demostraci\'on}: Sea $f$ derivable en un punto $a$ y $x\not=a$, $f(x)-f(a)=\dfrac{f(x)-f(a)}{x-a}\cdot(x-a)$. Luego, $\displaystyle{\lim_{x \to a} f(x)-f(a) = \lim_{x \to a} \dfrac{f(x)-f(a)}{x-a} \cdot \lim_{x \to a} (x-a)} = f'(a)\cdot 0 = 0 \therefore \displaystyle{\lim_{x \to a} f(x) = f(a)}$ y $f$ continua en $a$.\QEDA
+\noindent \textbf{Teorema 1}: Si una funci\'on $f$ es derivable en un punto, entonces es continua en dicho punto.\\
+\textbf{D/} Sea $f$ derivable en un punto $a$ y $x\not=a$, $f(x)-f(a)=\dfrac{f(x)-f(a)}{x-a}\cdot(x-a)$. Luego, $\displaystyle{\lim_{x \to a} f(x)-f(a) =} \\ \displaystyle{= \lim_{x \to a} \dfrac{f(x)-f(a)}{x-a} \cdot \lim_{x \to a} (x-a)} = f'(a)\cdot 0 = 0 \therefore \displaystyle{\lim_{x \to a} f(x) = f(a)}$ y $f$ continua en $a$.\QEDA
 
 \section{\'Algebra de Derivadas}
 \textbf{Teorema 2}: Sean $f$ y $g$ dos funciones derivables en un punto $a$ y $c$ una constante real:
@@ -112,7 +112,7 @@ g'(a) &= \displaystyle{\lim_{h \to 0} \dfrac{\cos(a+h)-\cos a}{h} = \lim_{h \to 
 
 \noindent \textbf{Proposici\'on 4}: \textbf{Derivada de una Potencia de Exponente Natural}:\\
 Si $n \in \mathbb{N}$ entonces $f(x)=x^n$ es derivable en $a$ y vale $f'(a)=n\cdot a^{n-1}$.\\
-\textbf{Demostraci\'on}: Sea $n=1$, $f(a)=a$ y $f'(a) = 1 = 1 \cdot a^1-1$.\\ Para $n$, sea $f(x)=x^{n+1}$, se puede reescribir $f(x) = g(x) \cdot h(x)$, $g(x) = x^n$ y $h(x) = x$. Luego $$f'(a) = g'(a)\cdot h(a) + g(a) \cdot h'(a) = n\cdot a^n \cdot a + a^n \cdot 1 = n \cdot a^n + a^n = (n+1)\cdot a^n$$ y vale para $n+1$, luego vale para todo $n \in \mathbb{N}$ que $f(x)=x^n \Rightarrow f'(a) = (n+1)\cdot a^n,\ \forall a \in \mathbb{R}$ \QEDA\\
+\textbf{D/} Sea $n=1$, $f(a)=a$ y $f'(a) = 1 = 1 \cdot a^1-1$.\\ Para $n$, sea $f(x)=x^{n+1}$, se puede reescribir $f(x) = g(x) \cdot h(x)$, $g(x) = x^n$ y $h(x) = x$. Luego $$f'(a) = g'(a)\cdot h(a) + g(a) \cdot h'(a) = n\cdot a^n \cdot a + a^n \cdot 1 = n \cdot a^n + a^n = (n+1)\cdot a^n$$ y vale para $n+1$, luego vale para todo $n \in \mathbb{N}$ que $f(x)=x^n \Rightarrow f'(a) = (n+1)\cdot a^n,\ \forall a \in \mathbb{R}$ \QEDA\\
 
 \noindent \textbf{Teorema 4}: \textbf{Derivada del Cociente de dos Funciones}: Sea $g(a)\not=0$
 \begin{align*}
@@ -132,10 +132,12 @@ Definimos $h(x)=1$ y $g(x)=x^n$, luego $f=\dfrac{h}{g}$, y como ambas son deriva
 $$f'(a) = \dfrac{0\cdot a^n - 1 \cdot n\cdot a^{n-1}}{a^{2n}} = -n\cdot a^{-n-1}$$
 \QEDA\\
 
-Combinando todos los resultados, concluimos que los polinomios son derivables en todo $\mathbb{R}$, al igual que las funciones racionales en todo su dominio.\\
+\noindent Combinando todos los resultados, concluimos que los \textbf{polinomios} son derivables en todo $\mathbb{R}$, al igual que las funciones racionales en todo su dominio.\\
+
+\newpage
 
 \noindent \textbf{Teorema 5}: \textbf{Regla de la Cadena}: Sean dos funciones $f$ y $g$ tal que $Rec(g) \subseteq Dom(f)$, y un punto $a$ tal que $g$ es derivable en $a$ y $f$ derivable en $g(a)$, luego $(f \circ g)$ es derivable en $a$ y vale: $$(f \circ g)'(a) = f'(g(a)) \cdot g'(a)$$
-\textbf{Demostraci\'on}: Si para un incremento de $h$ unidades de $a$, notamos con la variable $k$ al incremento de la funci\'on $g$, entonces $k = g(a+h)-g(a)$.
+\textbf{D/} Si para un incremento de $h$ unidades de $a$, notamos con la variable $k$ al incremento de la funci\'on $g$, entonces $k = g(a+h)-g(a)$.
 \begin{align*}
 (f\circ g)'(a)
 & = \displaystyle{\lim_{h \to 0} \dfrac{(f \circ g)(a+h) - (f \circ g)(a)}{h}}
@@ -147,13 +149,13 @@ $$\lim_{h \to 0} \dfrac{f(g(a)+k)-(f(g(a))}{k} = \lim_{k \to 0} \dfrac{f(g(a)+k)
 Por otro lado, como tenemos $g$ derivable en $a$, $\displaystyle{\lim_{h \to 0} \dfrac{g(a+h)-g(a)}{h} = g'(a)}$\\
 Y finalmente llegamos a que $(f \circ g)'(a) = f'(g(a)) \cdot g'(a)$ \QEDA\\
 
-\textbf{Nota}: Si tenemos $(f \circ g \circ h)$, tenemos que es derivable en los puntos $a$ tales que $(g \circ h)$ sea derivable en $a$ y $f$ sea derivable en $(g \circ h)'(a)$. Luego, vale $(f \circ (g \circ h))(a) = f'(g(h(a))) \cdot g'(h(a)) \cdot h'(a)$\\
+\noindent \textbf{Nota}: Si tenemos $(f \circ g \circ h)$, tenemos que es derivable en los puntos $a$ tales que $(g \circ h)$ sea derivable en $a$ y $f$ sea derivable en $(g \circ h)'(a)$. Luego, vale $(f \circ (g \circ h))(a) = f'(g(h(a))) \cdot g'(h(a)) \cdot h'(a)$\\
 
-\textbf{Nota}: Luego, cobra sentido la notaci\'on de Leibniz para la derivada. Si notamos $u = g(x)$, $$\dfrac{d(f \circ g)}{dx} = \dfrac{df}{du} \cdot \dfrac{du}{dx}$$
+\noindent \textbf{Nota}: Luego, cobra sentido la notaci\'on de Leibniz para la derivada. Si notamos $u = g(x)$, $$\dfrac{d(f \circ g)}{dx} = \dfrac{df}{du} \cdot \dfrac{du}{dx}$$
 
 \section{Derivada de la Funci\'on Inversa}
 \textbf{Teorema 6}: \textbf{Derivada de la Funci\'on Inversa}: Sea $f$ biyectiva, definida en el intervalo abierto $I$, derivable en $a \in I$, con $f'(a)\not=0$, entonces su funci\'on inversa $f^{-1}$ es derivable en $f(a)$ y vale: $$(f^{-1})(f(a)) = \dfrac{1}{f'(a)}$$
-\textbf{Demostraci\'on}: 
+\textbf{D/} 
 $\displaystyle{\lim_{h \to 0} \dfrac{f^{-1}(f(a)+h) - f^{-1}(f(a))}{h}}
 = \displaystyle{\lim_{h \to 0} \dfrac{f^{-1}(f(a)+h) - a}{h}}$\\
 Y como todo punto $f(a)+h$ en el dominio de $f^{-1}$ es un punto en el recorrido de $f$, puede ser reescrito como $f(a)+h = f(a+k)$, para un \'unico k (por la biyectividad de $f$). Luego, \\
@@ -164,12 +166,14 @@ Y surge que $f(a)+h = f(a+k) \Rightarrow f^{-1}(f(a)+h)=a+k \Rightarrow k = f^{-
 Por el Teorema de Continuidad de la Funci\'on Inversa, $f^{-1}$ es continua en $f(a)$ $\Rightarrow h \rightarrow 0 \Rightarrow k \rightarrow 0$ $\therefore$
 $$\displaystyle{\lim_{h \to 0} \dfrac{k}{f(a+k)-f(a)}} = \displaystyle{\lim_{k \to 0} \dfrac{k}{f(a+k)-f(a)}} = \displaystyle{\lim_{k \to 0} \dfrac{1}{\dfrac{f(a+k)-f(a)}{k}}} = \displaystyle{\lim_{k \to 0} \dfrac{1}{f'(a)}}$$ \QEDA\\
 
+\newpage
+
 \noindent \textbf{Proposici\'on 6}: \textbf{Derivada de Potencias de Exponente Racional}:\\
 \textbf{1.} Si $n \in \mathbb{N}$, entonces $x^{\frac{1}{n}} = \sqrt[n]{x}$ es derivable en todo $a$ del dominio con $a\not=0$ y vale $f'(a) = \dfrac{1}{n} \cdot a^{\frac{1}{n}-1}$\\
-\textbf{Demostraci\'on}: Sabemos que $f(x)=\sqrt[n]{x}$ es la inversa de $g(x)=x^n$. Luego, $f$ es derivable en todo $b = g(a)$, donde $g'(a)\not=0$, en este caso, $b\not=0$. Y vale $$f'(b)=\dfrac{1}{g'(a)} = \dfrac{1}{n\cdot a^{n-1}} = \dfrac{1}{n(\sqrt[n]{x})^{n-1}} = \dfrac{1}{n\cdot b^{1-\frac{1}{n}}} = \dfrac{1}{n}\cdot b^{\frac{1}{n}-1}$$ \QEDA
+\textbf{D/} Sabemos que $f(x)=\sqrt[n]{x}$ es la inversa de $g(x)=x^n$. Luego, $f$ es derivable en todo $b = g(a)$, donde $g'(a)\not=0$, en este caso, $b\not=0$. Y vale $$f'(b)=\dfrac{1}{g'(a)} = \dfrac{1}{n\cdot a^{n-1}} = \dfrac{1}{n(\sqrt[n]{x})^{n-1}} = \dfrac{1}{n\cdot b^{1-\frac{1}{n}}} = \dfrac{1}{n}\cdot b^{\frac{1}{n}-1}$$ \QEDA
 
 \noindent \textbf{2.} Si $n=\dfrac{p}{q} \in \mathbb{Q} \Rightarrow f(x)=x^{\frac{p}{q}}$ es derivable en todo $a$ del dominio, $a\not=0$, y vale: $f'(a) = \dfrac{p}{q}a^{\frac{p}{q}-1}$\\
-\textbf{Demostraci\'on}: $f(x)=x^\frac{p}{q}=(x^\frac{1}{q})^p$. Por la regla de la cadena, $$f'(a) = p(a^\frac{1}{q})^{p-1} \cdot \dfrac{1}{q}a^{\frac{1}{q}-1} = \dfrac{p}{q}a^\frac{p}{q}-1$$ \QEDA
+\textbf{D/} $f(x)=x^\frac{p}{q}=(x^\frac{1}{q})^p$. Por la regla de la cadena, $$f'(a) = p(a^\frac{1}{q})^{p-1} \cdot \dfrac{1}{q}a^{\frac{1}{q}-1} = \dfrac{p}{q}a^\frac{p}{q}-1$$ \QEDA
 
 \section{Derivada de Funciones Trigonom\'etricas Inversas}
 \subsection{Derivada del Arco Seno}
@@ -192,11 +196,11 @@ $(\arctan)'(b) = \dfrac{1}{1 + b^2}$\\
 \end{multicols}
 
 \section{Diferenciabilidad y Aproximaci\'on de Primer Orden}
-Decimos que una funci\'on $f$ es diferenciable en un punto $a$, si existe un real $\alpha$ y una funci\'on $\theta$, definida en un entorno del punto $a$ tales que, para $h>0$: $$f(a+h) = f(a) + \alpha\cdot h + h \cdot \theta(h),\ \ \ \ \text{ donde } \displaystyle{\lim_{h \to 0} \theta(h) = 0}$$
+Decimos que una funci\'on $f$ es \textbf{diferenciable} en un punto $a$, si existe un real $\alpha$ y una funci\'on $\theta$, definida en un entorno del punto $a$ tales que, para $h>0$: $$f(a+h) = f(a) + \alpha\cdot h + h \cdot \theta(h),\ \ \ \ \text{ donde } \displaystyle{\lim_{h \to 0} \theta(h) = 0}$$
 
 
 \noindent \textbf{Teorema 7}: Una funci\'on es derivable en un punto $a$ $\iff$ es diferenciable en $a$.\\
-\textbf{Demostraci\'on}:\\
+\textbf{D/} 
 $\Rightarrow)$ Tenemos que $f'(a)=\displaystyle{\lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h}}$. Luego, definiendo $\theta$ como:
 $$\theta(h) = \left\{ \begin{array}{cl}
 \dfrac{f(a+h)-f(a)}{h} & \text{ si } h\not=0\\ \\
@@ -206,15 +210,15 @@ Junto a $\alpha = f'(a)$, verifican la condici\'on: $f(a+h)=f(a)+f'(a) \cdot h +
 $\Leftarrow)$ Empezando con que $f(a+h) = f(a) + \alpha \cdot h + h \cdot \theta(h),\ \ \ \ \displaystyle{\lim_{h \to 0} \theta(h) = 0}$\\
 Luego, para $\alpha \not = 0$, $\dfrac{f(a+h)-f(a)}{h} = \alpha + \theta(h)$\\
 
-Y cuando $\alpha \to 0$, $\displaystyle{\lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h} = \alpha + \lim_{h\to 0} \theta(h) = \alpha}$\\
+\noindent Y cuando $\alpha \to 0$, $\displaystyle{\lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h} = \alpha + \lim_{h\to 0} \theta(h) = \alpha}$\\
 
-Y por lo tanto $f$ es derivable en $a$ y vale $f'(a) = \alpha$ \QEDA\\
+\noindent Y por lo tanto $f$ es derivable en $a$ y vale $f'(a) = \alpha$ \QEDA\\
 
 \noindent \textbf{Nota}: Cuando $f$ es continua en un punto $a$, entonces para $h$ chico, podemos aproximar el valor de $f(a+h)$ por el valor de $f(a)$, ya que: $f(a+h)=f(a)+(f(a+h)-f(a)) = f(a) + e_0(h)$, donde $\displaystyle{\lim_{h \to 0} e_0(h) = 0}$\\
 
-Y como una funci\'on $f$ es diferenciable/derivable en un punto $a$, entonces podemos afirmar que $$f(a+h) = f(a)+f'(a)\cdot h + e_1(h)$$ donde $\displaystyle{\lim_{h \to 0} e_1(h) = 0}$, y se aproxima tan r\'apido a cero que $\displaystyle{\lim_{h \to 0} \dfrac{e_1(h)}{h} = 0}$, y la nueva aproximaci\'on resulta entonces mejor que la obtenida para funciones continuas. Se llama \textbf{aproximaci\'on de primer orden} o \textbf{aproximaci\'on por linealizaci\'on}.\\
+\noindent Y como una funci\'on $f$ es diferenciable/derivable en un punto $a$, entonces podemos afirmar que $$f(a+h) = f(a)+f'(a)\cdot h + e_1(h)$$ donde $\displaystyle{\lim_{h \to 0} e_1(h) = 0}$, y se aproxima tan r\'apido a cero que $\displaystyle{\lim_{h \to 0} \dfrac{e_1(h)}{h} = 0}$, y la nueva aproximaci\'on resulta entonces mejor que la obtenida para funciones continuas. Se llama \textbf{aproximaci\'on de primer orden} o \textbf{aproximaci\'on por linealizaci\'on}.\\
 
-El caso de continuidad corresponde a aproximar los valores de la curva $y=f(x)$ por los de la recta horizontal $y=f(a)$, mientras que en el caso de la aproximaci\'on de primer orden, se aproximan, cerca del punto $a$, a los valores de la curva por los de la recta tangente a la gr\'afica de $f$ en el punto $a$.\\
+\noindent El caso de continuidad corresponde a aproximar los valores de la curva $y=f(x)$ por los de la recta horizontal $y=f(a)$, mientras que en el caso de la aproximaci\'on de primer orden, se aproximan, cerca del punto $a$, a los valores de la curva por los de la recta tangente a la gr\'afica de $f$ en el punto $a$.\\
 
 \noindent Y podemos aproximar el valor de $$f(a+h) \approx f(a) + \alpha \cdot h$$ o siendo $x = a+h$, $$f(x) \approx f(a) + \alpha \cdot (x-a)$$
 
@@ -231,7 +235,7 @@ Sean $f$ una funci\'on y un n\'umero $x_0 \in Dom(f)$, diremos que:
 
 \noindent \textbf{Teorema 8}: \textbf{Teorema de Fermat}:
 Sea $f$ definida en un entorno de un punto $x_0$, y supongamos que $f$ tiene en $x_0$ un extremo relativo, entonces si $f$ es derivable en $x_0$, se tiene que $f'(x_0)=0$.\\
-\textbf{Demostraci\'on}: Suponemos que $f'(x_0) > 0$, entonces $f'(x_0) = \displaystyle{\lim_{x \to x_0} \dfrac{f(x)-f(x_0)}{x-x_0} > 0}$. Luego, por el Teorema de Conservaci\'on del Signo, existe $E(x_0, \delta)$ donde $0<|x-x_0|<\delta \Rightarrow \dfrac{f(x)-f(x_0)}{x-x_0} > 0$.\\
+\textbf{D/} Suponemos que $f'(x_0) > 0$, entonces $f'(x_0) = \displaystyle{\lim_{x \to x_0} \dfrac{f(x)-f(x_0)}{x-x_0} > 0}$. Luego, por el Teorema de Conservaci\'on del Signo, existe $E(x_0, \delta)$ donde $0<|x-x_0|<\delta \Rightarrow \dfrac{f(x)-f(x_0)}{x-x_0} > 0$.\\
 Analizando las posiciones relativas de los valores $x$ y $x_0$, tenemos que si:
 \begin{itemize}
 \item $x_0 - \delta < x < x_0 \land \dfrac{f(x)-f(x_0)}{x-x_0} > 0$ entonces $x-x_0 < 0 \land f(x)-f(x_0)<0 \Rightarrow f(x)<f(x_0)$
@@ -247,31 +251,32 @@ An\'alogamente se concluye que $f'(x_0) \not < 0$. Por tricotom\'ia se concluye 
 
 \noindent\textbf{Nota}: El Teorema de Weierstrass nos asegura la existencia de m\'aximo y m\'inimo absolutos para una funci\'on continua en $[a,b]$.\\
 
-Es decir, para hallar los extremos absolutos, deberemos localizar los puntos criticos de $f$ en $(a,b)$ y comparar el valor de $f$ en ellos con $f(a)$ y $f(b)$.
+\noindent Es decir, para hallar los extremos absolutos, deberemos localizar los puntos criticos de $f$ en $(a,b)$ y comparar el valor de $f$ en ellos con $f(a)$ y $f(b)$.
 
 \section{Teoremas de Valor Medio del C\'alculo Diferencial}
 \noindent \textbf{Teorema 9}: \textbf{Teorema de Rolle}: Sea $f$ definida en un intervalo cerrado y acotado $[a,b]$, tal que $f$ es continua en $[a,b]$ y derivable en $(a,b)$. Si adem\'as vale que $f(a)=f(b)$, entonces existe al menos un $c\in(a,b)$ tal que $f'(c)=0$.\\ 
 \textit{Entre 2 ceros de una funci\'on derivable se encuentra siempre al menos un cero de su derivada.}\\
-\noindent\textbf{Demostraci\'on}: Por ser $f$ continua en $[a,b]$, el T. de Weierstrass, asegura la existencia de extremos en $[a,b]$, sean $M$ y $m$ los valores m\'aximo y el m\'inimo, entonces $m \leq M$. Si $m=M$ entonces es una funci\'on constante y todos los puntos en el intervalo $(a,b)$ tienen derivada 0.\\
+\noindent\textbf{D/} Por ser $f$ continua en $[a,b]$, el T. de Weierstrass, asegura la existencia de extremos en $[a,b]$, sean $M$ y $m$ los valores m\'aximo y el m\'inimo, entonces $m \leq M$. Si $m=M$ entonces es una funci\'on constante y todos los puntos en el intervalo $(a,b)$ tienen derivada 0.\\
 Si $m<M$: al menos uno de los 2 extremos se asume en un punto interior $x\in(a,b)$, luego por el Teorema de Fermat ($f$ es continua y derivable en $(a,b)$), tenemos que $f'(c)=0$.\QEDA\\
 
 \newpage
 
 \noindent \textbf{Teorema 10}: \textbf{Teorema de Lagrange}: Sea $f$ definida en un intervalo cerrado y acotado $[a,b]$, continua en $[a,b]$ y derivable $(a,b)$, entonces al menos existe un $c\in (a,b)$ tal que $f'(c) = \dfrac{f(b)-f(a)}{b-a}$.\\
 \textit{Dada la recta secante a la gr\'afica de $f$ que pasa por los puntos $(a,f(a))$ y $(b,f(b))$, existe un $c$ en el interior del intervalo $(a,b)$ tal que la recta tangente a $f$ en el punto $(c,f(c))$ tiene la misma pendiente.}\\
-\noindent \textbf{Demostraci\'on}: Definamos la funci\'on $F(x)=f(x) \overbrace{- \dfrac{f(b)-f(a)}{b-a}(x-a)}$ en el intervalo $[a,b]$, la cual verifica las condiciones del Teorema de Rolle: es continua por \'Algebra de Funciones Continuas, es derivable por \'Algebra de Derivadas y $F(a)=F(b)$: 
+\noindent \textbf{D/} Definamos la funci\'on $F(x)=f(x) \overbrace{- \dfrac{f(b)-f(a)}{b-a}(x-a)}$ en el intervalo $[a,b]$, la cual verifica las condiciones del Teorema de Rolle: es continua por \'Algebra de Funciones Continuas, es derivable por \'Algebra de Derivadas y $F(a)=F(b)$: 
 $$F(a)=f(a)-\dfrac{f(b)-f(a)}{b-a}(a-a) = f(a)$$
 $$F(b)=f(b)-\dfrac{f(b)-f(a)}{b-a}(b-a) = f(b)-f(b)+f(a) = f(a)$$
 Entonces podemos asegurar que existe un valor $c \in (a,b)$ tal que $F'(c)=0$. Luego, calculando $F'(x)$, vemos que para $x\in(a,b)$ es: $$F'(x) = f'(x)-\dfrac{f(b)-f(a)}{b-a} \Rightarrow 0=F'(c)=f'(c)-\dfrac{f(b)-f(a)}{b-a}\ \therefore\ f'(c)=\dfrac{f(b)-f(a)}{b-a}$$\QEDA\\
 
-\noindent \textbf{Corolario 1}: Sea $f$ una funci\'on contina en un intervalo $[a,b]$, y derivable en $(a,b)$, tal que la derivada es nula, entonces $f$ es constante en $[a,b]$. Considerando un intervalo $[x_1,x_2] \subseteq [a,b]$, entonces existe $c\in(x_1,x_2)$ donde $\dfrac{f(x_2)-f(x_1)}{x_2-x_1} = f'(c) = 0 \Rightarrow f(x_2) - f(x_1) = 0 \Rightarrow f(x_2)=f(x_1)$\\
+\noindent \textbf{Corolario 1}: Sea $f$ una funci\'on contina en un intervalo $[a,b]$, y derivable en $(a,b)$, tal que la derivada es nula, entonces $f$ es constante en $[a,b]$. \\
+\textbf{D/} Considerando un intervalo $[x_1,x_2] \subseteq [a,b]$, entonces existe $c\in(x_1,x_2)$ donde $\dfrac{f(x_2)-f(x_1)}{x_2-x_1} = f'(c) = 0 \Rightarrow f(x_2) - f(x_1) = 0 \Rightarrow f(x_2)=f(x_1)$\\
 Luego, de la arbitrariedad de $x_1$ y $x_2$, $\forall\ x \in [a,b]$ debe ser $f(x)=f(x_1)=f(x_2)=k$ \QEDA\\
 
-\noindent \textbf{Corolario 2}: Sean $f$ y $g$ dos funciones continuas en un intervalo $[a,b]$ y derivables en $(a,b)$, tal que $\forall\ x \in (a,b)$ $f'(x) = g'(x)$, entonces existe $k \in \mathbb{R}$ tal que $\forall\ x\in[a,b]$: $$f(x) = g(x)+k$$
-\textbf{Demostraci\'on}: $\forall x\in[a,b]$ se tiene que $0 = f'(x)-g'(x) = (f-g)(x) = (f-g)'(x)$. Por el corolario 1, existe $k \in \mathbb{R}$ tal que $\forall\ x\in[a,b]$, $k=(f-g)(x)\ \therefore\ f(x)=g(x)+k$ \QEDA\\
+\noindent \textbf{Corolario 2}: Sean $f$ y $g$ dos funciones continuas en un intervalo $[a,b]$ y derivables en $(a,b)$, tal que $\forall\ x \in (a,b)$ $f'(x) = g'(x)$, entonces existe $k \in \mathbb{R}$ tal que $\forall\ x\in[a,b]$: $\ \ f(x) = g(x)+k$\\
+\textbf{D/} $\forall x\in[a,b]$ se tiene que $0 = f'(x)-g'(x) = (f-g)(x) = (f-g)'(x)$. Por el corolario 1, existe $k \in \mathbb{R}$ tal que $\forall\ x\in[a,b]$, $k=(f-g)(x)\ \therefore\ f(x)=g(x)+k$ \QEDA\\
 
 \noindent \textbf{Teorema 11}: \textbf{Teorema de Cauchy}: Sean $f$ y $g$ dos funciones definidas en un intervalo acotado $[a,b]$, tal que ambas son continuas en $[a,b]$ y derivables en $(a,b)$, entonces existe $c\in(a,b)$ tal que $$f'(c)(g(b)-g(a)) = g'(c)(f(b)-f(a))$$
-\textbf{Demostraci\'on}: Sea $h(x)=f(x)(g(b)-g(a))-g(x)(f(b)-f(a))$, basta encontrar $c\in(a,b)$ : $h'(x)=0$\\
+\textbf{D/} Sea $h(x)=f(x)(g(b)-g(a))-g(x)(f(b)-f(a))$, basta encontrar $c\in(a,b)$ : $h'(x)=0$\\
 Y como $h$ es continua en $[a,b]$ y derivable en $(a,b)$, viendo que 
 
 $\left.\begin{array}{l}
@@ -285,7 +290,7 @@ Observamos que el Teorema de Rolle es un caso particular del Teorema de Lagrange
 \newpage
 \section{Propiedad de los Valores Intermedios para Derivadas}
 \textbf{Teorema 12}: Sea $f$ una funci\'on derivable en un intervalo $[a,b]$, supongamos $f'(a) < f'(b)$, y sea $z$ tal que $f'(a)<z<f'(b)$, entonces existe un valor $c \in (a,b)$ tal que $f'(c) = z$.\\
-\textbf{Demostraci\'on}: Consideremos la funci\'on $g(x)=f(x)-zx$ definida en el intervalo $[a,b]$. $f$ y $g$ son continuas y derivables en el intervalo $[a,b]$. Por Weierstrass, existe $c \in [a,b]$ donde $g$ alcanza su valor m\'inimo, y por el Teorema de Fermat, $g'(c) = 0$. Luego, $0 = g'(c) = f'(c) - z \ \ \therefore \ \ f'(c) = z$ \QEDA\\
+\textbf{D/} Consideremos la funci\'on $g(x)=f(x)-zx$ definida en el intervalo $[a,b]$. $f$ y $g$ son continuas y derivables en el intervalo $[a,b]$. Por Weierstrass, existe $c \in [a,b]$ donde $g$ alcanza su valor m\'inimo, y por el Teorema de Fermat, $g'(c) = 0$. Luego, $0 = g'(c) = f'(c) - z \ \ \therefore \ \ f'(c) = z$ \QEDA\\
 
 Dada una funci\'on $f$ derivable en un conjunto $A$, y sea $f'$ su derivada. Sabemos que $f$ es continua, pero es $f'$ continua? No necesariamente. Por ejemplo:
 $$f(x) = \left\{\begin{array}{ll}
