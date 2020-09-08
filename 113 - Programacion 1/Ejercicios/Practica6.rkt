@@ -124,12 +124,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; EJERCICIO 14 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (circulo m) (circle (expt m 2) "outline" "blue"))
+(define (circuloslist m) (cond [(zero? m) '()]
+                               [(positive? m) (cons (circle (expt m 2) "outline" "blue") (circuloslist (sub1 m)))]))
 
-(define (circulosAUX m M) (cond [(zero? m) (empty-scene (* (expt M 2) 2) (* (expt M 2) 2) "white")]
-                                [(positive? m) (place-image (circulo m) (expt M 2) (expt M 2) (circulosAUX (sub1 m) M))]))
-
-(define (circulos m) (circulosAUX m m))
+(define (circulos m) (foldr overlay (empty-scene (* (expt m 2) 2) (* (expt m 2) 2) "white") (circuloslist m)))
 
 (circulos 10)
 
