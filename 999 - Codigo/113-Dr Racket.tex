@@ -33,13 +33,15 @@ Los lenguajes de programación tienen un vocabulario y una gramática que determ
 \item Notación posfija: $(2\ 3\ +)$ 
 \end{itemize}
 \end{multicols}
-La sintaxis de racket establece que una operación tiene notación prefija y debe ser encerrada entre paréntesis para ser una expresión válida: \textit{( <operador> <operando 1> ... <operando n> )}
+\noindent La sintaxis de racket establece que una operación tiene notación prefija y debe ser encerrada entre paréntesis para ser una expresión válida: \textit{( <operador> <operando 1> ... <operando n> )}
 
 \subsection{Expresiones aritméticas}
-Claramente se pueden usar operadores como \textbf{+}, \textbf{-}, \textbf{/} y \textbf{*}. Luego, otros más interesantes son: \textbf{modulo}, \textbf{sqrt}, \textbf{sin}, \textbf{cos}, \textbf{tan}, \textbf{log}, \textbf{expt}, \textbf{random} ,\textbf{max}, \textbf{min}, \textbf{floor}, \textbf{ceiling}, \textbf{abs}.
+Claramente se pueden usar operadores como \textbf{+}, \textbf{-}, \textbf{/} y \textbf{*}. Luego, otros más interesantes son: \textbf{modulo}, \textbf{sqrt}, \textbf{sin}, \textbf{cos}, \textbf{tan}, \textbf{log}, \textbf{expt}, \textbf{random} ,\textbf{max}, \textbf{min}, \textbf{floor}, \textbf{ceiling}, \textbf{abs}.\\
+
+\noindent Para crear variables se usa el comando \textbf{let}, que tiene la siguiente sintaxis: \textbf{(let ([x 5]) x)}.
 
 \subsection{Strings}
-Un string es una secuencia de caracteres encerrada entre comillas. Algunas operaciones utiles de strings son: \textbf{string-append}, \textbf{string-length}, \textbf{number->string}, \textbf{string-ith} (que dados un string y un n\'umero n, nos devuelve el caracter que ocupa la n-ésima posición $[0, n)$, o \textbf{substring}, que dado un string y dos numeros nos devuelve el intervalo cerrado abierto $[a,b)$ (consejo, restar mayor y menor, te da cuantos caracteres).
+Un string es una secuencia de caracteres encerrada entre comillas. Algunas operaciones utiles de strings son: \textbf{string-append}, \textbf{string-length}, \textbf{number->string}, \textbf{string-ith} (que dados un string y un n\'umero n, nos devuelve el caracter que ocupa la n-ésima posición $[0, n)$, o \textbf{substring}, que dado un string y dos numeros nos devuelve el intervalo cerrado abierto $[a,b)$ (consejo, restar mayor y menor, te da cuantos caracteres). O bien \textbf{string-contains?} que se le pasa un substring y un string.
 
 \subsection{Valores Booleanos}
 En Racket se escriben como \textbf{\#t} (o \#true) y \textbf{\#f} (o \#false). Se pueden usar los operadores \textbf{and}, \textbf{or} y \textbf{not}. Tambien se pueden usar el \textbf{<}, \textbf{>}, \textbf{<=} y \textbf{>=}.
@@ -56,19 +58,20 @@ Se pueden copiar y pegar imágenes a DrRacket, o crear las propias. Para obtener
 \item \textbf{(rectangle width height mode color)}
 \item \textbf{(rhombus side-length angle mode color)}
 \item \textbf{(star side-length mode color)}\\ \textbf{(star-polygon side-length side-count step-count mode color)}
+\item \textbf{(rotate ang image)}
 \end{itemize}
 
-Donde \textit{mode} puede ser "outline" o "solid", y \textit{color} un string con un color en ingles.\\
+\noindent Donde \textit{mode} puede ser "outline" o "solid", y \textit{color} un string con un color en ingles.\\
 
-Para dibujar una imagen encima de la otra, se usa la funci\'on \textbf{(overlay i1 i2 is ...)}, o sino\\ \textbf{(underlay i1 i2 is ...)}, que funciona igual pero con los parametros invertidos.\\
+\noindent Para dibujar una imagen encima de la otra, se usa la funci\'on \textbf{(overlay i1 i2 is ...)}, o sino\\ \textbf{(underlay i1 i2 is ...)}, que funciona igual pero con los parametros invertidos.\\
 
-Adem\'as, es muy util crear una escena para sacarle provecho a las funciones de 2htdp/universe. Para crear una escena se puede usar \textbf{(empty-scene width height [color])}. Luego, se pueden insertar imagenes con \textbf{(place-image image x y scene)}.
+\noindent Adem\'as, es muy util crear una escena para sacarle provecho a las funciones de 2htdp/universe. Para crear una escena se puede usar \textbf{(empty-scene width height [color])}. Luego, se pueden insertar imagenes con \textbf{(place-image image x y scene)}. Arriba a la izquierda es $(0,0)$. O sino se puede usar \textbf{(place-image/align image x y x-place y-place scene)}, donde \textit{x-place} es $"left"|"center"|"right"$ y \textit{y-place} es $"top"|"center"|"bottom"$.
 
 \section{Funciones y Constantes}
-Para crear una constante se usa \textbf{(define <identificador> <expresión>)}. Para crear una funci\'on se usa \textbf{(define (<identificador> <argumento 1> ... <argumento n>) <expresión>)}.
+\noindent Para crear una constante se usa \textbf{(define <identificador> <expresión>)}. Para crear una funci\'on se usa \textbf{(define (<identificador> <argumento 1> ... <argumento n>) <expresión>)}.
 
 \section{Leyes de Reducci\'on}
-Una definici\'on \textbf{(define (f x) e)} agrega la siguiente ley de reducci\'on:
+\noindent Una definici\'on \textbf{(define (f x) e)} agrega la siguiente ley de reducci\'on:
 \begin{siderules}
 $(f\ a)$\\
 == definición de f (ley 1)\\
@@ -87,7 +90,7 @@ Una proposición es una expresión que puede evaluar a verdadero o a falso. En D
 \indent \indent [ Condición-n Resultado-n ])
 \end{siderules}
 
-Primero se evalúa la primer condición. Si esta reduce a \#true, entonces el resultado de toda la expresión es el que se obtiene de evaluar Resultado-1. Caso contrario, DrRacket descarta la primer pareja de la expresión condicional, y procede con la segunda pareja del mismo modo que con la primera. Si todas las condiciones evalúan a \#false, entonces se produce un error. De esta manera, creamos \textbf{n} leyes de reducci\'on.
+\noindent Primero se evalúa la primer condición. Si esta reduce a \#true, entonces el resultado de toda la expresión es el que se obtiene de evaluar Resultado-1. Caso contrario, DrRacket descarta la primer pareja de la expresión condicional, y procede con la segunda pareja del mismo modo que con la primera. Si todas las condiciones evalúan a \#false, entonces se produce un error. De esta manera, creamos \textbf{n} leyes de reducci\'on.
 
 \section{Predicados}
 Son funciones que devuelven un valor de verdad. DrRacket provee funciones para establecer si un valor pertenece a una
@@ -132,10 +135,10 @@ determinada clase, como \textbf{string?}, \textbf{number?}, \textbf{boolean?}...
 \end{siderules}
 
 \newpage
-Cuando se evalúa, el comportamiento de esta expresión es como sigue:
+\noindent Cuando se evalúa, el comportamiento de esta expresión es como sigue:
 \begin{enumerate}
 \item La función asociada a \textbf{to-draw} es invocada con el \textbf{estado inicial} como argumento, y su resultado se muestra por pantalla.
-\item El programa queda a la espera de un evento (\textbf{on-key}, \textbf{on-mouse}, \textbf{on-tick}...)
+\item El programa queda a la espera de un evento (\textbf{on-key} \textbf{(s k)}, \textbf{on-mouse} \textbf{(s x y e)} (donde \textit{e} puede ser $"button-down"|"button-up"$), \textbf{on-tick} \textbf{(s)}...)
 \item Cuando un evento ocurre, el manejador asociado a dicho evento (si existe) es invocado, y devuelve el nuevo estado.
 \item En caso de estar presente, se aplica el predicado (la condición) asociado a la clásula \textbf{stop-when} al nuevo estado. Si devuelve \#true , el programa termina, si no,
 \item la función asociada a \textbf{to-draw} es nuevamente invocada con el nuevo estado, devolviendo la nueva imagen o escena.
@@ -155,9 +158,9 @@ Cuando se evalúa, el comportamiento de esta expresión es como sigue:
 \indent \indent \indent \indent \indent \indent \indent \indent \indent \indent [(key=? k "v") "green"]\\
 \indent \indent \indent \indent \indent \indent \indent \indent \indent \indent [else s]))
 \end{siderules}
-
-Siempre que asociemos una función al evento on-key, esta tendrá \textbf{dos argumentos}: el estado actual y un string que representa la tecla que generó el evento. Y siempre devolverá un nuevo estado. \\
-\indent Generalizando, todos los manejadores de eventos son funciones que toman como argumento el estado actual del sistema y una descripción del evento ocurrido, y devuelven siempre el nuevo estado.
+\noindent Otras teclas que pueden servir son \textbf{"up"},\textbf{" "}, \textbf{"down"}, \textbf{"left"}, \textbf{"right"}, \textbf{"$\backslash$r"} y \textbf{"$\backslash$b"}.\\
+\noindent Siempre que asociemos una función al evento on-key, esta tendrá \textbf{dos argumentos}: el estado actual y un string que representa la tecla que generó el evento. Y siempre devolverá un nuevo estado. \\
+\noindent Generalizando, todos los manejadores de eventos son funciones que toman como argumento el estado actual del sistema y una descripción del evento ocurrido, y devuelven siempre el nuevo estado.
 
 \section{Estructuras}
 \begin{siderules}
@@ -184,7 +187,7 @@ La lista vacia est\'a dada por la expresi\'on \textbf{'()}. Para agregar un elem
 \textbf{cons?} & Predicado & Reconoce listas no vacías.
 \end{tabular}
 \end{table}
-Tambi\'en estan los selectores \textbf{second}, \textbf{third}, \textbf{fourth}, \textbf{fifth}, \textbf{sixth}, \textbf{seventh}, \textbf{eighth}.
+\noindent Tambi\'en estan los selectores \textbf{second}, \textbf{third}, \textbf{fourth}, \textbf{fifth}, \textbf{sixth}, \textbf{seventh}, \textbf{eighth}.
 \subsection{Simplificaciones}
 DrRacket nos permite simplificar listas de la siguiente manera:
 \begin{itemize}
@@ -192,7 +195,7 @@ DrRacket nos permite simplificar listas de la siguiente manera:
 
 \item Para definir \textbf{(cons a0 (cons a1 (.... (cons an empty))))}, escribimos \textbf{(list a0 a1 ... an)}.
 \end{itemize}
-Es importante notar que \textbf{list} no es un constructor, sino un \textit{operador} que nos provee el lenguaje para simplificar la escritura de las listas en nuestros programas.
+\noindent Es importante notar que \textbf{list} no es un constructor, sino un \textit{operador} que nos provee el lenguaje para simplificar la escritura de las listas en nuestros programas.
 
 \subsection{Operaciones Definidas}
 \begin{itemize}
@@ -207,6 +210,7 @@ Es importante notar que \textbf{list} no es un constructor, sino un \textit{oper
 \subsection{Operaciones de Alto Orden}
 \textbf{filter}: Nos quedamos con los elementos de una lista que cumplen determinada condici\'on.
 \begin{siderules}
+; filter : (X -> Boolean) List(X) -> List (X)\\
 (define (filter p l)\\
 \indent \indent \indent \ (cond [(empty? l) empty]\\
 \indent \indent \indent \indent \indent [else (if (p (first l))\\
@@ -216,6 +220,7 @@ Es importante notar que \textbf{list} no es un constructor, sino un \textit{oper
 
 \noindent \textbf{map}: aplicamos una transformaci\'on a cada elemento de una lista. $[a0, a1, ..., an] \rightarrow [f(a0), f(a1), ..., f(an)]$.
 \begin{siderules}
+; map : (X -> Y) List(X) -> List (Y)\\
 (define (map f l)\\
 \indent \indent \indent (cond \ [(empty? l) empty]\\
 \indent \indent \indent \indent \indent [else (cons (f (first l)) (map f (rest l)))]))
@@ -225,6 +230,7 @@ Es importante notar que \textbf{list} no es un constructor, sino un \textit{oper
 
 \noindent \textbf{foldr}: realizar una operaci\'on que involucra a todos los elementos de la lista. $[a0, a1, ..., an] \rightarrow (f a0 (f a1 (... (f an-1 an))))$
 \begin{siderules}
+; foldr : (X -> Y) X List(X) -> Y\\
 (define (fold f c l)\\
 \indent \indent \indent (cond \ [(empty? l) c]\\
 \indent \indent \indent \indent \indent [else (f (first l) (fold f c (rest l)))]))
@@ -232,15 +238,15 @@ Es importante notar que \textbf{list} no es un constructor, sino un \textit{oper
 
 \noindent \dotfill\\
 
-\noindent \textbf{andmap}: mapea un predicado a una lista, y se fija que todos los valores sean \#true.\\ 
+\noindent \textbf{andmap}: mapea un \textit{predicado} a una \textit{lista}, y se fija que todos los valores sean \#true.\\ 
 
-\noindent \textbf{ormap}: mapea un predicado a una lista, y se fija que al menos un valor sea \#true.\\
+\noindent \textbf{ormap}: mapea un \textit{predicado} a una \textit{lista}, y se fija que al menos un valor sea \#true.\\
 
-\noindent \textbf{remove}: dado un elemento y una lista, devuelve la lista omitiendo la primer aparaci\'on del elemento.\\
+\noindent \textbf{remove}: dado un \textit{elemento} y una \textit{lista}, devuelve la lista omitiendo la primer aparaci\'on del elemento.\\
 
 \noindent \textbf{remove*}: como \textit{remove}, pero remueve todas las apariciones.\\
 
-\noindent \textbf{(sort l proc)}: dado una lista y un procedimiento que toma 2 elementos (e.g <, >), ordena la lista l.\\
+\noindent \textbf{(sort l proc)}: dado una \textit{lista} y un \textit{procedimiento} que toma 2 elementos (e.g <, >), ordena la lista l.\\
 
 \textit{(require racket/list)}\\
 
@@ -259,4 +265,14 @@ Es importante notar que \textbf{list} no es un constructor, sino un \textit{oper
 \noindent \textbf{combinations}: dada una lista y opcionalmente el tama\~no de los sets a formar, devuelve todos las posibles combinaciones de elementos (powerset).\\
 
 \noindent \textbf{permutations}: dada una lista, devuelve todas las posibles permutaciones de sus elementos.
+
+\section{Archivos}
+Para escribir archivos se pueden usar los comandos \textbf{(write-file file-name string)}. Para leer archivos:
+\begin{itemize}
+\item \textbf{(read-file file-name)} : String -> String
+\item \textbf{(read-lines file-name)} : String -> List(String)
+\item \textbf{(read-words file-name)} : String -> List(String)
+\item \textbf{(read-words/line file-name)} : String -> List(List(String))
+\item \textbf{(read-csv-file file-name)} : String -> List(List(String)), donde la i-ésima lista de strings corresponde a la i-ésima fila de la tabla, y el j-ésimo elemento de la i-ésima lista de strings es un string que representa el valor que corresponde a la i-ésima fila y j-ésima columna de la tabla.
+\end{itemize}
 \end{document}
