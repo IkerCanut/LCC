@@ -521,8 +521,8 @@
                    (make-libro 10101023131 "La Naranja Mecanica" "Burgess" 10)
                    (make-libro 10101023132 "1984" "Orwell" 10)))
 (define amaia (list (make-libro 10101023133 "Patria" "Aramburu" 8)
-                   (make-libro 10101023131 "La Naranja Mecanica" "Burgess" 7)
-                   (make-libro 10101023132 "1984" "Orwell" 9)))
+                    (make-libro 10101023131 "La Naranja Mecanica" "Burgess" 7)
+                    (make-libro 10101023132 "1984" "Orwell" 9)))
 
 ; Dados dos libros, decimos que las lecturas coinciden si la diferencia
 ; entre los puntajes es menor a 2.
@@ -553,56 +553,84 @@
 ; Dados dos usuarios a y b, decide si b puede recomendarle libros a a.
 ; Puede recomendar lecturas si mas del 10% de los libros son coincidentes.
 ; similares? list(libro) list(libro) -> Boolean
-#|(check-expect (similares? (list (make-libro 10101023130 "El Lobo Estepario" "Hesse" 10)
+(check-expect (similares? (list (make-libro 10101023130 "El Lobo Estepario" "Hesse" 10)
                                 (make-libro 10101023131 "La Naranja Mecanica" "Burgess" 10)
-                                (make-libro 10101023130 "1984" "Orwell" 10))
-                          (list (make-libro 10101023130 "Patria" "Aramburu" 8)
+                                (make-libro 10101023132 "1984" "Orwell" 10))
+                          (list (make-libro 10101023133 "Patria" "Aramburu" 8)
                                 (make-libro 10101023131 "La Naranja Mecanica" "Burgess" 7)
-                                (make-libro 10101023130 "1984" "Orwell" 9)))
+                                (make-libro 10101023132 "1984" "Orwell" 9)))
               #true)
 (check-expect (similares? (list (make-libro 10101023130 "El Lobo Estepario" "Hesse" 10)
                                 (make-libro 10101023131 "La Naranja Mecanica" "Burgess" 10)
-                                (make-libro 10101023130 "1984" "Orwell" 10))
-                          (list (make-libro 10101023130 "Patria" "Aramburu" 8)
+                                (make-libro 10101023132 "1984" "Orwell" 10))
+                          (list (make-libro 10101023133 "Patria" "Aramburu" 8)
                                 (make-libro 10101023131 "La Naranja Mecanica" "Burgess" 7)
-                                (make-libro 10101023130 "1984" "Orwell" 6)))
-              #false)|#
+                                (make-libro 10101023132 "1984" "Orwell" 6)))
+              #false)
 
+; to-one-if-true : Boolean -> Number
+(define (to-one-if-true x) (if x 1 0))
 
-; (define (juntar-por-isbn a b) )
-
-; libro-en-lista : List(libro) List(libro) -> List(libro)
-; (define (posibilidades a b) )
-
-; (define (similares? a b) )
-
+(define (similares? a b) (> (/ (foldr + 0 (map to-one-if-true (map (lambda (x) (libro-coincide-en-lista x a)) b))) (length b)) 0.1))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 17 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(check-expect (suma-positivos-es-mayor?
+                 (list 5 "abc" 2 #t -3 "def")) #t)
+(check-expect (suma-positivos-es-mayor?
+                 (list (circle 10 "solid" "red") 12 1 -2 -45)) #f)
+
+(define (suma-positivos-es-mayor? l) (> (foldr + 0 (filter positive? (filter number? l)))
+                                        (abs (foldr - 0 (filter negative? (filter number? l))))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 18 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(check-expect (perf-sqrt (list 12 25 19 144 7)) 60)
+
+(define (perf-sqrt l) (foldr * 1 (filter integer? (map sqrt l))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 19 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(check-expect (par-par? (list 2 5 6)) #t)
+(check-expect (par-par? empty) #t)
+(check-expect (par-par? (list 2 5 6 0 7)) #f)
+
+(define (aux n b) (cond [(even? n) (not b)]
+                        [else b]))
+
+(define (par-par? l) (foldr aux #t l))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 20 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(check-expect (suma-cubos (list 1 2 3 -1)) 36)
+(check-expect (suma-cubos '()) 0)
+(check-expect (suma-cubos (list 1 0 -3 5 -12 -16)) 126)
+
+(define (suma-cubos l) (foldr + 0 (map (lambda (x) (expt x 3)) (filter positive? l))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 21 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(define (long-list l) (> (length l) 4))
+
+(check-expect (long-lists (list (list 1 2 3 4 5) (list 1 2 3 4 5 6) (list 87 73 78 83 33))) #t)
+(check-expect (long-lists (list '() '() (list 1 2 3))) #f)
+(check-expect (long-lists (list (list 1 2 3 4 5) '())) #f)
+
+(define (long-lists ll) (andmap long-list ll))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 22 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-#|(define (f22 n) (cond [(zero? n) 0]
-                    [(= n 1) 2]
-                    [(= n 2) 5]
-                    [else (+ (f22 (sub1 n)) (* 2 (f22 (sub1 (sub1 (sub1 n))))))]))
+(define (f22 n) (cond [(zero? n) 0]
+                      [(= n 1) 2]
+                      [(= n 2) 5]
+                      [else (+ (f22 (sub1 n)) (* 2 (f22 (sub1 (sub1 (sub1 n))))))]))
 
 (define (intervalo n) (cond [(zero? n) '(0)]
                             [else (append (intervalo (sub1 n)) (list n))]))
 
-(define (fs l) (cond [(empty? l) '()]
-                     [else (cons (f22 (first l)) (Fs (rest l)))]))
-
 (check-expect (Fs 5) (list 0 2 5 5 9 19))
 (check-expect (Fs 0) (list 0))
-(define (Fs n) (fs (intervalo n)))|#
+(define (Fs n) (map f22 (intervalo n)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 23 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -612,9 +640,28 @@
 (define (dibujar-elipses n) (cond [(zero? n) (empty-scene ANCHO23 ALTO23 "white")]
                                   [(positive? n) (place-image (dibujarelipsen n) (/ ANCHO23 2) (/ ALTO23 2) (dibujar-elipses (sub1 n)))]))
 
-; (dibujar-elipses 30)
+(dibujar-elipses 30)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 24 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(define (ff n c)
+  (cond [(< n (* c c)) #t]
+        [(zero? (modulo n c)) #f]
+        [else (ff n (add1 c))]))
+(define (prime? n) (ff n 2))
+
+(define (goldbach n) (if (even? n) (let ([p2 (first (filter prime? (generar-diferencias (primos-hasta n) n)))])
+                                     (make-posn (- n p2) p2))
+                         (error "No es un numero par")))
+
+(define (primos-hasta n) (filter prime? (rest (rest (intervalo n)))))
+
+(define (generar-diferencias l n) (map (lambda (x) (- n x)) l))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 25 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(define (aux25 n) (/ 1 (sqr n)))
+
+(define (approx-pi n) (sqrt (* 6 (foldr + 0 (map aux25 (rest (intervalo n)))))))
+
+(approx-pi 100)
