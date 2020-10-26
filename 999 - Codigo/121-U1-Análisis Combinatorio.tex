@@ -1,0 +1,169 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+
+\title{Unidad 1: Análisis Combinatorio\\ \'Algebra y Geometr\'ia Anal\'itica II (R-121)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Reglas B\'asicas}
+\subsection{Regla de la Suma}
+\noindent \textit{Si una primera tarea puede realizarse de m formas, y una segunda de n formas, y no es posible realizarlas simultáneamente, entonces la tarea general puede realizarse de m + n formas.}\\
+
+\noindent \textbf{Def/} \textbf{Intervalo Entero}: $m,n,k \in \mathbb{N}, m \leq n$, notamos $\llbracket m,n \rrbracket = \{m,m+1,..,n\} = \{k : m \leq k \leq n\}$.\\ Luego, $|\llbracket m,n \rrbracket| = n-m+1$.\\
+
+\noindent \textbf{Def/} Un conjunto $X$ tiene \textbf{cardinalidad} $n$, con $n \in \mathbb{N}$ si existe una funci\'on biyectiva $f : \llbracket 1,n \rrbracket \rightarrow X$ y se denota $|X| = n$. Definimos $|\emptyset| = 0$. Todo conjunto que tenga cardinalidad $n$ se llamar\'a \textbf{finito}.\\
+
+\noindent \textbf{Teorema 1}: Principio de Adici\'on: Sean $A,B$ conjuntos finitos disjuntos, entonces $|A \cup B| = |A| + |B|$.\\ 
+\textbf{D/} Existen $m,n \in \mathbb{N}$ y dos funciones biyectivas $f : \llbracket 1, m \rrbracket \rightarrow A$ y $g : \llbracket 1, n \rrbracket \rightarrow B$. Luego definimos:
+\[ h : \llbracket 1, m+n \rrbracket \rightarrow A \cup B : h(x) = \left\{ \begin{array}{ll}
+f(x), & x \in \llbracket 1, m \rrbracket\\
+g(x-m), & x \in \llbracket m+1, m+n \rrbracket
+\end{array}\right.\]
+Vemos que $h$ es una funci\'on biyectiva. Luego $|A \cup B| =m + n =  |A| + |B|$. \QEDA\\
+
+\noindent \textbf{Corolario 1a}: $A_1, A_2, ..., A_n$ conjuntos disjuntos dos a dos, entonces $|A_1 \cup A_2 \cup ... \cup A_n| = \sum_{i=1}^n |A_i|$.\\
+\noindent \textbf{Corolario 1b}: Sean $A,B$ conjuntos finitos, entonces $|A \cup B| = |A| + |B| - |A \cap B|$.\\
+
+\subsection{Regla del Producto}
+\noindent \textit{Si un procedimiento se puede descomponer en dos etapas, de manera que existen m resultados posibles para la primera, y para cada uno de estos resultados existen n resultados posibles para la segunda etapa, entonces el procedimiento total se puede realizar de $mn$ formas.}\\
+
+\noindent \textbf{Teorema 2}: Formalizaci\'on de la Regla del Producto: Sean $A,B$ finitos, entonces $|A \times B| = |A|\cdot|B|$\\
+\textbf{D/} $A=\{a_1,...,a_m\}$ y $B=\{b_1,...,b_n\}$, probaremos que $|A \times B| = mn$. Fijamos $n$, inducci\'on sobre $m$. \\
+Si $m=1$: $A \times B = \{(a_1,b_1),...,(a_1, b_n)\}$. Definiendo $f : \llbracket 1, n \rrbracket \rightarrow A \times B$ . $f(i) = (a_1, b_i)$, resulta que $f$ es biyectiva y $|A \times B| = n = 1 \cdot n$. Suponemos que $|A \times B| = mn$ y probamos para $m+1$. Tenemos $A = \{a_1, ..., a_m, a_{m+1}\}$, luego $A \times B = ((A - \{a_{m+1}\}) \times B) \cup (\{a_{m+1}\} \times B)$. Luego, por el Principio de Adici\'on y la Hip\'otesis Inductiva, resulta que $|A \times B| = mn + m = (m+1)n$. \QEDA\\
+
+\noindent \textbf{Corolario 2}: $A_1, A_2, ..., A_n$ conjuntos finitos, entonces $|A_1 \times A_2 \times ... \times A_n| = \prod_{i=1}^n |A_i|$.\\
+
+\section{Permutaciones}
+\noindent \textbf{Def/} Dada una colección de $n$ objetos distintos, cualquier disposición (lineal) de estos objetos se denomina \textbf{permutación} de la colección.\\
+
+\noindent \textit{Si existen $n$ objetos distintos a los que podemos denotar con $a_1, a_2, ..., a_n$ y $r$ es un entero $1 \leq r \leq n$, entonces, por la regla del producto, el número de permutaciones de tamaño $r$ para los $n$ objetos es $n \times (n-1) \times (n-2) \times ... \times (n-r+1)$ y lo notaremos $P(n,r)$. Definimos $P(n,0)=1$.}
+
+$$P(n,r) = n\cdot (n-1)\cdot...\cdot(n-r+1) \cdot \dfrac{(n-r)\cdot(n-(r+1)\cdot...\cdot3\cdot2\cdot1)}{(n-r)\cdot(n-(r+1)\cdot...\cdot3\cdot2\cdot1)} = \dfrac{n!}{(n-r)!}$$
+
+\newpage
+
+\noindent Preguntarnos cuantas \textbf{funciones} $f: X \rightarrow X$ existen es equivalente a preguntarnos cuántas \textbf{disposiciones lineales con repeticiones} pueden realizarse.\\
+\textbf{Teorema 3}: Sean $A,B$ conjuntos finitos con $|A|=m, |B|=n$, si $\mathcal{F}(A,B)$ es el conjunto de todas las funciones de $A$ en $B$, entonces $|\mathcal{F}(A,B)| = n^m$.\\
+\textbf{Dem/} Si ponemos $A = \{a_1,...,a_m\}$, entonces $f(a_i) = b_i$, donde $b_i$ es alguno de los $n$ elementos de $B$. Luego, se puede identificar a $f$ con la m-upla $(f(a_1),f(a_2),...,f(a_m)) \in B \times B \times ... \times B$. Por la Regla del Producto, la cantidad de elementos de $B \times B \times ... \times B$ es $n^m$. Luego, $|\mathcal{F}(A,B)| = n^m$. \QEDA\\
+
+{
+\renewcommand{\arraystretch}{.5}
+\noindent \textbf{Nota}: Sabemos que el conjunto de todos los subconjuntos de $A$ se llama conjunto de partes de $A$. Si definimos la \textbf{funci\'on caracter\'istica} como $\mathcal{X}_B : A \rightarrow\{0,1\} / \mathcal{X}_B(x) = \left\{\begin{array}{ll} 0, & x \not \in B \\ 1, & x \in B\end{array}\right.$, se puede ver que $\mathcal{X}_\emptyset(x) = 0$ y $\mathcal{X}_A(x) = 1$. La correspondencia $B \leftrightarrow \mathcal{X}_B$ es biunivoca. Contar la cantidad de subconjuntos $B$ en $A$ es equivalente a contar la cantidad de funciones carateristicas $\mathcal{X}_B$ cuyo dominio es $A$ existen. Aplicando el T3, resulta $\mathcal{P}(A) = |\mathcal{F}(A,\{0,1\})| = 2^n$.\\
+}
+
+\noindent \textbf{Nota}: Como cualquier subconjunto de $A \times B$ es una relaci\'on de $A$ en $B$, luego $\mathcal{F}(A, B) \subseteq \mathcal{P}(A, B)$ y se verifica $|\mathcal{F}(A,B)| = m^n \leq 2^mn = \mathcal{P}(A, B)$, y utilizaremos la siguiente notaci\'on:\\
+$\mathcal{F}_i = \{f \in \mathcal{F}(A,B) : \text{ f es inyectiva}\}$ \hfill $\mathcal{F}_b = \{f \in \mathcal{F}(A,B) : \text{ f es biyectiva}\}$\\
+
+
+\noindent Preguntarnos cuántas \textbf{funciones inyectivas} $f : X \rightarrow X$ pueden realizarse es equivalente a cuántas \textbf{permutaciones} existen.\\
+\textbf{Teorema 4}: Si $|A| = m, |B| = n, m \leq n$, entonces $|\mathcal{F}_i(A,B)| = \frac{n!}{(n-m)!}$\\
+\textbf{Dem/} Sea $A=\{a_1,...,a_m\}$, podemos identificar a $f$ con la m-upla $(f(a_1),...,f(a_m))$, donde debido a la inyectividad de $f$ aseguramos que hay $n$ valores posibles para $f(a_1)$, $n-1$ para $f(a_2)$,..., y finalmente $n-(m-1)$ para $f(a_m)$. Luego, $|\mathcal{F}_i(A,B)| = n (n-1) (n-2)...(n-(m-1)) = \frac{n!}{(n-m)!}$ \QEDA\\
+
+\noindent \textbf{Corolario 3}: Si $m=n$, entonces $|\mathcal{F}_b(A,B)| = n!$ \\
+
+\noindent \textbf{Def/} Sea $|A| = n$, llamaremos \textbf{permutaci\'on} de $n$ elementosde $A$ a cualquier funci\'on inyectiva $f : \llbracket 1,n \rrbracket \rightarrow A$. Se representa con la n-upla $(a_1,...,a_n)$, donde $a_i \in A$ son todos distintos.\\
+
+\noindent \textbf{Def/} \textbf{Permutaciones con repetici\'on}: Si existen $n$ objetos, con $n_1$ de un primer tipo, $n_r$ de un r-esimo tipo, donde $n_1+...+n_r = n$, entones existen $\frac{n!}{n_1!...n_r!}$ disposiciones lineales de los $n$ objetos.
+
+\section{Combinaciones}
+\noindent Si existen $n$ objetos distintos, cada combinación de $r$ objetos, sin hacer referencia al orden, corresponde a $r!$ permutaciones de tamaño $r$ de los $n$ objetos. Luego, el número de combinaciones está dado por:
+$$C(n,r) = \dfrac{P(n,r)}{r!} = \dfrac{n!}{(n-r)!r!}, \ \ \ \ \ \ \ \ \text{ donde } 0 \leq r \leq n$$
+Como no nos interesa el orden, si tomamos las permutaciones de $r$ elementos tomados de $n$, tenemos $r!$ permutaciones de esos $r$ elementos que corresponden a la misma combinaci\'on.\\
+
+\noindent \textbf{Def/} Se denomina \textbf{n\'umero combinatorio} al definido por ${n \choose r} := \frac{n!}{(n-r)!r!}, \forall n \in \mathbb{N}_0, r \in \mathbb{N}_0 : 0 \leq r \leq n$.\\
+
+\noindent \textbf{Proposici\'on 1}: Sea $n \in \mathbb{N}_0,\ \forall r \in \mathbb{N}_0 : 0 \leq r \leq n,\ {n \choose k}$ es un numero natural. \\
+\textbf{Dem/} \QEDA\\
+
+
+\noindent \textbf{Def/} Una \textbf{cadena} de largo $n$ es una disposici\'on, donde en cada lugar se puede usar cualquier caracter de un alfabeto de largo r. Por la Regla del Producto existen $r^n$ cadenas. Sea $x=x_1x_2...x_n$ una cadena, se define el \textbf{peso} de x, $wt(x)$, como $x_1+x_2+...+x_n$.\\
+
+\newpage
+
+\noindent \textbf{Proposici\'on 2}: Sea $r \leq n$ dos enteros no negativos, entonces:
+\begin{itemize}
+\item {\Large ${n \choose 1} = n$}\\
+\textbf{Dem/} ${n \choose 1} = \frac{n!}{(n-1)!\cdot1!} = \frac{n \cdot (n-1)!}{(n-1)!\cdot 1} = n$ \QEDA
+\item {\Large ${n \choose r} = {n \choose n-r}$}\\
+\textbf{Dem/} ${n \choose r} = \frac{n!}{(n-r)!\cdot r!} = \frac{n!}{(n-r)!\cdot ((n-n)+r)!} = \frac{n!}{(n-r)!\cdot (n-(n-r))!} = {n \choose n-r} $ \QEDA
+\item {\Large ${n-1 \choose r-1} + {n-1 \choose r} = {n \choose r}$}\\
+\textbf{Dem/} Si $n=r$, entonces ${n \choose r}=1$, ${n-1 \choose r-1} = 1$ y ${n-1 \choose n} = {n-1 \choose r} = 0$. Luego, $1 = 1 + 0$ \QEDB\\
+Si $r < n$, ${n-1 \choose r-1} + {n-1 \choose r} = \frac{r}{r} \cdot \frac{(n-1)!}{(n-r)!(r-1)!} + \frac{(n-1)!}{((n-1)-r)!r!} \cdot \frac{(n-r)}{(n-r)} = \frac{r(n-1)!}{(n-r)!r!} + \frac{(n-1)!(n-r)!}{(n-r)!r!} = \\ = \frac{r(n-1)!+(n-1)!(n-r)!}{(n-r)!r!} = \frac{(n-1)!(r+(n-r))}{(n-r)!r!} = \frac{(n-1)! \cdot n}{(n-r)!r!} = \frac{n!}{(n-r)!r!} = {n \choose r}$ \QEDA\\
+\end{itemize}
+
+\subsection{Binomio de Newton}
+\noindent \textbf{Teorema 5}: Sean $x,y \in \mathbb{R}, n \in \mathbb{N}$
+$$(x+y)^n = {n \choose 0}x^ny^0 + {n \choose 1}x^{n-1}y^1 + ... + {n \choose n}x^0y^n = \sum_{k=0}^n {n \choose k} x^{n-k}y^k$$
+\textbf{Dem/} Va por inducci\'on: n=1, claramente se verifica. \QEDB\\
+Suponemos que $(x+y)^n = \sum_{k=0}^n {n \choose k} x^{n-k}y^k$ y probamos que $(x+y)^{n+1} = \sum_{k=0}^{n+1} {n+1 \choose k} x^{n+1-k}y^k$:
+\begin{align*}
+(x+y)^{n+1} &= (x+y) \cdot (x+y)^n = x(x+y)^n + y(x+y)^n \overset{HI}{=} x(\sum_{k=0}^n {n \choose k} x^{n-k}y^k) + y(\sum_{k=0}^n {n \choose k} x^{n-k}y^k) =\\
+& = \sum_{k=0}^n {n \choose k} x^{n-k+1}y^k + \sum_{k=0}^n {n \choose k} x^{n-k}y^{k+1}
+= \sum_{k=0}^n {n \choose k} x^{n-k+1}y^k + \sum_{k=1}^{n+1} {n \choose k-1} x^{n-k+1}y^{k} \\
+&= {n \choose 0} x^{n-0+1}y^0 + \sum_{k=1}^n {n \choose k} x^{n-k+1}y^k + \sum_{k=1}^{n} {n \choose k-1} x^{n-k+1}y^{k} + {n \choose n} x^0y^{n+1} \\
+&= x^{n+1} + \sum_{k=1}^n x^{n-k+1}y^k\left[{n \choose k}  + {n \choose k-1}\right] + y^{n+1}\\
+&= x^{n+1} + \sum_{k=1}^n x^{n-k+1}y^k{n+1 \choose k} + y^{n+1}=
+\end{align*}
+Como $\displaystyle{a^{k+1} = {k+1 \choose k+1} a^{k+1} b^{k+1-(k+1)}}$ y $\displaystyle{b^{k+1} = {k+1 \choose 0} a^0 b^{k+1-0}}$, tenemos que:
+$\displaystyle{= \sum_{k=0}^{n+1} x^{n-k+1}+y^k}$ \QEDA
+
+\noindent \textbf{Corolario 6}: 
+\begin{itemize}
+\item $\sum_{k=0}^n {n \choose k} (-1)^k = 0$\\
+\textbf{Dem/} Sea $x=1, y=-1$, aplicando el T5, tenemos $\sum_{k=0}^n {n \choose k} 1^{n-k}(-1)^k = (-1 + 1)^n = 0$ \QEDA
+\item $\sum_{k=0}^n {n \choose k} = 2^n$\\
+\textbf{Dem/} Sea $x=1, y=1$, aplicando el T5, tenemos $\sum_{k=0}^n {n \choose k} 1^{n-k}1^k = (1 + 1)^n = 2^n$ \QEDA
+\end{itemize}
+
+\noindent \textbf{Teorema del Multinomio}: Sean $n_1, n_2,...n_r \in \mathbb{N}_0 / n_i \leq n, i = 1,2,...,r$ y $n_1+n_2+...+n_r = n$, entonces el coeficiente de $x_1^{n_1},x_2^{n_2},...,x_r^{n_r}$ en el desarrollo de $(x_1+x_2+...+x_r)^n$ es $\dfrac{n!}{n_1!n_2!...n_r!}$ \QEDB
+
+\newpage
+\section{Combinaciones con Repeticiones: Distribuciones}
+\noindent Si $X$ es un conjunto con $n$ elementos distintos, y queremos elegir $r$ pero tenemos la posibilidad de repetir objetos en la elección, estamos considerando todas las disposiciones de $r$ letras \textbf{x} y $n - 1$ $|$, que se calcula: $\dfrac{(r+n-1)!}{r!(n-1)!} = {n+r-1 \choose r}$. Luego, el número de combinaciones de $r$ objetos tomados de $X$ permitiendo repeticiones es $C(r + n - 1, r)$.
+
+\section{Principio de las Casillas}
+\noindent \textbf{Teorema 7}: $m,n \in \mathbb{N}$ tales que $n > m$ entonces no existe ninguna funci\'on inyectiva $f : \llbracket 1,n \rrbracket \rightarrow \llbracket 1,m \rrbracket$.\\
+\textbf{Dem/} Sea $H := \{n \in \mathbb{N} : \text{ existe un $n > m$ y existe una funcion $f : \llbracket 1,n \rrbracket \rightarrow \llbracket 1,m \rrbracket$ inyectiva }\}$, hay que demostrar que $H = \emptyset$. Vamos por el absurdo, suponiendo que es un subconjunto de los $\mathbb{N}$ no vacio, ergo, tiene primer elemento, digamos $h$. Luego, por definici\'on, existe un $m < n$ y una funcion $f : \llbracket 1,n \rrbracket \rightarrow \llbracket 1,m \rrbracket$ inyectiva.
+
+
+\newpage
+\begin{table}
+{
+\renewcommand{\arraystretch}{2}
+\hspace{-1cm}
+\begin{tabular}{|c|c|c|c|p{8.7cm}|}
+\hline
+Nombre & Orden? & Repeticiones? & Formula & Ejemplo \\
+\hline
+Permutaci\'on & Si & No & $n!$ & De cuantas formas se pueden ordenar 10 chicos? 10!\\
+\hline
+K-Permutaci\'on & Si & No & $\dfrac{n!}{(n-k)!}$ & Si hay 10 chicos, y queremos seleccionar 5, de cuantas maneras se pueden ordenar esos 5? $\frac{10!}{(10-5)!}$\\
+\hline
+R-Permutaci\'on & Si & Si & $k^n$ & Banderas de 3 bandas con 4 colores? $4^3$\\
+\hline
+Anagrama & Si & No & $\dfrac{n!}{n_1! \cdot ... \cdot n_r!}$ & Combinaciones BANANA = $\frac{6!}{1!3!2!}$. \\ & & & & Trayectorias escalonadas $(2,1)$ a $(7,4) = \frac{(5+3))!}{5!3!}$\\
+\hline
+Combinaci\'on & No & No & $\dfrac{n!}{(n-r)!r!}$ & Elegir 3 cartas de un mazo de 52? $\frac{52!}{(52-3)!3!}$ \\ & & & & 36 chicos, 4 grupos de 9: ${36 \choose 9} \cdot {27 \choose 9} \cdot {18 \choose 9} \cdot {9 \choose 9}$\\
+\hline
+R-Combinaci\'on & No & Si & $\dfrac{(n+r-1)!}{r!(n-1)!}$ & 7 amigos, 4 menues? $\dfrac{(7+4-1)!}{7!3!}$ \\ & & & & Soluciones enteras de $\sum_{i=1}^4 x_i = 7$? $\dfrac{(7+4-1)!}{7!4!}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{document}
