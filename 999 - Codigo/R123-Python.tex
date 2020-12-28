@@ -1,0 +1,48 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+
+\setlength{\parindent}{0pt}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\author{Iker M. Canut}
+\title{Python\\Programaci\'on II (R-123)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+\begin{document}
+\maketitle
+\newpage
+\section{Introducci\'on}
+Tenemos los operadores aritm\'eticos comunes, \textbf{**} (exponente), \textbf{//} (division entera) y \textbf{\%} (m\'odulo). Los operadores booleanos son \textbf{and}, \textbf{or} y \textbf{not}. Los strings se pueden acceder con \textbf{[:]}, existe la multiplicaci\'on de strings, el append se hace + y en un print se pueden usar las , para imprimir distintos tipos.
+
+Dentro de las funciones, se puede cambiar el orden de los argumentos: \textit{func(par2=2, par1=1)}.
+
+\textbf{input} toma como parámetro una cadena a usar como prompt y devuelve una cadena con lo ingresado. Luego, se puede usar la funci\'on \textbf{int} para castear. La vuelta es con \textbf{str}.\\
+
+\section{Listas e iteraciones}
+Una lista es una colección ordenada de elementos. Se representan con corchetes. Se pueden acceder con \textbf{[ : ]}. Se pueden usar n\'umeros negativos para contar desde el final. Los \textbf{:} hacen \textit{slicing}. La sintaxis es \textit{(inicio:fin:salto)}. La resta es la cantidad, nada es default. La concatenaci\'on es con +.\\
+
+La palabra clave \textbf{for} recorre la lista. Sintaxis: \textit{for elemento in lista:}. Se puede agregar una condici\'on if como el ejemplo: \textit{for elemento in lista if [condicion]:}. La palabra clave \textbf{range} genera un rango de numeros enteros. Sintaxis: \textit{range(inicio, fin, salto)}.\\
+
+\textbf{while} itera mientras la condicion sea verdadera. Sintaxis: \textit{while [condicion]:}
+
+\section{Tuplas}
+Una tupla es una colección ordenada de elementos. Se representan con parentesis y se accede con \textbf{[ ]}. La diferencia es que son inmutables, es decir, no se pueden modificar ni los elementos ni el tamaño. Si tenemos una lista de tuplas con 3 elementos, se puede hacer un for como: \textit{for (a,b,c) in listaDeTuplas:}
+
+\section{Diccionarios}
+Es una estructura de datos no indexada por posici\'on sino por clave. Las claves tienen que ser \'unicas e inmutables. Para agregar datos simplemente se usan las claves: \textit{a['key']='value'}. Luego, \textit{for x in a:} nos permite manejar las claves. Si queremos la secuencia de pares, podemos usar \textit{for x,y in} \textbf{a.items()}: Tambi\'en tenemos el m\'etodo \textbf{dict()}, que crea un diccionario tomando una lista de pares (clave, valor), \textbf{.keys()} que devuelve las claves y \textbf{.values()} que devuelve los valores.
+
+\section{Conjuntos}
+Para crear un conjunto se usa el metodo \textbf{set()}. En los conjuntos no importan los elementos repetidos ni el orden. Pero no se pueden ingresar elementos mutables a un set. Se puede iterar con un for. Para agregar se usa \textbf{.add()}, \textbf{.update()} agrega multiples elementos, \textbf{.discard()} borra si existe y \textbf{.remove()} borra (con excepci\'on si no existe). Operaciones: \textbf{$|$} es la uni\'on, \textbf{\&} es la intersecci\'on y \textbf{-} es la diferencia.
+
+\section{Archivos}
+f = open([name], [mode]). Donde los modos pueden ser \textbf{``r''} (lectura), \textbf{``w''} (sobreescritura, crea si falta), \textbf{``r+''} o \textbf{``w+''} (abre para lectura y escritura) y \textbf{``a''} (abre para escribir al final). Muy importante, hay que ejecutrar \textbf{.close()} para cerrar el archivo. Se agregan cosas con \textbf{.write()}, que devuelve la cantidad de caracteres. Para leerlo podemos usar \textbf{.readlines()} que devuelve una lista formada por las lineas, \textbf{.readline()} que devuelve la siguiente linea o \textbf{.read(n)} que lee n caracteres. Se van acumulando, si llegamos al final nos devuelve el string vacio, y para movernos usamos \textbf{.seek(p)} que nos mueve a p lugares del inicio.
+
+\end{document}

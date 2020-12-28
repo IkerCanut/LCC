@@ -1,0 +1,101 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+
+\setlength{\parindent}{0pt}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\author{Iker M. Canut}
+\title{C\\Programaci\'on II (R-123)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+\begin{document}
+\maketitle
+\newpage
+\section{Introducci\'on}
+C es un lenguaje procedural, de estilo estructurado, con una sintaxis estricta, compilado (se genera un archivo ejecutable que depende del O.S. y arquitectura). \textit{\#include$<$stdio.h$>$} contiene las funciones de entrada y salida que vamos a precisar para imprimir en pantalla. La funci\'on main siempre tiene que estar y retorna un entero, 0 representa una terminaci\'on correcta. Cada sentencia lleva un $;$ al final y los bloques son delimitados por \{ \}.\\
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c}
+\hline
+TIPO & RANGO\\
+\hline
+char & -128 a 127\\
+\hline
+short & -32768 a 32767\\
+\hline
+int & -2,147,483,648 a 2,147,483,647\\
+\hline
+long & -9223372036854775808 a 9223372036854775807\\
+\hline
+float & 3.4E-38 a 3.4E+38\\
+\hline
+double & 1.7E-308 a 1.7E+308
+\end{tabular}
+\end{table}
+
+Tambi\'en est\'an los unsigned char, unsigned int, short int, unsigned short int, long int, unsigned long int, unsigned long y long double. Unsigned permite extender el rango superior.\\
+
+La palabra clave \textbf{const} se ysa para declarar una constante, las cuales no se pueden modificar. Toda asignaci\'on retorna el valor, luego se puede hacer \textit{int a = b = c = 5}.\\
+
+Para formatear el texto se usan \textbf{\%d} (base 10), \textbf{\%u} (base 10 sin signo), \textbf{\%o} (base 8 sin signo), \textbf{\%x} (entero en base 16), \textbf{\%f} (coma flotante precisi\'on simple), \textbf{\%lf} (coma flotante precisi\'on doble), \textbf{\%ld} (long), \textbf{\%lu} (unsigned long), \textbf{\%e} (notaci\'on cient\'ifica), \textbf{\%c} (caracter), \textbf{\%s} (cadena de caracteres).\\
+
+Para tener el resultado exacto de una divisi\'on de enteros, hay que castearlo: \textit{double d = (double) a/b;}\\
+
+Los operadores logicos son \textbf{!} (not), \textbf{\&\&} (and) y \textbf{$||$} (or). 0 es false y 1 es true.\\
+
+Para guardar informaci\'on, se usa el scanf, con \& si es un char o un numero. Si es un string va sin \&. Se pueden guardar varias variables en un mismo scanf.\\
+
+Para iterar tenemos el \textbf{while} \textit{(condicion) \{ // Sentencias \}}
+
+Declarar funciones: \textit{tipo\_retorno mi\_funcion(tipo1 param1, tipo2 param2) \{ // sentencias \}}.\\ Si se declara con void, no hay valor de retorno. Para declarar nuevas funciones, tienen que estar definidas antes de ser usadas, o al menos el prototipo (tipo de retorno, nombre y los tipos de argumentos).\\
+
+\begin{multicols}{2}
+\textbf{switch} \textit{(variable) \{ \\
+case constante1: \\
+\hspace*{1cm} // sentencias1\\
+\hspace*{1cm}break;\\
+case constante2\\
+\hspace*{1cm}// sentencias2\\
+\hspace*{1cm}break;\\
+default:\\
+\hspace*{1cm}// sentencias default\\
+\}}\\
+
+La sentencia switch compara el valor de una variable (tipo entero o caracter), al encontrara una coincidencia empieza a ejecutar las sentencias hasta encontrar un break. Si no coincide ninguna se ejecuta el default. \\\\\\\\ 
+\end{multicols}
+
+\section{Arrays}
+Al crear un array hay que especificar el tamaño, que no puede modificarse. Todos los elementos de un array son del mismo tipo. No se puede recuperar el tamaño de un array (solo de chars con \textbf{strlen()}).\\
+
+La sintaxis del for es: \textbf{for} \textit{ (init; cond; incr) \{ // sentencias \} }. Un bloque sin cond es un bucle infinito. La unica limitaci\'on en el init son las declaraciones, porque las comas tienen otro significado.
+
+\section{Memoria}
+Al ejecutar un programa, el mismo se carga en la memoria física de nuestra computadora. El sistema operativo nos asigna un fragmento de dicha memoria para que podamos usarlo en nuestro programa. Una variable que almacena direcciones de memoria se la llama \textbf{puntero}. El operador \textbf{\&} nos devuelve la direcci\'on de una variable y con \textbf{*} accedemos al valor (desreferencia). El valor de un array es la direcci\'on del primer elemento del array.\\
+
+En C todo argumento es pasado por valor, es decir, al llamar a una funci\'on, se hace una copia de los parametros en otro lugar de la memoria. Se manipula ese espacio dentro de la funci\'on, y al finalizar se libera. Ergo, no podemos retornar la direcci\'on de una variable creada dentro de una funci\'on.\\
+
+La memoria estática hace referencia a la memoria que no va a ser liberada hasta que finalice el programa. Las funciones, variables y definiciones globales se alojan en esta memoria. La memoria dinámica se denomina así porque se asigna en tiempo de ejecución y, se va liberando cuando ya no se precisa. Para solicitar memoria din\'amica se usa \textbf{malloc} (se le indica el tamaño del bloque y retorna la dirección de memoria donde inicia ese bloque), que se usa en conjunto con la funci\'on \textbf{sizeof}. Finalmente, \textbf{free} se usa para liberar esa memoria. Para acceder a dicha memoria podemos usar el operador [] o aritm\'etica de punteros. Escribir \textbf{ptr[i]} es lo mismo que \textbf{*(ptr+i)} y escribir \textbf{\&ptr[i]} es lo mismo que \textbf{ptr+i}.
+
+\section{Estructuras}
+Crear una estructura permite definir un nuevo tipo de dato. Se usa la palabra clave \textbf{struct} y para acceder a los elementos se usa el \textbf{.}. Ahora, si usamos un puntero para referenciar a una estructura:
+\textbf{struct} \textit{Persona* p1;}\\
+\textit{p1 = malloc(sizeof(struct Persona))}\\
+Para acceder a los campos hay que hacer \textbf{(*p1).nombre}, o bien podemos escribir \textbf{p1-$>$nombre}.\\
+
+La palabra clave typedef permite declarar un tipo de dato. Se puede usar para evitar repetir continuamente la palabra struct. 
+
+\section{Archivos}
+El prototipo es: \textit{FILE *fopen( const char * filename, const char * mode);}\\
+El modo \textbf{``r''} abre un archivo existente para su lectura, \textbf{``w''} para escritura (crea si no existe), \textbf{``a''} abre en append, \textbf{``r+''} abre en lectura y escritura, \textbf{``w+''} lectura y escritura (pisando todo si existe), \textbf{``a+''} es lectura desde el comienzo, y escritura al final.\\ Para cerrar usamos \textit{int fclose ( FILE * fp );}. Devuelve 0 si se cerr\'o bien.\\ Para escribir usamos \textit{fputc( int c, FILE * fp)} (que devuelve el entero que corresponde al char o EOF), \textit{int fputs( const char * s, FILE * fp)} (devuelve un negativo si sali\'o todo bien o EOF si fall\'o), o sino \textit{int fprintf( FILE * fp, const char * format, ...)}.\\
+Para leer tenemos \textit{int getc(FILE * fp)} (lee de a un caracter), \textit{char* gets(char *buf, int n, FILE * fp)} (lee n-1 caracteres y agrega un `$\backslash$0'), o por \'ultimo \textit{int fscanf( FILE * fp, const char *format, ...)}, que lee hasta encontrar un separador (espacio en blanco, tabulaci\'on o el EOF).
+
+\end{document}
