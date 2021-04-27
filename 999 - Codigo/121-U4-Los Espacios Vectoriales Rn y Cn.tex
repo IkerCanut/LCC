@@ -1,0 +1,142 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\setlength{\parindent}{0pt} 
+\title{Unidad 4: Los Espacios Vectoriales $\mathbb{R}^n$ y $\mathbb{C}^n$\\ \'Algebra y Geometr\'ia Anal\'itica II (R-121)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Los Espacios $\mathbb{F}^n$}
+Sea $n \in \mathbb{N}$, consideramos el \textit{conjunto de n-uplas ordenadas} de escalares en el cuerpo $\mathbb{F}$:
+$$\mathbb{F}^n = \{ \bar{x} = (x_1, ..., x_n) : x_1,...,x_n \in \mathbb{F}\}$$
+\begin{itemize}
+\itemsep-0.3em
+\item \textbf{Producto por escalar}: $\mathbb{F} \times \mathbb{F}^n \rightarrow \mathbb{F}^n$, tal que si $\alpha \in \mathbb{F}$ y $\bar{x} = (x_1,...,x_n) \in \mathbb{F}^n$, entonces\\
+$\alpha \cdot \bar{x} = (\alpha x_1,..., \alpha x_n) \in \mathbb{F}^n$.
+\item \textbf{Suma}: $\mathbb{F}^n \times \mathbb{F}^n \rightarrow \mathbb{F}^n$, tal que si $\bar{x} = (x_1,...,x_n) \in \mathbb{F}^n$ e $\bar{y} = (y_1,...,y_n) \in \mathbb{F}^n$, entonces\\
+$\bar{x} + \bar{y} = (x_1 + y_1,..., x_n + y_n) \in \mathbb{F}^n$.
+\end{itemize}
+
+Cuando $\mathbb{F} = \mathbb{R}$ es el \textbf{espacio vectorial eucl\'ideo n-dimensional} y cuando $\mathbb{F} = \mathbb{C}$ es el \textbf{espacio vectorial complejo n-dimensional}. Los elementos $\bar{x} \in \mathbb{F}$ son llamados \textbf{vectores}. Las dos operaciones recien definidas se conocen como \textbf{usuales}.\\
+
+Dos vectores $\bar{x} = (x_1,...,x_n)$ y $\bar{y} = (y_1,...,y_n)$ se dicen \textbf{iguales} si $x_1=y_1, ..., x_n=y_n$. 
+
+\section{Los Espacios $\mathbb{F}_n[x]$}
+$n \in \mathbb{N}$, consideramos el \textit{conjunto de polinomios} en una variable $x$ con coeficientes en $\mathbb{F}$ de grado $n$:
+$$\mathbb{F}_n[x] = \{ p(x) = a_0 + a_1 x + a_2 x^2 + \hdots + a_n x^n : a_0,\hdots,a_n \in \mathbb{F} \}$$
+\begin{itemize}
+\itemsep-0.3em
+\item \textbf{Producto por escalar}: $\mathbb{F} \times \mathbb{F}_n[x] \rightarrow \mathbb{F}_n[x]$, tal que si $\alpha \in \mathbb{F}$ y $p(x) = a_0 + \hdots + a_n x^n \in \mathbb{F}_n[x]$, entonces $\alpha \cdot p(x) = \alpha a_0 + \hdots + \alpha a_n x^n$.
+\item \textbf{Suma}: $\mathbb{F}_n[x] \times \mathbb{F}_n[x] \rightarrow \mathbb{F}_n[x]$, {\footnotesize{tal que}} $p(x) = a_0 + \hdots + a_n x^n \in \mathbb{F}_n[x]$ y $q(x) = b_0 + \hdots + b_n x^n \in \mathbb{F}_n[x]$,\\ entonces
+$p(x) + q(x) = (a_0 + b_0) + \hdots + (a_n + b_n) x^n \in \mathbb{F}_n[x]$.
+\end{itemize}
+
+\section{Los Espacios $\mathbb{F}^{m \times n}$}
+Sean $m,n \in \mathbb{N}$, consideramos el \textit{conjunto de matrices} de tamaño $m \times n$ en $\mathbb{F}$:
+\begin{itemize}
+\itemsep-0.3em
+\item \textbf{Producto por escalar}: $\mathbb{F} \times \mathbb{F}^{m \times n} \rightarrow \mathbb{F}^{m \times n} / \alpha \in \mathbb{F}, A \in \mathbb{F}^{m \times n}, C = \alpha \cdot A$ est\'a dada por $c_{ij} = \alpha \cdot a_{ij}$
+\item \textbf{Suma}: $\mathbb{F}^{m \times n} \times \mathbb{F}^{m \times n} \rightarrow \mathbb{F}^{m \times n} / A,B \in \mathbb{F}^{m \times n}$, $C = A + B$ est\'a dada por $c_{ij} = a_{ij} + b_{ij}$.
+\end{itemize}
+
+\section{Espacios Vectoriales}
+Sea $\mathbb{F}$ un cuerpo de escalares, un conjunto $V$ dotado de dos operaciones, suma (denotada por $+$, que a un par de elementos $v$ y $w$ de $V$ les asigna un elemento que denotamos $v+w$) y producto por escalar (denotada por $\cdot$, que a un escalar $\alpha \in \mathbb{F}$ y a un elemento $v \in V$ le asigna un elemento que denotamos $\alpha \cdot v$), diremos que la terna $(V, +, \cdot)$ es un $\mathbb{F}$-espacio vectorial si se verifican los siguientes axiomas:
+\begin{enumerate}
+\itemsep-0.3em
+\item \textbf{Clausura} de la Suma de Vectores: si $v,w \in V$ entonces $v+w \in V$.
+\item \textbf{Asociatividad} de la Suma de Vectores: $(v+w)+u = v+(w+u)$.
+\item Existencia de \textbf{Elemento Neutro} para la Suma: $\exists e \in V$ tal que $v + e = e + v = v$.
+\item Existencia de \textbf{Elemento Opuesto} para la Suma: dado $v \in V, \exists w \in V$ tal que $v + w = w + v = e$.
+\item \textbf{Conmutatividad} de la suma de vectores: Si $v, w \in V$, entonces $v+w = w+v$.
+\item \textbf{Clausura} del Producto por Escalar: si $\alpha \in \mathbb{F}$ y $v \in V$ entonces $\alpha \cdot v \in V$.
+\item \textbf{Asociatividad} del Producto por Escalar: si $\alpha, \beta \in \mathbb{F}$ y $v \in V$, entonces $(\alpha \beta) \cdot v = \alpha \cdot (\beta \cdot v)$.
+\item \textbf{Distributiva} del Producto respecto a la Suma de Escalares: $(\alpha + \beta)\cdot v = \alpha \cdot v + \beta \cdot v$.
+\item \textbf{Distributiva} del Producto respecto a la Suma de Vectores: $\alpha \cdot (v + w) = \alpha \cdot v + \alpha \cdot w$.
+\item \textbf{Unitariedad} del Producto por Escalar: si $v \in V$, entonces $1 \cdot v = v$.
+\end{enumerate}
+Un conjunto dotado de una operaci\'on asociativa se dice que es un \textbf{semigrupo}.\\ Todo semigrupo que tiene elemento neutro y opuestos se denomina \textbf{grupo}.\\ Si es conmutativo, se dice \textbf{semigrupo conmutativo} o \textbf{grupo abeliano}.\\
+Independientemente de la naturaleza de los elementos de un espacio vectorial $V$, \'estos se llaman vectores, as\'i sean polinomios $(V = \mathbb{F}_n[x])$, matrices $(V = \mathbb{F}^{m \times n})$ o vectores $(V = \mathbb{F}^n)$.
+
+\newpage
+
+\section{Bases y Dimensiones en $\mathbb{F}^n$}
+Dados los vectores $\overline{x_1}, \overline{x_2}, \cdots, \overline{x_s}$ de $\mathbb{F}^n$ y los escalares $\alpha_1, \alpha_2, \hdots, \alpha_s$ de $\mathbb{F}$, decimos que el vector $\alpha_1 \cdot \overline{x_1} + \alpha_2 \cdot \overline{x_2} + \cdots + \alpha_s \cdot \overline{x_s}$ es una \textbf{combinaci\'on lineal} de $\overline{x_1}, \overline{x_2}, \cdots, \overline{x_s}$.\\
+
+Considerando los vectores $\overline{e_1} = (1,0,...,0), \overline{e_2} = (0,1,...,0) , ..., \overline{e_n} = (0,0,...,1) \in \mathbb{F}^n$, luego un vector $\overline{x} = (x_1, x_2, ..., x_n)$ se escribe de forma \'unica como la combinaci\'on lineal $\overline{x} = x_1\overline{e_1} + x_2\overline{e_2} + \hdots + x_n\overline{e_n}$. Y el conjunto $\{ \overline{e_1}, \overline{e_2}, ..., \overline{e_n} \}$ se denomina \textbf{base can\'onica} de $\mathbb{F}^n$.
+
+\subsection{Independencia Lineal en $\mathbb{F}^n$}
+Sean los vectores $\overline{x_1}, ..., \overline{x_r} \in \mathbb{F}^n$, decimos que esos vectores son \textbf{linealmente independientes (LI)} si la ecuaci\'on vectorial $\alpha_1 \cdot \overline{x_1} + \hdots + \alpha_r \cdot \overline{x_r} = \overline{0}$ tiene solo la soluci\'on trivial ($\alpha_1 = \alpha_2 = ... = \alpha_r = 0$). En caso contrario, decimos que es \textbf{linealmente dependiente (LD)}. Alternativamente, un conjunto de vectores de un espacio vectorial $V$ es linealmente dependiente si y solo si al menos uno de los vectores puede expresarse como combinaci\'on lineal de los dem\'as.
+\begin{itemize}
+\itemsep-0.3em
+\item Dos vectores en $\mathbb{R}^2/\mathbb{R}^3$ no nulos ni paralelos son linealmente independientes LI.
+\item Tres vectores en $\mathbb{R}^3$ no nulos ni paralelos ni coplanares son linealmente independientes LI.
+\item La independencia lineal se refiere a que no existe una ligadura del tipo lineal entre ambos vectores.
+\item $n+1$ vectores en $\mathbb{F}^n$ son linealmente dependientes LD.
+\item Un vector no nulo en $\mathbb{R}^3$ es linealmente independiente LI.
+\item El vector nulo en $\mathbb{R}^n$ es linealmente dependiente LD.
+\item Todo conjunto de vectores de $\mathbb{F}^n$ que contenga al vector nulo es linealmente dependiente LD.
+\end{itemize}
+
+\subsection{Generaci\'on}
+Un conjunto de vectores $S = \{ \overline{x_1}, ..., \overline{x_s} \}$ de $\mathbb{F}^n$ es un \textbf{conjunto generador} de $\mathbb{F}^n$ si todo vector $\overline{x} \in \mathbb{F}^n$ se puede escribir como combinaci\'on lineal de los vectores de $S$. Es decir, si existen escalares $\alpha_1, ..., \alpha_s$ tales que $\overline{x} = \alpha_1\overline{x_1} + \hdots + \alpha_s\overline{x_s}$.
+
+\subsection{Bases y Dimensi\'on}
+Un conjunto de vectores de $\mathbb{F}^n$ se dice que es una \textbf{base} del mismo si es linealmente independiente y es un conjunto generador.\\
+
+Sea un conjunto $\beta = \{\overline{x_1},...,\overline{x_s}\}$ de vectores de $\mathbb{F}^n$ que es una base. Como los vectores deben ser linealmente independientes, y el maximo de vectores LI que hay en $\mathbb{F}^n$ es $n$, entonces $s \leq n$. Como adem\'as los vectores deben generar $\mathbb{F}^n$, el minimo de vectores necesarios es $n$, entonces $s \geq n$. Finalmente, $s = n$, y toda base de $\mathbb{F}^n$ debe tener exactamente $n$ vectores.\\
+
+La \textbf{dimensi\'on} del espacio vectorial $\mathbb{F}^n$ es el cardinal de sus bases, es decir, $n$.\\ \\
+
+Sistema homog\'eneo compatible 
+$\left\{\begin{array} {lll}
+\text{Determinado} &\longrightarrow \text{LI} &\longrightarrow det\ \not = 0\\
+\text{Indeterminado} &\longrightarrow \text{LD} &\longrightarrow det\ = 0
+\end{array}\right.$
+\newpage
+
+Sea $B = \{ \overline{x_1}, \overline{x_2}, ..., \overline{x_s} \}$ un subconjunto de vectores de $\mathbb{F}^n$,
+\begin{itemize}
+\itemsep-0.3em
+\item Si $s>n \Rightarrow B$ es LD.\\
+\textbf{Dem/} Sea $s=n+1$. Sean $\alpha_1, ..., \alpha_{n+1} \in \mathbb{F} / \alpha_1\overline{x_1} + ... + \alpha_{n+1}\overline{x_{n+1}} = \overline{0}$ tiene soluci\'on no trivial?
+Sea $\{e_1,...,e_n\}$ base can\'onica de $\mathbb{F}^n$, sabemos que $\overline{x_i} = \sum_{j=1}^n x_j^i \cdot e_j,\ \forall i \in \llbracket 1, n+1 \rrbracket$\\
+$$\overline{0} = \sum_{i=1}^{n+1} \alpha_i \overline{x_i} = \sum_{i=1}^{n+1} \alpha_i \left[ \sum_{j=1}^n x_j^i \cdot e_j \right] = \sum_{j=1}^n \left[ \sum_{i=1}^{n+1} \alpha_i x_j^i\right] \cdot e_j$$
+Y como $\{e_1,...,e_n\}$ es LI, $\sum_{i=1}^{n+1} \alpha_i x_j^i = 0,\ \forall j \in \llbracket 1, n \rrbracket$. 
+$$ \left\{ \begin{array}{c} \sum_{i=1}^{n+1} \alpha_i x_1^i = 0 \\ \vdots \\ \sum_{i=1}^{n+1} \alpha_i x_n^i = 0 \end{array} \right. \Rightarrow \left\{ \begin{array}{c} \alpha_1 x_1^1 + ... + \alpha_{n+1} x_1^{n+1} = 0 \\ \vdots \\ \alpha_1 x_n^1 + ... + \alpha_{n+1} x_n^{n+1} = 0 \end{array} \right.$$
+Sistema compatible con $n+1$ incognitas y $n$ ecuaciones $\Rightarrow$ infinitas soluciones $\therefore$ $B$ es LD. \QEDA
+\item Si $s<n \Rightarrow B$ no puede generar $\mathbb{F}^n$.\\
+\textbf{Dem/} Es decir, hay menos inc\'ognitas que ecuaciones. Luego, dado $0x=a$, entonces estamos con un sistema incompatible, puesto que si $a$ es distinto de cero, no existe soluci\'on en los reales. Ergo, no puede generar todo $\mathbb{F}^n$. \QEDA
+\item Si $s=n \land B$ es LI $\Rightarrow B$ genera $\mathbb{F}^n$ y es base de $\mathbb{F}^n$.\\
+\textbf{Dem/} Supongamos que $B$ no genera $\mathbb{F}^n$, luego $\exists \overline{v} \in \mathbb{F}^n$ / $\overline{v}$ no es una combinacion lineal de $\overline{x_1},...,\overline{x_s} \Rightarrow B \cup \{v\}$ es LI. \hfill (1)\\
+Pero $|B \cup \{v\}| = s + 1 = n + 1 \land $ dim $\mathbb{F}^n = n \Rightarrow B \cup \{v\}$ es LD \hfill (2)\\
+Llegando asi a una contradicci\'on, entonces $B$ genera $\mathbb{F}^n$. \QEDA
+\item Si $s=n \land B$ genera $\mathbb{F}^n$ $\Rightarrow B$ es LI.\\
+Todo vector se puede escribir como CL de los vectores. Y como $\overline{x_1}\not=0, ..., \overline{x_n} \not = 0$, para representar el $\overline{0}$, la unica soluci\'on es la trivial. \QEDA
+\item $B$ es LI y $\overline{v}$ no es CL de los vectores de $B$ $\Rightarrow$ $B \cup \{v\}$ es LI.\\
+\textbf{Dem/} Sean $\alpha_1, ..., \alpha_n, \alpha \in \mathbb{F} / \alpha_1\overline{x_1} + ... + \alpha_n\overline{x_n} + \alpha\overline{v} = \overline{0}$\\
+Caso 1) $\alpha = 0 \Rightarrow \alpha_1 = 0 = \alpha_2 = ... = \alpha_n \therefore \alpha_i = 0\ \forall i \in \llbracket 1, n \rrbracket \land \alpha = 0 \therefore B \cup \{ v \}$ es LI.\\
+Caso 2) $\alpha \not = 0 \Rightarrow \alpha\overline{v} = -\alpha_1\overline{x_1} - ... - \alpha_n \overline{x_n} \Rightarrow \overline{v} = \frac{-\alpha_1}{\alpha}\overline{x_1} - ... - \frac{-\alpha_n}{\alpha}\overline{x_n}$ y es una CL de $x_1,...,x_n$. Contradicci\'on. Es decir, el caso 2 no sucede nunca. Luego, $B \cup \{ v \}$ es LI. \QEDA
+\item Sea $B$ LI $\Rightarrow$ todo subconjunto no vacio de $B$ es LI.\\
+\textbf{Dem/} Suponemos $\emptyset \not = B_1 \subset B$ LD, luego $B$ deber\'ia ser LD. Contradicci\'on, y $B$ es LI. \QEDA
+\item Cualquier conjunto que contenga un conjunto LD es LD.\\
+\textbf{Dem/} Sea $B_1 = B \cup \{ x_{s+1}, ..., x_{s+k}\}$. Luego, $(\alpha_1, ..., \alpha_s, 0, ..., 0)$ es una combinaci\'on lineal que da como resultado $\overline{0}$. Y como no todos los $\alpha$ son 0, entonces es LD. \QEDA
+\item Sea $B=\{b_1,...,b_n\}$ una base de un espacio vectorial $V$, todo vector $v \in V$ se puede expresar de forma \'unica como combinaci\'on lineal de escalares $c_1,...,c_n$, es decir, $\overline{v}=c_1b_1+...+c_n+b_n$.\\
+\textbf{Dem/} Supongamos que no son \'unicos, luego existen $d_1,...,d_n$ tales que $\overline{v}=d_1b_1+...+d_nb_n$. Restando ambas expresiones: $0 = (c_1-d_1)b_1 + ... + (c_n-d_n)b_n$. Pero al ser una base, es un conjunto linealmente independiente, y la \'unica combinacion lineal nula es la que tiene coeficientes nulos, es decir, $c_i = d_i,\ \forall i \in \llbracket 1,n \rrbracket$. \QEDA
+
+\end{itemize}
+
+\end{document}

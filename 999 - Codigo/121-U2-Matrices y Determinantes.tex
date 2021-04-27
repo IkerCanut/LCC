@@ -1,0 +1,294 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\setlength{\parindent}{0pt} 
+\title{Unidad 2: Matrices y Determinantes\\ \'Algebra y Geometr\'ia Anal\'itica II (R-121)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Matrices}
+Una \textbf{matriz} $A$ de tamaño $m \times n$ con coeficientes en $\mathbb{F}$ es una funci\'on $A : \llbracket 1, m \rrbracket \times \llbracket 1,n \rrbracket \rightarrow \mathbb{F}$. \\ El conjunto de todas las matrices $m \times n$ con coeficientes en $\mathbb{F}$ se denotar\'a por $\mathbb{F}^{m \times n}$.
+$$
+\begin{pmatrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{m1} & \cdots & a_{mn}
+\end{pmatrix}
+$$
+
+Luego, $a_{ij} = A(i,j)$ se llama \textbf{coeficiente} de la matriz $A$. Adem\'as, $A$ tiene $m$ filas y $n$ columnas. \\ $A = (a_{ij})$ y $B = (b_{ij})$ son \textbf{iguales} cuando tienen la misma cantidad de filas y columnas, y $a_{ij} = b_{ij}\ \forall i, j$.\\
+
+$v \in \mathbb{F}^{1 \times n}$ es un \textbf{vector fila} de tamaño $n$.\\
+$v \in \mathbb{F}^{m \times 1}$ es un \textbf{vector columna} de tamaño $m$.\\
+$A \in \mathbb{F}^{n \times n}$ es una \textbf{matriz cuadrada}. El \textbf{vector diagonal} de A es diag$(A) = (a_{11}, a_{22}, ..., a_{nn})$
+\begin{itemize}
+\itemsep-0.3em 
+\item \textbf{Cuadrada triangular superior} si $a_{ij} = 0$ para $i > j$.
+\item \textbf{Cuadrada triangular superior estricta} si $a_{ij} = 0$ para $i \geq j$.
+\item \textbf{Cuadrada triangular inferior} si $a_{ij} = 0$ para $i < j$.
+\item \textbf{Cuadrada triangular inferior estricta} si $a_{ij} = 0$ para $i \leq j$.
+\item \textbf{Cuadrada diagonal} si es triangular superior y triangular inferior.
+\end{itemize}
+
+$0 = 0_{m \times n} \in \mathbb{F}^{m \times n}$ es la \textbf{matriz nula}, que tiene todas sus entradas iguales a cero.\\
+$I = I_n \in \mathbb{F}^{m \times n}$ es la \textbf{matriz identidad} de orden $n$, tal que $I_{ij} = \delta_{ij}$,
+$$\delta_{ij} = \left\{ \begin{array}{ll} 1, & i = j \\ 0, & i \not = j \end{array} \right. \text{ se conoce como el delta de Kronecker}$$
+
+\subsection{Operaciones Entre Matrices}
+\textbf{Matriz por escalar}: $A \in \mathbb{F}^{m \times n}, \alpha \in \mathbb{F}$, entonces $C = \alpha A \in \mathbb{F}^{m \times n}$ est\'a dada por $c_{ij} = \alpha a_{ij}$.\\
+\textbf{Suma de matrices}: $A,B \in \mathbb{F}^{m \times n}$, entonces $C = A + B \in \mathbb{F}^{m \times n}$ est\'a dada por $c_{ij} = a_{ij} + b_{ij}$.\\
+\textbf{Multiplicaci\'on}: $A \in \mathbb{F}^{m \times n}$, $B \in \mathbb{F}^{n \times p}$, entonces $C = A \cdot B \in \mathbb{F}^{m \times p}$ est\'a dada por $c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}$. \\ El lugar $(AB)_{ij}$ est\'a dado por el producto escalar entre la i-\'esima fila de $A$ y la j-\'esima columna de B. \\ \textbf{Teorema 1}: NO es conmutativo, pero SI es asociativo, pues: \\$$(A(BC))_{ij} = \sum_{k=1}^n  A_{ik}(BC)_{kj} = \sum_{k=1}^n  A_{ik} \sum_{l=1}^p B_{kl}C_{lj} = \sum_{k=1}^n \sum_{l=1}^p A_{ik}B_{kl}C_{lj}$$
+$$((AB)C)_{ij} = \sum_{l=1}^p (AB)_{il}C_{lj} = \sum_{l=1}^p \sum_{k=1}^n A_{ik} B_{kl} C_{lj} = \sum_{k=1}^n \sum_{l=1}^p A_{ik} B_{kl} C_{lj} $$\QEDA\\
+\textbf{Teorema 2}: $A \in \mathbb{F}^{m \times n}$, $B,C \in \mathbb{F}^{n \times p}$, entonces $A(B+C) = AB + AC$
+$$(A(B+C))_{ij} = \sum_{k=1}^n A_{ik}(B_{kj}+C_{kj}) = \sum_{k=1}^n A_{ik} B_{kj}+ \sum_{k=1}^n A_{ik} C_{kj} = (AB)_{ij} + (AC)_{ij} = (AB + AC)_{ij}$$ \QEDA\\
+\textbf{Teorema 3}: Sea $A \in \mathbb{F}^{m \times n}$, entonces $I_mA = AI_n = A$
+$$(I_mA)_{ij} = \sum_{k=1}^m (I_m)_{ik}A_{kj} = \sum_{k=1}^m \delta_{ik}A_{kj} = A_{ij} \Rightarrow I_mA = A$$ \QEDA\\
+
+\newpage
+
+Dada $A \in \mathbb{F}^{m \times n}$, se define la \textbf{matriz transpuesta} de $A$ como la matriz $A^t \in \mathbb{F}^{n \times m}$ tal que $(A^t)_{ij} = A_{ji}$\\
+
+\textbf{Teorema 4}: Sean $A,B \in \mathbb{F}^{m \times n}, \alpha \in \mathbb{F}$, entonces:
+\begin{itemize}
+\itemsep-0.3em
+\item $(A^t)^t = A$\\
+\textbf{Dem/} $((A^t)^t)_{ij} = (A^t)_{ji} = A_{ij}$ \QEDA
+\item $(\alpha A)^t = \alpha A^t$\\
+\textbf{Dem/} $((\alpha A)^t)_{ij} =(\alpha A)_{ji} = \alpha A_{ji} = \alpha (A^t)_{ij} = (\alpha A^t)_{ij}$ \QEDA
+\item $(A+B)^t = A^t + B^t$\\
+\textbf{Dem/} $((A+B)^t)_{ij} = (A+B)_{ji} = A_{ji} + B_{ji} = (A^t)_{ij} + (B^t)_{ij} = (A^t + B^t)_{ij}$ \QEDA
+\end{itemize}
+
+\textbf{Teorema 5}: Sea $A \in \mathbb{F}^{m \times n}, B \in \mathbb{F}^{n \times p}$, entonces $(AB)^t = B^tA^t$\\
+\textbf{Dem/} $((AB)^t)_{ij} = (AB)_{ji} = \sum_{k=1}^n A_{jk}B_{ki} = \sum_{k=1}^n (B^t)_{ik} (A^t)_{kj} = (B^tA^t)_{ij}$ \QEDA\\
+
+$A$ es \textbf{sim\'etrica} si $A^t = A$\\
+$A$ es \textbf{antisim\'etrica} si $A^t = -A$. Se ve que diag$(A) = (0, ..., 0)$.\\
+
+\textbf{Teorema 6}: $A \in \mathbb{F}^{n \times n}$ puede escribirse como la suma de una matriz sim\'etrica y una antisim\'etrica.\\
+\textbf{Dem/} $A = \frac{1}{2}(A + A^t) + \frac{1}{2} (A - A^t)$, donde $A_\text{sim} = \frac{1}{2}(A + A^t)$ y $A_\text{anti} = \frac{1}{2}(A - A^t)$. Donde se ve que:
+\begin{itemize}
+\itemsep-0.3em
+\item $(A_\text{sim})^t = (\frac{1}{2}(A + A^t))^t = \frac{1}{2}(A^t + A) = \frac{1}{2}(A + A^t) = A_\text{sim}$
+\item $(A_\text{anti})^t = (\frac{1}{2}(A - A^t))^t = \frac{1}{2}(A^t - A) = -\frac{1}{2}(A - A^t) = -A_\text{anti}$ \QEDA\\
+\end{itemize}
+
+Se define la \textbf{traza} de una matriz $A \in \mathbb{F}^{n \times n}$ como $tr(A) = \sum_{i=1}^n A_{ii}$\\
+\textbf{Teorema 7}: Sean $A,B \in \mathbb{F}^{n \times n}, \alpha \in \mathbb{F}$:
+\begin{itemize}
+\itemsep-0.3em
+\item $tr(A + B) = tr(A) + tr(B)$
+\item $tr(\alpha A) = \alpha \cdot tr(A)$
+\item $tr(AB) = tr(BA)$
+\end{itemize}
+
+\textbf{Teorema 8}: Sea $A \in \mathbb{F}^{n \times n}$, entonces $\displaystyle{tr(AA^t) = \sum_{i=1}^n \sum_{j=1}^n A^2_{ij}}$\\
+$$\text{Puesto que  }(AA^t)_{ii} = \sum_{j = 1}^n A_{ij} A^t_{ji} = \sum_{j=1}^n A_{ij}A_{ij} = \sum_{j=1}^n A_{ij}^2$$
+$$\text{Se puede ver que  } tr(AA^t) = \sum_{i=1}^n(AA^t)_ii = \sum_{i=1}^n \sum_{j=1}^n A_{ij}^2$$
+\QEDA\\
+
+Adem\'as si $\mathbb{F} = \mathbb{R}$, se puede pensar el n\'umero $tr(AA^t)$ como el ``modulo'' al cuadrado de la matriz $A \in \mathbb{R}^{n \times n}$, pues este n\'umero se calcula sumando los cuadrados de todos los coeficientes de la matriz.\\ Finalmente, se puede  introducir la noci\'on de distancia en el conjunto $\mathbb{R}^{n \times n}$, es decir, la distancia entre dos matrices $A,B \in \mathbb{F}^{n \times n}$ se define como el modulo de la diferencia $B - A$, 
+$$dist(A,B) = tr((B-A)(B-A^t))^{\frac{1}{2}}$$
+
+Y el conjunto de todas las matrices $A \in \mathbb{R}^{n \times n}$ tales que $tr(A) = const$ puede pensarse como un ``hiperplano'' en $\mathbb{R}^{n \times n}$, pues dichas matrices satisfacen una especie de ``ecuaci\'on general del plano''. \\
+
+ Por ejemplo, el hiperplano de todas las matrices $2 \times 2$ de traza 0 est\'a dado por $\left\{ \begin{pmatrix} x & y \\ z & w \end{pmatrix} \in \mathbb{R}^{2 \times 2} : x+w = 0 \right\}$
+
+\newpage
+
+\section{Determinantes}
+Definimos $S_n = \{ \sigma : \llbracket 1,n \rrbracket \rightarrow \llbracket 1,n \rrbracket : \sigma \text{ es biyectiva} \}$ al conjunto de permutaciones de $n$ elementos.
+
+\begin{itemize}
+\itemsep-0.3em
+\item Hay $n!$ permutaciones de $n$ elementos. Es decir, $|S_n| = n!$
+\item Si $\sigma, \tau \in S_n$, entonces $\sigma \circ \tau \in S_n$, en donde $\sigma \circ \tau$ es la composici\'on y est\'a definida $\forall i \in \llbracket 1,n \rrbracket$.
+\item La \textbf{funci\'on identidad} $id : S_n \rightarrow S_n$ se comporta como el ``elemento neutro'' de $S_n$ con respecto a la operaci\'on composici\'on, es decir, $id \circ \sigma = \sigma \circ id = \sigma,\ \forall \sigma \in S_n$.
+\item Toda $\sigma \in S_n$ tiene una inversa, es decir, $\exists \sigma^{-1}$ tal que $\sigma \circ \sigma^{-1} = \sigma^{-1} \circ \sigma = id$
+\item Se puede identificar una permutaci\'on $\sigma \in S_n$ con una n-upla: $\sigma \longleftrightarrow (\sigma(1), \sigma(2),...,\sigma(n))$
+\end{itemize}
+ 
+\begin{minipage}[c]{0.6\linewidth}
+Una \textbf{trasposici\'on} es una permutaci\'on que intercambia\\ solo dos elementos. $\tau \in S_n$ es una trasposici\'on si existen \\ $i, j \in \llbracket 1,n \rrbracket, i \not = j$ tal que:
+\end{minipage}
+\begin{minipage}[c]{0.3\linewidth}
+$\tau(k) = \left\{ \begin{array}{ll} j & k = i \\ i & k = j \\ k & k \not = i, k \not = j\end{array} \right.$
+\end{minipage}
+
+Y se denota $\tau_{i,j}$ a la transposici\'on que intercambia $i$ con $j$. Adem\'as, $\tau$ es su propia inversa: $\tau \circ \tau = id$. De esta manera, es facil calcular la inversa de una transposici\'on arbitraria.\\
+
+\textbf{Teorema 9}: Toda $\sigma \in S_n$ puede escribirse como una composici\'on de trasposiciones, y la cantidad usada en una descomposici\'on es siempre par o impar.\\
+
+El \textbf{signo} de una permutaci\'on $\sigma \in S_n$ se define por $sg(\sigma) = (-1)^k$. Luego, se dice que:\\ $\sigma$ es par si $sg(\sigma) = 1$ o impar si $sg(\sigma) = -1$.\\
+
+\textbf{Teorema 10}:
+\begin{itemize}
+\itemsep-0.3em
+\item $sg(id) = 1$\\
+\textbf{Dem/} La cantidad de trasposiciones necesarias para describirla siempre ser\'a par. \QEDB
+\item $sg(\sigma \circ \tau) = sg(\sigma) \cdot sg(\tau),\ \forall \sigma, \tau \in S_n$\\
+\textbf{Dem/} Sea $\sigma = \sigma_1 \circ ... \circ \sigma_k$ y $\tau = \tau_1 \circ ... \circ \tau_k$, entonces $\sigma \circ \tau$ es una composici\'on de $k + l$ trasposiciones. Luego, $sg(\sigma \circ \tau) = (-1)^{k + l} = (-1)^k \cdot (-1)^l = sg(\sigma) \cdot sg(\tau)$ \QEDB
+\item $sg(\sigma^{-1}) = sg(\sigma)^{-1} = sg(\sigma),\ \forall \sigma \in S_n$\\
+\textbf{Dem/} $1 = sg(id) = sg(\sigma \circ \sigma^{-1}) = sg(\sigma) \cdot sg(\sigma^{-1}) \Rightarrow sg(\sigma^{-1}) = \frac{1}{sg(\sigma)} = sg(\sigma)^{-1}$. Luego, \\ si $sg(\sigma) = 1$, entonces $sg(\sigma^{-1}) = \frac{1}{1}$; y si $sg(\sigma) = -1$, entonces  $sg(\sigma^{-1}) = \frac{1}{-1}$. En cualquiera de los dos casos, vale $sg(\sigma) = sg(\sigma^{-1})$. \QEDA\\
+\end{itemize}
+
+Sea $A \in \mathbb{F}^{m \times n}$, el \textbf{determinante} de $A$ se define como $$det\ A = \sum_{\sigma \in S_n} sg(\sigma) \cdot \prod_{i=1}^n A_{i\sigma(i)}$$ es decir, hay que sumar todos los posibles factores que se pueden armar con coeficientes de $A$, tomando un elemento en cada fila y cada columna, en donde el factor $A_{1\sigma(1)}...A_{n\sigma(n)}$ debe ir multiplicado por el signo de la permutacion de las columnas $\sigma$.\\
+
+\textbf{Teorema 11}:
+Si $I \in \mathbb{F}^{n \times n}$ es la matriz identidad, entonces $det\ I = 1$.\\
+\textbf{Dem/} $det\ I = \sum_{\sigma \in S_n} sg(\sigma) \cdot \prod_{i=1}^n I_{i\sigma(i)}$. Pero $I_{i\sigma(i)} \not = 0 \Leftrightarrow \sigma(i) = i$, donde vale 1. Luego, la suma tiene un solo sumando no nulo y $det\ I = sg(id) \prod_{i=1}^n I_{ii} = 1$. \QEDA\\
+De manera an\'aloga, si $A \in \mathbb{F}{n \times n}$ es una matriz diagonal, entonces $det\ A = A_{11}\cdot...\cdot A_{nn}$.\\
+
+\textbf{Teorema 12}: Sea $A \in \mathbb{F}^{n \times n}$, entonces $det\ A = det\ A^t$\\
+\textbf{Dem/} $sg(\sigma) \cdot A_{1\sigma(1)}\cdots A_{n\sigma(n)} = sg(\sigma^{-1}) \cdot A_{\sigma^{-1}(1)1}\cdots A_{\sigma^{-1}(n)n} = sg(\sigma^{-1}) \cdot A^t_{1\sigma^{-1}(1)}\cdots A^t_{n\sigma^{-1}(n)}$. Luego, 
+$$det\ A = \sum_{\sigma \in S_n} sg(\sigma) \prod_{i = 1}^n A_{i \sigma(i)} = \sum_{\sigma^{-1} \in S_n} sg(\sigma^{-1}) \prod_{i = 1}^n A^t_{i \sigma^{-1}(i)} = det\ A^t$$ \QEDA 
+
+\newpage
+
+\textbf{Teorema 13}: Si $A \in \mathbb{F}^{n \times n}$ tiene dos columnas o dos filas iguales, entonces $det\ A = 0$. \\
+\textbf{Dem/} Suponemos columna $k$ igual a $j$. Luego, $a_{ik} = a_{ij}$. Dada $\sigma \in S_n$, sea $\tilde{\sigma} = \tau_{k,j} \circ \sigma$, y tenemos que $A_{1\sigma(1)} \cdots A_{n\sigma(n)} = A_{1\tilde{\sigma}(1)} \cdots A_{n\tilde{\sigma}(n)}$. Adem\'as, $sg(\tilde{\sigma}) = sg(\tau_{k,j} \circ \sigma) = sg(\tau_{k,j})sg(\sigma) = - sg(\sigma)$. Ergo, $$sg(\sigma) \prod_{i=1}^n A_{i\sigma(i)} + sg(\tilde{\sigma}) \prod_{i=1}^n A_{i\tilde{\sigma}(i)} = 0$$
+de donde se van cancelando de a pares, por lo tanto, el determinante es cero. Notamos esto pues $S_n$ se descompone como la uni\'on disjunta de las permutaciones pares e impares, que se relacionan de la siguiente forma: $\sigma \in S_n^{par} \iff \tau_{k,j} \circ \sigma = \tilde{\sigma} \in S_n^{impar}$. 
+\begin{align*}
+det\ A 
+&= \sum_{\sigma \in S_n} sg(\sigma) \prod_{i=1}^n A_{i\sigma(i)}
+= \sum_{\sigma \in S_n^{par}} sg(\sigma) \prod_{i=1}^n A_{i\sigma(i)} + \sum_{\sigma \in S_n^{impar}} sg(\sigma) \prod_{i=1}^n A_{i\sigma(i)}\\
+&= \sum_{\sigma \in S_n^{par}} sg(\sigma) \prod_{i=1}^n A_{i\sigma(i)} + \sum_{\sigma \in S_n^{par}} sg(\tilde{\sigma}) \prod_{i=1}^n A_{i\tilde\sigma(i)}\\
+&= \sum_{\sigma \in S_n^{par}} \left[ sg(\sigma) \prod_{i=1}^n A_{i\sigma(i)} + sg(\tilde{\sigma}) \prod_{i=1}^n A_{i\tilde\sigma(i)} \right] = 0
+\end{align*}
+Si $A$ tiene dos columnas iguales, entonces $A^t$ tiene dos filas iguales. Luego, $det\ A = det\ A^t = 0$. \QEDA\\
+
+\textbf{Notaci\'on}: Sean $C_1, C_2, ..., C_n \in \mathbb{F}^{n \times 1}$ vectores columna, denotaremos por $A = (C_1, C_2, ..., C_n)$ a la matriz cuyas columnas son $C_1, C_2, ..., C_n$. De manera analoga, si $F_1, F_2, ..., F_n \in \mathbb{F}^{1 \times n}$ son vectores fila.\\
+
+\textbf{Teorema 14}: Sean $A_1, A_2, ..., A_n \in \mathbb{F}^{n \times 1}$ vectores columna y sea $\alpha \in \mathbb{F}$, entonces $$det\ (A_1, \cdots \alpha A_k \cdots A_n) = \alpha \cdot det\ (A_1 \cdots A_k \cdots A_n)$$
+\textbf{Dem/} Vemos que $A'_{ij} = \left\{ \begin{array}{ll} A_{ij} & j \not = k \\ \alpha A_{ik} & j = k\end{array}\right.$. Luego, dada $\sigma \in S_n$, se tiene que $$A'_{1\sigma(1)}, A'_{2\sigma(2)} \cdots A'_{n\sigma(n)} = \alpha A_{1\sigma(1)} A_{2\sigma(2)} \cdots A_{n\sigma(n)}$$
+Por lo tanto, $$det\ A' = \sum_{\sigma \in S_n} sg(\sigma) \prod_{i = 1}^n A'_{i\sigma(i)} = \alpha \sum_{\sigma \in S_n} sg(\sigma) \prod_{i = 1}^n A_{i \sigma(i)} = \alpha\ det\ A$$ \QEDA\\
+\textbf{Corolario 1}: Sea $A \in \mathbb{F}^{n \times n}$ y $\alpha \in \mathbb{F}$, entonces:
+\begin{itemize}
+\itemsep-0.3em
+\item $det(\alpha A) = \alpha^n\ det\ A$
+\item Y $A$ tiene una columna o fila nula, entonces $det\ A = 0$
+\end{itemize}
+
+\textbf{Corolario 2}: Sean $A_1, A_2, ..., A_n \in \mathbb{F}^{1 \times n}$ vectores fila y sea $\alpha \in \mathbb{F}$, entonces $$det\left( \begin{array}{c} A_1 \\ \vdots \\ \alpha A_k \\ \vdots \\ A_n \end{array}\right) = \alpha\ det\left( \begin{array}{c} A_1 \\ \vdots \\ A_k \\ \vdots \\ A_n \end{array}\right)$$
+
+\newpage
+
+\textbf{Teorema 15}: Sea $A \in \mathbb{F}^{n \times n}$ y sean $A_1, ..., A_n \in \mathbb{F}^{n \times 1}$ las columnas de $A$, supongamos que $A_k = B_k + C_k$ y sean las matrices $B=(A_1, ..., A_{k-1}, B_k, A_{k+1},...,A_n)$ y $C=(A_1, ..., A_{k-1}, C_k, A_{k+1},...,A_n)$, entonces $det\ A = det\ B + det\ C$.\\
+\textbf{Dem/} Denotemos $B_k = \begin{pmatrix} B_{1k} \\ \vdots \\ B_{nk}\end{pmatrix}$ y $C_k = \begin{pmatrix} C_{1k} \\ \vdots \\ C_{nk}\end{pmatrix}$, sigue que $B_{ij} = \begin{cases} A_{ij} & j \not = k \\ B_{ik} & j = k \end{cases}$ y $C_{ij} = \begin{cases} A_{ij} & j \not = k \\ C_{ik} & j = k \end{cases}$. \\
+Luego si $\sigma \in S_n$, tenemos que $A_{1\sigma(1)} \hdots A_{n\sigma(n)} = B_{1\sigma(1)} \hdots B_{n\sigma(n)} + C_{1\sigma(1)} \hdots C_{n\sigma(n)}$, pues siempre existe un $l \in \llbracket 1, n \rrbracket$ tal que $\sigma(l) = k$, y as\'i $A_{l\sigma(l)} = k$, y asi $A_{l\sigma(l)} = B_{l\sigma(l)} + C_{l\sigma(l)}$. Finalmente,
+\begin{align*}
+det\ A 
+&= \sum_{\sigma \in S_n} sg(\sigma) \prod_{i = 1}^n A_{i\sigma(i)} 
+= \sum_{\sigma \in S_n} sg(\sigma) \left[ \prod_{i = 1}^n B_{i\sigma(i)} + \prod_{i = 1}^n C_{i\sigma(i)} \right] \\
+&= \sum_{\sigma \in S_n} sg(\sigma) \prod_{i = 1}^n B_{i\sigma(i)}  + \sum_{\sigma \in S_n} sg(\sigma) \prod_{i = 1}^n C_{i\sigma(i)} 
+= det\ B + det\ C
+\end{align*}
+\QEDA\\
+
+\textbf{Teorema 16}: Sea $A \in \mathbb{F}^{n \times n}$ y $A_1, ..., A_n \in \mathbb{F}^{n \times 1}$ las filas de $A$, supongamos que $A_k = B_k + C_k$ y sean las matrices $B$ cuyas filas son $A_1, ..., A_{k-1}, B_k, A_{k+1},...,A_n$ y $C$, cuyas filas son $A_1, ..., A_{k-1}, C_k, A_{k+1},...,A_n$, entonces $det\ A = det\ B + det\ C$.\\
+
+\textbf{Teorema 17}: Sean $A_1, ..., A_n \in \mathbb{F}^{n \times 1}$, entonces 
+$det(A_1 \hdots A_j \hdots A_i \hdots A_n) = -det(A_1 \hdots A_i \hdots A_j \hdots A_n)$.
+\textbf{Dem/} Sea $\tilde{A} = (A_1 \hdots (A_i + A_j) \hdots (A_i + A_j) \hdots A_n)$, luedo $det\ \tilde{A} = 0$
+\begin{align*}
+0 
+&= det (A_1 \hdots (A_i + A_j) \hdots (A_i + A_j) \hdots A_n)\\
+&= det (A_1 \hdots A_i \hdots A_i\hdots A_n) + det (A_1 \hdots A_i \hdots A_j \hdots A_n) \\ & + det (A_1 \hdots A_j \hdots A_i \hdots A_n) + det (A_1 \hdots A_j \hdots A_j \hdots A_n)
+\end{align*}
+De donde se concluye que $det (A_1 \hdots A_i \hdots A_i\hdots A_n) = - det (A_1 \hdots A_j \hdots A_i \hdots A_n)$. \QEDA\\
+
+\textbf{Teorema 18}: Sea $A \in \mathbb{F}^{n \times n}$ y sea $A'$ la matriz que se obtiene de $A$ sumando a la j-\'esima columna un m\'ultiplo de la k-\'esima columna, con $j \not = k$, entonces $det\ A = det\ A'$.\\
+\textbf{Dem/} Sin perder generalidad, suponemos $j < k$. Sean $A_1,...,A_n$ las columnas de $A$, entonces
+\begin{align*}
+det\ A' 
+&= det (A_1 \hdots A_{j-1} (A_j + \alpha A_k) A_{j+1} \hdots A_k \hdots A_n) \\
+&= det (A_1 \hdots A_{j-1} A_j A_{j+1} \hdots A_k \hdots A_n) + det (A_1 \hdots A_{j-1} (\alpha A_k) A_{j+1} \hdots A_k \hdots A_n) \\
+&= det\ A + \alpha\ det (A_1 \hdots A_{j-1} A_k A_{j+1} \hdots A_k \hdots A_n) \\
+&= det\ A
+\end{align*}
+\QEDA\\
+
+\textbf{Teorema 19}: Sea $A \in \mathbb{F}^{n \times n}$ triangular superior, entonces $det\ A = A_{11}A_{22}\hdots A_{nn}$.\\
+\textbf{Dem/} $A_{ij} = 0$ si $i > j$. Para $\sigma \in S_n \not = id$, siempre existe un $i$ tal que $i > \sigma(i)$. Si esto no sucediera, se tendr\'ia que $n \leq \sigma(n) \leq n$, es decir, $\sigma(n) = n$. Luego, $n-1 \leq \sigma(n - 1) \leq n-1$, es decir, $n-1 = \sigma(n - 1)$. Y asi para todo $i \in \llbracket 1,n \rrbracket$. Pero esto es absurdo, pues $\sigma \not = id$. Esto quiere decir que en la definici\'on de $det\ A$, todos los sumandos correspondientes a $\sigma \not = id$ son nulos, por lo tanto, $$det\ A = \sum_{\sigma \in S_n} sg(\sigma) \prod_{i = 1}^n A_{i\sigma(i)} = sg(id) \prod_{i=1}^n A_{ii} = \prod_{i=1}^nA_{ii}$$
+
+\QEDA 
+
+
+\newpage
+
+Una matriz $A \in \mathbb{F}^{n \times n}$ se dice \textbf{invertible} si existe $B \in \mathbb{F}^{n \times n}$ tal que $AB=BA=I$. Luego, $B$ se llama la \textbf{matriz inversa} de $A$ y se denota $B = A^{-1}$. La matriz inversa es \'unica.\\
+
+Sea $A = \begin{pmatrix} a & b \\ c & d\end{pmatrix}$, buscamos $B = \begin{pmatrix} e & f \\ g & h\end{pmatrix}$ tal que $\begin{pmatrix} a & b \\ c & d\end{pmatrix} \begin{pmatrix} e & f \\ g & h\end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1\end{pmatrix}$\\
+
+Tenemos un sistema de 4 ecuaciones con 4 incognitas: $ae+bg = 1, af+bh=0, ce+dg=0, cf+dh=1$. \\ 
+Sigue que $d = d(ae + bg) - b(cf + dh) = e (ad-bc)$. Analogamente, se resuelven el resto. Y finalmente, si $det\ A = ad-bc \not = 0$, entonces el sistema tiene soluci\'on y la matriz inversa es $$B = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$
+
+\textbf{Teorema 20}: $A \in \mathbb{F}^{n \times n}$ es invertible si y solo si $det\ A \not = 0$. Adem\'as, $det\ A^{-1} = (det\ A)^{-1}$.\\
+\textbf{Dem/} Si $A$ es invertible entonces $AA^{-1} = I$. Luego, $1 = det\ I = det\ A \cdot det\ A^{-1}$. Ambos deben ser no nulos, y adem\'as implica que $det\ A^{-1} = (det\ A)^{-1}$. \QEDA
+
+\subsection{Desarrollo del Determinante por Filas o Columnas}
+Definimos $S_n^j = \{ \sigma \in S_n : \sigma(1) = j \}$, es decir, son las permutaciones donde $j$ va al primer elemento.
+Sea $A \in \mathbb{F}^{n \times n}$ y sean $i,j \in \llbracket 1,n \rrbracket$, se define $A(i|j)$ como la matriz $(n-1)\times(n-1)$ que se obtiene suprimiendo la i-\'esima fila y la j-\'esima columna de $A$.
+
+\textbf{Teorema 21}: Si $A \in \mathbb{F}^{n \times n}$, entonces 
+$$det\ A = \sum_{j=1}^n (-1)^{1+j} A_{1j}\ det\ A(1|j)$$
+\textbf{Dem/} El conjunto de todas las permutaciones de $n$ elementos puede describirse como la uni\'on disjunta de las permutaciones que mandan al $1$ a $j \in \llbracket 1,n \rrbracket$. Luego, $S_n = S^1_n \cup \hdots \cup S_n^n$. Ahora bien, $\sigma \in S_n^j$ es una permutaci\'on de $n-1$ elementos ($S_{n-1}$). A cada elemento $\sigma \in S_n^j$ le corresponde un \'unico elemento $\sigma^j \in S_{n-1}$. Para calcular $sg(\sigma)$ uno debe expresar $\sigma$ como una composici\'on de trasposiciones (hay que contar la cantidad de intercambios para llegar de $(1,...,j-1,j+1,...,n)$ a $(\sigma(2), \sigma(3),...,\sigma(n))$. Y como uno tiene que hacer $j-1$ intercambios para llegar de $(1,2,...,n)$ a $(j,2,3,...,n)$ y luego hacer los intercambios necesarios sobre los \'ultimos elementos para transformar $(j,2,3,...,n)$ en $(j,\sigma(2),\sigma(3),...,\sigma(n))$. Luego tenemos que $sg(\sigma) = (-1)^{j-1} sg(\sigma^j) = (-1)^{1+j} sg(\sigma^j)$. Finalmente,
+\begin{align*}
+det\ A
+&= \sum_{\sigma \in S_n} sg(\sigma) \prod_{i=1}^n A_{i\sigma(i)}
+= \sum_{j=1}^n \sum_{\sigma \in S_n^j} sg(\sigma) \prod_{i=1}^n A_{i\sigma(i)}\\
+&= \sum_{j=1}^n \sum_{\sigma \in S_n^j} sg(\sigma) A_{1j} \prod_{i=2}^n A_{i\sigma(i)}\\
+&= \sum_{j=1}^n \sum_{\sigma^j \in S_{n-1}}  (-1)^{1+j} sg(\sigma^j) A_{1j} \prod_{i=1}^{n-1} A(1|j)_{i\sigma^j(i)}\\
+&= \sum_{j=1}^n (-1)^{1+j} A_{1j} \sum_{\sigma^j \in S_{n-1}} sg(\sigma^j) \prod_{i=1}^{n-1} A(1|j)_{i\sigma^j(i)}\\
+&= \sum_{j=1}^n (-1)^{1+j} A_{1j} det\ A(1|j)
+\end{align*}
+\QEDA\\
+
+\textbf{Nota}: El determinante se puede definir recursivamente. Para matrices $A \in \mathbb{F}^{1 \times 1}$ se define $det\ A = A$ y luego, dado $n \in \mathbb{N}$, se define el determinante de una matriz $A \in \mathbb{F}^{(n+1) \times (n+1)}$ como $$det\ A = \sum_{j=1}^{n+1} (-1)^{i+j} A_{ij}\ det\ A(1|j)$$
+
+\newpage
+
+\textbf{Teorema 22}: (Desarrollo i-\'esima fila): Sea $A \in \mathbb{F}^{n \times n}$, $i \in \llbracket 1,n \rrbracket$, entonces 
+$\displaystyle{det\ A = \sum_{j=1}^n (-1)^{i+j} A_{ij} det\ A(i|j)}$. \\
+
+\textbf{Teorema 23}: (j-\'esima columna): Sea $A \in \mathbb{F}^{n \times n}$, $j \in \llbracket 1,n \rrbracket$, entonces 
+$\displaystyle{det\ A = \sum_{i=1}^n (-1)^{i+j} A_{ij} det\ A(i|j)}$. \\ \\
+
+Sea $A \in \mathbb{F}^{n \times n}$, el escalar $C_{ij} = (-1)^{i+j}\ det\ A(i|j)$ se llama \textbf{cofactor} $i,j$ de $A$.\\
+La matriz $C = (C_{ij})$ se llama \textbf{matriz de cofactores} de $A$.\\
+La \textbf{matriz adjunta} de $A \in \mathbb{F}^{n \times n}$, $adj\ A$, es la matriz transpuesta de la matriz de los cofactores de $A$:
+$$(adj\ A)_{ij} = (-1)^{i+j}\ det\ A(j|i)$$
+
+\textbf{Teorema 24}: Sea $A \in \mathbb{F}^{n \times n}$, entonces $A\ (adj\ A) = (adj\ A) A = (det\ A)I$.\\
+\textbf{Dem/} Hay que ver que $(A (adj\ A))_{ij} = (det\ A) \delta_{ij}$.\\
+Si $i \not = j$, entonces 
+$$(A\ (adj\ A))_{ij} = \sum-{k=1}^n A_{ik}(adj\ A)_{kj} = \sum_{k=1}^n (-1)^{k+j} A_{ik} det\ A(j|k) = det\ A'n$$
+donde $A'$ es la matriz tal que $(A')_{ik} = (A')_{jk}$ para todo $k \in \llbracket 1,n \rrbracket$ y tiene todas sus otras entradas iguales a $A$. Pero en $A'$, la columna $i$ es igual a la columna $j$. Luego, $0 = det\ A' = (A\ (adj\ A))_{ij}$. Finalmente, $$(A\ (adj\ A))_{ii} = \sum_{k=1}^n A_{ik}(adj\ A)_{ki} = \sum_{k=1}^n (-1)^{i+k} A_{ik} det\ A(i|k) = det\ A$$
+\QEDA\\
+
+\textbf{Teorema 25}: Sea $A \in \mathbb{F}^{n \times n}$, $det\ A \not = 0$, entonces $A$ es invertible y vale $A^{-1} = \frac{1}{det\ A} adj\ A$.\\
+\textbf{Dem/} $(\frac{1}{det\ A} adj\ A) A = A (\frac{1}{det\ A} adj\ A) = I$ \QEDA\\
+
+\textbf{Teorema 26}: Si $A \in \mathbb{F}^{n \times n}$ tiene una inversa a izquierda, entonces $A$ es invertible.\\
+\textbf{Dem/} Suponiendo que existe $B \in \mathbb{F}^{n \times n}$ tal que $I = BA$, sigue que $1 = det (BA) = (det\ B)(det\ A)$ y en particular $det\ A \not = 0$. Luego $A$ es invertible. \QEDA\\
+
+El \textbf{permanente} de una matriz $A \in \mathbb{F}^{n \times n}$ se define sumando todos los factores que se pueden armar eligiendo un elemento en cada fila recorriendo todas las columnas, pero sin tener en cuenta el signo de la permutaci\'on de las columnas. $$perm\ A = \sum_{\sigma \in S_n} \prod_{i=1}^n A_{i\sigma(i)}$$ Adem\'as, $perm\ A = perm\ A^t$, y si uno multipica la columna $k$ de $A$ por $\alpha$, entonces $perm\ A' = \alpha\ perm\ A$. Pero si tiene dos columnas iguales, no necesariamente vale $perm\ A = 0$. Tampoco es cierto que $perm(AB) = (perm\ A)(perm\ B)$.\\
+
+\textbf{Vector Can\'onico}: $e_{\sigma(i)} = (e_{1j})^n_{j=1}$ donde $e_{1j} = \begin{cases} 0 & j \not = \sigma(i) \\ 1 & j = \sigma(i) \end{cases}$
+
+
+\end{document}

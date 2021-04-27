@@ -1,0 +1,177 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\setlength{\parindent}{0pt} 
+\title{Unidad 5: Geometr\'ia Anal\'itica del Plano\\ \'Algebra y Geometr\'ia Anal\'itica II (R-121)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Recta en el Plano}
+
+\textbf{Lugar geom\'etrico del Plano}: subconjunto del plano formado por todos los puntos que satisfacen una o m\'as condiciones geom\'etricas determinadas.\\
+
+\textbf{Distancia} entre dos puntos $P$ y $Q$, y se denota $d(P,Q)$ a la longitud $PQ$ del segmento $\overline{PQ}$. Notamos que $d(PQ) = \sqrt{(x'-x)^2 + (y' - y)^2}$, y adem\'as:
+\begin{itemize}
+\itemsep-0.3em
+\item $d(P,Q) \geq 0$ y $d(P,Q) = 0 \iff P = Q$.
+\item $d(P,Q) = d(Q,P)$
+\item $d(P,Q) + d(Q,R) \geq d(P,R)$\\
+\end{itemize}
+
+Dado un punto $P$ y un vector no nulo $\overline{u}$, la \textbf{recta} $r$ que pasa por $P$ en la direcci\'on $\overline{u}$ es el lugar geom\'etrico de los puntos $Q$ tales que $\overrightarrow{PQ} // \overline{u}$. Es decir, $Q \in r \iff \exists \lambda \in \mathbb{R} : \overrightarrow{PQ} = \lambda \overline{u}$.
+\begin{itemize}
+\itemsep-0.3em
+\item \textbf{Ecuaci\'on Vectorial}: $\overrightarrow{OQ} = \overrightarrow{OP} + \lambda \overline{u}$.
+\item \textbf{Ecuaciones Param\'etricas}: $\left\{ \begin{array}{l} x = x_0 + \lambda u_1 \\ y = y_0 + \lambda u_2 \end{array} \right.$
+\item \textbf{Ecuaci\'on Cartesiana}: $ax + by + c = 0$.
+\end{itemize}
+
+El sistema es \textbf{compatible determinado} si y s\'olo si $\begin{vmatrix} a & b \\ a' & b' \end{vmatrix} = ab' - a'b \not = 0$, y se cortan en un punto.\\
+El sistema es \textbf{compatible indeterminado o incompatible} si y s\'olo si $\begin{vmatrix} a & b \\ a' & b' \end{vmatrix} = ab' - a'b = 0$.\\
+
+Dado un punto $P$ del plano y una recta $r$, si trazamos una perpendicular a $r$ que pase por $P$, \'esta corta a $r$ en un \'unico punto $P'$. Se denomina \textbf{distancia} de $P$ a $r$, $d(P,r)$ a la distancia $d(P,P')$.
+
+\section{Secciones C\'onicas}
+Un \textbf{doble cono recto} es una figura que se engendra al hacer girar una recta $g$ alrededor de una recta $h$ que la corta. La recta $h$ se denomina \textbf{eje} del cono, y las distintas posiciones de la recta $g$ se denominan \textbf{generatrices}. Una secci\'on c\'onica es toda secci\'on que se obtiene de intersecar un doble cono recto con un plano que lo corta:
+\begin{itemize}
+\itemsep-0.3em
+\item Plano perpendicular al eje del cono, la c\'onica se denomina \textbf{circunferencia}.
+\item Plano que forma con el eje del cono un \'angulo superior al \'angulo que forman el eje y cualquier generatriz, resulta en una \textbf{elipse}.
+\item Plano paralelo a cualquiera de las generatrices del cono, resulta en una \textbf{par\'abola}.
+\item Plano que forma con el eje del cono un \'angulo inferior al \'angulo que forman el eje y cualquier generatriz, resulta en una \textbf{hiperbola}.
+\end{itemize}
+
+Los casos especiales se denominan \textbf{c\'onicas degeneradas}.
+
+\subsection{Circunferencia}
+Se denomina \textbf{circunferencia} al conjunto de los puntos del plano que equidistan (a una distancia $r>0$ denominada \textbf{radio}) de un punto fijo del plano, denominado \textbf{centro} de la circunferencia.
+\begin{multicols}{2}
+$(x-x_0)^2 + (y-y_0)^2 = r^2$ \\
+$\left\{ \begin{array}{l} x = x_0 + r \cos \theta \\ y = y_0 + r \sin \theta \end{array} \right.$
+\end{multicols}
+
+\subsection{Elipse}
+Dados dos puntos distintos $F_1$ y $F_2$ del plano y un n\'umero real positivo $a$ tal que $2a > d(F_1, F_2)$, se denomina \textbf{elipse} de \textbf{focos} $F_1$ y $F_2$ al lugar geom\'etrico de los puntos $P$ del plano tales que 
+$$d(P, F_1) + d(P, F_2) = 2a$$
+El punto medio del segmento que determinan los focos se denomina \textbf{centro} de la elipse. Definimos $c = d(C, F_1) = d(C, F_2)$. La recta determinada por los focos se denomina \textbf{eje focal}. Luego, se define $b = \sqrt{a^2 - c^2}$. Vemos que $c > a$. Adem\'as, $a$ y $b$ son las distancias de los v\'ertices al centro.
+\begin{table}[h]
+\centering
+\def\arraystretch{1.9}
+\begin{tabular}{|l|c|c|}
+\hline
+& Eje focal paralelo al eje $x$
+& Eje focal paralelo al eje $y$\\
+\hline
+Ecuaci\'on 
+& $\dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = 1$
+& $\dfrac{(x-x_0)^2}{b^2} + \dfrac{(y-y_0)^2}{a^2} = 1$\\ \hline
+Param\'etrica
+& $\left\{ \def\arraystretch{1} \begin{array}{l} x = x_0 + a \cos \theta \\ y = y_0 + b \sin \theta \end{array}\right.$
+& $\left\{ \def\arraystretch{1} \begin{array}{l} x = x_0 + b \cos \theta \\ y = y_0 + a \sin \theta \end{array}\right.$\\ \hline
+Focos
+& $F_1(x_0 - c, y_0), F_2(x_0 + c, y_0)$
+& $F_1(x_0, y_0 - c), F_2(x_0, y_0 + c)$\\ \hline
+V\'ertices
+&$V_1(x_0 - a, y_0), V_2(x_0 + a, y_0)$
+&$V_1(x_0, y_0 - a), V_2(x_0, y_0 + a)$\\
+& $V_3(x_0, y_0 + b), V_4(x_0, y_0 - b)$
+& $V_3(x_0 - b, y_0), V_4(x_0 + b, y_0)$\\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Hip\'erbola}
+Dados dos puntos distintos del plano $F_1$ y $F_2$, y un n\'umero real positivo $a$ tal que $2a < d(F_1, F_2)$, se denomina \textbf{hip\'erbola} de \textbf{focos} $F_1$ y $F_2$ al lugar geom\'etrico de los puntos $P$ del plano tales que 
+$$|d(P, F_1) - d(P, F_2)| = 2a$$
+El punto medio del segmento que determinan los focos se denomina \textbf{centro} de la hip\'erbola. La recta determinada por los focos se denomina \textbf{eje focal}. Se define $b = \sqrt{c^2 - a^2}$. Vemos que $c > a$.
+
+\begin{table}[h]
+\centering
+\def\arraystretch{1.9}
+\begin{tabular}{|l|c|c|}
+\hline
+& Eje focal paralelo al eje $x$
+& Eje focal paralelo al eje $y$\\
+\hline
+Ecuaci\'on 
+& $\dfrac{(x-x_0)^2}{a^2} - \dfrac{(y-y_0)^2}{b^2} = 1$
+& $\dfrac{(y-y_0)^2}{a^2} - \dfrac{(x-x_0)^2}{b^2} = 1$\\ \hline
+Param\'etrica
+& $\mathcal{H^+} \left\{ \def\arraystretch{1} \begin{array}{l} x = x_0 + a \cosh t \\ y = y_0 + b \sinh t \end{array}\right.$
+& $\mathcal{H^+} \left\{ \def\arraystretch{1} \begin{array}{l} x = x_0 + b \sinh t \\ y = y_0 + a \cosh t \end{array}\right.$\\ 
+& $\mathcal{H^-} \left\{ \def\arraystretch{1} \begin{array}{l} x = x_0 - a \cosh t \\ y = y_0 + b \sinh t \end{array}\right.$
+& $\mathcal{H^-} \left\{ \def\arraystretch{1} \begin{array}{l} x = x_0 + b \sinh t \\ y = y_0 - a \cosh t \end{array}\right.$\\ \hline
+Focos
+& $F_1(x_0 - c, y_0), F_2(x_0 + c, y_0)$
+& $F_1(x_0, y_0 - c), F_2(x_0, y_0 + c)$\\ \hline
+V\'ertices
+&$V_1(x_0 - a, y_0), V_2(x_0 + a, y_0)$
+&$V_1(x_0, y_0 - a), V_2(x_0, y_0 + a)$\\ \hline
+As\'intotas
+& $r_1) y = -\dfrac{b}{a} (x - x_0) + y_0$
+& $r_1) y = -\dfrac{a}{b} (x - x_0) + y_0$\\
+& $r_2) y = \dfrac{b}{a} (x - x_0) + y_0$
+& $r_2) y = \dfrac{a}{b} (x - x_0) + y_0$\\ \hline
+
+\end{tabular}
+\end{table}
+
+$$\cosh t = \frac{e^t + e^{-t}}{2}, \sinh t = \frac{e^t - e^{-t}}{2} \therefore \cosh^2t - \sinh^2t = 1$$
+
+\subsection{Par\'abola}
+Dados una recta $r$ y un punto $F$ del plano tal que $F \not \in r$, se denomina \textbf{par\'abola} de \textbf{directriz} $r$ y \textbf{foco} $F$ al lugar geom\'etrico de los puntos $P$ del plano que equidistan de $F$ y $r$: $$d(P, F) = d(P, r)$$
+Definimos $p = d(F, r)$. Adem\'as, $V(x_0, y_0)$, con $y_0 = a \pm \frac{p}{2}$ ($r \parallel $ eje $x$), donde $r)\ y = a$.
+
+\begin{table}[h]
+\centering
+\def\arraystretch{1.9}
+\begin{tabular}{|l|c|c|}
+\hline
+& Directriz $\parallel$ eje $x$
+& Directriz $\parallel$ eje $y$ \\
+& \begin{minipage}{0.3\linewidth} \centering $F$ sobre (+) o\\ debajo (-) de $r$ \end{minipage}
+& \begin{minipage}{0.3\linewidth} \centering $F$ a la derecha (+) o\\ a la izquierda (-) de $r$ \end{minipage} \\
+\hline
+Ecuaci\'on 
+& $(x - x_0)^2 = \pm 2p (y - y_0)$
+& $(y - y_0)^2 = \pm 2p (x - x_0)$\\ \hline
+Param\'etrica
+& $\left\{ \def\arraystretch{1} \begin{array}{l} x = x_0 + t \\ y = y_0 \pm \dfrac{1}{2p} t^2 \end{array}\right.$
+& $\left\{ \def\arraystretch{1} \begin{array}{l} x = x_0 \pm \dfrac{1}{2p}t^2 \\ y = y_0 + t \end{array}\right.$\\ \hline
+Foco
+& $F(x_0, y_0 \pm \dfrac{p}{2})$
+& $F(x_0 \pm \dfrac{p}{2}, y_0)$ \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Extra}
+Una \textbf{transformaci\'on r\'igida} es una funci\'on biyectiva $f: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ que preserva la distancia, i.e $\forall P, Q \in \mathbb{R}^2, d(P, Q) = d(f(P), f(Q))$.
+
+\section{Resumen}
+
+\begin{itemize}
+\itemsep1.2em
+\item \begin{minipage}{4.5cm} $(x-x_0)^2 + (y-y_0)^2 = r^2$ \end{minipage} $\rightarrow$ Circunferencia
+\item \begin{minipage}{4.5cm} $\dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = 1$ \end{minipage} $\rightarrow$ Elipse
+\item \begin{minipage}{4.5cm} $\dfrac{(x-x_0)^2}{a^2} - \dfrac{(y-y_0)^2}{b^2} = 1$ \end{minipage} $\rightarrow$ Hip\'erbola
+\item \begin{minipage}{4.5cm} $(x - x_0)^2 = \pm 2p (y - y_0)$ \end{minipage} $\rightarrow$ Par\'abola
+\end{itemize}
+
+
+
+
+
+\end{document}

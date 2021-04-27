@@ -1,0 +1,159 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\setlength{\parindent}{0pt} 
+\title{Unidad 6: Geometr\'ia Anal\'itica del Espacio\\ \'Algebra y Geometr\'ia Anal\'itica II (R-121)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Recta en el Espacio}
+Tres puntos $P, Q, R$ est\'an alineados sii $\overrightarrow{PQ}$ y $\overrightarrow{PR}$ son vectores paralelos: $r = \{ R : \overrightarrow{PR} = \lambda \overrightarrow{PQ} \}$
+\begin{itemize}
+\itemsep-0.3em
+\item \textbf{Ecuaci\'on Vectorial}: $R \in r \iff \exists \lambda \in \mathbb{R} : \overrightarrow{OR} = \overrightarrow{OP} + \lambda \overrightarrow{PQ}$.
+\item \textbf{Ecuaciones Param\'etricas}: $R(x,y,z) \in r \iff \left\{ \begin{array}{l} x = x_0 + \lambda u_1 \\ y = y_0 + \lambda u_2 \\ z = z_0 + \lambda u_3\end{array} \right.$
+\item \textbf{Forma Sim\'etrica}: $\dfrac{x-x_0}{u_1} = \dfrac{y-y_0}{u_2} = \dfrac{z-z_0}{u_3}$
+\end{itemize}
+
+Que forma, por ejemplo, el siguiente sistema de ecuaciones:
+$$\left\{ \begin{array}{l} \dfrac{x-x_0}{u_1} = \dfrac{y-y_0}{u_2} \\ \dfrac{y-y_0}{u_2} = \dfrac{z-z_0}{u_3} \end{array} \right.$$
+Y por ejemplo, la primer ecuaci\'on se puede escribir como $\dfrac{x}{u_1} - \dfrac{y}{u_2} + \left(\dfrac{y_0}{u_2} - \dfrac{x_0}{u_1}\right) = 0$.\\
+
+La ausencia de la variable $z$ no indica que la ecuaci\'on es de una recta, sino que es la ecuaci\'on de un plano paralelo al eje $z$. Por eso, para describir una recta en el espacio hay que plantearlo como la intersecci\'on de dos planos. La ecuaci\'on de antes es la ecuaci\'on de un plano que contiene a $r$ y es perpendicular al plano $xy$. Este plano se denomina \textbf{plano proyectante} de $r$ al plano $xy$.\\
+
+Distancia punto a recta: Dado $P_0$ en $r$ con direcci\'on $\overline{u}$, la distancia a $P$ est\'a dada por $\dfrac{|\overline{P_0P} \wedge \overline{u}|}{|\overline{u}|}$.
+
+\section{Plano en el Espacio}
+Sea $\pi$ un plano, y sean $P,Q,R$ tres puntos no alineados de $\pi$, entonces un punto cualquiera $S$ del espacio ser\'a un punto de $\pi$ sii los vectores $\overrightarrow{PQ}, \overrightarrow{PS}, \overrightarrow{PR}$ son coplanares: 
+$\overrightarrow{PS} = \alpha \overrightarrow{PQ} + \beta \overrightarrow{PR}$. Fijando un sistema de coordenadas, $\overrightarrow{PS} = \overrightarrow{OS} - \overrightarrow{OP}$ y finalmente:
+\begin{itemize}
+\itemsep-0.3em
+\item \textbf{Ecuaci\'on Vectorial}: $\overrightarrow{OS} = \overrightarrow{OP} + \alpha \overrightarrow{PQ} + \beta \overrightarrow{PR}$
+\item \textbf{Ecuaciones Param\'etricas}: $S(x,y,z) \in r \iff \left\{ \begin{array}{l} x = x_0 + \alpha u_1 + \beta u_1 \\ y = y_0 + \alpha u_2 + \beta v_2 \\ z = z_0 + \alpha u_3 + \beta v_3 \end{array} \right.$
+\item \textbf{Ecuaci\'on Cartesiana}: $ax + by + cz + d = 0$
+\end{itemize}
+
+Dos vectores no nulos ni paralelos son \textbf{vectores direcci\'on} de un plano $\pi$ si ambos son paralelos a $\pi$.\\
+
+\textbf{Teorema 1}: La distancia de un punto $P(x_0, y_0, z_0)$ a un plano $\pi)\ ax+by+cz+d=0$ es: $$d(P, \pi) = \dfrac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$$
+
+\section{Superficies Cuadr\'aticas}
+Determinar que lugar geom\'etrico del espacio representa una ecuaci\'on cuadr\'atica en tres variables:
+$$Ax^2 + By^2 + Cz^2 + \underbrace{Dxy + Exz + Fyz}_{\text{t\'erminos rectangulares}} + Gx + Hy + Iz + J = 0$$
+Estudiamos los casos en los que los t\'erminos rectangulares $D = E = F = 0$.
+
+\newpage
+
+\subsection{Elipsoide y Esferas}
+$$\frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} + \frac{(z-z_0)^2}{c^2} = 1$$
+Si $a = b = c$ entonces es una \textbf{esfera}. \\
+El punto $C(x_0, y_0, z_0)$ se denomina \textbf{centro de la elipsoide}. \\
+Para darnos una idea de la forma, intersecamos a $\mathcal{E}$ con planos paralelos a los planos coordenados:
+Por ejemplo, consideramos $\pi_1)\ z = z_0$, y tenemos un plano paralelo a $xy$ que pasa por $C$.\\
+Luego, $\left\{ \begin{array}{l} \frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} = 1 \\ z = z_0 \end{array} \right.$, y $\mathcal{E} \cap \pi_1$ es una elipse (circunferencia si $a = b$).\\
+$V_1(x_0 + a, y_0, z_0), V_2(x_0 - a, y_0, z_0), V_3(x_0, y_0 + b, z_0), V_4(x_0, y_0 - b, z_0), V_5(x_0, y_0, z_0 + c), V_6(x_0, y_0, z_0 - c)$.\\
+Lo intersecamos con planos paralelos a los planos coordenados. Dichas curvas se denominan \textbf{trazas}: 
+Por ejemplo, sea $\alpha_k$ el plano de ecuaci\'on $x = k$, tenemos: 
+$\left\{ \begin{array}{l} \frac{(y-y_0)^2}{b^2} + \frac{(z-z_0)^2}{c^2} = 1 - \frac{(k-x_0)^2}{a^2} \\ x = k \end{array} \right.$
+\begin{itemize}
+\itemsep-0.3em
+\item Si $\frac{(k-x_0)^2}{a^2} < 1$, es decir, si $x_0 - a < k < x_0 + a$, entonces $\mathcal{E} \cap \alpha_k$ es una elipse en $\alpha_k$.
+\item Si $|k-x_0| = a$, entonces $\mathcal{E} \cap \alpha_{x_0 + a} = \{ V_1 \}$ o $\mathcal{E} \cap \alpha_{x_0 - a} = \{ V_2 \}$.
+\item Si $|k-x_0| > a$, entonces $\mathcal{E} \cap \alpha_k = \emptyset$.
+\end{itemize}
+La elipse tiene ecuaci\'on: $\dfrac{(y-y_0)^2}{B-k^2} + \dfrac{(z-z_0)^2}{C_k^2} = 1$, donde $B_k = b/\sqrt{1 - \dfrac{(k - x_0)^2}{a^2}} \leq b$
+
+\subsection{Hiperboloides y Conos}
+$$\frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} - \frac{(z-z_0)^2}{c^2} = 1$$
+$\mathcal{H}$ se denomina \textbf{hiperboloide de una hoja}. El punto $C(x_0, y_0, z_0)$ se denomina \textbf{centro}.\\
+Considerando $\pi_1)\ x = x_0$ o $\pi_2)\ y = y_0$ entonces tenemos una hiperbola (eje focal $\parallel$ eje y o x).\\
+La traza dada $\pi_3)\ z = z_0$ es una elipse, y en los planos $\alpha_k)\ z = k$ tambi\'en, pues $1+\dfrac{(k - z_0)^2}{c^2} > 0$.\\
+$\mathcal{H} \cap \alpha_k$ est\'a centrada en $P_k(x_0, y_0, k)$. Es decir, todos los centros est\'an sobre la recta paralela al eje $z$ que pasa por el centro de la hiperboloide.
+
+$$- \frac{(x-x_0)^2}{a^2} - \frac{(y-y_0)^2}{b^2} + \frac{(z-z_0)^2}{c^2} = 1$$
+$\mathcal{H}$ se denomina \textbf{hiperboloide de dos hojas}. El punto $C(x_0, y_0, z_0)$ se denomina \textbf{centro}.\\
+Cuando analizamos la traza dada por $\pi_1)\ z = z_0$, vemos que $\mathcal{H} \cap \pi_1 = \emptyset$.\\
+Por $\pi_2)\ x = x_0$ y $\pi_3)\ y = y_0$ vemos hip\'erbolas con ejes focales paralelos al eje $z$.\\
+Y tienen los mismos 2 vertices en $V_1(x_0, y_0, z+c)$ y $V_2(x_0, y_0, z-c)$.\\
+Considerando $\alpha_k)\ z = k$, analizamos $\mathcal{H} \cap \alpha_k$,
+\begin{itemize}
+\itemsep-0.3em
+\item Si $|k - z_0| < c$ entonces la intersecci\'on es vacia (Es decir, $z_0 - c < k < z_0 + c$).
+\item Si $|k - z_0| = c$ entonces tenemos los v\'ertices.
+\item Si $|k - z_0| > c$ entonces tenemos una elipse en el plano $z = k$
+\end{itemize}
+La elipse est\'a dada por $\left\{ \begin{array}{l} \frac{(x-x_0)^2}{A_k^2} + \frac{(y-y_0)^2}{B_k^2} = 1 \\ z = k \end{array} \right.$, con $A_k^2 = a^2 \cdot \left( \frac{(k - z_0)^2}{c^2} - 1 \right)$,\\
+y las elipses se van haciendo cada vez m\'as grandes puesto que $A_k \rightarrow \infty$ a medida que $|k-z_0| \rightarrow \infty$.
+
+\newpage
+$$\frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} = \frac{(z-z_0)^2}{c^2}$$
+$\mathcal{C}$ se denomina \textbf{cono el\'iptico} de \textbf{v\'ertice} $V(x_0, y_0, z_0)$.\\
+$\pi_1)\ z = z_0$ obtenemos el v\'ertice.\\
+$\pi_2)\ x = x_0$ y $\pi_3)\ y = y_0$, vemos que un punto pertenece a la intersecci\'on si y solo si:\\
+$\left\{ \begin{array}{l} \frac{(x-x_0)^2}{a^2} = \frac{(z-z_0)^2}{c^2} \\ y = y_0 \end{array} \right. \iff
+\left\{ \begin{array}{l} |x - x_0| = \frac{a}{c} |z - z_0| \\ y = y_0 \end{array} \right.$, es decir, $\mathcal{C} \cap \pi_{2/3}$ es un par de rectas que se intersecan en $V$. Finalmente, $\alpha_k)\ z = k$, obtenemos una elipse dada por 
+$\left\{ \begin{array}{l} \frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} = \frac{(k-z_0)^2}{c^2} \\ z = k \end{array} \right.$.
+
+\subsection{Superficie Parab\'olicas}
+$$\frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} = \frac{z-z_0}{c}$$
+$\mathcal{P}$ se denomina \textbf{paraboloide el\'iptico} de \textbf{v\'ertice} $V(x_0, y_0, z_0)$.\\
+$\pi_1)\ z = z_0$ obtenemos el v\'ertice.\\
+$\pi_2)\ y = y_0$ tenemos una par\'abola, cuya directriz $\parallel$ eje $x$ (eje $\parallel$ eje $z$), contenida en el plano $y=y_0, z \geq z_0$ $(c > 0)$ o bien $y=y_0, z \leq z_0$ $(c < 0)$. An\'alogo $\pi)\ x=x_0$.\\
+Sea $\alpha_k)\ z=k$, obtendremos elipses para los valores $k > z_0$ y vacio para $k < z_0$ (si $c>0$).
+
+$$\frac{(x-x_0)^2}{a^2} - \frac{(y-y_0)^2}{b^2} = \frac{z-z_0}{c}$$
+$\mathcal{P'}$ se denomina \textbf{paraboloide hiperb\'olico}.\\
+$\pi_1)\ y = y_0$ obtenemos una par\'abola $p_1$ $\left\{ \begin{array}{l} \frac{(x-x_0)^2}{a^2} = \frac{z-z_0}{c} \\ y = y_0 \end{array} \right.$. Con $V(x_0, y_0, z_0)$, directriz $\parallel$ eje $x$ (eje parabola $\parallel$ eje z), contenida en el semiplano $y=y_0, z \geq z_0,$ con $c>0$ (o $y=y_0, z \leq z_0, $ con $c<0$).\\
+$\pi_2)\ x = x_0$ obtenemos una par\'abola $p_2$ $\left\{ \begin{array}{l} -\frac{(y-y_0)^2}{b^2} = \frac{z-z_0}{c} \\ x = x_0 \end{array} \right.$. Con $V(x_0, y_0, z_0)$, directriz $\parallel$ eje $x$ (eje parabola $\parallel$ eje z), contenida en el semiplano $y=y_0, z \leq z_0,$ con $c>0$ (o $y=y_0, z \geq z_0, $ con $c<0$).\\
+$\pi_3)\ z = z_0$ obtenemos un par de rectas que se intersecan en $V$, $\begin{cases} \frac{(x-x_0)^2}{a^2} = \frac{(y-y_0)^2}{b^2} \\ z=z_0 \end{cases} \Leftrightarrow \begin{cases} |x-x_0| = \frac{a}{b} |y-y_0| \\ z=z_0 \end{cases}$
+\\
+Sea $\alpha_k)\ x=k$, obtenemos $\left\{ \begin{array}{l} \frac{(y-y_0)^2}{b^2} - \frac{(k-x_0)^2}{a^2} = - \frac{z-z_0}{c} \\ x = k \end{array} \right.$, que representa una par\'abola en el plano $x = k$, cuya directriz es paralela al eje $y$ y su eje de simetr\'a es paralelo al eje $x$.\\
+Si intersecamos $\mathcal{P'}$ con $z=k$, obtendremos hip\'erbolas, si $c>0$, entonces si $k > z_0$ eje focal $\parallel$ eje $y$.\\ Si $k < z_0$ entonces eje focal $\parallel$ eje $z$.
+
+\subsection{Cilindros}
+$$Ax^2+By^2+Gx+Hy+J=0$$
+Los dos coeficientes que acompañan a una misma variable son nulos. $\mathcal{C}$ se llama \textbf{cilindro generalizado}.\\
+Intersecando con el plano $xy$, vemos que
+
+$\begin{cases} Ax^2+By^2+Gx+Hy+J=0 \\ z=0\end{cases}$, y se verifica $\begin{cases} x=x_0 \\ y=y_0 \\ z=t \end{cases}$\\
+
+La primera conica se denomina \textbf{directriz} del cilindro, y cada una de las rectas paralelas al eje $z$ se denominan \textbf{generatrices} del cilindro.
+
+\section{Curvas en el Espacio}
+Para dar las ecuaciones cartesianas de una curva en el espacio, se las pueden considerar como intersecci\'on de dos superficies. Aunque no todas las curvas en el espacio pueden describirse asi, por ejemplo, la \textbf{h\'elice cil\'indrica}, que usa las \textbf{ecuaciones param\'etricas}, que siguen la forma:
+$$\begin{cases} x = x(t) \\ y = y(t) \\ z = z(t) \end{cases}$$
+Y si queremos que pase por el punto $P_0(x_0,y_0,z_0)$, entonces 
+$$x(t) = x_0+tu_1, y(t) = y_0+tu_2, x(t) = z_0+tu_3$$
+Y de esta manera se define una \textbf{curva en el espacio} como cualquier lugar geom\'etrico tal que las coordenadas de sus puntos puedan definirse a trav\'es de ecuaciones como las mencionadas anteriormente, donde $x,y,z$ son funciones continuas de $t$. Usando esta definici\'on, la hip\'erbola no es una curva, pues es la uni\'on de dos curvas.
+
+\section{Superficies Parametrizadas y Superficies de Revoluci\'on}
+Un plano que pasa por el punto $P_0(x_0,y_0,z_0)$ que tiene como vectores direcci\'on a $\overline{u}$ y $\overline{v}$, admite ecuaciones param\'etricas de la forma 
+$$\begin{cases} x = x_0 + s u_1 + tv_1 \\ y = y_0 + s u_2 + tv_2 \\ z = z_0 + s u_3 + tv_3\end{cases}$$
+Y decimos que una superficie admite \textbf{ecuaciones param\'etricas} si las coordenadas de sus puntos pueden obtenerse en funci\'on de dos par\'ametros;
+$$\begin{cases} x = x(s,t) \\ y = y(s,t) \\ z = z(s,t) \end{cases}$$
+Y se introducen las \textbf{superficies de revoluci\'on}: Supongamos que tenemos una curva $\gamma$ contenida en el semiplano $yz$ con $y \geq 0$. Entonces las coordenadas son 
+$$\begin{cases} x=0 \\ y=\alpha(t) \\ z=\beta(t) \end{cases}$$
+Luego, haciendola girar alrededor del eje $z$, obtenemos una superficie. Y si intersecamos $S$ con el plano $xy$, obtenemos una circunferencia. Entonces el radio de $\mathcal{C}$ es $y(t)$ y todos los puntos del plano tienen componentes $z = \beta(t)$, y tiene ecuaciones param\'etricas de la forma $$\begin{cases} x=\alpha(t) \cos \theta \\ y= \alpha(t) \sin \theta \\ z=\beta(t) \end{cases}$$
+
+Otro ejemplo, si la cuva est\'a contenida en el plano $yz$, con $z \geq 0$, y giramos alrededor del eje $z$, entonces las ecuaciones param\'etricas de la superficie de revoluci\'on $S$ generada son:
+$$\begin{cases} x=\beta(t) \cos \theta \\ y = \alpha(t) \\ z = \beta(t) \sin \theta \end{cases}$$
+
+Es decir, el eje no lleva nada, $\cos$ en el positivo y $\sin$ en el que queda.
+
+
+
+\end{document}

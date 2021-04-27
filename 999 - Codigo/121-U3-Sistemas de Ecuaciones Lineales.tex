@@ -1,0 +1,243 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\setlength{\parindent}{0pt} 
+\title{Unidad 3: Sistemas de Ecuaciones Lineales\\ \'Algebra y Geometr\'ia Anal\'itica II (R-121)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Definiciones}
+Una \textbf{ecuaci\'on lineal} en $n$ variables $x_1, ..., x_n$ es una expresi\'on de la forma $a_1x_1 + a_2x_2 + ... + a_nx_n = y$, donde $a_1, a_2, ..., a_n$ son los \textbf{coeficientes} de la ecuaci\'on e $y \in \mathbb{F}$ es el \textbf{t\'ermino independiente}. Una \textbf{soluci\'on de la ecuaci\'on} es una n-upla de escalares que reemplazados en las inc\'ognitas verifican la igualdad. El conjunto de todas las soluciones se llama \textbf{conjunto soluci\'on}.\\
+Un \textbf{sistema} de $m$ ecuaciones lineales con $n$ inc\'ognitas:
+\[
+\left\{
+\begin{array}{ccccccccc}
+A_{11} x_1 &+& A_{12} x_2 &+& ... &+& A_{1n} x_n &=& y_1\\
+A_{21} x_1 &+& A_{22} x_2 &+& ... &+& A_{2n} x_n &=& y_2\\
+&&&&&&&\vdots\\
+A_{m1} x_1 &+& A_{m2} x_2 &+& ... &+& A_{mn} x_n &=& y_m
+\end{array}
+\right.
+\]
+Se puede representar matricialmente como $(S) \Longleftrightarrow AX = Y$, donde \\
+$$A = 
+\begin{pmatrix}
+A_{11} & A_{12} & \hdots & A_{1n} \\
+A_{21} & A_{22} & \hdots & A_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+A_{m1} & A_{m2} & \hdots & A_{mn}
+\end{pmatrix}\text{es la \textbf{matriz de coeficientes}}$$
+$$X = 
+\begin{pmatrix}
+x_1 \\
+x_2\\
+\vdots\\
+x_n
+\end{pmatrix} \text{es el \textbf{vector inc\'ognita}}, \ \ \ \ \ \ \ \ Y = 
+\begin{pmatrix}
+y_1 \\
+y_2\\
+\vdots\\
+y_m
+\end{pmatrix} \text{es el \textbf{vector de t\'erminos independientes}}$$
+
+Una \textbf{soluci\'on del sistema} es una n-upla $(x_1, x_2, ..., x_n)$ tal que $AX = Y$.\\
+Un sistema es \textbf{homog\'eneo} si $y_1 = y_2 = \hdots = y_m = 0$ y siempre admite la \textbf{soluci\'on trivial}: $x_1 = x_2 = \hdots = x_n = 0$. Puede tener otras soluciones.\\
+Dos sistemas son \textbf{equivalentes} si tienen las mismas soluciones.
+
+
+\section{Operaciones Elementales}
+
+\subsection{Operaciones elementales de Ecuaciones}
+\textbf{Operaciones de Eliminaci\'on}: Sumamos la i-\'esima ecuaci\'on $\alpha$ veces a la k-\'esima ecuaci\'on.\\
+\textbf{Operaciones de Escalamiento}: Multiplicamos la i-\'esima ecuaci\'on por un escalar $\alpha \not = 0$.\\
+\textbf{Operaciones de Intercambio}: Intercambiamos dos ecuaciones.
+
+\subsection{Operaciones elementales por Filas (OEF)}
+\textbf{Tipo I}: Se multiplica la fila $r$ por un escalar $\alpha \not = 0$: 
+$\ \ e(A)_{ij} = \left\{ \begin{array}{ll} A_{ij}, & i \not = r \\ \alpha\ A_{rj}, & i = r \end{array}\right.$\\
+\textbf{Tipo II}: Se suma la fila $r$ $\alpha$ veces a la fila $s$:
+$\ \ e(A)_{ij} = \left\{ \begin{array}{ll} A_{ij}, & i \not = r \\ A_{rj} + \alpha\ A_{sj}, & i = r \end{array}\right.$\\
+\\
+\textbf{Tipo III}: Se intercambia la fila $r$ con la fila $s$: 
+$e(A)_{ij} = \left\{ \begin{array}{ll} 
+A_{ij}, & i \not = r, i \not = s \\ 
+A_{sj}, & i = r\\
+A_{rj}, & i = s
+\end{array}\right.$\\
+
+\textbf{Teorema 1}: Sean $A \in \mathbb{F}^{m \times n}, Y \in \mathbb{F}^{m \times 1}$, y $e$ es una operacion elemental por fila, entonces los sistemas $AX=Y$ y $e(A)X = e(Y)$ son equivalentes.\\
+
+Sean $A,B \in \mathbb{F}^{m \times n}$, decimos que $B$ es \textbf{equivalente por filas} a $A$ si se puede pasar de $A$ a $B$ por una sucesi\'on finita de OEF. Definiendo asi una relaci\'on de equivalencia en $\mathbb{F}^{m \times n}$.\\
+
+Si $B$ es equivalente por filas a $A$, entonces $AX=0$ es equivalente a $BX=0$, puesto que\\ $AX=0 \Rightarrow e_k(\cdots(e_1(A))) = 0 \Rightarrow BX=0$ y toda soluci\'on de $BX=0$ es soluci\'on de $AX=0$. \QEDA
+
+\section{Matrices Elementales}
+Sea $e$ una OEF que aplica sobre matrices con $m$ filas, entonces la \textbf{matriz elemental asociada} a $e$ es $E = e(I)$, donde $I$ es la matriz identidad ${m \times m}$.
+
+\textbf{Teorema 2}: Sea $e$ una OEF, $E = e(I_m)$, entonces para toda $A \in \mathbb{F}^{m \times n}$ vale $e(A) = EA$.
+\begin{itemize}
+\itemsep-0.3em
+\item[\textbf{T1}.] $e =$ ``$f_r \rightarrow \alpha f_r$'' , $\alpha \not = 0$\\
+$E_{ij} = e(I)_{ij} = \begin{cases} \delta_{ij}, & i \not = r \\ \alpha \delta_{rj}, & i = r \end{cases}$\\
+$\displaystyle{(EA)_{ij} = \sum_{k=1}^m E_{ik}A_{kj} \begin{cases} 
+\sum_{k=1}^m \delta_{ik}A_{kj} = A_{ij}, & i \not = r\\
+\sum_{k=1}^m \alpha \delta_{ik}A_{kj} = \alpha A_{ij}, & i = r
+\end{cases}}$ \QEDB\\
+\item[\textbf{T2}.] $e =$ ``$e = f_r \rightarrow f_r + \alpha f_s$''\\
+$E_{ij} = e(I)_{ij} = \begin{cases} \delta_{ij}, & i \not = r \\ \delta_{rj} + \alpha \delta_{sj}, & i = r \end{cases}$\\
+$\displaystyle{(EA)_{ij} = \sum_{k = 1}^m E_{ik}A_{kj} = \begin{cases}
+\sum_{k=1}^m \delta_{ik}A_{kj} = A_{ij} & i \not = r \\
+\sum_{k=1}^m (\delta_{rk} + \alpha \delta_{sk})A_{kj} = 
+\sum_{k=1}^m \delta_{rk}A_{kj} + \alpha \delta_{sk}A_{kj} = 
+A_{rj} + \alpha A_{sj}, & i = r
+\end{cases}  }$ \QEDA\\
+\end{itemize}
+
+El determinante de una matriz elemental es siempre no nulo, por lo tanto resulta \textbf{invertible}:
+\begin{itemize}
+\itemsep-0.3em
+\item[\textbf{T1}.] $e^{-1} =$ ``$f_r \rightarrow \frac{1}{\alpha} f_r$''
+\item[\textbf{T2}.] $e^{-1} =$ ``$f_r \rightarrow f_r - \alpha f_s$''
+\item[\textbf{T3}.] $e^{-1} = e$
+\end{itemize}
+
+Las matrices que son su propia inversa se llaman \textbf{involutivas}.
+
+\section{Matrices Escal\'on Reducidas por Filas}
+Una matriz $A \in \mathbb{F}^{m \times n}$ se dice \textbf{reducida por filas (RF)} si:
+\begin{enumerate}
+\itemsep-0.3em
+\item El primer elemento no nulo de cada fila no nula es igual a $1$. El mismo es el \textbf{1 principal} y la posici\'on del mismo se denomina \textbf{pivote}.
+\item Toda columna que contenga el 1er elemento de una fila no nula tiene sus dem\'as elementos = 0.
+\end{enumerate}
+Una matriz $A \in \mathbb{F}^{m \times n}$ se dice \textbf{escal\'on reducida por filas (ERF)} si:
+\begin{enumerate}
+\itemsep-0.3em
+\item $A$ es reducida por filas.
+\item Toda fila nula de $A$ est\'a debajo de todas las filas no nulas.
+\item Si $1,2,...,r$ son las filas no nulas de $A$ y el primer elemento no nulo de la fila $i$ est\'a en la columna $k_i$, entonces $k_1 < k_2 < \hdots < k_r$
+\end{enumerate}
+Un sistema lineal representado por una matriz ERF ya viene resuelto.\\
+
+Al definir un conjunto soluci\'on, los \textbf{parametros libres} son los que se usan para describir al resto de parametros. Por ejemplo, en $Sol = \{ (x_1, 2 x_1 + x_3, x_3) : x_1, x_3 \in \mathbb{F}\}$, $x_1$ y $x_3$ son parametros libres.\\
+
+\textbf{Teorema 3}: Toda matriz $A \in \mathbb{F}^{m \times n}$ es quivalente por filas a una matriz ERF. Es decir, existen matrices elementales $E_1, E_2, ..., E_k$ tales que $E_kE_{k-1}E_2E_1A$ es ERF.\\
+
+\textbf{Teorema 4}: Si  $A \in \mathbb{F}^{m \times n}$ con $m<n$, entonces $AX=0$ admite una soluci\'on no trivial.\\
+\textbf{Dem/} Por T3, $A$ es equivalente por filas a una matriz $R$ ERF. Sean 1,...,r las filas no nulas de $R$, $r \leq m < n$ y sean $k_1, ..., k_r$ las columnas de $R$ en donde aparece el primer elemento no nulo de las filas $1,...,r$. Tenemos que $xk_1,...xk_r$ se pueden escribir como combinaci\'on lineal de los otros parametros. Luego, para cada elecci\'on de $x_i$, con $i \not = k_1, ..., k_r$ se obtiene una soluci\'on de $AX = 0$. \QEDA
+
+\section{Resoluci\'on de Sistemas No Homog\'eneos}
+Se aplican OEF para llevarla a su forma ERF. Para esto, conviene pasar a la \textbf{matriz ampliada} $A'$ que se obtiene agregando a $A$ la columna $Y,$ y aplicar las OEF directamente sobre $A'$.
+\begin{itemize}
+\itemsep-0.3em
+\item Sistema \textbf{incompatible}: No existe soluci\'on.
+\item Sistema \textbf{compatible determinado}: Existe una \'unica soluci\'on.
+\item Sistema \textbf{compatible indeterminado}: Existe mas de una soluci\'on (si $\mathbb{F} = \mathbb{Q}$, $\mathbb{R}$ o $\mathbb{C}$ entonces el sistema tiene infinitas soluciones).
+\end{itemize}
+
+\textbf{Teorema 5}: Sea $AX=Y$ con $A \in \mathbb{F}^{m \times n}, Y \in \mathbb{F}^{m \times 1}$ y sea $X_0$ una soluci\'on de $(S)$, es decir $AX_0 = Y$, entonces el conjunto de soluciones de $(S)$ es: $$Sol = \{ X_0 + X_h : X_h \text{ es soluci\'on de AX=0} \}$$
+\textit{Toda soluci\'on de $(S)$ se escribe como una soluci\'on particular m\'as una soluci\'on del sistema homog\'eneo.}
+\textbf{Dem/} Sea $X_h$ una soluci\'on del sistema homog\'eneo asociado: $AX_h = 0$, luego
+$$A(X_0 + X_h) = AX_0 + AX_h = AX_0 + 0 = Y$$
+que significa que $X_0 + X_h$ es soluci\'on de $(S)$.\\
+Reciprocamente, si $AX=Y$, escribimos $X=X_0 + (-X_0 + X)$. Y notamos que 
+$$A(-X_0 + X) = -AX_0 + AX = - Y + Y = 0$$
+Luego, $X_h := -X_0 + X$ es soluci\'on del sistema homog\'eneo. \QEDA
+
+\section{Sistemas Cuadrados}
+\textbf{Teorema 6}: Sea $A \in \mathbb{F}^{n \times n}$, son equivalentes:
+\begin{itemize}
+\itemsep-0.3em
+\item $A$ es invertible.
+\item el sistema homog\'eneo $AX=0$ tiene soluci\'on \'unica (la soluci\'on trivial X=0).
+\item El sistema $AX=Y$ tiene soluci\'on \'unica para cada $Y \in \mathbb{F}^{n \times 1}$.
+\end{itemize}
+\begin{itemize}
+\itemsep-0.3em
+\item[$(1) \Rightarrow (2)$.] Existe $A^{-1}$ tal que $A^{-1}A = I$. Luego, considerando $AX = 0$, sigue que\\ $X = IX = A^{-1}AX = A^{-1}0=0$ y es la \'unica soluci\'on.
+\item[$(1) \Rightarrow (3)$.] Existe $A^{-1}$ tal que $A^{-1}A = I$. Considerando $AX=Y$, la \'unica soluci\'on est\'a dada por $X=A^{-1}Y$
+\item[$(3) \Rightarrow (2)$.] Trivialmente tomando $Y=0$.
+\item[$(2) \Rightarrow (1)$.] Sea $R$ la forma ERF de $A$, esa matriz es triangular superior. Como $AX=0$ tiene soluci\'on \'unica, entonces $RX=0$ tiene soluci\'on \'unica, de donde $R=I$. Esto significa que $A$ es equivalente por filas a $R=I$, de modo que existen matrices elementales $E_1,E_2,...,E_k$ tales que $E_k\hdots E_2E_1A = I$ y $A$ es invertible con $A^{-1}=E_k\hdots E_2E_1$. \QEDA
+\end{itemize}
+Y esto nos da un m\'etodo eficiente para calcular la inversa de una matriz $A$ tal que $det\ A \not = 0$:
+\begin{itemize}
+\itemsep-0.3em
+\item $det\ A \not = 0 \Rightarrow A$ es equivalente por filas a $I$.
+\item Sean $e_1,e_2,...,e_k$ las OEF que aplicamos a $A$ para llevarla a $I$ y $E_i$ la matriz identidad, entonces $$A^{-1} = E_k\hdots E_2E_1 = e_k(\hdots e_2 (e_1(I)))$$
+\item Es decir, si aplicamos a la matriz identidad las mismas OEF que aplicamos a $A$ para llegar a $I$, lo que se obtiene es la inversa $A^{-1}$.
+\end{itemize}
+
+\newpage 
+
+\section{Eliminaci\'on Gaussiana}
+Es el m\'etodo clasico para llevar una matriz $A \in \mathbb{F}^{n \times n}$ a su forma ERF.
+\begin{enumerate}
+\itemsep-0.3em
+\item Ir a la 1ra columna no nula de $A$. Si el primer elemento es 0, intercambiamos la 1ra fila con alguna fila que tenga un elemento no nulo en esa columna (si no, lo dejamos).
+\item Se obtienen ceros debajo de ese elemento usando OEF de tipo II.
+\item Mismo procedimiento a la submatriz que se obtiene quitando 1ra fila y la 1ra columna no nulas.
+\item Hacer unos en los 1ros elementos no nulos de cada fila no nula usando OEF de tipo I, y ceros arriba de \'estos usando OEF de tipo II.
+\end{enumerate}
+
+\section{Aplicacion a Determinantes}
+Una matriz $A \in \mathbb{F}^{n \times n}$ se dice:
+\begin{itemize}
+\itemsep-0.3em
+\item \textbf{no-singular} $(det \not = 0)$: si el sistema homog\'eneo $AX=0$ tiene soluci\'on \'unica. $AX=0 \Rightarrow X=0$.
+\item \textbf{singular} $(det = 0)$: si no es no-singular. O sea, existe $0 \not = X \in \mathbb{F}^{n \times 1}$ tal que $AX=0$
+\end{itemize}
+
+\textbf{Lema 1}: Sea $E \in \mathbb{F}^{n \times n}$ una matriz elemental asociada a una OEF e, entonces:
+\begin{itemize}
+\itemsep-0.3em
+\item $e = $ ``$f_r \longrightarrow \alpha f_r$'' $\Longrightarrow det\ E = \alpha, \alpha \not = 0$.
+\item $e = $ ``$f_r \longrightarrow f_r + \alpha f_s$'' $\Longrightarrow det\ E = 1$.
+\item $e = $ ``$f_r \longleftrightarrow f_s$'' $\Longrightarrow det\ E = -1$. \QEDA\\
+\end{itemize}
+
+\textbf{Lema 2}: Sea $E$ una matriz elemental, entonces para toda $A \in \mathbb{F}^{n \times n}$ vale: $det(EA) = (det\ E)(det\ A)$.
+\begin{itemize}
+\itemsep-0.3em
+\item[\textbf{T1}.] $e = $ ``$f_r \longrightarrow \alpha f_r$''. Luego, $det(EA) = det(e(A)) = \alpha \cdot (det\ A) = (det\ E)(det\ A)$
+\item[\textbf{T2}.] $e = $ ``$f_r \longrightarrow f_r + \alpha f_s$''. Luego, $det(EA) = det(e(A)) = 1 \cdot (det\ A) = (det\ E)(det\ A)$ 
+\item[\textbf{T3}.] $e = $ ``$f_r \longleftrightarrow f_s$''. Luego, $det(EA) = det(e(A)) = (-1) \cdot (det\ A) = (det\ E)(det\ A)$ \QEDA
+\end{itemize}
+
+\textbf{Teorema 7}: Dadas $A,B \in \mathbb{F}^{n \times n}$, se tiene que $det(AB) = (det\ A)(det\ B)$.
+\begin{itemize}
+\itemsep-0.3em
+\item Sea $A$ singular y $B$ singular, entonces existe $X \not = 0 : BX=0$. Luego, $ABX=0$ y tenemos que $AB$ es singular $\Rightarrow$ $0 = det(AB) = (det\ A) \cdot (det\ B) = 0 \cdot 0 = 0$
+\item Sea $A$ singular y $B$ no singular, entonces $B$ es invertible. Como $A$ es singular, aseguramos que existe $X \not = 0 : AX=0$. Entonces, $AB(B^{-1}X) = 0$ con $B^{-1}X \not = 0$. Sigue que $AB$ es singular y por ende $0 = det(AB) = det\ A \cdot det\ B = 0$
+\item Sea $A$ no singular, de $AX=0$ sigue que $X=0$. Y como $A$ es equivalente por filas a la matriz identidad, existen matrices elementales tales que $E_k \cdots E_2E_1A = I \Rightarrow A = E_1^{-1}E_2^{-1}\cdots E_k^{-1}$. Finalmente, $(det\ A) = (det\ E_1^{-1})(det\ E_2^{-1})\cdots (det\ E_k^{-1})$. Y al agregar a $B$ en la ecuaci\'on, $det(AB) = (det\ E_1^{-1})(det\ E_2^{-1})\cdots (det\ E_k^{-1})(det\ B) = (det\ A)(det\ B)$ \QEDA
+\end{itemize}
+
+\section{Regla de Cramer}
+Sea $A \in \mathbb{F}^{n \times n}$ una matriz invertible, entonces la \'unica soluci\'on de $AX=Y$ est\'a dada por $x_i = \dfrac{det\ A_i}{det\ A}$
+donde $A_i$ es la matriz que se obtiene de $A$, reemplazando la i-esima columna por el vector $Y$.\\
+\textbf{Dem/} $X = A^{-1}Y$. Recordando que $A^{-1} = \frac{1}{det\ A} adj\ A$ y que $(adj\ A)_{ij} = (-1)^{i+j}det\ A(j|i)$, tenemos:
+\begin{align*}
+x_i 
+&= (A^{-1}Y)_i 
+= \frac{1}{det\ A} ((adj\ A)Y)_{i1} 
+= \frac{1}{det\ A} \sum_{j=1}^n (adj\ A)_{ij}\ y_{j}\\
+&= \frac{1}{det\ A} \sum_{j=1}^n\ (-1)^{i+j}det\ A(j|i)\ y_{j}
+= \frac{1}{det\ A} \sum_{j=1}^n\ (-1)^{i+j}det\ A(j|i)\ (A_i)_{ji} = \frac{det\ A_i}{det\ A}
+\end{align*}
+\QEDA
+
+\end{document}

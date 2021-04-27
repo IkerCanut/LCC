@@ -1,0 +1,152 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\author{Iker M. Canut}
+\setlength{\parindent}{0pt} 
+\title{Resumen\\ An\'alisis Matem\'atico II (R-122)\\Licenciatura en Ciencias de la Computaci\'on}
+\date{2020}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\begin{document}
+\maketitle
+\newpage
+
+$\square$ $a<b$, \textbf{partici\'on} de $[a,b]$: colecci\'on finita de puntos $P = \{ t_0, ..., t_n \}$ de $[a,b] / a = t_0 < ... < t_n = b$.\\
+$\square$ $f : [a,b] \rightarrow \mathbb{R}$ acotada, $m_i = \inf\{f(x) : t_{i-1} \leq x \leq t_i\}$ y $M_i = \sup\{f(x) : t_{i-1} \leq x \leq t_i\}$:\\
+\textbf{Suma inferior de $f$ para $P$}, $L(f, P) = \sum_{i=1}^n (t_i - t_{i-1})m_i$,\ y \textbf{superior} a $U(f, P) = \sum_{i=1}^n (t_i - t_{i-1})M_i$.\\
+$\blacksquare$ $f$ acotada en $[a,b]$, $P,Q$ particiones / $P \subset Q$ $\Rightarrow$ $L(f,P) \leq L(f,Q)$ $\land$ $U(f, P) \geq U(f,Q)$.\\
+$\blacksquare$ $f$ acotada no negativa en $[a,b]$, $P_1, P_2$ particiones $\Rightarrow$ $L(f, P_1) \leq U(f, P_2)$.\\
+$\square$ $f$ acotada en $[a,b]$ y sea $P_{[a,b]}$ el conjunto de todas las particiones, $f$ es \textbf{integrable} en $[a,b]$ si: \\ $\sup\{L(f,P) : P \in P_{[a,b]}\} = \inf\{U(f,P) : P \in P_{[a,b]}\} = I$. Luego, $I$ se denomina \textbf{integral} $\int_a^b f(x)dx$.\\
+$\square$ $f$ integrable no negativa, $R(f) = \{(x,y) : a \leq x \leq b, 0 \leq y \leq f(x)\}$, entonces la integral es el \textbf{\'area}.\\
+$\blacksquare$ $f$ acotada $\Rightarrow$ $f$ integrable $\iff$ $\forall \epsilon > 0\ \exists P_\epsilon / U(f, P_\epsilon) - L(f,P_\epsilon) < \epsilon$. Luego, $L(f,P_\epsilon) \leq I \leq U(f, P_\epsilon)$.\\
+$\blacksquare$ $f$ continua en $[a,b]$ $\Rightarrow$ $f$ es integrable en $[a,b]$.\\
+$\blacksquare$ $a<c<b$, $f$ integrable en $[a,b]$ $\iff$ $f$ integrable en $[a,c]$ y $[c,b]$. Adem\'as, $\int_a^b = \int_a^c + \int_c^b$.\\
+$\blacksquare$ $\int_a^a = 0$ $\land$ $b<a, \int_a^b = - \int_b^a$.\\
+$\blacksquare$ $f$ integrable en $[a,b]$ $\Rightarrow$ $cf$ integrable en $[a,b]$ $\land$ $\int_a^bcf(x)dx = c\int_a^bf(x)dx$.\\
+$\blacksquare$ $f,g$ integrables en $[a,b]$ $\Rightarrow$ $f+g$ integrable en $[a,b]$ $\land$ $\int_a^b (f+g)(x) dx = \int_a^bf(x) dx + \int_a^bg(x)dx$.\\
+$\blacksquare$ $f$ integrable en $[a,b]$, $g$ acotada en $[a,b]$ / $g(x) = f(x) \forall x \in [a,b]$ salvo para un n\'umero finito de puntos $\Rightarrow$ $g$ integrable en $[a,b]$ $\land$ $\int_a^bg(x)dx = \int_a^bf(x)dx$.\\
+$\blacksquare$ $f$ integrable en $[a,b]$, $m \leq f(x) \leq M, \ \forall x \in [a,b]$ $\Rightarrow$ $m(b-a) \leq \int_a^bf(x)dx \leq M(b-a)$.\\
+
+\dotfill\\
+
+$\blacksquare$ $f$ integrable en $[a,b]$, $F$ definida en $[a,b]$ como $F(x) = \int_a^x f(t)dt$, entonces $F$ es continua sobre $[a,b]$.\\
+$\blacksquare$ $f$ integrable en $[a,b]$, $F(x) = \int_a^x f(t)dt$, $f$ es continua en $c \in [a,b]$ $\Rightarrow$ $F$ derivable en $c$ y $F'(c)=f(c)$.\\
+$\blacksquare$ $f$ continua en $[a,b]$ y $f=g'$ $\Rightarrow$ $\int_a^b f(t)dt = g(b) - g(a)$.\\
+$\blacksquare$ $f$ integrable en $[a,b]$ y $f=g'$ $\Rightarrow$ $\int_a^b f(t)dt = g(b) - g(a)$.\\
+
+\dotfill\\
+
+$\square$ $x>0$, \textbf{logaritmo natural} $\ln(x) = \int_1^x \frac{1}{t}dt$.\\
+$\blacksquare$ $\ln(xy) = \ln(x)+\ln(y)$, $ \ln(x^n) = n\ln(x)$, $\ln(\frac{x}{y}) = \ln(x)-\ln(y)$.\\
+$\square$ \textbf{funci\'on exponencial} $\exp : \mathbb{R} \rightarrow \mathbb{R}^+$, $\exp = \ln^{-1}$\\
+$\blacksquare$ $\exp'(x) = \exp(x)$, $\exp(x+y) = \exp(x) \cdot \exp(y)$.\\
+$\square$ $e = \exp(1)$, es decir, $\ln(e) = \int_1^e\frac{1}{t}dt = 1$\\
+$\blacksquare$ $\exp(rx) = \exp(x)^r$.\\
+$\square$ $e^x = \exp(x)$.\\
+$\square$ $a>0$, $a^x = e^{x\ln(a)}$.\\
+$\blacksquare$ $a>0$, $(a^x)^y = a^{xy}$, $a^1 = a$, $a^{x+y} = a^x \cdot a^y$.\\
+$\square$ $a>0$, \textbf{logaritmo en base a} a la funci\'on inversa de la funci\'on $a^x$. Es decir, $\log_a(x) = y \iff a^y=x$.\\
+$\blacksquare$ $f'(x) = f(x) \Rightarrow \exists c / f(x)=ce^x$.\\
+$\blacksquare$ $\lim_{x \to \infty} \frac{e^x}{x^n} = \infty$. Es decir, crece m\'as r\'apido que cualquier potencia.\\
+
+\dotfill\\
+
+$\blacksquare$ \textbf{Integraci\'on por Partes}: Sean $f,g$ funciones derivables tales que $f'$ y $g'$ son continuas en un entorno abierto que contenga a $[a,b]$, entonces $\int_a^bf(x)g'(x)dx = f(x)g(x)|^b_a - \int_a^bf'(x)g(x)dx$.\\
+$\blacksquare$ \textbf{F\'ormula de Sustituci\'on}: Sean $f, g'$ funciones continuas, entonces $\int_{g(a)}^{g(b)}f(u)du = \int_a^b f(g(x))g'(x)dx$.\\
+$\blacksquare$ \textit{Single Linear Factors}: $Q(x) = (a_1x+b_1)\cdots(a_k+b_k)$ $\Rightarrow$ $\frac{P(x)}{Q(x)} = \frac{A_1}{a_1x+b1}+\cdots+\frac{A_k}{a_kx+b_k}$.\\
+$\blacksquare$ \textit{Repeated Linear Factors}: $Q(x) = (a_1x+b_1)^r$ $\Rightarrow$ $\frac{P(x)}{Q(x)} = \frac{A_1}{a_1x+b1}+\cdots+\frac{A_r}{a_1x+b_1}^r$.\\
+$\blacksquare$ \textit{Single Irreducible Quadratics}: $Q(x) = (ax^x+bx+c)$ $\Rightarrow$ $\frac{P(x)}{Q(x)} = \frac{Ax+B}{ax^2+bx+c}$.\\
+$\blacksquare$ \textit{Repeated Irreducible Quadratics}: $Q(x) = (ax^x+bx+c)^r$ $\Rightarrow$ $\frac{P(x)}{Q(x)} = \frac{A_1x+B_1}{ax^2+bx+c} + \cdots + \frac{A_rx+B_r}{(ax^2+bx+c)^r}$.\\
+
+\newpage
+
+$\blacksquare$ \textbf{L'Hôpital}: $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0 / \exists \lim_{x \to a} \frac{f'(x)}{g'(x)}$ o es $\pm \infty$ $\Rightarrow$ $\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}$.\\
+$\blacksquare$ Tambi\'en vale para $\lim_{x \to a^{\pm}}$ o bien $\lim_{x \to \pm\infty}$.\\
+$\blacksquare$ $\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) = \infty$, $\lim_{x \to \infty}\frac{f'(x)}{g'(x)} = l$ $\Rightarrow$ $\lim_{x \to \infty} \frac{f(x)}{g(x)} = l$.\\
+$\blacksquare$ $f$ derivable en $E(x_0, \delta)$ y alcanza un extremo local, entonces $f'(x_0) = 0$.\\
+$\blacksquare$ $f$ derivable en $(a,b)$ y $f'(x) > 0 \ \forall x \in (a, b) \Rightarrow f$ es creciente en $(a,b)$. Si $f'(x)<0$, $f$ es decreciente.\\
+$\blacksquare$ $f$ {\footnotesize{dos veces derivable en}} $E(a, \delta)$, $f'(a)=0$. {\footnotesize{Si}} $f''(a) > 0 \Rightarrow$ m\'inimo local. {\footnotesize{Si}} $f''(a) < 0 \Rightarrow$ m\'aximo local.\\
+$\blacksquare$ $f$ {\footnotesize{dos veces derivable en}} $a$. {\footnotesize{Si}} hay m\'inimo local en $a$ $\Rightarrow f''(a) \geq 0$. {\footnotesize{Si}} hay m\'aximo local en $a$ $\Rightarrow f''(a) \leq 0$.\\
+$\square$ $f$ es \textbf{convexa} en un intervalo $I$ si $\forall a,x,b \in I, a<x<b$ se verifica $\frac{f(x)-f(a)}{x-a} < \frac{f(b)-f(a)}{b-a}$.\\
+$\square$ $f$ es \textbf{concava} en un intervalo $I$ si $\forall a,x,b \in I, a<x<b$ se verifica $\frac{f(x)-f(a)}{x-a} > \frac{f(b)-f(a)}{b-a}$.\\
+$\blacksquare$ $f$ derivable en $I$. Luego, $f$ es convexa $\iff \forall a \in I$ la grafica de $f$ queda por encima de la recta tangente por $(a,f(a))$, excepto en $(a,f(a))$.\\
+$\blacksquare$ $f$ derivable en $I$. Luego, $f$ es concava $\iff \forall a \in I$ la grafica de $f$ queda por debajo de la recta tangente por $(a,f(a))$, excepto en $(a,f(a))$.\\
+$\blacksquare$ $f$ derivable en $I$. Entonces $f$ convexa $\iff$ $f'$ creciente, y $f$ concava $\iff$ $f'$ decreciente. \\
+$\blacksquare$ $f$ derivable dos veces en $I$, si $f''(x) > 0 \Rightarrow$ convexa, y si $f''(x) < 0 \Rightarrow$ concava.\\
+$\square$ En un \textbf{punto de inflexi\'on} hay un cambio de concavidad.\\
+
+\dotfill\\
+
+$\blacksquare$ $r = \sqrt{x^2 + y^2}\ $, $\tan \theta = \frac{y}{x}\ $, $x = r \cdot \cos \theta\ $, $y = r \cdot \sin \theta$\\
+$\blacksquare$ Sea $R$ la regi\'on definida por una curva cerrada dada en coordenadas polares: Area$(R) = \frac{1}{2}\int_a^b f^2(\theta)d\theta$.\\
+$\blacksquare$ Sea $f:[a,b] \rightarrow \mathbb{R}_0^+$ integrable y sea $C$ el cuerpo que se obtiene de rotar la regi\'on bajo la gr\'afica de $f$ alrededor del eje x, $Vol(C) = \pi \int_a^b f^2(x)dx$.\\
+$\blacksquare$ Sea $f:[a,b] \rightarrow \mathbb{R}_0^+$ integrable, con $0 \leq a < b$, y sea $C$ el cuerpo de revoluci\'on que se obtiene de hacer girar la regi\'on bajo la gr\'afica de una funci\'on $f$ alrededor del eje y, $Vol(C) = 2\pi \int_a^b xf(x)dx$.
+$\blacksquare$ Sea $f:[a,b] \rightarrow \mathbb{R}$ derivable con derivada continua y sea $c$ la curva dada por la gr\'afica de $f$, $l(c) = \int_a^b \sqrt{f'(x)^2 + 1} dx$. Si est\'a dada por ecuaciones param\'etricas, $l(c)=\int_a^b \sqrt{x'(t)^2 + y'(t)^2} dt$.\\
+
+\dotfill\\
+
+$\square$ $f$ integrable en $[a,x]$ para cada $x>a$, si $\lim_{x \to \infty} \int_a^b f(t)dt = I$, lo denominamos \textbf{integral impropia} de $f$ en $[a,+\infty)$. Luego, $\int_a^\infty f(t)dt = I$. Si $I$ es $\pm \infty$ decimos que es \textbf{divergente}.\\
+$\blacksquare$ $\int_{-\infty}^\infty f(x)dx = \int_{-\infty}^0 f(x)dx + \int_{0}^\infty f(x)dx$.\\
+$\blacksquare$ Si $\exists \lim_{x \to \infty} f(x)$, una condici\'on necesaria para que exista la integral impropia, es $\lim_{x \to \infty} f(x) = 0$.
+$\blacksquare$ Sea $f$ integrable en $[x,b]$ para $a < x < b$, tal que $f$ tiene una asintota vertical en $x=a$, si $\lim_{x \to a^+} \int_x^a f(t)dt = I$, denominamos a este limite integral impropia de $f$ en $(a,b]$.\\
+$\blacksquare$ Si $a < c < b$ y $f$ tiene asintota vertical en $x = c$, si existen las integrales impropias de $f$ en $[a,c)$ y $(c,b]$, denominamos integral impropia de $f$ en $(a,b)$ a $\int_a^bf(x)dx = \int_a^cf(x)dx = \int_c^bf(x)dx$\\
+
+\dotfill\\
+
+$\square$ Sea $f$ n-veces derivable en $a$, se denomina \textbf{Polinomio de Taylor} de grado $n$ para $f$ en $a$ al polinomio $P_{n,a}(x) = a_0 + a_1 (x-a) + \cdots + a_n(x-a)^n$, donde $a_k = \frac{f^{(k)}(a)}{k!}$, $0 \leq k \leq n$.\\$\blacksquare$ Es el \'unico polinomio de grado n tal que $p^{(k)}(a) = f^{(k)}(a)$. $\lim_{x \to a} \frac{f(x) - P_{n,a}(x)}{(x-a)^n} = 0$\\
+$\blacksquare$ $f$ n-veces derivable en $a$, $f'(a) = \cdots = f^{(n-1)}(a) = 0, f^{(n)}(a) \not = 0$, $n$ par y  $f^{(n)}(a) > 0$ tiene un m\'inimo local en $a$. Si $n$ par y $f^{(n)}(a) < 0$, tiene un m\'aximo local. Si $n$ impar, no es un extremo local.\\
+$\square$ Dos funciones son iguales hasta el orden $n$ en $a$ si $\lim_{x \to a} \frac{f(x)-g(x)}{(x-a)^n} = 0$\\
+$\blacksquare$ Si $f$ y $g$ son iguales hasta el orden $n$, son iguales hasta $k \leq n$.\\
+$\blacksquare$ $P,Q$ polinomios en $(x-a)$, grado $\leq n$, si $P$ y $Q$ son iguales hasta el orden $n$ en $a$, entonces $P = Q$.\\
+$\blacksquare$ $f$ n derivable en $a$, $p(x)$ polinomio en $(x-a)$ de grado $\leq n$, igual a $f$ hasta $n$ en $a$, entonces $p = P_{n,a}$.\\
+$\square$ $R_{n,a}(x) = \int_a^x \frac{f^{(n+1)}(t)}{n!}(x-t)^n dt = \frac{f^{(n+1)}(t)}{n!}(x-t)^t(x-a) = \frac{f^{(n+1)}(t)}{(n+1)!}(x-a)^{n+1}$. Para alg\'un $t \in (a,x)$.
+
+\newpage
+
+$\square$ \textbf{producto interno}: $<v,w> = x_1y_+ \cdots + x_ny_n = \sum_{k=1}^n x_ky_k$. \\
+$\square$ \textbf{norma}: $||v|| = \sqrt{<v,v>} = \sqrt{\sum_{k=1}^n x_k^2}$ \\
+$\square$ \textbf{distancia}: $d(v,w) = ||v-w|| = \sqrt{\sum_{k=1}^n (x_k-y_k)^2}$ \\
+$\blacksquare$ $\langle au,v\rangle = \langle u,av\rangle = a\langle u,v\rangle, \langle a+v, w\rangle = \langle a,w\rangle + \langle v,w\rangle, \langle u,v\rangle = \langle v,u\rangle, \langle v,v\rangle \geq 0$.\\
+$\blacksquare$ $||v|| \geq 0, ||av|| = |a|||v||, ||v+w|| \geq ||v||+||w||, |\langle v,w \rangle| \leq ||v||||w||$\\
+$\blacksquare$ $d(u,v) = d(v,u), d(u,v) \geq 0, d(u,w) \leq d(u,v) + d(v,w)$\\
+$\square$ $u_0 \in \mathbb{R}^n, r>0$, definimos \textbf{bola} como $B_r(u_0) = \{v \in \mathbb{R}^n : d(v,v_0 < r)\}$. Un subconjunto es \textbf{abierto} si para cada $u \in A$  existe $r> 0$ tal que $B_r(u) \subset A$. Es \textbf{cerrado} si su complemento es abierto. u es un \textbf{punto de acumulaci\'on} si $\forall \epsilon > 0, B_\epsilon(u) - \{ u \}$ interseca a $A$. La \textbf{clausura} es el conjunto $\overline{A}$ formado por $A$ y todos sus puntos de acumulaci\'on. \\
+$\blacksquare$ $\lim_{x \to a}f(u) = L \iff 0 <  ||u-a|| < \delta \Rightarrow ||f(u) - L|| < \epsilon$.\\
+$\blacksquare$ $f$ es continua en $a$ si $f$ est\'a definida en $a$ y $\lim_{u \to a} f(u) = f(a)$.\\
+$\square$ Es \textbf{lineal} si $A(x+y) = A(x) + A(y)$ y $A(\lambda x) = \lambda A(x)$.\\
+$\blacksquare$ Sea $f : D \subset R^n \rightarrow \mathbb{R}^m$ y sean $f_i = p_i \circ f : D \rightarrow \mathbb{R}^m$ sus funciones componentes, entonces $f$ es continua en $u_0 \iff $ todas sus funciones componentes $f_i$ son continuas en $u_0$.\\
+$\blacksquare$ $\lim_{u \to a} f(u) = L$, $L>0$ $\Rightarrow$ $\exists \delta > 0 / 0 < ||u-a|| < \delta \Rightarrow f(u) > 0$.\\
+$\square$ Sea $f : U \subset \mathbb{R}^n \rightarrow \mathbb{R}$, se denomina \textbf{conjunto de nivel} del valor $k$ al conjunto de los puntos $x \in U$ / $f(x)=k$. Si $k = 2$ se denomina curva de nivel, si $k = 3$ se denmomina superficie de nivel.\\
+
+\dotfill\\
+
+$\square$ Una curva $\alpha$ es derivable en $t_0$ si existe $\alpha'(t_0) = \lim_{h\to 0} \frac{\alpha(t_0 + h) - t_0}{h}$.\\
+$\blacksquare$ La derivada existe $\iff$ existen las derivadas $\alpha_i'(t_0) \ \forall i \in \llbracket 1, n \rrbracket$.\\
+$\blacksquare$ Si $\alpha'$ es continua, decimos que es de clase $C^1$.\\
+$\blacksquare$ $(\alpha + \beta)'(t_0) = \alpha'(t_0) + \beta'(t_0), (c\alpha)'(t_0) = c'(t_0)\alpha(t_0) + c(t_0)\alpha'(t_0)$\\
+$\blacksquare$ $\langle \alpha, \beta \rangle = \langle \alpha'(t_0),\beta(t_0) \rangle + \langle \alpha(t_0), \beta'(t_0) \rangle$, $|\alpha|(t_0) = \frac{\langle \alpha(t_0), \alpha'(t_0) \rangle}{|\alpha(t_0)|}$.\\
+$\blacksquare$ $\gamma : I \rightarrow J$ derivable en $a \in I$, $\alpha : J \rightarrow \mathbb{R}^n$ curva derivable en $b = \gamma(a)$, entonces $\alpha \circ \gamma$ es derivable ne $a$ y $(\alpha \circ \gamma)'(a) = \gamma'(a)\alpha'(b).$\\
+$\square$ \textbf{i-esima derivada parcial}: $\frac{df}{dx_i}(a) = \lim_{t \to 0} \frac{f(a_1, ... a_i+te_i, ..., a_n) - f(a)}{t} = \lim_{t \to 0} \frac{f(a+te_1) - f(a)}{t}$.\\
+$\blacksquare$ La existencia de las n derivadas parciales en un punto no asegura la continuidad de la funci\'on. Si todas las derivadas parciales son continuas, es $C^1$.\\
+$\blacksquare$ Es diferenciable si existen las derivadas parciales y para todo $v=(v_1,...,v_n)$, $f(a+v)-f(a) = \sum_{i=1}^n \frac{df}{dx_i}(a)\cdot v_i + r(v)$, donde $\lim_{|v| \to 0} \frac{r(v)}{|v|} = 0$.\\
+$\blacksquare$ Toda funci\'on diferenciable en el punto $a$ es continua en ese punto.\\
+$\blacksquare$ Toda funci\'on de clase $C^1$ es diferenciable. Toda clase $C^1$ es continua.\\
+$\square$ El \textbf{gradiente} es un vector: $grad f(a) = (\frac{df}{dx_1}, ..., \frac{df}{dx_n})$.\\
+$\square$ La \textbf{derivada direccional} en a por v es $\frac{df}{dv}(a) = \lim_{t \to 0} \frac{f(a+tv) - f(a)}{t}$\\
+$\blacksquare$ Sea $f: U \rightarrow \mathbb{R}$ diferenciable en $U$, con $a \in U$, dado $v$, si $\lambda : (-\delta, \delta) \rightarrow U$ curva diferenciable tal que $\lambda(0) = a, \lambda'(0) = v$, entonces $(f \circ \lambda)'(0) = \langle grad f (a), v \rangle = \frac{df}{dv}(a) = \sum_{i=1}^n \frac{df}{dx_i}(a)v_i$.\\
+$\blacksquare$ El gradiente apunta en la direccion en la cual la funcion es creciente, y es ortogonal al conjunto de nivel que pasa por $a$.\\
+$\square$ Definimos \textbf{punto critico} de $f$ en $a$ si $grad f(a) = 0$.\\
+$\blacksquare$ Toda funcion diferenciable es continua.
+
+
+
+
+\end{document}
