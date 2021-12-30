@@ -1,0 +1,168 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{multirow}
+
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.7,0.7,0.7}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0,0,0.2}
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	frame=L,
+	xleftmargin=\parindent,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{green!40!black},
+	commentstyle=\itshape\color{purple!40!black},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+	columns=fullflexible}
+\lstset{style=customc}
+% \lstinputlisting[language=Octave]{BitXorMatrix.m} % Import from file
+% \begin{lstlisting}[language=C, caption=C example] \end{lstlisting}
+
+\setlength{\parindent}{0pt}
+
+\author{Iker M. Canut}
+\title{Manejo Dinámico de la Memoria y Preprocesamiento}
+\date{2021}
+\begin{document}
+\maketitle
+\newpage
+
+\section{Categor\'ias de Datos}
+\begin{table}[h]
+\centering
+\begin{tabular}{cl}
+\hline
+\multirow{3}{*}{Segmento de c\'odigo}
+	&• C\'odigo m\'aquina\\
+    &• Constantes\\
+	&• Literales (solo lectura)\\
+\hline
+\multirow{2}{*}{Segmento de datos est\'atico}
+	&• Variables globales\\
+    &• Variables est\'aticas\\
+\hline
+\multirow{2}{*}{Pila}
+	&• Variables locales\\
+    &• Resultados intermedios\\
+\hline
+Libre\\
+\hline
+\multirow{1}{*}{Mont\'iculo}
+	&• Bloques de memoria direccionados por punteros\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Est\'aticos}
+La extension coincide con la ejecuci\'on de la totalidad del programa, por lo tanto se determina al compilarlo. Un ejemplo es un array. El soporte de almacenamiento es un \'area fija de memoria. Casi siempre tiene problemas: ya sea de desperdicio o falta de memoria.\\
+
+El compilador decide la cantidad de almacenamiento para cada variable a partir de su tipo.\\
+
+Segmento de datos estatico: Estructuras de datos que no cambian su valor en toda la ejecuci\'on del programa: Variables globales, est\'aticas. Se acceden a trav\'es de direcciones absolutas de memoria. Asignaci\'onn de memoria gobernada mediante un puntero a la base del segmento.
+
+\subsection{Autom\'aticos}
+La extension est\'a determinada por el tiempo que toma la ejecuci\'on de la totalidad de la unidad en la cual se encuentran definidos. El soporte de almacenamiento es un stack (pila) de registros de activaci\'on.\\
+
+La memoria para variables locales en cada llamada a un procedimiento est\'a contenida en el registro de activaci\'on de dicha llamada, por lo que las variables locales se enlazan a direcciones nuevas, y se pierden. Texto (c\'odigo de programa), Datos (Datos del programa), Pila (datos temporales, estructuras que se crean y se destruyen, como las funciones)
+
+\subsection{Din\'amicos}
+Su tamaño y forma es variable a lo largo del programa. La extension queda definida por el programador, quien crea y destruye explicitamente. Esto permite dimensionar la estructura de forma precisa. Se asigna memoria en tiempo de ejecuci\'on. El soporte de almacenamiento es el heap y se divide en partes contiguas.\\
+
+Se accede mediante punteros, los cuales nos permiten referenciar datos din\'amicos. Un puntero es una direcci\'on de memoria. Al declarar un puntero \lstinline!int *p;! estamos creando la variable p, y se la reserva memoria est\'atica en tiempo de compilaci\'on.\\
+
+El operador \lstinline!malloc! asigna un bloque de memoria que es del tamaño del tipo del dato apuntado por el puntero. \lstinline!puntero = (tipoPuntero) malloc (nombreTipo)!
+
+\newpage
+\section{Punteros a Funciones}
+La dirección de la primera posición de memoria que ocupa la función, es la dirección de memoria de dicha función. Un puntero a funci\'on es una especie de "alias" de la funcion que hace que pueda pasarse como par\'ametro a otras funciones.
+\begin{lstlisting}
+void (*fptr)(); // puntero a funcion, sin parametros y devuelve void.
+int (*fptr)(int, char); // acepta un int y un char como argumentos y devuelve un int.
+int const * (*fptr)(); // no recibe argumentos y da un puntero a un int constante
+float (*(*fptr)(char))(int); // puntero a funcion que recibe un char y devuelve un puntero a funcion que recibe un int como argumento y devuelve un float.
+long (*(*(*fptr)())[5])(); // puntero a funcion que no recibe argumentos y devuelve un puntero a un array de 5 punteros a funcion que no reciben ningun parametro y devuelven long.
+\end{lstlisting}
+
+Los punteros a funciones nos permiten crear Callbacks, los cuales son funciones que no son llamadas explicitamente por el programador. Son llamadas por otra funci\'on a la cual se le pasa el callback como parametro.
+
+\begin{lstlisting}
+int comparar_por_edad(Persona a, Persona b) {
+	return a.edad < b.edad;
+}
+
+int comparar_por_numero(Persona a, Persona b) {
+	return a.numero < b.numero;
+}
+
+void ordenar(Persona personas[ ], int n, int(*comparar)(Persona, Persona)) {
+	int i = 0;
+	int j = 0;
+	Persona buffer;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++) {
+			if (comparar(personas[i], personas[j])) {
+				buffer = personas[j];
+				personas[j] = personas[i];
+				personas[i] = buffer;
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+Y ahora podemos simplemente \lstinline!ordenar(personas, 20, comparar_por_edad)!
+
+\section{Preprocesador}
+Es por donde pasa un c\'odigo fuente antes de ser compilador, i.e da una versi\'on final del c\'odigo fuente para ser compilado. Algunas de las acciones que puede realizar dentro del archivo a compilar son:
+
+\begin{itemize}
+\item La definici\'on de constantes simb\'olicas y macros.
+\item La compilaci\'on condicional del c\'odigo de un programa.
+\item Ejecuci\'on condicional de las directivas del preprocesador (comienzan con \#).
+\end{itemize}
+
+\newpage
+\begin{table}[h]
+\centering
+\begin{tabular}{cl}
+\hline
+\multirow{4}{*}{Preprocesamiento}
+	&• Sustitución de constantes simbólicas\\
+    &• Expansión de macros\\
+	&• Procesamiento de directivas (\lstinline! #include, #define, #if, #ifdef, !\\
+	&  \lstinline! #else, #elif, #endif, #ifndef, #undef)!\\
+\hline
+\multirow{3}{*}{Compilación}
+	&• Análisis sint\'actico\\
+    &• An\'alisis sem\'antico\\
+    &• Generaci\'on de c\'odigo objeto\\
+\hline
+\multirow{2}{*}{Enlace}
+	&• Enlazar c\'odigo objeto de librer\'ias y m\'odulos\\
+    &• Generar programa ejecutable\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+\item \lstinline!#define! Define una nueva constante simb\'olica o macro del preprocesador. Una macro puede ser definida con o sin argumentos (Si no tiene argumentos se procesa como una constante simbolica). Mucho cuidado con los parentesis.
+\item \lstinline!#include! Incluye el contenido de otro fichero.
+\item \lstinline!#ifdef #ifndef! Preprocesamiento condicionado.
+\item \lstinline!#endif! Fin del bloque condicional.
+\item \lstinline!#error! Muestra un mensaje de error.
+\item \lstinline!#undef! Descarta variables simb\'olicas y macros. Algunas macros predefinidas son: \lstinline!__DATE__, __TIME__, __FILE__, __LINE__,...!
+\end{itemize}
+
+Por ejemplo, \lstinline!#line 100 "file1.c"! indica que las lineas est\'an numeradas a partir de 100 y el nombre del archivo para fines de cualquier mensaje de compilador es "file1.c"
+
+\end{document}

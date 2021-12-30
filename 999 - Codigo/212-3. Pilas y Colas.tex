@@ -1,0 +1,158 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\usepackage{listings}
+
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.7,0.7,0.7}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0,0,0.2}
+\lstdefinestyle{mystyle}{
+	basicstyle=\color{codewhite},
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2}
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	frame=L,
+	xleftmargin=\parindent,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{green!40!black},
+	commentstyle=\itshape\color{purple!40!black},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange}}
+\lstset{style=customc}
+
+\setlength{\parindent}{0pt}
+
+\author{Iker M. Canut}
+\title{Pilas y Colas}
+\date{2021}
+\begin{document}
+\maketitle
+\newpage
+
+\section{Stack}
+Un stack o pila es una lista de elementos de la cual solo se puede extraer el ultimo elemento insertado. La posicion de dicho elemento se denomina tope de la pila. Se la puede pensar como LIFO (Last in - First out). Las operaciones son:
+\begin{itemize}
+\itemsep -0.4em
+\item push: inserta un elemento en el tope de la pila.
+\item pop: elimina el elemento que se encuentra en el tope de la pila.
+\item top: retorna el elemento que se encuentra en el tope de la pila.
+\item isEmpty: retorna true si y solo si la pila no contiene elementos.
+\end{itemize}
+
+\begin{lstlisting}[language=C]
+typedef struct _StackNode {
+    int data;
+    struct _StackNode* next;
+} StackNode;
+
+StackNode* newNode(int data) {
+    StackNode* stackNode = malloc(sizeof(StackNode));
+    stackNode->data = data;
+    stackNode->next = NULL;
+    return stackNode;
+}
+ 
+int isEmpty(StackNode* root) {
+    return !root;
+}
+ 
+void push(StackNode** root, int data) {
+    StackNode* stackNode = newNode(data);
+    stackNode->next = *root;
+    *root = stackNode;
+}
+ 
+void pop(StackNode** root) {
+    if (isEmpty(*root))
+        return NULL;
+    StackNode* temp = *root;
+    *root = (*root)->next;
+    free(temp);
+}
+ 
+int top(StackNode* root) {
+    if (isEmpty(root))
+        return NULL;
+    return root->data;
+}
+\end{lstlisting}
+
+\newpage
+
+\section{Queue}
+Una queue o cola es una lista de elementos en donde siempre se insertan nuevos elementos al final de la misma y, se extraen elementos desde el inicio. Se la puede pensar como FIFO (First in - First out). Debe contar con una implementaci\'on de:
+\begin{itemize}
+\itemsep -0.4em
+\item enqueue: insertar un elemento al final de la cola.
+\item dequeue: elimina el elemento que se encuentra al inicio de la cola.
+\item isEmpty: retorna true si y solo si la cola no contiene elementos.
+\end{itemize}
+
+\begin{lstlisting}[language=C]
+typedef struct _QNode {
+    int key;
+    struct _QNode* next;
+} QNode;
+
+typedef struct _Queue {
+    QNode *front;
+    QNode *rear;
+} Queue;
+
+QNode* newNode(int k) {
+    QNode* temp = malloc(sizeof(QNode));
+    temp->key = k;
+    temp->next = NULL;
+    return temp;
+}
+
+Queue* createQueue() {
+    Queue* q = malloc(sizeof(Queue));
+    q->front = q->rear = NULL;
+    return q;
+}
+
+void enQueue(Queue* q, int k) {
+    QNode* temp = newNode(k);
+    if (q->rear == NULL) {
+        q->front = q->rear = temp;
+        return;
+    }
+    q->rear->next = temp;
+    q->rear = temp;
+}
+
+void deQueue(Queue* q) {
+    if (q->front == NULL)
+        return;
+	QNode* temp = q->front;
+	q->front = q->front->next;
+	if (q->front == NULL)
+		q->rear = NULL;
+    free(temp);
+}
+\end{lstlisting}
+
+\end{document}

@@ -1,0 +1,150 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=0.5cm]{geometry}
+\usepackage{multicol}
+
+\setlength{\parindent}{0pt}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{nosep}
+
+\author{Iker M. Canut}
+\title{Autovalores y Autovectores}
+\date{2021}
+\begin{document}
+
+\textbf{C/} $Ax = \lambda x$. Pensa A como TL, $Ax \in \mathbb{R}^n$. Resolver $Ax=\lambda x$ es buscar los vectores cuya direccion no varia por efecto de A.\\ 
+\textbf{T/} Sea $x \in \mathbb{R}^n, \lambda \in \mathbb{R} / Ax=\lambda x \Rightarrow \forall\alpha\in\mathbb{R}, A(\alpha x) = \lambda (\alpha x)$\\
+\textbf{C/} Puede pensarse $Ax=\lambda x$ como caso particular de $Tv=\lambda v$, con $T$ operador lineal de un espacio vectorial en si mismo.\\
+\textbf{DEF/} Sea V E.V. sobre V,  T T.L. de V en V $\Rightarrow$ $\lambda \in \mathbb{K}$ es un \textbf{autovalor} de T si existe $v \in V, v \not = 0 / Tv = \lambda v$.\\
+\textbf{DEF/} Dado $\lambda$ autovalor, todo $v \not = 0 \in V$ / $Tv = \lambda v$ se denomina \textbf{autovector} de $T$ asociado a $\lambda$.\\
+\textbf{DEF/} Cada $\lambda$ tiene un conjunto de autovectores, que con el nulo, formamos el \textbf{autoespacio} de $T$ asociado a $\lambda$: $V(T,\lambda)$.\\
+\textbf{T/} $V(T, \lambda)$ es un subespacio vectorial de $V$.\\ D/ Sean $v,u \in (T, \lambda)$, luego $Av=\lambda v, Au=\lambda u$ $\Rightarrow$ $A(\alpha v + \beta u) = \alpha(Av) + \beta(Au) = \alpha\lambda v + \beta\lambda u = \lambda(\alpha v + \beta u)$ $\therefore $\QEDA\\ D/ $V(T, \lambda) = \{v \in V / Tv = \lambda v\}$. Luego, $Tv = \lambda I v \iff (T-\lambda I)v=0 \therefore V(T,\lambda) = N(T-\lambda I)$. \QEDA\\
+\textbf{T/} V E.V. sobre $\mathbb{K}$, T T.L. de V en V $\Rightarrow$ $[\lambda \in \mathbb{K}$ autovalor$] \iff [$T.L. $(T-\lambda I)$ no es un isomorfismo$]$\\
+$\Rightarrow)$ $\lambda$ autovalor $\Rightarrow \exists 0 \not = v \in V(T,\lambda)=N(T-\lambda I) \therefore N(T-\lambda I) \not = \{0\}$ y no es inyectiva $\Rightarrow$ no es isomorfismo. \QEDB\\
+$\Leftarrow)$ Sea $\lambda/T-\lambda I$ no es isomorfismo, luego no es monomorfismo $\Rightarrow \exists 0 \not = v \in N(T-\lambda I) / Tv=\lambda v \therefore \lambda$ autovalor de T \QEDA\\
+\textbf{C/} Sea A $n \times n \Rightarrow [\lambda $ autovalor$] \iff [det(A-\lambda I) = 0]$. Ya que las matrices que definen isomorf. son no singulares ($det \not = 0$).
+\textbf{PROC/} Los autovalores resultan ser las raices del \textbf{polinomio caracteristico} que se obtiene del desarrollo del $det(A-\lambda I)$.\\
+\textbf{C/} El autoespacio esta formado por $v \in \mathbb{R}^n / (A-\lambda I)v = 0$. Es decir, $N(A-\lambda I)$.\\
+\textbf{C/} A diagonal, $\forall i=1..n$, $x^i = e_i$ autovector asociado a $\lambda_i = A^i_i$.\\
+\textbf{C/} [A tiene autovalor nulo] $\iff$ [A es no inversible].\\
+\textbf{T/} Sea A $n \times n$, $\lambda_i, i=1..n$ autovalores: $\sum_{i=1}^n \lambda_i = \sum_{i=1}^n A_i^i = tr(A)$. Adem\'as, $\prod_{i=1}^n\lambda_i = det(A)$.\\
+\textbf{DEF/} A es \textbf{diagonalizable} si existe matriz inversible $S$ / $S^{-1}AS$ es una diagonal.\\
+\textbf{DEF/} Dada A con autovalores $\lambda_i$, notamos $\Lambda$ a la matriz diagonal con $\Lambda_i^i = \lambda_i$. $\Lambda$ es unica (salvo permutacion F/C).\\
+\textbf{Obs/} Sea $S$ / $AS=SD$, con $S^i=x^i$ $\Rightarrow$ $[AS=SD] \iff [Ax^i=D_i^ix^i]$. Es decir $D_i^i$ autovalor y $x_i$ autovector.\\
+\textbf{T/} [S diagonaliza a A] $\iff$ [columnas S son $n$ autovectores LI de A y las entradas de $D=S^{-1}AS$ son los autovalores].\\
+D/ [S diagonaliza A] $\iff$ [S inversible $\land$ $S^{-1}AS=D$] $\iff$ [columnas S LI $\land$ AS=SD]\\ $\iff$ [columnas S autovectores LI de A $\land$ entradas de la diagonal de $S^{-1}AS$ son autovalores] \QEDA\\
+\textbf{T/} [A diagonalizable] $\iff$ [A tiene n autovectores LI]\\
+\textbf{Obs/} La matriz diagonalizante no es unica, podemos poner un multiplo.\\
+\textbf{T/} Sea $S/$ diagonaliza a A y B $\Rightarrow$ [A y B tienen los mismos autovectores] $\land$ [$A \not = B \Rightarrow$ no necesariamente mismos autovalores].\\
+\textbf{T/} $\lambda_i, i=1..r$ autovalores distintos de A, $x^i$ autovector asociado $\Rightarrow$ $\{x^1,...,x^r\}$ LI.\\
+D/ $x^i \not = 0$. Induccion + contradiccion ($x^{k+1}$ LD). $x^{k+1} = \sum_{i=1}^k \alpha_ix^i$. Premultiplicando por $A$ y por $\lambda_{k+1}$, son iguales y $\sum_{i=1}^k \alpha_i (\lambda_i - \lambda_{k+1}) x^i = 0$. Conj $\{x^i\}$ LI $\Rightarrow$ $\alpha_i(\lambda_i - \lambda_{k+1}) = 0$, pero $\exists j / \alpha_j \not = 0$. Contradiccion y LI. \QEDA\\
+\textbf{C/} Si los n autovalores de $A$ son diferentes $\Rightarrow$ A es diagonalizable.
+
+\dotfill
+
+\textbf{DEF/} La \textbf{multiplicidad geometrica} de un autovalor es la dimension del autoespacio generado.\\
+\textbf{T/} La mg de un autovalor es a lo sumo su multiplicidad algebraica. ie $mg(\lambda) \leq ma(\lambda)$.\\
+\textbf{T/} A diagonalizable $\Rightarrow$ $mg(\lambda) = ma(\lambda)$. D/ Cada $\lambda$ aparece $ma(\lambda)$. Como autovect. LI $\Rightarrow ma(\lambda) \leq mg(\lambda) \therefore ma(\lambda)=mg(\lambda)$\\
+\textbf{T/} V E.V., $U=\{u^j, j=1..t\}$ LI, $W=\{w^j, j=1..k\}$ LI, $\forall 0\not=u\in\langle U \rangle \land \forall 0\not=w\in\langle W \rangle$ $u$ y $w$ son LI $\Rightarrow$ $U \cup W$ son LI.\\
+\textbf{T/} [A diagonalizable] $\Leftarrow$ [$ma(\lambda) = mg(\lambda)$].\\
+D/ Hay $ma(\lambda)$ autovectores LI por $\lambda$. Generalizacion del T. anterior, $\sum_{\lambda} ma(\lambda) = n$, n autovectores LI $\therefore$ diagonalizable. \QEDA\\
+\textbf{T/} Sean $\{\lambda_i, i=1..p\}$ distintos, para cada $i$ sea $B_i$ una base del autoespacio asociado, son equivalentes:
+\begin{enumerate}
+\item Diagonalizable (Trivial)
+\item $ma(\lambda_i) = mg(\lambda_i)$ (Trivial)
+\item $\sum_{i=1}^p mg(i) = n$ (Como $B_i \cap B_j = \emptyset$, $|\bigcup_{i=1}^p B_i| = \sum_{i=1}^p |B_i| = \sum_{i=1}^p mg(\lambda_i) = n$¸)
+\item $\bigcup_{i=1}^p B_i$ es una base de $\mathbb{K}^n$ ($\sum_{i=1}^p |B_i| = n = \sum_{i=1}^p mg(\lambda_i) \leq \sum_{i=1}^p ma(\lambda_i) = n$)
+\end{enumerate}
+\textbf{PROC/} Ver si es diagonalizable / \textit{ver matriz diagonalizante}:
+\begin{enumerate}
+\item Calcular los $\lambda_i$ diferentes.
+\item Calcular $d_i = dim(N(A-\lambda_i I))$. \textit{Obtener base del espacio nulo}.
+\item Si $\sum_{i=1}^p di = n$ entonces es diagonalizable.
+\item La matriz $S$ cuyas columnas son los vectores $B = \bigcup_{i=1}^p B_i$ diagonaliza a A.
+\end{enumerate}
+\textbf{T/} Sean $\lambda_i, x^i$ $\Rightarrow \forall k \in \mathbb{N}, \lambda_i^k$ autovalor de $A^k$ y $x^i$ autovector asociado. D/ Induccion, $A^tx^i = \lambda_i^tx^i$.\\
+\textbf{T/} Sean $\lambda_i, x^i$ $\Rightarrow \forall k \in \mathbb{N}, \lambda_i^{-1}$ autovalor de $A^k$ y $x^i$ autovector asociado. D/ $Ax=\lambda x \Rightarrow \lambda \not = 0 \land x=A^{-1}\lambda x \therefore \lambda^{-1}x = A^{-1}x $.\\
+\textbf{C/} Si S diagonaliza a A $\Rightarrow$ S diagonaliza a $A^k$, y si A es inversible $\Rightarrow$ S diagonaliza a $A^{-1}$.\\
+\textbf{DEF/} \textbf{Sistema de ecuaciones en diferencia}: la solucion es una sucesion infinita: $u_{k+1} = Au_k$, con $u_k = A^ku_0$.\\
+\textbf{PROC/} Como $u_k = A^ku_0 = (S\Lambda^k)(S^{-1}u_0) = (S\Lambda^k)c = \sum_{i=1}^nc_i\lambda_i^kx^i$ (CL de las columnas de S [autovectores A] y escalares)
+\begin{enumerate}
+\item Calculamos autovalores y autovectoes
+\item Resolvemos $Sc = u_0$
+\end{enumerate}
+\textbf{DEF/} Las \textbf{Matrices de Markov} son matrices con entradas no negativas / la suma de las entradas de cada columna es 1.\\
+\textbf{T/} $\lambda_1 = 1$ es un autovalor con autovector no negativo. Todos los otros autovalores de $A$ tienen modulo $\leq 1$. Si $A$ o alguna potencia tiene entradas positivas, todos los autovalores tienen modulo menor que 1 y la solucion tiende a un multiplo de $x^1$.
+\textbf{T/} A,B, si S diagonaliza a A, [S diagonaliza a B] $\iff$ $AB=BA$.\\
+D/ $AB:=(S\Lambda_1S^{-1})(S\Lambda_2S^{-1}) = S(\Lambda_1\Lambda_2)S^{-1} = S(\Lambda_2I\Lambda_1)S^{-1} = (S\Lambda_2 S^{-1})(S\Lambda_1S^{-1}) = BA$ \\
+\textbf{T/} [$AB=BA$] $\land$ [A tiene n autovalores diferentes] $\Rightarrow$ [S diagonaliza a B]\\
+D/ Todo autoespacio de A tiene dimension 1. Sea x columna de S (auto), $A(Bx) = (BA)x = B(\lambda x) = \lambda (Bx) \therefore Bx$ autovector de A asociado a $\lambda$; y como el autoespacio asociado tiene dimension 1, $Bx$ multiplo $x$ ie $\exists \lambda_B / Bx = \lambda_Bx$. \QEDA\\
+\textbf{T/} A,B, AB=BA, A diagonalizable $\Rightarrow$ [$\lambda$ autovalor de $AB$] $\iff$ [$\lambda = \lambda_A\lambda_B$ correspondientes a un mismo autovector].
+D/ $AB = S^{-1}(\Lambda_A\Lambda_B)S$ ie $S(AB)S^{-1} = \Lambda_A\Lambda_B$. $\Lambda_A\Lambda_B$ diagonal, S diagonaliza $AB$. Las entradas de $\Lambda_A\Lambda_B$ autovalores de AV.\\
+\textbf{DEF/} Dada M invertible, la transformacion $A \rightarrow M^{-1}AM$ es una \textbf{transformacion de similitud}.\\
+\textbf{DEF/ }A \textbf{semejante} a B si $\exists M$ inversible / $B = M^{-1}AM$.\\
+\textbf{T/} Sean $A,B$ semejantes, entonces tienen los mismos autovalores.\\
+\textbf{T/} $B = M^{-1}AM$, $x$ autovector de $A$ correspondiente a $\lambda$ $\Rightarrow$ $M^{-1}x$ autovector de $B$ correspondiente a $\lambda$.\\
+D/ $Ax=\lambda x \land A = MBM^{-1} \therefore (BM^{-1})x = \lambda (M^{-1}x)$. Luego, $\lambda$ autovalor de B y $(M^{-1}x)$ autovector asociado.\\
+\textbf{C/} Las matrices semejantes tienen los mismos polinomios caracteristicos.
+\textbf{DEF/} Dado $u_{k+1} = Au_k$, un \textbf{cambio de varible} queda definido por la relacion $u=Mv$ y define $Mv_{k+1}=AMv_k$, equiv. $(v_{k+1})_j = \lambda_j (v_k)_j$. Se denomina \textbf{desacoplado}.\\
+\textbf{T/} Sea $V$ de dimension finita, $V,T \in L(V,V)$, sean $B_1, B_2$ bases ordenadas de $V$ y $A,B$ $\Rightarrow$ A es semejante a B.\\
+D/ $B = M^{-1}AM$ donde M es la matriz cambio de base de $B_2$ a $B_1$.
+
+\dotfill
+
+\textbf{DEF/} \textbf{Producto interno} en $\mathbb{C}^n$: $\langle z,w \rangle = \overline{z}^Tw = \sum_{i=1}^n \overline{z_i}w_i$. La \textbf{norma} es $||z||^2 = \sum_{i=1}^n |z_i|^2$.\\
+\textbf{DEF/} A compleja $m \times n$, la \textbf{hermitiana} de A es $A^H=\overline{A}^T$. Si A real, $A^H=A^T$. Ademas, $(A^H)^H=A$, $(AB)^H=B^HA^H$.\\
+\textbf{DEF/} A es \textbf{hermitiana} si $A^H=A$. Si A real, A hermitiana $\iff$ A simetrica.\\
+\textbf{Obs/} A debe ser cuadrada, entradas simetricas a la diagonal con complejos conjugados, en la diagonal valores reales.\\
+\textbf{DEF/} K es \textbf{hermitiana sesgada} si $K^H=-K=\overline{K}^T$. Ademas, $K=iA$ (A hermitiana), $(\lambda)$ autovalor de K $\iff$ $(-i\lambda)$ autovalor de A. Los autovectores de K y A coinciden.\\
+\textbf{T/} $K=iA$, $K=-\overline{K}^T = i(i\overline{K}^T)$ // $\lambda$ autovalor si $Kv=\lambda v \land v\not=0$, se multiplica ambos lados $(-i)$\QEDA\\
+\textbf{Obs/} Los autovalores de hermitianas son reales y sus vectores pueden ser ortogonales.\\
+\textbf{T/} A hermitiana $\Rightarrow$ $\forall x \in \mathbb{C}^n, x^HAx \in \mathbb{R}$. D/ $z=x^HAx$ matriz compleja $1 \times 1 \land z^H=\overline{z}, z^H = (x^HAx)^H=z$ $\therefore \overline{z}=z$ \QEDA\\
+\textbf{T/} A hermitiana $\Rightarrow$ autovalores reales. D/ $Ax=\lambda x \Rightarrow x^HAx = x^H\lambda x = \lambda ||x||^2$. Todo es real. \QEDA\\
+\textbf{T/} A hermitiana, $\lambda_1 \not = \lambda_2 \Rightarrow$ autoespacio de $\lambda_1$ es ortogonal al autoespacio de $\lambda_2$.\\
+D/ Sea $z^i$ autovector, objetivo: $z^1 \perp z^2$, ie $(z^1)^Hz^2=0$// $(\lambda_1z^1)^Hz^2=(Az^1)^Hz^2=(z^1)^HA^Hz^2=(z^1)^H\lambda_2z^2 = \lambda_2(z^1)^Hz^2$\\Como $\lambda_1$ real, $\lambda_1(z^1)^Hz^2 = \lambda_2(z^1)^Hz^2$. No pueden ser ambos 0 $\therefore (z^1)^Hz^2 = 0$ \QEDA\\
+\textbf{C/} A hermitiana y diagonalizable $\Rightarrow$ A tiene matriz diagonalizante con columnas ortonormales.\\
+D/ Hay p autovalores distintos, hay p autoespacios, cada uno ortonormal. Al ser hermitiana, son ortogonales entre si.\QEDA\\
+\textbf{C/} A real, simetrica y diagonalizable $\Rightarrow$ A tiene una matiz diagonalizante ortogonal. D/ $\lambda$ son reales, Nulo, Gauss. \QEDA\\
+\textbf{DEF/} Una matriz \textbf{unitaria} es una matriz compleja con columnas ortonormales.\\
+\textbf{T/} Sea U $n \times n$, [U unitaria] $\iff$ [$U^{-1}=U^H$]\\
+$\Rightarrow)$ $/UU^H=U^HU=I/$. Se plantea el producto y $(U^H)_iu^i = \langle U^i,U^i \rangle = ||U^i||^2 = 1 \land (U^H)_iU^j = \langle U^i,U^j \rangle = 0$ \QEDB\\
+$\Leftarrow)$ $U^HU$ = $\langle U^i,U^i \rangle = (U^H)_iU^i = 1 \Rightarrow ||u^i|| = 1 \land \langle u^j,u^i \rangle = (U^H)_jU^i = 0 \therefore U$ tiene columnas ortonormales $\therefore$ unitaria. \QEDA\\
+\textbf{T/} U unitaria $\Rightarrow ||Ux||=||x||$. D/ $||Ux|| = \sqrt{\langle Ux,Ux \rangle} = \sqrt{(Ux)^HUz} = \sqrt{x^H(U^{-1}Ux)} = \sqrt{x^Hx} = \sqrt{\langle x,x \rangle} = ||x||$ \QEDA\\
+\textbf{T/} Todos los autovalores de una unitaria tienen modulo 1. D/ $||x||=||Ux||=||\lambda x|| = |\lambda|||x|| \therefore |\lambda|=1$ \QEDA\\
+\textbf{T/} A autovalores diferentes le corresponden autovectores ortogonales.\\
+D/ Sea $\lambda_1\not=\lambda_2 \Rightarrow \langle x_1,x_2 \rangle = (x^1)^H(U^HU)x^2 = (\lambda_1x^1)^H(\lambda_2x^2) = \overline{\lambda_1}\lambda_2\langle x^1,x^2 \rangle$. Suponemos $\langle x^1,x^2 \rangle\not=0 \Rightarrow \overline{\lambda_1}\lambda_2=1$. Pero absurdo porque $|\lambda_1|^2 = 1$ y tendriamos $\lambda_1=\lambda_2$ \QEDA\\\\
+\textbf{T/} U unitaria y diagonalizable $\Rightarrow$ U tiene matriz diagonalizable unitaria.\\
+\textbf{T/} \textbf{Descomposicion Espectral}: Si A es diagonalizable por una unitaria $\Rightarrow$ admite una descomposicion espectral:\\ $A = \sum_{i=1}^n \lambda_iP_i$, donde $P_i$ es la matriz proyeccion sobre el autoespacio asociado a $\lambda$.\\
+D/ $U^{-1}AU=U^HAU=\Lambda \therefore A=U\Lambda U^H$, donde solo sobrevive la diagonal $=\lambda_1U^1(U^1)^H + ... + \lambda_nU^n(U^n)^H$. Como U unitaria, sus autovectores tienen norma 1 y $U^i(U^i)^H$ es la matriz proyeccion sobre el espacio generado por el vector $U^i$. \QEDA\\
+\textbf{T/} Si tenemos k autovalores diferentes: $A = \sum_{i=1}^k \lambda_i P_i'$, donde $P_i' = \sum_{j \in r(i)} U^j(U^j)^H$ es la matriz proyeccion sobre el autoespacio asociado a $\lambda_i$, $r(i) = \{j / \lambda_j = \lambda_i\}$.\\
+\textbf{T/} \textbf{Lema de Schur}: Sea $A$ $n \times n \Rightarrow \exists U $ unitaria / $U^{-1}AU = T$, $T$ triangular.\\
+\textbf{T/} \textbf{Teorema Espectral}: Toda hermitiana o sesgada puede ser diagonalizable por una unitaria. Si es simetrica o simetrica sesgada puede ser diagonalizable por una ortogonal. Las unitarias son diagonalizables por una unitaria.\\
+D/ A Hermitiana: $U^HAU=T$ $\therefore T^H=(U^HA^HU)=T \therefore T$ triangular hermitiana ie. diagonal.\\
+\textbf{T/} Todas las matrices hermitianas, sesgadas y unitarias tiene n autovectores ortonormales y admiten desc. espectral.\\
+\textbf{DEF/} \textbf{Normal}: el producto con su hermitiana conmuta: $NN^H=N^HN$. Las hermitianas, sesgadas y unitarias son normales, pero existen normales que no lo son (A = 110/011/101]).\\
+\textbf{T/} T triangular, [T normal] $\iff$ [T diagonal]\\
+$\Leftarrow)$ $T^H$ diagonal y como $TT^H=T^HT$, podemos asegurar que $T$ normal porque $d_i\overline{d_i} = \overline{d_i}d_i$ \QEDB\\
+$\Rightarrow)$ Suponemos triangular superior (Sino H), como $T$ normal, $||T_1||^2=||T^1||^2$. Luego $|T_{11}|^2 = |T_{11}|^2 + ... + |T_{n1}|^2$ y son 0. Con razonamiento inductivo $T_{ij} = 0\ \forall i \not = j$ \QEDA\\
+\textbf{T/} [A diagonalizable por una unitaria] $\iff$ [A Normal]\\
+$\Leftarrow)$ Schur, $U^HAU=T$. Luego, $TT^H = U^H(AA^H)U = U^H(A^HA)U = T^HT \therefore$ T normal y triangular $\Rightarrow$ diagonal, $T=\Lambda$ \QEDB\\
+$\Rightarrow)$ Sea U unitaria, $U^{-1}AU=\Lambda \Rightarrow A=U\Lambda U{-1}$. Luego $AA^H = (U\Lambda U^H)(U\lambda^H U^H)=...=A^HA$ y A es normal. \QEDA\\
+\textbf{T/} A normal, $||Nx||=||N^Hx||$. D/ $||Nx|| = \sqrt{\langle Nx,Nx \rangle} = \sqrt{\overline{x}^T(N\overline{N}^Tx)}$. Analogo $||N^Hx||$ \QEDA\\
+\textbf{DEF/} \textbf{Forma de Jordan}: Matriz diagonal por bloques donde cada bloque es un \textbf{Bloque de Jordan}: Toda $1\times1$ es bloque de Jordan, $k\times k$ si todas las entradas en su diagonal son iguales, las entradas en su supradiagonal son 1, el resto son 0.\\
+\textbf{T/} Las formas de Jordan son triangulares superiores $\Rightarrow$ los autovalores son los elementos de la diagonal.\\
+\textbf{T/} EL numero de bloques en los que aparece un autovalor es su multiplicidad geometrica.\\
+\textbf{T/} Toda matriz es semejante a una forma de Jordan. Dos son semejantes si tienen la misma FJ.\\
+\textbf{Obs/} Dos matrices no diagonalizables ni semejantes puedn tener el mismo $P_x$.\\
+\textbf{Obs/} Dos matrices con un mismo y unico autovalor de $mg\geq2$ no necesariamente son semejantes.
+
+
+
+\end{document}

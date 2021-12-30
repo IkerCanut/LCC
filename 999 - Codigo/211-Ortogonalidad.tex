@@ -1,0 +1,150 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+
+\setlength{\parindent}{0pt}
+
+\newcommand*{\QEDA}{\null\nobreak\hfill\ensuremath{\blacksquare}}
+\newcommand*{\QEDB}{\null\nobreak\hfill\ensuremath{\square}}
+
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{nosep}
+
+\author{Iker M. Canut}
+\title{Ortogonalidad}
+\date{2021}
+\begin{document}
+\textbf{DEF/ Producto Escalar}: $u \cdot v = |u||v|\cos(u \wedge v) = u^Tv$. Luego, $[u \perp v] \iff [u \cdot v = 0]$\\
+\textbf{DEF/} Sea $V$ sobre $K$, \textbf{Producto Interno}: funci\'on que dados $u,v$ asigna un escalar $\langle u,v \rangle \in K$ /
+\vspace{-1pc}
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\langle u,v \rangle = \overline{\langle v,u \rangle}$
+\item $\langle u+v,w \rangle = \langle u,w \rangle + \langle v,w \rangle$
+\item $\langle \alpha u,v \rangle = \alpha \langle u,v \rangle$
+\item $\langle u,v \rangle \geq 0$
+\item $\langle u,u \rangle \iff u = 0$
+\end{enumerate}
+\end{multicols}
+\vspace{-1pc}
+\vspace{-1pc}
+\begin{multicols}{3}
+\begin{enumerate}
+\item $\langle u,0 \rangle = \langle 0,v \rangle = 0$
+\item $\langle u,\alpha v \rangle = \overline{\alpha} \langle u,v \rangle$
+\item $\langle u,v+w \rangle = \langle u,v \rangle + \langle u,w \rangle$
+\end{enumerate}
+\end{multicols}
+\vspace{-1pc}
+\textbf{DEF/} $u$ es \textbf{Ortogonal} a $v$ si $\langle u,v \rangle = 0$. Notamos $u \perp v$.\\
+\textbf{DEF/} La \textbf{Norma} de $u$ (inducida por $\langle \cdot , \cdot \rangle$) que se denota $||u|| = \sqrt{\langle u, u \rangle}$. Luego, $||u||^2 = \langle u, u \rangle$ y tambi\'en $||u|| \geq 0$.\\
+\vspace{-2pc}
+\begin{multicols}{3}
+\begin{enumerate}
+\item $||x|| \geq 0$
+\item $||\alpha x|| = |\alpha|||x||$
+\item $||x|| = 0 \iff x = 0$
+\item $||x+y|| \leq ||x||+||y||$
+\item $|\langle x,y\rangle| \leq ||x||||y||$
+\end{enumerate}
+\end{multicols}
+\vspace{-1pc}
+$5/$ Construimos $z=y-\frac{\langle x,y \rangle}{||x||^2}x \Rightarrow ||z||^2 = ||y||^2-\frac{\langle x,y \rangle^2}{||x||^2}$. Como $||z||^2 \geq 0 \Rightarrow ||y||^2||x||^2 \geq \langle x,y \rangle^2$ \QEDB\\
+$4/$ $||x+y||^2 = ||x||^2+2 \langle x,y \rangle + ||y||^2 \leq ||x||^2+2 |\langle x,y \rangle| + ||y||^2 \leq ||x||^2 + 2||x||||y|| + ||y||^2 = (||x||+||y||)^2$ \QEDA\\
+\textbf{DEF/} \textbf{\'Angulo entre vectores}: $x \wedge y = arccos \frac{\langle x,y \rangle}{||x||||y||}$. Vemos que el angulo no depende de la norma.\\
+\textbf{T/} $V$ E.V.P.I., $W \subset V$, con no nulos mutuamente ortogonales $\Rightarrow$ los vectores de $W$ son LI.\\
+D/ $\sum_{i=1}^k \alpha_i v^i = 0$. Sea $j=1..k$, $\langle v^j, \sum_{i=1}^k \alpha_i v^i \rangle = \sum_{i=1}^k \overline{\alpha_i} \langle v^j, v^i \rangle = 0$. Como $v^i \perp v^j$, $\alpha_i = 0, \forall i = 1..k$ \QEDA\\
+\textbf{DEF/} $V$ E.V.P.I., $B=\{u^1,...,u^k\}$ base con vectores ortogonales (LI), la \textbf{representacion} de $v=\sum_{i=i}^k \alpha_i v^i$. Y para cada vector de la base $u^j$, $\langle v,u^j \rangle = \sum_{i=1}^k \alpha_i \langle u^j, u^i \rangle$. Finalmente $\alpha_j = \frac{\langle v,u^j\rangle}{||u^j||^2}$. Y si la norma de $||u^j||$ es 1, $v = \sum_{i=1}^k \langle v, u^i \rangle u^i$.\\
+\textbf{DEF/} Dado $V$ E.V.P.I., $B$ es \textbf{base ortogonal} si sus vectores son mutuamente ortogonales. $B'$ es \textbf{base ortonormal} si es ortogonal y cada vector tiene norma 1. Para crear una ortonormal de una ortogonal, $B' = \{w^j / w^j = \frac{u^j}{||u^j||}\}$.\\
+\textbf{T/} $V$ E.V sobre $\mathbb{K}$, $B=\{w^i\}$ base ortonormal $\Rightarrow$ $[v]_B = \langle v,w^1 \rangle, ..., \langle v,w^n \rangle)$.\\
+\textbf{PROC/} \textbf{Gram-Schmidt}: $V$ E.V.P.I, $\{v^i\}$ vectores LI de $V$ $\Rightarrow$ $w^j = v^j - \sum_{i=1}^{j-1} \dfrac{\langle v^j,w^i \rangle}{||w^i||^2} w^i$ forman base ortogonal de V.\\
+D/ Induccion. $1) w^j$ CL $\{v^1,...,v^j\}$, $2) w^j \not = 0$, $3) w^j \perp w^i$. Con esto, todo $V$ E.V.P.I. y dimension finita tiene base ortonormal.
+
+\dotfill\\
+\textbf{DEF/} Sea $V$ E.V.P.I., dos subespacios $W_1, W_2$ de V son \textbf{ortogonales}, $W_1 \perp W_2$, si $\forall u \in W_1, v \in W_2$, $u \perp v$.\\
+\textbf{C/} El nulo es ortogonal a cualquiera. Plano xy y plano yz no son ortogonales. Para que 2 S.E.V. sean ortogonales no pueden tener ningun vector no nulo en comun.\\
+\textbf{T/} $V$ E.V.P.I., $W_1, W_2$ S.E.V. ortogonales de $V$ $\Rightarrow$ $W_1 \cap W_2 = \{0\}$.\\
+D/ Sea $u \in W_1 \cap W_2$, como $W_1 \perp W_2$, $v \perp w$. Particularmente $v=u$ y $w=u$. Luego resulta $u \perp u$ ie $\langle u,u \rangle=0$ $\therefore u = 0$. \QEDA\\
+\textbf{T/} $V$ E.V.P.I., $W_1 = \langle U_1 \rangle, W_2 = \langle U_2 \rangle$, $[W_1 \perp W_2] \iff [u \perp w,\ \forall u \in U_1, w \in U_2]$.\\
+\textbf{T/} $1.$ El espacio fila y el espacio nulo de A son subespacios ortogonales de $\mathbb{R}^n$.
+{
+
+\qquad
+D/ $v \in N(A)$. Como $Av = 0 \Rightarrow A_iv=0 \therefore A_i \perp v$. Como filas de A generan espacio fila, $N(A) \perp C(A^t)$.
+}
+{
+
+\qquad $2.$ El espacio columna y el nulo a izquierda son subespacios ortogonales de $\mathbb{R}^m$.
+}
+
+\textbf{T/} $V$ E.V.P.I., $W_1, W_2$ S.E. ortogonales, $U_1 = \{u_1^i\}, U_2 = \{u_2^j\}$ conjuntos LI de $W_1, W_2$ $\Rightarrow$ $U = U_1 \cup U_2$.\\
+D/ CLNula de U: $\sum_{i=1}^k [\alpha_i u_1^i] + \sum_{j=1}^t[\beta_ju_2^j] = 0 := w - w$. Vemos que $w \in \langle U_1 \rangle \cap \langle U_2 \rangle \Rightarrow w = 0$. Vectores LI, $\alpha_i = 0, \beta_j = 0$.\\
+\textbf{T/} $V$ E.V.P.I., $W_1, W_2$ S.E.V ortogonales $\Rightarrow$ $dim(W_1) + dim (W_2) \leq dim (V)$.\\
+D/ Como $W_1 \perp W_2 \Rightarrow B_1 \cap B_2 = \emptyset \therefore B_1 \cup B_2$ LI. Finalmente, $dim(V) \geq |B_1 \cup B_2| = |B_1| + |B_2| = dim(W_1) + dim(W_2)$. \QEDA\\
+\textbf{DEF/} $V$ E.V.P.I., $W$ S.E., el \textbf{complemento ortogonal} de $W$, $W^\perp$, es el S.E. determinado por todos los vectores que son ortogonales a los vectores de $W$ ie $W^\perp = \{u \in V / u \perp v,\ \forall v \in W\}$.\\
+\textbf{T/} $W^\perp$ es un S.E.V. de V, $W \perp W^\perp$, $(W^\perp)^\perp = W$\\
+\textbf{T/} $V$ E.V.P.I., $W_1 \perp W_2$, $dim(V)=n \Rightarrow [dim(W_1) + dim(W_2) = n] \iff [W_2 = (W_1)^\perp]$.\\
+D/ Con GS $B_1, B_2$ bases ON (perp. 2 a 2). Ademas, $|B_1 \cup B_2| = |B_1| + |B_2| \leq n$. Como $W_2 \perp W_1$, $W \subseteq (W_1)^\perp$. Equivalentemente, reescribimos como $[|B_1| + |B_2| < n] \iff [\exists z \in (W_1)^\perp \backslash W_2]$. Primero, $dim(V) = n$, $[|B_1|+|B_2| < n] \iff [\exists v \in V / B_1 \cup B_2 \cup \{v\}]$ LI $\iff$ $[\exists v \in V / B_1 \cup B_2 \cup \{v\}]$ ortogonales 2 a 2 (GS) $\iff$ $[v \in (W_1)^\perp \backslash W_2]$.\\
+\textbf{Teorema Fundamental del Algebra Lineal}: Sea A $m \times n$:
+\begin{enumerate}
+\item El espacio fila y el espacio nulo de A son complementos ortogonales en $\mathbb{R}^n$.
+\item El espacio columna y el espacio nulo a izquierda de A son complementos ortogonales en $\mathbb{R}^m$.
+\end{enumerate}
+\textbf{T/} Descomponen el E.V. ie $\exists! w \in W, w^\perp \in W^\perp$ / $v = w + w^\perp$. Equivalentemente $v = w \oplus w^\perp$.\\
+D/ $\{v^1,...,v^k\}$ base $W$, $\{w^1,...,w^{n-k}\}$ base $W^\perp$, la union base de V. Luego, $w = \sum_{i=1}^k \alpha_i v^i + \sum_{j=1}^{n-k} \beta_j w^j := w + w^\perp$.
+
+\quad Falta ver que son unicos. Sea $v = w + w^\perp = z + z^\perp \Rightarrow w-z = w^\perp + z^\perp$. Como $w-z \in W, w^\perp - z^\perp \in W^\perp$ resulta $=0$ \QEDA\\
+\textbf{C/} $\forall x \in \mathbb{R}^n \exists! x_F \in C(A^t) \land x_N \in N(A) / x = x_F + x_N$, ie. $\mathbb{R}^n = C(A^t) \oplus N(A)$.
+
+\qquad $\forall y \in \mathbb{R}^m \exists! y_C \in C(A) \land x_I \in N(A^T) / y = y_F + y_I$, ie. $\mathbb{R}^m = C(A) \oplus N(A^T)$.
+
+\textbf{T/} Toda A $m \times n$ define un isomorfismo entre su espacio fila y su espacio columna.\\
+D/ Sea $T: C(A^T) \rightarrow C(A)$ TL definida $T(x) = Ax$. \textit{Sobreyectividad}, $b \in C(A), \exists x \in \mathbb{R}^n / Ax = b$. Como $\mathbb{R}^n = C(A^T) \oplus N(A)$, existen $x_F, x_N / x = x_F + x_N$. Luego, $Ax = Ax_F + 0 = b$. ie $T(x_F) = Ax_F = b$. \textit{Inyectividad}, $N(A) = \{x \in \mathbb{R}^m / Ax = 0\}$- Sea $x \in N(A)$, tambien pertenece al fila, como son ortogonales, $x = 0$. Entonces $N(A) = \{0\}$. Por lema es inyectiva $\therefore$ isomorfa.\\
+\textbf{T/} $B, B^\perp$ bases ortogonales de $W, W^\perp$ $\Rightarrow B \cup B^\perp$ es base ortogonal de $V$. Con $v = w + w^\perp$;\\
+D/ $w = \sum_{i=1}^p\frac{\langle v,w^i \rangle}{||w^i||}w^i, w^\perp = \sum_{j=1}^k\frac{\langle v,z^j \rangle}{||z^j||}z^j$. Y $\cos(x \wedge y) = \frac{\langle x,y \rangle}{||x||||y||}$, $w = \sum_{i=1}^p ||v||\cos(v\wedge w^i)w^i, w^\perp = \sum_{j=1}^k ||v||\cos(v\wedge z^j)z^j$.\\
+\textbf{DEF/} V E.V.P.I., W S.E. con base ortogonal $\{w^1, ..., w^p\}$, $\forall v \in V$ el \textbf{vector proyeccion} de $v$ sobre $W$ es el vector $proy_{s/W}v = \sum_{i=1}^p ||v|| \cos(v \wedge w^i) w^i = \sum_{i=1}^p\frac{\langle v,w^i \rangle}{||w^i||}w^i$ $\Rightarrow$ $v = proy_{s/W}v+proy_{s/W^\perp}v$. Es unica $\therefore$ $z = v - proy_{s/W} v \Rightarrow z \in W^\perp$.\\
+\textbf{T/} Pitagoras vale en cualquier espacio vectorial con producto interno: $[u \perp v] \iff \left(||u||^2 + ||v||^2 = ||u-v||^2 = ||u+v||^2 \right]$
+
+\newpage
+La distancia de $v$ a $w$ es $||v-w||$. Sea $W$ S.E. con base ortogonal y $v \in V \backslash W$, encontrar una \textbf{aproximacion} de $v$ en $W$ es encontrar el vector $w' \in W$ mas cercano a $v$. En cualquier E.V.P.I., la $d(v,w)$ es minima cuando $v-w$ es ortogonal a $W$ ie $v-w \in W^\perp$. La aproximacion buscada es $v = w' + (v - w')$, con $w' \in W$ y $v-w' \in W^\perp$. Es decir, $w' = proy_{s/W}v$.\\
+\textbf{DEF/} V E.V.P.I., W S.E.V. y $v \in V$, $w'$ es una \textbf{mejor aproximacion} de $v$ en $W$ si $||w'-v|| \leq ||w-v||,\ \forall w \in W$.
+\textbf{T/} Es unica. D/ Como $v-proy_{s/W} v \in W^\perp$, tenemos que $v-w' \perp w'-w,\ \forall w \in W$. Pitagoras, $||v-w'||^2 + ||w'-w||^2 = ||(v-w')+(w'-w)||^2$. Si $w \not = w' \Rightarrow ||w'-w||^2>0 \therefore ||v-w||^2 = ||v-w'||^2+||w'-w|| > ||v-w'||^2 \Rightarrow $ hay una sola mejor aproximacion. \QEDA\\
+\textbf{Nota/} En el k-esimo paso de GS sobre $w^k$ a partir de los $k-1$ vectores ortogonales $\{w^i\}$ (los cuales son CL de los primeros vectores LI $\{v^i\}$), el vector $w^k = v^k - proy_{s/W^{k-1}} v^k \therefore w^k \in ({W^{k-1}})^\perp$ y resulta ortogonal. Es decir, $w^j$ es el vector error en la aproximacion de $v^j$ en $w^{j-1}$.
+
+\dotfill\\
+
+\textbf{Obs/} La proyeccion de un vector $b \in \mathbb{R}^n$ sobre una recta generada por un vector $a \in \mathbb{R}^n$ es: $proy_{s/<a>}b = \frac{a^Tb}{a^Ta}a$.\\
+$(a^Tb)a=a(a^Tb)=(aa^T)b \therefore P := \frac{1}{a^Ta}aa^T$, y tenemos $proy_{s/<a>}b = Pb$. Y la proyeccion de un vector sobre una recta es una TL de $\mathbb{R}^n \rightarrow \mathbb{R}^n$. Ademas, $P$ simetrica, rango 1, $P^2 = P$, $Pb \in <a>$; $d \in <a> \Rightarrow proy_{s/<a>}d=d$.\\
+\textbf{Obs/} Buscamos s/$W$, $b' = proy_{s/W}b$ / $b' \in W $ y $(b-b') \perp W$ ie $(b-b') \in W^\perp$. Sea $\{a^i, i=1..k\}$ base de $W$ y A $n \times k$, entonces $W = C(A)$, luego $b' \in C(A), (b-b') \in (C(A))^\perp = N(A^T)$, ie, $b'=Ax' \land A^T(b-b')=A^t(b-Ax')=0 \therefore (A^TA)x'=A^Tb$\\
+\textbf{PROC/} Obtener $b' = proy_{s/W}b$; $1)$ resolvemos sistema de ecuaciones normales $(A^TA)x'=A^Tb$. $2)$, calculamos $b'=Ax'$.\\
+\textbf{Obs/} Importancia teorica. Si columnas $A$ son LI, $A^TA$ inversible, y $x' = (A^TA)^{-1}A^Tb$. Ademas $b' = Ax' = A(A^TA)^{-1}A^Tb$.\\
+\textbf{Obs/} La proyeccion sobre $C(A)$ puede ser vista como una TL definida por $P=A(A^TA)^{-1}A^T$.\\
+\textbf{Obs/} Si queremos calcular la matriz proyeccion sobre el complemento ortogonal y tenemos P: $(I-P)$.\\
+\textbf{T/} Sea A $n \times k$ con columnas LI y $P$ matriz proyeccion sobre $C(A)$ $\Rightarrow$ $P$ idempotente $(P^2 = P)$ y simetrica. Reciprocamente, toda simetrica idempotente es una matriz proyeccion sobre $C(P)$.\\
+\textbf{Obs/} Sea $b \in \mathbb{R}^n \Rightarrow$ $Pb \in C(A)$, $e = b-Pb \in N(A^T)$ y $b=Pb+(b-Pb)$. Luego, $Pb$ y $e$ descomp. en $C(A)$ y $C(A^\perp)=N(A^T)$.\\
+\textbf{Obs/} A inversible, $P = A(A^TA)^{-1}A^T = I$.\\
+\textbf{Obs/} A inversible, columnas base $\mathbb{R}^n$, tras GS y norm, base ortonormal y $A^TA = I$.\\
+\textbf{Obs/} Columnas ortonormales (no necesariamente cuadrada), entonces $A^TA = I$\\
+\textbf{Obs/} Sea A $n \times k$ columnas ortonormales y $b \in \mathbb{R^n}$ entonces $P=AA^T$.\\
+\textbf{DEF/} \textbf{Matriz ortogonal}: cuadrada con columnas ortonormales.\\
+\textbf{T/} [$Q$ ortogonal] $\iff$ [$Q^T = Q^{-1}$]. D/ Planteo $Q^TQ=I$.\\
+\textbf{T/} $Q$ ortogonal $\Rightarrow$ $||Qx|| = ||x||$. D/ Al cuadrado, trabajo y $(Q^TQ)=I$.\\
+\textbf{FACT/} Sea A $n \times k$ columnas LI, $Q^i$ vectores ortonormales, entonces $A = QR$ con R triangular superior $k \times k$.\\
+\textbf{T/} Toda matriz A $n \times k$ con columnas LI se puede llevar a $QR$.\\
+\textbf{Obs/} Simplifica resolucion de sistemas incosistentes por aproximacion. Para obtener $b'$:\\
+$[(A^TA)x' = A^Tb] \iff [R^TQ^TQRx'=R^TQ^Tb] \iff [Rx'=Q^Tb]$ y se resuelve hacia atras.\\
+\textbf{D/ QR/} Existe Q por GS+N. Buscamos R triangular superior: $(QR)^i = \sum_{j=1}^iR^i_jQ^j = A^i$. Consideramos $R^i_j = \langle A^i,Q^j\rangle$.
+
+
+
+
+
+
+
+\end{document}
